@@ -1,15 +1,13 @@
 import React from 'react';
 
-import './header.css';
+
+import Nav from './nav';
+
 
 export default function Header() {
     return (
-            <div className="header">
-                <ul>
-                    <li>one</li>
-                    <li>two</li>
-                    <li>three</li>
-                </ul>
+            <div className="">
+                <Nav />
             </div>
         );
 }
