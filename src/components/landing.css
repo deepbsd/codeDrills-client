@@ -1,4 +1,8 @@
 .landing {
-    color: orange;
-    background-color: blue;
+    color: blue;
+    background-color: darkgray;
+}
+p {
+    padding: 30px;
+    text-align: left;
 }
