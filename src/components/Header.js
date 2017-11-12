@@ -9,10 +9,10 @@ export default class Header extends React.Component {
         super(props);
 
         this.state = {
-            loggedIn: true,
+            loggedIn: false,
             privateLinks: [
             {
-                link: "about"       
+                link: "about"    
             },
             {
                 link: "logout"
