@@ -9,44 +9,41 @@ export default class Header extends React.Component {
         super(props);
 
         this.state = {
-            loggedIn: false,
-            privateLinks: [
+            loggedIn: true,
+            navs: [
             {
-                link: "about"    
+                link: "register",
+                href: "/register",
+                private: false
             },
             {
-                link: "logout"
+                link: "login",
+                href: "/login",
+                private: false
             },
             {
-                link: "profile"
-            }
-            ],
-            publicLinks: [
-            {
-                link: "register"
+                link: "about",
+                href: "/about",
+                private: true
             },
             {
-                link: "login"
+                link: "logout",
+                href: "/logout",
+                private: true
             },
             {
-                link: "about"
-            }]
+                link: "profile",
+                href: "/profile",
+                private: true
+            },]
         };
     }
 
 
     render() {
-            let links;
-            if (this.state.loggedIn){
-                links = this.state.privateLinks.map((link, index) =>
-                    <NavItem key={index} {...link} />
-                );
-            } else {
-                links = this.state.publicLinks.map((link, index) =>
-                    <NavItem key={index} {...link} />
-                );
-
-            }
+        const links = this.state.navs.map((link, index) =>
+            <NavItem key={index} loggedIn={this.state.loggedIn}  {...link} />
+        );
 
 
         return (
