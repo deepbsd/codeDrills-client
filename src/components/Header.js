@@ -8,8 +8,10 @@ export default class Header extends React.Component {
     constructor(props) {
         super(props);
 
+        this.loggedIn = true;
+
         this.state = {
-            loggedIn: true,
+            loggedIn: this.loggedIn,
             navs: [
             {
                 link: "register",
@@ -22,11 +24,6 @@ export default class Header extends React.Component {
                 private: false
             },
             {
-                link: "about",
-                href: "/about",
-                private: this.loggedIn
-            },
-            {
                 link: "logout",
                 href: "/logout",
                 private: true
@@ -35,7 +32,18 @@ export default class Header extends React.Component {
                 link: "profile",
                 href: "/profile",
                 private: true
-            },]
+            },
+            {
+                link: "start quiz",
+                href: "/startquiz",
+                private: true
+            },
+            {
+                link: "about",
+                href: "/about",
+                private: this.loggedIn
+            },
+            ]
         };
     }
 

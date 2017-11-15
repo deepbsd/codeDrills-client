@@ -2,7 +2,7 @@ import React from 'react';
 
 import './register.css';
 
-export default function register() {
+export default function Register() {
     return (
         <form className="register">
             First Name: <input type="text" name="first name" value="first name" />

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './login.css';
 
-export default function login() {
+export default function Login() {
     return (
         <form className="login">
             Username: <input type="text" name="username" value="username" />
