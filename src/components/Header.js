@@ -24,7 +24,7 @@ export default class Header extends React.Component {
             {
                 link: "about",
                 href: "/about",
-                private: true
+                private: this.loggedIn
             },
             {
                 link: "logout",
