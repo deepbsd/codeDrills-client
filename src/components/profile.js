@@ -8,7 +8,7 @@ export default function Profile() {
     return (
 
         <div className="profile">
-            <img src="#" />
+            <img src="#" alt="" />
             <form>
                 <input type="text" placeholder="username"></input><br/>
                 <input type="text" placeholder="email"></input><br/>
