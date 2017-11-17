@@ -7,7 +7,14 @@ export default function About() {
 
     return (
 
-        <div>This is the about page</div>
+        <div className="aboutPage">
+            <h2>About the Author</h2>
+            <img src="#" />
+            <p>
+                Dave is a web fullstack web developer who lives in Marietta, GA.
+            </p>
+
+        </div>
     
     );
 
