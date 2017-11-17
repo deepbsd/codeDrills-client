@@ -1,0 +1,21 @@
+.profile {
+    margin-top: 20px;
+    display: inline-flex;
+}
+
+img {
+
+    height: 100px;
+    width: 100px;
+}
+
+input{
+    margin-left: 10px;   
+    margin-bottom: 10px; 
+    width: 200px;
+    height: 20px;
+}
+
+table {
+    width: 100%;
+}
