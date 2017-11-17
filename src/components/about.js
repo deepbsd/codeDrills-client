@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './footer';
 
 import './about.css';
 
@@ -9,11 +10,11 @@ export default function About() {
 
         <div className="aboutPage">
             <h2>About the Author</h2>
-            <img src="#" alt="" />
+            <img src="#" alt="alternative description" />
             <p>
                 Dave is a web fullstack web developer who lives in Marietta, GA.
             </p>
-
+            <Footer />
         </div>
     
     );
