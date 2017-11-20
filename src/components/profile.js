@@ -17,6 +17,7 @@ export default class Profile extends React.Component {
                 username: 'Joe',
                 firstName: 'Joe',
                 lastName: 'Blow',
+                email: 'joeblow@whatever.com',
                 password: 'sonorapass'
             },
             userData: {
@@ -41,9 +42,9 @@ export default class Profile extends React.Component {
                 <div className="profile">
                     <img src="http://placekitten.com/g/200/200" alt="" />
                     <form>
-                        <input type="text" placeholder="username"></input><br/>
-                        <input type="text" placeholder="email"></input><br/>
-                        <input type="text" placeholder="password"></input>
+                        <input type="text" placeholder="username" value={this.state.user.username}></input><br/>
+                        <input type="text" placeholder="email" value={this.state.user.email}></input><br/>
+                        <input type="text" placeholder="password" value={this.state.user.password}></input>
                     </form>
                     <div className="profileData">
          
