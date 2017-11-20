@@ -41,10 +41,10 @@ export default class Profile extends React.Component {
             missedMost: {
                 moreThan3: [5, 18, 45],
                 neverCorrect: {
-                    question: xxx,
-                    lastAnswer: yyy,
+                    question: 'xxx',
+                    lastAnswer: 'yyy',
                     choices: [],
-                    correctAnswer: zzz
+                    correctAnswer: 'zzz'
                 }
             }
         };
