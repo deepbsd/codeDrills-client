@@ -37,6 +37,15 @@ export default class Profile extends React.Component {
                 dateOfQuiz: '2017-11-20T14:43:16+00:00',
                 totalCorrect: 9,
                 timeOnQuiz: 3000340
+            },
+            missedMost: {
+                moreThan3: [5, 18, 45],
+                neverCorrect: {
+                    question: xxx,
+                    lastAnswer: yyy,
+                    choices: [],
+                    correctAnswer: zzz
+                }
             }
         };
     }
