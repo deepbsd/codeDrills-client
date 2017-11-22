@@ -9,12 +9,13 @@ img {
 }
 
 input{
-    margin-left: 10px;   
-    margin-bottom: 10px; 
+    margin-left: 10px;
+    margin-bottom: 10px;
     width: 200px;
     height: 20px;
 }
 
 table {
     width: 100%;
+    text-align: center;
 }

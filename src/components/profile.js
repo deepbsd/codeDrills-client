@@ -56,7 +56,7 @@ export default class Profile extends React.Component {
         return (
             <div>
                 <Userdetails user={this.state.user} />
-                <Userstats userData={this.state.userData}  />
+                <Userstats className="profile.css" userData={this.state.userData}  />
                 <Footer />
             </div>
         );
