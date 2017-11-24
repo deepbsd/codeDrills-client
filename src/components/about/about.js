@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from './footer';
+import Footer from '../footer/footer';
 
 import './about.css';
 
@@ -16,7 +16,7 @@ export default function About() {
             </p>
             <Footer />
         </div>
-    
+
     );
 
 }

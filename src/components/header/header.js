@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import NavItem from './navitem';
+import NavItem from '../navitem/navitem';
 
 
 export default class Header extends React.Component {
@@ -61,6 +61,3 @@ export default class Header extends React.Component {
         );
     }
 }
-
-
-

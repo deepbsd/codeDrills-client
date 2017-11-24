@@ -2,12 +2,12 @@ import React from 'react';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Landing from './landing';
-import Register from './register';
-import Login from './login';
-import About from './about';
-import Profile from './profile';
-import Logout from './logout';
+import Landing from '../landing/landing';
+import Register from '../register/register';
+import Login from '../login/login';
+import About from '../about/about';
+import Profile from '../profile/profile';
+import Logout from '../logout/logout';
 
 export default function Main(props) {
     return (
@@ -25,4 +25,3 @@ export default function Main(props) {
         </Router>
     );
 }
-

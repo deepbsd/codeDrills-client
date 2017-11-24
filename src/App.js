@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import Main from './components/main';
+import Main from './components/main/main';
 
-import Header from './components/header';
+import Header from './components/header/header';
 
 class App extends Component {
 

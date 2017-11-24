@@ -1,5 +1,5 @@
 import React from 'react';
-import './profile.css';
+import '../profile/profile.css';
 
 export default function Userstats(props) {
 

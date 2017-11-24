@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from './footer';
-import Userstats from './userStats';
-import Userdetails from './userDetails';
+import Footer from '../footer/footer';
+import Userstats from '../userStats/userStats';
+import Userdetails from '../userDetails/userDetails';
 import './profile.css';
 
 
