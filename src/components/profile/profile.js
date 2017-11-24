@@ -28,7 +28,7 @@ export default class Profile extends React.Component {
                 jsQuestionsAnswered: 199,
                 jsQuestionsCorrect: 123,
                 htmlQuestionsAnswered: 45,
-                htmlQuestionsCorrect: 44,
+                htmlQuestionsCorrect: 45,
                 cssQuestionsAnwswered: 12,
                 cssQuestionsCorrect: 12
             },
