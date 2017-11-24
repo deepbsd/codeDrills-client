@@ -1,5 +1,6 @@
 import React from 'react';
 
+import '../profile/profile.css';
 
 export default function Userdetails(props) {
 
@@ -13,7 +14,7 @@ export default function Userdetails(props) {
                 <input type="text" placeholder="password" value={props.user.password}></input>
             </form>
             <div className="profileData">
- 
+
             </div>
         </div>
 
