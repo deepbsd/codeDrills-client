@@ -27,10 +27,10 @@ export default class Profile extends React.Component {
                 totalCorrect: 157,
                 jsQuestionsAnswered: 199,
                 jsQuestionsCorrect: 123,
+                cssQuestionsAnswered: 12,
+                cssQuestionsCorrect: 12,
                 htmlQuestionsAnswered: 45,
-                htmlQuestionsCorrect: 45,
-                cssQuestionsAnwswered: 12,
-                cssQuestionsCorrect: 12
+                htmlQuestionsCorrect: 44,
             },
             lastQuizData: {
                 totalQuestions: 10,
@@ -39,12 +39,17 @@ export default class Profile extends React.Component {
                 timeOnQuiz: 3000340
             },
             missedMost: {
+                category: 'Vanilla Javascript',
                 moreThan3: [5, 18, 45],
                 neverCorrect: {
-                    question: 'xxx',
-                    lastAnswer: 'yyy',
-                    choices: [],
-                    correctAnswer: 'zzz'
+                    question: "What's the difference between 'let' and 'var'?",
+                    lastAnswer: '\'let\' is not a constant',
+                    choices: ["'let' is ES5",
+                    "'var' is ES5",
+                    "'let is ES6'",
+                    "'let' pollutes the parent namespace",
+                    "'var' is not what the cool kids do anymore"],
+                    correctAnswer: "'let' is ES6"
                 }
             }
         };
@@ -56,7 +61,8 @@ export default class Profile extends React.Component {
         return (
             <div>
                 <Userdetails user={this.state.user} />
-                <Userstats className="profile.css" userData={this.state.userData}  />
+                <Userstats className="profile.css" userData={this.state.userData}
+                lastQuiz={this.state.lastQuizData} missedMost={this.state.missedMost}  />
                 <Footer />
             </div>
         );

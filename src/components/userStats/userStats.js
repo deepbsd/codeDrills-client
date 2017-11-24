@@ -1,4 +1,5 @@
 import React from 'react';
+//import {Line as LineChart} from 'react-chartjs';
 import '../profile/profile.css';
 
 export default function Userstats(props) {
@@ -26,8 +27,9 @@ export default function Userstats(props) {
                   <tr>
                   <td>Questions Correct:</td><td>{props.userData.htmlQuestionsCorrect}</td>
                   </tr>
+
                 <th rowspan="2">CSS Questions ({Math.round((props.userData.cssQuestionsCorrect/props.userData.cssQuestionsAnswered)*100)}%)</th>
-                  <td>Questions Asked:</td><td>{props.userData.cssQuestionsAnwswered}</td>
+                  <td>Questions Asked:</td><td>{props.userData.cssQuestionsAnswered}</td>
                   <tr>
                   <td>Questions Correct:</td><td>{props.userData.cssQuestionsCorrect}</td>
                   </tr>
