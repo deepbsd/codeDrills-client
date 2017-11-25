@@ -8,6 +8,8 @@ import Login from '../login/login';
 import About from '../about/about';
 import Profile from '../profile/profile';
 import Logout from '../logout/logout';
+import Question from '../question/question';
+
 
 export default function Main(props) {
     return (
@@ -19,6 +21,7 @@ export default function Main(props) {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/profile" component={Profile} />
+                <Route exact path="/startquiz" component={Question} />
                 <Route exact path="/logout" component={Logout} />
 
             </div>
