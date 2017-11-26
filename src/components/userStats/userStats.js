@@ -7,7 +7,9 @@ export default function Userstats(props) {
     return (
 
         <div className="profile">
+            <div class="profileContainer">
             <table>
+            <caption>General Summary</caption>
             <tr>
                 <th>Number of Quizzes</th><th>Total Questions</th><th>Total Correct</th>
                 </tr>
@@ -34,6 +36,18 @@ export default function Userstats(props) {
                   <td>Questions Correct:</td><td>{props.userData.cssQuestionsCorrect}</td>
                   </tr>
             </table>
+            </div>
+            <div class="profileContainer">
+              <table>
+                <caption>Results from last test:</caption>
+                <tr>
+                <th>Category:</th><th>{props.missedMost.category}</th>
+                </tr>
+                <tr><td>Question:</td><td>{props.missedMost.neverCorrect.question}</td></tr>
+                <tr><td>Your Answer:</td><td>{props.missedMost.neverCorrect.lastAnswer}</td></tr>
+                <tr><td>Correct Answer:</td><td>{props.missedMost.neverCorrect.correctAnswer}</td></tr>
+                </table>
+            </div>
         </div>
 
     );
