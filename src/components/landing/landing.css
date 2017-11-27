@@ -1,6 +1,8 @@
 .landing {
+    height: 600px;
     color: blue;
-    background-color: darkgray;
+    background: lightgray url("../../img/SanFranGGBridge.jpg") no-repeat left top;
+    background-size: 100% 600px;
 }
 p {
     padding: 30px;
