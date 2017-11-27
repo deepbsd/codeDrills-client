@@ -2,6 +2,8 @@ import React from 'react';
 import Footer from '../footer/footer';
 import Userstats from '../userStats/userStats';
 import Userdetails from '../userDetails/userDetails';
+import {BarChart, PieChart} from '../chart';
+
 import './profile.css';
 
 
@@ -51,6 +53,16 @@ export default class Profile extends React.Component {
                     "'var' is not what the cool kids do anymore"],
                     correctAnswer: "'let' is ES6"
                 }
+            },
+            chartData: {
+              labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              datasets: [
+                {
+                  label: "Days",
+                  data: [65, 59, 80, 81, 56, 55, 40],
+                  backgroundColor: ['thistle', 'cornsilk', 'gray', 'crimson', 'navy', 'green', 'yellow']
+                }
+              ]
             }
         };
     }
@@ -63,6 +75,8 @@ export default class Profile extends React.Component {
                 <Userdetails user={this.state.user} />
                 <Userstats className="profile.css" userData={this.state.userData}
                 lastQuiz={this.state.lastQuizData} missedMost={this.state.missedMost}  />
+                <BarChart barChartData={this.state.chartData} />
+                <PieChart pieChartData={this.state.chartData} />
                 <Footer />
             </div>
         );

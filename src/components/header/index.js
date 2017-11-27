@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import NavItem from '../navitem/navitem';
+import NavItem from '../navitem';
 
 
 export default class Header extends React.Component {

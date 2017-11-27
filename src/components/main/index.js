@@ -2,13 +2,13 @@ import React from 'react';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Landing from '../landing/landing';
-import Register from '../register/register';
-import Login from '../login/login';
-import About from '../about/about';
-import Profile from '../profile/profile';
-import Logout from '../logout/logout';
-import Question from '../question/question';
+import Landing from '../landing';
+import Register from '../register';
+import Login from '../login';
+import About from '../about';
+import Profile from '../profile';
+import Logout from '../logout';
+import Question from '../question';
 
 
 export default function Main(props) {
