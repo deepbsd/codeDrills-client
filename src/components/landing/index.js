@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Footer from '../footer';
+
 import logo from '../../logo.svg';
 
 import './landing.css';
@@ -17,6 +19,9 @@ export default function Landing() {
                   interview is your bridge from where you are in your career to
                   where you want to be.
                 </p>
+                <footer>
+                  <Footer />
+                </footer>
             </div>
         );
 }
