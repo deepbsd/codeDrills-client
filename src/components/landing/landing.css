@@ -4,7 +4,15 @@
     background: lightgray url("../../img/SanFranGGBridge.jpg") no-repeat left top;
     background-size: 100% 600px;
 }
+
+h3 {
+  font-size: 23px;
+  margin-top: 10px 0;
+}
+
 p {
+    font-size: 18px;
+    margin-top: 0;
     padding: 30px;
     text-align: left;
 }
