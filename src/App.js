@@ -6,20 +6,20 @@ import Main from './components/main';
 
 import Header from './components/header';
 
+import Footer from './components/footer';
+
 class App extends Component {
 
   render() {
     return (
       <div className="App">
 
-        <header className="App-header">
-
-          <Header className="header" />
-
-        </header>
+        <Header className="header" />
 
         <Main />
 
+        <Footer />
+        
       </div>
     );
   }

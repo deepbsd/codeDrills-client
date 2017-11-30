@@ -1,0 +1,18 @@
+.multQuestion ol {
+
+  text-align: left;
+}
+
+.multQuestion li {
+  display: block;
+  list-style: decimal;
+  color: black;
+
+}
+
+.multQuestion li:nth-of-type(1):hover {
+  color: black;
+  font-weight: normal;
+  font-size: 20px;
+  font-style: normal;
+}

@@ -50,7 +50,7 @@ export default class Header extends React.Component {
 
     render() {
         const links = this.state.navs.map((link, index) =>
-            <NavItem key={index} loggedIn={this.state.loggedIn}  {...link} />
+            <NavItem className="header" key={index} loggedIn={this.state.loggedIn}  {...link} />
         );
 
 

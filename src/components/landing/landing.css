@@ -1,9 +1,10 @@
 .landing {
+    box-shadow: 4px 15px 5px #607089;
     font-family: "Comic Sans MS", cursive, sans-serif;
     height: 600px;
     color: blue;
-    background: lightgray url("../../img/SanFranGGBridge.jpg") no-repeat left top;
-    background-size: 100% 600px;
+    background: white url("../../img/SanFranGGBridge.jpg") no-repeat left bottom;
+    background-size: 100% auto;
 }
 
 h3 {
@@ -16,8 +17,4 @@ p {
     margin-top: 0;
     padding: 30px;
     text-align: left;
-}
-
-footer {
-  margin-top: 325px;
 }
