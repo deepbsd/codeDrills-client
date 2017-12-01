@@ -44,19 +44,17 @@ export default class Question extends React.Component {
           <MultipleChoice key={index2} {...answer} />
         );
         return (
-            <div>
-            <h2 key={index1}>{question.question}</h2>
-            <ul>
-              <li>{answers}</li>
+            <ul className="questionText">
+              <h3 key={index1}>{question.question}</h3>
+              {answers}
             </ul>
-            </div>
         )
       });
 
       return (
-        <div className="multQuestion">
-          {questions}
-        </div>
+          <ul className="multQuestion">
+            {questions}
+          </ul>
       );
 
 

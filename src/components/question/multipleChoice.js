@@ -8,9 +8,9 @@ export default function MultipleChoice(props) {
 
 
 return (
-      <div>
+    <li>
         {props.answerText}
-      </div>
+    </li>
   )
 
 }

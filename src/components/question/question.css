@@ -1,17 +1,16 @@
-.multQuestion ol {
+.questionText h3 {
+  color: black;
   text-align: left;
 }
 
-.multQuestion li {
-  display: block;
-  list-style: decimal;
+.questionText li {
   color: black;
-
+  display: flex;
 }
 
-.multQuestion li:nth-of-type(1):hover {
+.questionText li:hover {
   color: black;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 18px;
   font-style: normal;
 }
