@@ -39,31 +39,26 @@ export default class Question extends React.Component {
     }
 
       render() {
-        const quizQuestions = this.state.questions.map((question, index1) => {
-          return (
-            <h3>{question.question}</h3>
-              question.answers.map((answer, index2) => {
-              <MultipleChoice key={index2} {...answer} />
-            });
-          });
+        const questions = this.state.questions.map((question, index1) => {
+          let answers = question.answers.map((answer, index2) =>
+          <MultipleChoice key={index2} {...answer} />
+        );
+        return (
+            <div>
+            <h2 key={index1}>{question.question}</h2>
+            <ul>
+              <li>{answers}</li>
+            </ul>
+            </div>
         )
-          return (
-              <div className="multQuestion">
-                {quizQuestions}
-              </div>
-          );
-      }
+      });
+
+      return (
+        <div className="multQuestion">
+          {questions}
+        </div>
+      );
+
+
   }
-
-
-  // const quizQuestions = this.state.questions.map((index, question) =>
-  //   <ol>
-  //     <li>{question.question}</li>
-  //     <ol>
-  //         question.answers.map((index, answer) =>
-  //             <li>{answer.answerText}</li>
-  //         )
-  //     </ol>
-  //     )
-  //   </ol>
-  // );
+}
