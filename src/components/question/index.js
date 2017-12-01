@@ -15,11 +15,11 @@ export default class Question extends React.Component {
             type: 'multipleChoice',
             question: "What is your favorite color?",
             answers: [
-              {questionText: "red", correct: true},
-              {questionText: "blue"},
-              {questionText: "green"},
-              {questionText: "thistle"},
-              {questionText: "cornsilk"}
+              {answerText: "red", correct: true},
+              {answerText: "blue"},
+              {answerText: "green"},
+              {answerText: "thistle"},
+              {answerText: "cornsilk"}
             ]
           },
           {
@@ -27,11 +27,11 @@ export default class Question extends React.Component {
             type: 'multipleChoice',
             question: "What is your favorite programming or scripting language?",
             answers: [
-              {questionText: "Python", correct: true},
-              {questionText: "Javascript"},
-              {questionText: "Ruby"},
-              {questionText: "Rust"},
-              {questionText: "Bash"}
+              {answerText: "Python", correct: true},
+              {answerText: "Javascript"},
+              {answerText: "Ruby"},
+              {answerText: "Rust"},
+              {answerText: "Bash"}
             ]
           }
         ]
@@ -39,11 +39,31 @@ export default class Question extends React.Component {
     }
 
       render() {
-
+        const quizQuestions = this.state.questions.map((question, index1) => {
+          return (
+            <h3>{question.question}</h3>
+              question.answers.map((answer, index2) => {
+              <MultipleChoice key={index2} {...answer} />
+            });
+          });
+        )
           return (
               <div className="multQuestion">
-              <MultipleChoice questions={this.state.questions} />
+                {quizQuestions}
               </div>
           );
       }
   }
+
+
+  // const quizQuestions = this.state.questions.map((index, question) =>
+  //   <ol>
+  //     <li>{question.question}</li>
+  //     <ol>
+  //         question.answers.map((index, answer) =>
+  //             <li>{answer.answerText}</li>
+  //         )
+  //     </ol>
+  //     )
+  //   </ol>
+  // );
