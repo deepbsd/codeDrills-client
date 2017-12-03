@@ -33,6 +33,18 @@ export default class Question extends React.Component {
               {answerText: "Rust"},
               {answerText: "Bash"}
             ]
+          },
+          {
+            number: 3,
+            type: 'multipleChoice',
+            question: "How many fingers am I holding up?",
+            answers: [
+              {answerText: "one"},
+              {answerText: "two", correct: true},
+              {answerText: "three"},
+              {answerText: "four"},
+              {answerText: "five"}
+            ]
           }
         ]
       }
