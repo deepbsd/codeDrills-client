@@ -13,7 +13,7 @@ export default class Question extends React.Component {
           questions: [
           {
             number: 1,
-            assetUrl: null,
+            assetUrl: false,
             type: 'multipleChoice',
             question: "What is your favorite color?",
             answers: [
@@ -26,7 +26,7 @@ export default class Question extends React.Component {
           },
           {
             number: 2,
-            assetUrl: null,
+            assetUrl: false,
             type: 'multipleChoice',
             question: "What is your favorite programming or scripting language?",
             answers: [
@@ -39,7 +39,7 @@ export default class Question extends React.Component {
           },
           {
             number: 3,
-            assetUrl: null,
+            assetUrl: false,
             type: 'multipleChoice',
             question: "How many fingers am I holding up?",
             answers: [
@@ -67,33 +67,38 @@ export default class Question extends React.Component {
       }
     }
 
-      render() {
-        const questions = this.state.questions.map((question, index1) => {
-          if (question.assetUrl) {
-            let answers = question.answers.map((answer, index2) {
-              <img src={answer.assetUrl} alt="alternate text" />
+    render() {
+      const questions = this.state.questions.map((question, index1) => {
+        let answers;
+        if (question.assetUrl) {
+          answers = question.answers.map((answer, index2) => {
+            return (
               <HighlightedCode key={index2} {...answer} />
-            })
-          } else {
-            let answers = question.answers.map((answer, index2) =>
-            <MultipleChoice key={index2} {...answer} />
+            )
           });
+        } else {
+          answers = question.answers.map((answer, index2) => {
+            return (
+                <MultipleChoice key={index2} {...answer} />
+            )
+          });
+        }
 
-          return (
-              <ul className="questionText">
+        return (
+            <ul className="questionText">
 
-                <h3 key={index1}>{question.question}</h3>
+              <h3 key={index1}>{question.question}</h3>
+                {question.assetUrl ? <img src={question.assetUrl} alt="alt text" /> : null}
                 {answers}
-              </ul>
-          )
-      });
+            </ul>
+        )
+    });
 
       return (
           <ul className="multQuestion">
             {questions}
           </ul>
       );
-
 
   }
 }
