@@ -96,7 +96,8 @@ export default class Question extends React.Component {
       const questions = this.state.questions.map((question, index1) => {
         let answers = question.answers.map((answer, index2) => {
             return (
-              <Answer assetUrl={question.assetUrl} type={question.type} key={index2} {...answer} />
+              <Answer assetUrl={question.assetUrl} type={question.type}
+                key={index2} {...answer} />
             )
           });
 
@@ -104,7 +105,8 @@ export default class Question extends React.Component {
               <ul className="question">
                 <li><span class="questionText" key={index1}>{question.question}</span></li>
                 {question.type === 'videoSnippet' ?
-                  <iframe width="560" height="315" src={question.assetUrl} frameborder="0" allowfullscreen>
+                  <iframe width="560" height="315" src={question.assetUrl}
+                    title="videoSnippet" frameborder="0" allowfullscreen>
                   </iframe> : question.type === 'image' ?
                   <img src={question.assetUrl} alt="alt text" /> : null }
                 {answers}
