@@ -62,6 +62,19 @@ export default class Question extends React.Component {
               {answerText: "8"},
               {answerText: "9"}
             ]
+          },
+          {
+            number: 5,
+            assetUrl: null,
+            type: 'fillInBlank',
+            question: 'IIFE stands for ______ Invoked Function _______',
+            answers: [
+              {answerText: "Invoked, Expression"},
+              {answerText: "Internal, External"},
+              {answerText: "Inside, Extra"},
+              {answerText: "Immediately, Expression"},
+              {answerText: "Internally, Expression"}
+            ]
           }
         ]
       }
