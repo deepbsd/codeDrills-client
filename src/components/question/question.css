@@ -1,5 +1,7 @@
-.questionText h3 {
+.questionText span {
+  font-weight: bolder;
   color: black;
+  margin: 30px 0;
   text-align: left;
 }
 

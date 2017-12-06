@@ -102,7 +102,7 @@ export default class Question extends React.Component {
 
         return (
               <div className="questionText">
-                <h3 key={index1}>{question.question}</h3>
+                <li><span class="questionText" key={index1}>{question.question}</span></li>
                 {question.type === 'videoSnippet' ? <iframe width="560" height="315" src={question.assetUrl} frameborder="0" allowfullscreen></iframe> : question.type === 'image' ? <img src={question.assetUrl} alt="alt text" /> : null }
                 {answers}
               </div>
