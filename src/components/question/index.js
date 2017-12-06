@@ -1,7 +1,6 @@
 import React from 'react';
 
-import MultipleChoice from './multipleChoice';
-import HighlightedCode from './highlightedCode';
+import Answer from './answer';
 
 import './question.css';
 
@@ -13,7 +12,7 @@ export default class Question extends React.Component {
           questions: [
           {
             number: 1,
-            assetUrl: false,
+            assetUrl: null,
             type: 'multipleChoice',
             question: "What is your favorite color?",
             answers: [
@@ -26,7 +25,7 @@ export default class Question extends React.Component {
           },
           {
             number: 2,
-            assetUrl: false,
+            assetUrl: null,
             type: 'multipleChoice',
             question: "What is your favorite programming or scripting language?",
             answers: [
@@ -39,7 +38,7 @@ export default class Question extends React.Component {
           },
           {
             number: 3,
-            assetUrl: false,
+            assetUrl: null,
             type: 'multipleChoice',
             question: "How many fingers am I holding up?",
             answers: [
@@ -53,7 +52,7 @@ export default class Question extends React.Component {
           {
             number: 4,
             assetUrl: "http://placekitten.com/g/400/400",
-            type: 'highlightedCode',
+            type: 'image',
             question: 'Which line throws a reference error?',
             answers: [
               {answerText: "2"},
@@ -75,6 +74,19 @@ export default class Question extends React.Component {
               {answerText: "Immediately, Expression"},
               {answerText: "Internally, Expression"}
             ]
+          },
+          {
+            number: 6,
+            assetUrl: 'https://www.youtube.com/embed/NlOF03DUoWc',
+            type: 'videoSnippet',
+            question: 'What is the speaker referring to in this segment?',
+            answers: [
+              {answerText: "hoisting"},
+              {answerText: "namespacing"},
+              {answerText: "functional programming"},
+              {answerText: "es6"},
+              {answerText: "html5"}
+            ]
           }
         ]
       }
@@ -82,36 +94,61 @@ export default class Question extends React.Component {
 
     render() {
       const questions = this.state.questions.map((question, index1) => {
-        let answers;
-        if (question.assetUrl) {
-          answers = question.answers.map((answer, index2) => {
+        let answers = question.answers.map((answer, index2) => {
             return (
-              <HighlightedCode key={index2} {...answer} />
+              <Answer assetUrl={question.assetUrl} type={question.type} key={index2} {...answer} />
             )
           });
-        } else {
-          answers = question.answers.map((answer, index2) => {
-            return (
-                <MultipleChoice key={index2} {...answer} />
-            )
-          });
-        }
 
         return (
-            <ul className="questionText">
-
-              <h3 key={index1}>{question.question}</h3>
-                {question.assetUrl ? <img src={question.assetUrl} alt="alt text" /> : null}
+              <div className="questionText">
+                <h3 key={index1}>{question.question}</h3>
+                {question.type === 'videoSnippet' ? <iframe width="560" height="315" src={question.assetUrl} frameborder="0" allowfullscreen></iframe> : question.type === 'image' ? <img src={question.assetUrl} alt="alt text" /> : null }
                 {answers}
-            </ul>
+              </div>
         )
     });
 
       return (
-          <ul className="multQuestion">
-            {questions}
-          </ul>
+            <ul className="multQuestion">
+              {questions}
+            </ul>
       );
 
   }
+
+  //   render() {
+  //     const questions = this.state.questions.map((question, index1) => {
+  //       let answers;
+  //       if (question.assetUrl) {
+  //         answers = question.answers.map((answer, index2) => {
+  //           return (
+  //             <HighlightedCode key={index2} {...answer} />
+  //           )
+  //         });
+  //       } else {
+  //         answers = question.answers.map((answer, index2) => {
+  //           return (
+  //               <MultipleChoice key={index2} {...answer} />
+  //           )
+  //         });
+  //       }
+  //
+  //       return (
+  //           <ul className="questionText">
+  //
+  //             <h3 key={index1}>{question.question}</h3>
+  //               {question.assetUrl ? <img src={question.assetUrl} alt="alt text" /> : null}
+  //               {answers}
+  //           </ul>
+  //       )
+  //   });
+  //
+  //     return (
+  //         <ul className="multQuestion">
+  //           {questions}
+  //         </ul>
+  //     );
+  //
+  // }
 }
