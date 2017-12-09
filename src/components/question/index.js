@@ -77,7 +77,7 @@ export default class Question extends React.Component {
           },
           {
             number: 6,
-            assetUrl: 'https://www.youtube.com/embed/NlOF03DUoWc',
+            assetUrl: 'https://www.youtube.com/embed/NlOF03DUoWc?start=23&end=26',
             type: 'videoSnippet',
             question: 'What is the speaker referring to in this segment?',
             answers: [

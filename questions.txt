@@ -1,0 +1,141 @@
+Notes on questions
+
+Total of 40 questions to start with
+
+Categories
+======================
+
+Front-end:
+=========
+html:   3 html questions
+css:    5 css questions
+JS:     12 questions
+
+
+
+Back-end:
+=========
+Mongo: 8 questions
+Node:  8 questions
+API:   4 questions
+
+
+html
+====
+
+1. Why is it generally a good idea to position CSS <link>s
+between <head></head> and JS <script>s just before </body>?
+Do you know any exceptions?
+
+2. What does a doctype do?
+
+3. Identify which of the following are HTML5 elements?
+
+css
+===
+
+4. What is the difference between classes and IDs in CSS?
+
+5. Describe Floats and how they work. (use example)
+
+6. What does * { box-sizing: border-box; } do? What are its advantages?
+
+7. What's the difference between inline and inline-block and block?
+
+8. Describe pseudo-elements and discuss what they are used for.
+
+js
+==
+
+9. Here's a class.  How would you instantiate this class?
+
+10. When would you use an arrow function rather than a es5 function?
+
+11. Which of the following is an object:
+
+12. What is event delegation and event bubbling?
+
+13. What is hoisting?
+
+14. What is the difference between =, ==, and ===?
+
+15. Promise example problem in jQuery.
+
+16. What would the expected output be for a and b?
+
+var a = 'uh oh'
+
+function myFunc() {
+  var a = 'hey';
+  return a;
+}
+
+var b = myFunc();
+
+myFunc();
+
+console.log(b)
+
+17. What is event loop?
+What is the difference between call stack and task queue?
+
+18. What is an IIFE?
+
+19. What is the difference between passing by value and passing by reference?
+
+20. Identify the callback in this code snippet:
+(or make it an expected output questions)
+
+function test(callback) {
+  const hi = "hey";
+  callback(hi);
+}
+
+function callback(something) {
+  console.log(something);
+}
+
+test(callback);
+
+==========================================
+==========================================
+
+Node
+====
+
+21. The difference between import and require?
+
+22. Name three module systems?
+
+23.  Why does console.log in a node file output to terminal instead of the console in the browser?
+
+24. In `require('express')`, what is express?
+
+25. What is the hub of all the dependencies in a project?
+
+26. Would gulp be a dev depenency or a dependency?
+
+27. Choose the correct pair
+    require/module.exports
+    require/import
+    require/export
+
+28. difference {myObj} = require('./filename') and myObj = require('./filename')
+
+Mongo
+=====
+
+29.
+
+30.
+
+31.
+
+API
+===
+
+1.
+
+2.
+
+3.
