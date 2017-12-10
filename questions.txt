@@ -375,6 +375,124 @@ questions: {
     {answerText: "blah"}
   ]
 },
+{
+  number: 25,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What filename is contains all the module dependencies in a project?",
+  answers: [
+    {answerText: "package.json", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 26,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "Would gulp be a dev depenency or a dependency?",
+  answers: [
+    {answerText: "dev dependency", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 27,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "Choose the correct pair",
+  answers: [
+    {answerText: "require/module.exports", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 28,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What's the difference between const {myObj} = require('./filename')
+  and const myObj = require('./filename')",
+  answers: [
+    {answerText: "{myObj} is a named export that does not require a default export", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 29,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What is Mongoose?",
+  answers: [
+    {answerText: "Mongoose is a MongoDB object modeling tool designed to work
+    in an asynchronous environment.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 30,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "",
+  answers: [
+    {answerText: "", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 31,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What does REST mean in RESTful API?",
+  answers: [
+    {answerText: "Representational State Transfer, where state is
+    transferred as an object", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 32,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What is one advantage to a non-relational database over a
+  relational database?",
+  answers: [
+    {answerText: "The database schema can be flexible and change without
+    changing the relationships between tables, as it would with a
+    relational database.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+}
 
 
 }
@@ -485,16 +603,16 @@ Node
 Mongo
 =====
 
-29.
+29. What is Mongoose?
 
-30.
+30. What is one advantage to a non-relational database over a relational database?
 
 31.
 
 API
 ===
 
-32.
+32. What does RESTful API mean?
 
 33.
 
