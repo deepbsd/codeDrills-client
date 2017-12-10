@@ -20,6 +20,99 @@ Node:  8 questions
 API:   4 questions
 
 
+questions: {
+{
+  number: 1,
+  category: 'html',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "Why is it generally a good idea to position CSS <link>s
+  between <head></head> and JS <script>s just before </body>?
+  Do you know any exceptions?",
+  answers: [
+    {answerText: "To have the CSS ready so the page can render properly
+  yet not try to execute the JS until the page elements have fully rendered", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 2,
+  category: 'html',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What does a doctype declaration do?",
+  answers: [
+    {answerText: "Specifies the Document Type Definition (DTD) and its version", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 3,
+  category: 'html',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "Identify which of the following are HTML5 elements?",
+  answers: [
+    {answerText: "article, aside, section, main, nav, aside, summary, time, figure, figcaption, footer, header, mark, details", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 4,
+  category: 'css',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What is the difference between classes and IDs in CSS?",
+  answers: [
+    {answerText: "Use IDs to target one element, styles to target many elements", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 5,
+  category: 'css',
+  assetUrl: 'img/question5.jpg',
+  type: 'image',
+  question: "Describe how the divs below are floated.",
+  answers: [
+    {answerText: "Div1 is outside of the parent div, div2 and div3 are floated left. float is cleared before div4.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 6,
+  category: 'css',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What does * { box-sizing: border-box; } do? What are its advantages?",
+  answers: [
+    {answerText: "You don't have to include margin and padding in height/width size percentages.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+
+
+}
+
+
 html
 ====
 
