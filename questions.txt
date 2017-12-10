@@ -258,7 +258,123 @@ questions: {
     {answerText: "blah"}
   ]
 },
-
+{
+  number: 17,
+  category: 'js',
+  assetUrl: "https://www.youtube.com/watch?v=8aGhZQkoFbQ?start=12:48?end=14:54",
+  type: 'videoSnippet',
+  question: "What is this snippet explaining about Node.js?",
+  answers: [
+    {answerText: "How the event loop works with the stack and the task queue.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 18,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What is an IIFE?",
+  answers: [
+    {answerText: "An immediately-invoked function expression (or IIFE,
+    pronounced "iffy") is a JavaScript programming language idiom which
+    produces a lexical scope using JavaScript's function scoping.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 19,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What is the difference between passing by value and passing by reference?",
+  answers: [
+    {answerText: "Pass by reference is passing a reference to a memory location,
+    where as passing by value is passing the actual value stored in the memory
+    location.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 20,
+  category: 'js',
+  assetUrl: "img/question10.jpg",
+  type: 'image',
+  question: "Identify the callback in this example:",
+  answers: [
+    {answerText: "correct answer from example...", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 21,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What's the difference between import and require?",
+  answers: [
+    {answerText: "Require is CommonJS and import is ES6.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 22,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "Name three module systems available in Node.js",
+  answers: [
+    {answerText: "AMD, CommonJS, and ES6 or ES2015 Modules", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 23,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "Why does console.log in a node file output to terminal instead
+  of the console in the browser?",
+  answers: [
+    {answerText: "Because the node command is not happening inside the browser.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 24,
+  category: 'js',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "In `require('./express')`, what is express?",
+  answers: [
+    {answerText: "A module depedency.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
 
 
 }
