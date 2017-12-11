@@ -17,3 +17,8 @@
   font-size: 18px;
   font-style: normal;
 }
+
+img {
+  width: 300px;
+  height: auto;
+}

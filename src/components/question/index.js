@@ -2,6 +2,12 @@ import React from 'react';
 
 import Answer from './answer';
 
+import question5 from './img/question5.png';
+import question9 from './img/question9.png';
+
+
+
+
 import './question.css';
 
 export default class Question extends React.Component {
@@ -69,11 +75,11 @@ export default class Question extends React.Component {
             {
               number: 5,
               category: 'css',
-              assetUrl: "./img/question5.png",
+              assetUrl: question5,
               type: 'image',
               question: "Describe how the divs below are floated.",
               answers: [
-                {answerText: "Div2 and div3 are floated left inside an enclosing div. Div1 is outside that enclosing div.  Float is cleared before div4.", correct: true},
+                {answerText: "Box2 and Box3 are floated left inside an enclosing div. Box1 is outside that enclosing div.  Float is cleared before Box4.", correct: true},
                 {answerText: "blah"},
                 {answerText: "blah"},
                 {answerText: "blah"},
@@ -125,11 +131,11 @@ export default class Question extends React.Component {
             {
               number: 9,
               category: 'js',
-              assetUrl: "img/question9.jpg",
+              assetUrl: question9,
               type: 'image',
               question: "Here's a class.  How would you instantiate this class?",
               answers: [
-                {answerText: "const joe = new Person();", correct: true},
+                {answerText: "const joe = new Person('Joe');", correct: true},
                 {answerText: "blah"},
                 {answerText: "blah"},
                 {answerText: "blah"},
@@ -473,7 +479,7 @@ export default class Question extends React.Component {
 
         return (
               <ul className="question">
-                <li><span class="questionText" key={index1}>{question.question}</span></li>
+                <li><span class="questionText" key={index1}>{question.number}. {question.question}</span></li>
                 {question.type === 'videoSnippet' ?
                   <iframe width="560" height="315" src={question.assetUrl}
                     title="videoSnippet" frameborder="0" allowfullscreen>
