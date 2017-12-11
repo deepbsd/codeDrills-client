@@ -69,11 +69,11 @@ export default class Question extends React.Component {
             {
               number: 5,
               category: 'css',
-              assetUrl: 'img/question5.jpg',
+              assetUrl: "./img/question5.png",
               type: 'image',
               question: "Describe how the divs below are floated.",
               answers: [
-                {answerText: "Div1 is outside of the parent div, div2 and div3 are floated left. float is cleared before div4.", correct: true},
+                {answerText: "Div2 and div3 are floated left inside an enclosing div. Div1 is outside that enclosing div.  Float is cleared before div4.", correct: true},
                 {answerText: "blah"},
                 {answerText: "blah"},
                 {answerText: "blah"},
@@ -237,7 +237,7 @@ export default class Question extends React.Component {
             {
               number: 17,
               category: 'js',
-              assetUrl: "https://www.youtube.com/watch?v=8aGhZQkoFbQ?start=12:48?end=14:54",
+              assetUrl: "https://www.youtube.com/embed/8aGhZQkoFbQ?start=768&end=894",
               type: 'videoSnippet',
               question: "What is this snippet explaining about Node.js?",
               answers: [

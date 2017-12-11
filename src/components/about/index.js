@@ -14,7 +14,6 @@ export default function About() {
             <p>
                 Dave is a web fullstack web developer who lives in Marietta, GA.
             </p>
-            <Footer />
         </div>
 
     );
