@@ -4,6 +4,8 @@ import Answer from './answer';
 
 import question5 from './img/question5.png';
 import question9 from './img/question9.png';
+import question16 from './img/question16.png';
+import question20 from './img/question20.png';
 
 
 
@@ -229,11 +231,11 @@ export default class Question extends React.Component {
             {
               number: 16,
               category: 'js',
-              assetUrl: "img/question16.jpg",
+              assetUrl: question16,
               type: 'image',
-              question: "In the example below, what would the expected output be for a and b?",
+              question: "In the example below, what would the expected output be for b?",
               answers: [
-                {answerText: "", correct: true},
+                {answerText: "hey", correct: true},
                 {answerText: "blah"},
                 {answerText: "blah"},
                 {answerText: "blah"},
@@ -285,7 +287,7 @@ export default class Question extends React.Component {
             {
               number: 20,
               category: 'js',
-              assetUrl: "img/question10.jpg",
+              assetUrl: question20,
               type: 'image',
               question: "Identify the callback in this example:",
               answers: [
@@ -427,20 +429,6 @@ export default class Question extends React.Component {
               category: 'js',
               assetUrl: null,
               type: 'multipleChoice',
-              question: "",
-              answers: [
-                {answerText: "", correct: true},
-                {answerText: "blah"},
-                {answerText: "blah"},
-                {answerText: "blah"},
-                {answerText: "blah"}
-              ]
-            },
-            {
-              number: 31,
-              category: 'js',
-              assetUrl: null,
-              type: 'multipleChoice',
               question: "What does REST mean in RESTful API?",
               answers: [
                 {answerText: "Representational State Transfer, where state is transferred as an object", correct: true},
@@ -451,7 +439,7 @@ export default class Question extends React.Component {
               ]
             },
             {
-              number: 32,
+              number: 31,
               category: 'js',
               assetUrl: null,
               type: 'multipleChoice',
