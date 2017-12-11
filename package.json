@@ -5,16 +5,19 @@
   "dependencies": {
     "chart.js": "^2.7.1",
     "react": "^16.0.0",
+    "react-chartjs-2": "^2.6.4",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
-    "chart.js": "^2.7.1",
-    "react-chartjs-2": "^2.6.4"
+    "redux": "^3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-redux": "^5.0.6"
   }
 }
