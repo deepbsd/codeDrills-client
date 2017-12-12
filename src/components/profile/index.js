@@ -77,7 +77,6 @@ export default class Profile extends React.Component {
                 lastQuiz={this.state.lastQuizData} missedMost={this.state.missedMost}  />
                 <BarChart barChartData={this.state.chartData} />
                 <PieChart pieChartData={this.state.chartData} />
-                <Footer />
             </div>
         );
     }

@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+
 import question5 from './img/question5.png';
 import question9 from './img/question9.png';
 import question16 from './img/question16.png';
@@ -12,7 +13,7 @@ const initialState = {
         category: 'html',
         assetUrl: null,
         type: 'multipleChoice',
-        question: "Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </body>? Do you know any exceptions?",
+        question: "Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </body>?",
         answers: [
           {answerText: "To have the CSS ready so the page can render properly yet not try to execute the JS until the page elements have fully rendered", correct: true},
           {answerText: "blah"},
@@ -98,7 +99,7 @@ const initialState = {
         type: 'multipleChoice',
         question: "What's the difference between inline and inline-block and block?",
         answers: [
-          {answerText: "", correct: true},
+          {answerText: "inline is default, everything on single line; inline-block allows elements on line but allows height and width measurements as with block items; block is how divs and sections are treated by default.", correct: true},
           {answerText: "blah"},
           {answerText: "blah"},
           {answerText: "blah"},
