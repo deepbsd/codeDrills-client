@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../footer';
 import Userstats from '../userStats/userStats';
 import Userdetails from '../userDetails/userDetails';
 import {BarChart, PieChart} from '../chart';

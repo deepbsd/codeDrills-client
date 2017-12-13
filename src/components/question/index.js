@@ -10,9 +10,6 @@ import Answer from './answer';
 import './question.css';
 
 export class Question extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
       const questions = this.props.questions.map((question, index1) => {
