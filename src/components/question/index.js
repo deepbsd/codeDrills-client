@@ -4,12 +4,52 @@ import {connect} from 'react-redux';
 import Answer from './answer';
 
 
+// import {startQuiz} from '../actions';
 
 
 
 import './question.css';
 
 export class Question extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.startQuiz = this.startQuiz.bind(this);
+  }
+
+  // startQuiz() {
+  //     this.props.dispatch(startQuiz());
+  // }
+
+  startQuiz(testquestions){
+
+    function getQuestions(arr) {
+    	let newquestions = []
+      let length = arr.length;
+    	for (var i = 1; i <= 10; i++){
+    		let randnum = Math.round(Math.random()*length)+1;
+    		//console.log('Randnum is ',randnum)
+    		if (newquestions.includes(randnum)) {
+    			console.log('Repeating!  Number: ',randnum,' already in ',newquestions)
+    			return getQuestions(arr);
+    		} else {
+    			newquestions.push(randnum);
+    		}
+    	}
+    	return newquestions;
+    }
+
+    let randnums = getQuestions(testquestions);
+
+    let tenQuestions = [];
+    randnums.forEach(function(num){
+      tenQuestions.push(testquestions[num]);
+    })
+
+    tenQuestions.forEach(function(q) {
+      console.log(q);
+    })
+  }
 
     render() {
       const questions = this.props.questions.map((question, index1) => {
@@ -34,8 +74,12 @@ export class Question extends React.Component {
     });
 
       return (
-            <div class="questionWrap">
-              {questions}
+            <div className="">
+              <button onClick={(e)=>this.startQuiz(this.props.questions)}>Start Quiz</button>
+
+              <div class="questionWrap">
+                {questions}
+              </div>
             </div>
       );
 
@@ -48,3 +92,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Question);
+
+
+//<button onClick={this.startQuiz(questions)}>Start Quiz</button>
