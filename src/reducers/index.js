@@ -484,12 +484,12 @@ const initialState = {
           }
       },
       chartData: {
-        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        labels: ["JS Questions Answered", "JS Questions Correct", "CSS Questions Answered", "CSS Questions Correct", "HTML Questions Answered", "HTML Questions Correct"],
         datasets: [
           {
-            label: "Days",
-            data: [65, 59, 80, 81, 56, 55, 40],
-            backgroundColor: ['thistle', 'cornsilk', 'gray', 'crimson', 'navy', 'green', 'yellow']
+            label: "Questions Correctly Answered",
+            data: [199, 123, 12, 12, 45, 44],
+            backgroundColor: ['thistle', 'purple', 'orange', 'yellow', 'navy', 'cyan']
           }
         ]
       }
