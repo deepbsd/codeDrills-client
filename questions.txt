@@ -609,23 +609,23 @@ Mongo
 
 31. What is CRUD?
 
-32.
+32. What's the difference between SQL and Non-SQL databases at a high level?
 
-33.
+33. What types of NoSQL databases are there?  (Document-oriented, key-value, graph, column-oriented)
 
-34.
+34. What kind of NoSQL database is MongoDB?
 
-35.
+35. What is a namespace in MongoDB?
 
-36.
+36. What is the ObjectID composed of for a MongoDB record? (Timestamp, Client Machine ID, Client process ID, 3 byte incremented counter)
 
 API
 ===
 
 37. What does RESTful API mean?
 
-38.
+38. What are the two types of API functions in Node?  (blocking and non-blocking)
 
-39.
+39. What are endpoints? How do they work?
 
-40.
+40. 
