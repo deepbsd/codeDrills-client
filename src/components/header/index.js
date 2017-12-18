@@ -18,7 +18,7 @@ class Header extends React.Component {
         return (
             <div className="header">
                 {links}
-                <NavItem link="about" href="/about"   />
+                <NavItem link="about" href="/about"  />
             </div>
         );
     }
