@@ -35,11 +35,6 @@ const initialState = {
           href: "/startquiz",
           private: true
       }
-      // {
-      //     link: "about",
-      //     href: "/about",
-      //     private: true
-      // },
     ],
     questions: [
       {
