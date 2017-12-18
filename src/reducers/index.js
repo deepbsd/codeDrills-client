@@ -6,7 +6,41 @@ import question16 from './img/question16.png';
 import question20 from './img/question20.png';
 
 
+
 const initialState = {
+      loggedIn: true,
+      navs: [
+      {
+          link: "register",
+          href: "/register",
+          private: false
+      },
+      {
+          link: "login",
+          href: "/login",
+          private: false
+      },
+      {
+          link: "logout",
+          href: "/logout",
+          private: true
+      },
+      {
+          link: "profile",
+          href: "/profile",
+          private: true
+      },
+      {
+          link: "start quiz",
+          href: "/startquiz",
+          private: true
+      }
+      // {
+      //     link: "about",
+      //     href: "/about",
+      //     private: true
+      // },
+    ],
     questions: [
       {
         number: 1,
@@ -290,7 +324,7 @@ const initialState = {
       },
       {
         number: 21,
-        category: 'js',
+        category: 'node',
         assetUrl: null,
         type: 'multipleChoice',
         question: "What's the difference between import and require?",
@@ -304,7 +338,7 @@ const initialState = {
       },
       {
         number: 22,
-        category: 'js',
+        category: 'node',
         assetUrl: null,
         type: 'multipleChoice',
         question: "Name three module systems available in Node.js",
@@ -318,7 +352,7 @@ const initialState = {
       },
       {
         number: 23,
-        category: 'js',
+        category: 'node',
         assetUrl: null,
         type: 'multipleChoice',
         question: "Why does console.log in a node file output to terminal instead of the console in the browser?",
@@ -332,7 +366,7 @@ const initialState = {
       },
       {
         number: 24,
-        category: 'js',
+        category: 'node',
         assetUrl: null,
         type: 'multipleChoice',
         question: "In `require('./express')`, what is express?",
@@ -346,7 +380,7 @@ const initialState = {
       },
       {
         number: 25,
-        category: 'js',
+        category: 'node',
         assetUrl: null,
         type: 'multipleChoice',
         question: "What filename is contains all the module dependencies in a project?",
@@ -360,7 +394,7 @@ const initialState = {
       },
       {
         number: 26,
-        category: 'js',
+        category: 'node',
         assetUrl: null,
         type: 'multipleChoice',
         question: "Would gulp be a dev depenency or a dependency?",
@@ -374,7 +408,7 @@ const initialState = {
       },
       {
         number: 27,
-        category: 'js',
+        category: 'node',
         assetUrl: null,
         type: 'multipleChoice',
         question: "Choose the correct pair",
@@ -388,7 +422,7 @@ const initialState = {
       },
       {
         number: 28,
-        category: 'js',
+        category: 'node',
         assetUrl: null,
         type: 'multipleChoice',
         question: "What's the difference between const {myObj} = require('./filename') and const myObj = require('./filename')",
@@ -402,7 +436,7 @@ const initialState = {
       },
       {
         number: 29,
-        category: 'js',
+        category: 'mongo',
         assetUrl: null,
         type: 'multipleChoice',
         question: "What is Mongoose?",
@@ -416,7 +450,7 @@ const initialState = {
       },
       {
         number: 30,
-        category: 'js',
+        category: 'api',
         assetUrl: null,
         type: 'multipleChoice',
         question: "What does REST mean in RESTful API?",
@@ -430,7 +464,7 @@ const initialState = {
       },
       {
         number: 31,
-        category: 'js',
+        category: 'mongo',
         assetUrl: null,
         type: 'multipleChoice',
         question: "What is one advantage to a non-relational database over a relational database?",
@@ -444,7 +478,6 @@ const initialState = {
       }
   ],
   currentUser: {
-      loggedIn: this.loggedIn,
       user: {
           username: 'Joe',
           firstName: 'Joe',

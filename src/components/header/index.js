@@ -1,63 +1,34 @@
 import React from 'react';
-
+import {connect} from 'react-redux';
 
 import NavItem from '../navitem';
 
 
-export default class Header extends React.Component {
+class Header extends React.Component {
     constructor(props) {
         super(props);
-
-        this.loggedIn = true;
-
-        this.state = {
-            loggedIn: this.loggedIn,
-            navs: [
-            {
-                link: "register",
-                href: "/register",
-                private: false
-            },
-            {
-                link: "login",
-                href: "/login",
-                private: false
-            },
-            {
-                link: "logout",
-                href: "/logout",
-                private: true
-            },
-            {
-                link: "profile",
-                href: "/profile",
-                private: true
-            },
-            {
-                link: "start quiz",
-                href: "/startquiz",
-                private: true
-            },
-            {
-                link: "about",
-                href: "/about",
-                private: this.loggedIn
-            },
-            ],
-        };
     }
 
 
     render() {
-        const links = this.state.navs.map((link, index) =>
-            <NavItem className="header" key={index} loggedIn={this.state.loggedIn}  {...link} />
+        const links = this.props.navs.map((link, index) =>
+            <NavItem className="header" key={index} loggedIn={this.props.loggedIn}  {...link} />
         );
-
 
         return (
             <div className="header">
                 {links}
+                <NavItem link="about" href="/about"   />
             </div>
         );
     }
 }
+
+
+const mapStateToProps = state => ({
+    currentUser: state.currentUser,
+    navs: state.navs,
+    loggedIn: state.loggedIn
+});
+
+export default connect(mapStateToProps)(Header);

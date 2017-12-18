@@ -34,7 +34,8 @@ export class Profile extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    loggedIn: state.loggedIn
 });
 
 export default connect(mapStateToProps)(Profile);
