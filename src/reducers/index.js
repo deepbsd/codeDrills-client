@@ -453,15 +453,15 @@ const initialState = {
           password: 'sonorapass'
       },
       userData: {
-          numberOfQuizzes: 18,
-          totalQuestions: 180,
-          totalCorrect: 157,
-          jsQuestionsAnswered: 199,
-          jsQuestionsCorrect: 123,
-          cssQuestionsAnswered: 12,
-          cssQuestionsCorrect: 12,
-          htmlQuestionsAnswered: 45,
-          htmlQuestionsCorrect: 44,
+          numberOfQuizzes: 20,
+          totalQuestions: 200,
+          totalCorrect: 187,
+          jsQuestionsAnswered: 120,
+          jsQuestionsCorrect: 110,
+          cssQuestionsAnswered: 45,
+          cssQuestionsCorrect: 42,
+          htmlQuestionsAnswered: 35,
+          htmlQuestionsCorrect: 35,
       },
       lastQuizData: {
           totalQuestions: 10,
@@ -488,7 +488,23 @@ const initialState = {
         datasets: [
           {
             label: "Questions Correctly Answered",
-            data: [199, 123, 12, 12, 45, 44],
+            data: [120, 110, 45, 42, 35, 35],
+            backgroundColor: ['thistle', 'purple', 'orange', 'yellow', 'navy', 'cyan']
+          }
+        ]
+      },
+      radarData: {
+        labels: ["JS Questions Answered", "JS Questions Correct", "CSS Questions Answered", "CSS Questions Correct", "HTML Questions Answered", "HTML Questions Correct"],
+        datasets: [
+          {
+            label: "Questions Correctly Answered",
+            backgroundColor: 'rgba(255,99,132,0.3)',
+            borderColor: 'rgba(255,99,132,1)',
+            pointBackgroundColor: 'rgba(255,99,132,1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(255,99,132,1)',
+            data: [120, 110, 45, 42, 35, 35],
             backgroundColor: ['thistle', 'purple', 'orange', 'yellow', 'navy', 'cyan']
           }
         ]
