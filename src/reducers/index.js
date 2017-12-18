@@ -498,14 +498,13 @@ const initialState = {
         datasets: [
           {
             label: "Questions Correctly Answered",
-            backgroundColor: 'rgba(255,99,132,0.3)',
+            backgroundColor: 'rgba(255, 204, 204,0.7)',
             borderColor: 'rgba(255,99,132,1)',
             pointBackgroundColor: 'rgba(255,99,132,1)',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
             data: [120, 110, 45, 42, 35, 35],
-            backgroundColor: ['thistle', 'purple', 'orange', 'yellow', 'navy', 'cyan']
           }
         ]
       }
