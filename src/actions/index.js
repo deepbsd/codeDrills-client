@@ -1,17 +1,10 @@
-export const ADD_LIST = 'ADD_LIST';
-export const addList = title => ({
-    type: ADD_LIST,
-    title
-});
-
-export const ADD_CARD = 'ADD_CARD';
-export const addCard = (text, listIndex) => ({
-    type: ADD_CARD,
-    text,
-    listIndex
-});
-
 export const START_QUIZ = 'START_QUIZ';
 export const startQuiz = () => ({
   type: START_QUIZ,
 })
+
+export const LOGIN_USER = 'LOGIN_USER';
+export const loginUser = loggedIn => ({
+    type: LOGIN_USER,
+    loggedIn
+});

@@ -34,6 +34,9 @@ const initialState = {
           link: "start quiz",
           href: "/startquiz",
           private: true
+      },
+      {
+          link: "test"
       }
     ],
     questions: [
@@ -540,5 +543,11 @@ const initialState = {
 };
 
 export const reducer = (state=initialState, action) => {
-    return state;
+  if (action.type === actions.LOGIN_USER) {
+    console.log('A', !action.loggedIn);
+    return Object.assign({}, state, {
+      loggedIn: !action.loggedIn
+    });
+  }
+  return state;
 };
