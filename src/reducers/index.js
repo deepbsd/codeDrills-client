@@ -473,6 +473,20 @@ const initialState = {
           {answerText: "blah"},
           {answerText: "blah"}
         ]
+      },
+      {
+        number: 32,
+        category: 'mongo',
+        assetUrl: null,
+        type: 'multipleChoice',
+        question: "What's the difference between SQL and Non-SQL databases at a high level?",
+        answers: [
+          {answerText: "SQL databases store data in tables and rows using relational algebra; noSQL databases store data in collections of JSON documents", correct: true},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"}
+        ]
       }
   ],
   currentUser: {

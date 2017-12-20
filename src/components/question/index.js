@@ -47,8 +47,8 @@ export class Question extends React.Component {
       console.log('Number: ',num);
       if (testquestions[num]){
         tenQuestions.push(testquestions[num]);
-      } else if (num === 31){
-        tenQuestions.push(testquestions[30]);
+      } else if (num === testquestions.length){
+        tenQuestions.push(testquestions[testquestions.length-1]);
       } else {
         console.log('Major Boo Boo!  ',num);
       }
