@@ -10,6 +10,7 @@ export default function Userstats(props) {
             <div class="profileContainer">
             <table>
             <caption>General Summary</caption>
+            <thead>
             <tr>
                 <th>Number of Quizzes</th><th>Total Questions</th><th>Total Correct</th>
                 </tr>
@@ -18,6 +19,8 @@ export default function Userstats(props) {
                   <td>{props.userData.totalQuestions}</td>
                   <td>{props.userData.totalCorrect}</td>
                 </tr>
+            </thead>
+            <tbody>
                 <tr><td></td><td></td><td></td></tr>
                 <th rowspan="2">Javascript Questions ({Math.round((props.userData.jsQuestionsCorrect/props.userData.jsQuestionsAnswered)*100)}%)</th>
                   <td>Questions Asked:</td><td>{props.userData.jsQuestionsAnswered}</td>
@@ -35,17 +38,18 @@ export default function Userstats(props) {
                   <tr>
                   <td>Questions Correct:</td><td>{props.userData.cssQuestionsCorrect}</td>
                   </tr>
+              </tbody>
             </table>
             </div>
             <div class="profileContainer">
               <table>
                 <caption>Results from last test:</caption>
                 <tr>
-                <th>Category:</th><th>{props.missedMost.category}</th>
+                <th>Date:</th><th>{props.lastQuiz.dateOfQuiz.getMonth()}/{props.lastQuiz.dateOfQuiz.getDay()}/{props.lastQuiz.dateOfQuiz.getFullYear()}</th>
                 </tr>
-                <tr><td>Question:</td><td>{props.missedMost.neverCorrect.question}</td></tr>
-                <tr><td>Your Answer:</td><td>{props.missedMost.neverCorrect.lastAnswer}</td></tr>
-                <tr><td>Correct Answer:</td><td>{props.missedMost.neverCorrect.correctAnswer}</td></tr>
+                <tr><td>Total Questions:</td><td>{props.lastQuiz.totalQuestions}</td></tr>
+                <tr><td>Answered Correctly:</td><td>{props.lastQuiz.totalCorrect/props.lastQuiz.totalQuestions*100}%</td></tr>
+                <tr><td>Time On Quiz:</td><td>{(props.lastQuiz.timeOnQuiz/60000).toFixed(2)} minutes</td></tr>
                 </table>
             </div>
         </div>

@@ -626,9 +626,9 @@ const initialState = {
       },
       lastQuizData: {
           totalQuestions: 10,
-          dateOfQuiz: '2017-11-20T14:43:16+00:00',
+          dateOfQuiz: new Date("2017-06-10T16:08:00"),
           totalCorrect: 9,
-          timeOnQuiz: 3000340
+          timeOnQuiz: 1000340
       },
       missedMost: {
           category: 'Vanilla Javascript',
