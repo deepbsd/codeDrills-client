@@ -43,7 +43,7 @@ export default function Userstats(props) {
             </div>
             <div class="profileContainer">
               <table>
-                <caption>Results from last test:</caption>
+                <caption>Latest Test:</caption>
                 <tr>
                 <th>Date:</th><th>{props.lastQuiz.dateOfQuiz.getMonth()}/{props.lastQuiz.dateOfQuiz.getDay()}/{props.lastQuiz.dateOfQuiz.getFullYear()}</th>
                 </tr>

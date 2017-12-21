@@ -3,6 +3,11 @@
     display: inline-flex;
 }
 
+caption {
+  font-size: 22px;
+  margin: 15px;
+}
+
 img {
     height: 100px;
     width: 100px;
