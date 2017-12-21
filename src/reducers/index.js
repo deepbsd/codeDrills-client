@@ -557,6 +557,34 @@ const initialState = {
           {answerText: "blah"},
           {answerText: "blah"}
         ]
+      },
+      {
+        number: 38,
+        category: 'api',
+        assetUrl: null,
+        type: 'multipleChoice',
+        question: "What are endpoints?",
+        answers: [
+          {answerText: "Part of the URL after the domain where the router hands the browser to a different program on the website. ", correct: true},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"}
+        ]
+      },
+      {
+        number: 39,
+        category: 'api',
+        assetUrl: null,
+        type: 'multipleChoice',
+        question: "How and when would I use Postman?",
+        answers: [
+          {answerText: "To test an API before I have the front-end working with the back-end app.", correct: true},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"}
+        ]
       }
   ],
   currentUser: {

@@ -576,6 +576,34 @@ questions: {
     {answerText: "blah"},
     {answerText: "blah"}
   ]
+},
+{
+  number: 39,
+  category: 'api',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What are endpoints?",
+  answers: [
+    {answerText: "Part of the URL after the domain where the router hands the browser to a different program on the website. ", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 40,
+  category: 'api',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "How and when would I use Postman?",
+  answers: [
+    {answerText: "To test an API before I have the front-end working with the back-end app.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
 }
 
 
@@ -712,4 +740,4 @@ API
 
 39. What are endpoints? How do they work?
 
-40.
+40. When would I use Postman?
