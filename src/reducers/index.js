@@ -614,7 +614,7 @@ const initialState = {
           totalQuestions: 200,
           totalCorrect: 187,
           jsQuestionsAnswered: 60,
-          jsQuestionsCorrect: 45,
+          jsQuestionsCorrect: 50,
           cssQuestionsAnswered: 45,
           cssQuestionsCorrect: 42,
           htmlQuestionsAnswered: 35,
@@ -649,13 +649,13 @@ const initialState = {
         datasets: [
           {
             label: "Questions Correctly Answered",
-            data: [60, 45, 45, 42, 35, 35, 30, 28, 30, 29],
-            backgroundColor: ['thistle', 'purple', 'orange', 'yellow', 'navy', 'cyan', 'crimson', 'pink', 'green', 'lime']
+            data: [60, 50, 45, 42, 35, 35, 30, 28, 30, 29],
+            backgroundColor: ['purple', 'thistle', 'orange', 'yellow', '#0033ff', 'cyan', 'crimson', '#ff0066', 'green', 'lime']
           }
         ]
       },
       radarData: {
-        labels: ["JS Questions Correct","CSS Questions Correct", "HTML Questions Correct","Node Questions Answered","Node Questions Correct","API Questions Correct"],
+        labels: ["JS Questions Correct","CSS Questions Correct", "HTML Questions Correct","Node Questions Correct","API Questions Correct"],
         datasets: [
           {
             label: "Questions Correctly Answered",
@@ -665,7 +665,7 @@ const initialState = {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [45/60, 42/45, 35/35, 28/30, 29/30],
+            data: [50/60, 42/45, 35/35, 28/30, 29/30],
           }
         ]
       }
