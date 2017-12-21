@@ -9,10 +9,11 @@ img {
 }
 
 input{
+    height: 20px;
     margin-left: 10px;
     margin-bottom: 10px;
+    padding: 5px;
     width: 200px;
-    height: 20px;
 }
 
 table {
