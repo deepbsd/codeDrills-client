@@ -487,6 +487,76 @@ const initialState = {
           {answerText: "blah"},
           {answerText: "blah"}
         ]
+      },
+      {
+        number: 33,
+        category: 'mongo',
+        assetUrl: null,
+        type: 'multipleChoice',
+        question: "What types of NoSQL databases are there?",
+        answers: [
+          {answerText: "Document-oriented, key-value, graph, column-oriented", correct: true},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"}
+        ]
+      },
+      {
+        number: 34,
+        category: 'mongo',
+        assetUrl: null,
+        type: 'multipleChoice',
+        question: "What kind of NoSQL database is MongoDB?",
+        answers: [
+          {answerText: "Document-oriented", correct: true},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"}
+        ]
+      },
+      {
+        number: 35,
+        category: 'mongo',
+        assetUrl: null,
+        type: 'multipleChoice',
+        question: "What is a namespace in MongoDB?",
+        answers: [
+          {answerText: "The namespace is a combination of the database name and the name of the collection or index...", correct: true},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"}
+        ]
+      },
+      {
+        number: 36,
+        category: 'mongo',
+        assetUrl: null,
+        type: 'multipleChoice',
+        question: "What is the ObjectID composed of for a MongoDB record?",
+        answers: [
+          {answerText: "Timestamp, Client Machine ID, Client process ID, 3 byte incremented counter", correct: true},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"}
+        ]
+      },
+      {
+        number: 37,
+        category: 'api',
+        assetUrl: null,
+        type: 'multipleChoice',
+        question: "What are the two types of API functions in Node?",
+        answers: [
+          {answerText: "blocking and non-blocking", correct: true},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"}
+        ]
       }
   ],
   currentUser: {

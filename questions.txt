@@ -320,7 +320,7 @@ questions: {
 },
 {
   number: 21,
-  category: 'js',
+  category: 'node',
   assetUrl: null,
   type: 'multipleChoice',
   question: "What's the difference between import and require?",
@@ -334,7 +334,7 @@ questions: {
 },
 {
   number: 22,
-  category: 'js',
+  category: 'node',
   assetUrl: null,
   type: 'multipleChoice',
   question: "Name three module systems available in Node.js",
@@ -348,7 +348,7 @@ questions: {
 },
 {
   number: 23,
-  category: 'js',
+  category: 'node',
   assetUrl: null,
   type: 'multipleChoice',
   question: "Why does console.log in a node file output to terminal instead
@@ -363,7 +363,7 @@ questions: {
 },
 {
   number: 24,
-  category: 'js',
+  category: 'node',
   assetUrl: null,
   type: 'multipleChoice',
   question: "In `require('./express')`, what is express?",
@@ -377,7 +377,7 @@ questions: {
 },
 {
   number: 25,
-  category: 'js',
+  category: 'node',
   assetUrl: null,
   type: 'multipleChoice',
   question: "What filename is contains all the module dependencies in a project?",
@@ -391,7 +391,7 @@ questions: {
 },
 {
   number: 26,
-  category: 'js',
+  category: 'node',
   assetUrl: null,
   type: 'multipleChoice',
   question: "Would gulp be a dev depenency or a dependency?",
@@ -405,7 +405,7 @@ questions: {
 },
 {
   number: 27,
-  category: 'js',
+  category: 'node',
   assetUrl: null,
   type: 'multipleChoice',
   question: "Choose the correct pair",
@@ -419,7 +419,7 @@ questions: {
 },
 {
   number: 28,
-  category: 'js',
+  category: 'node',
   assetUrl: null,
   type: 'multipleChoice',
   question: "What's the difference between const {myObj} = require('./filename')
@@ -434,7 +434,7 @@ questions: {
 },
 {
   number: 29,
-  category: 'js',
+  category: 'mongo',
   assetUrl: null,
   type: 'multipleChoice',
   question: "What is Mongoose?",
@@ -452,9 +452,9 @@ questions: {
   category: 'js',
   assetUrl: null,
   type: 'multipleChoice',
-  question: "",
+  question: "What is CRUD?",
   answers: [
-    {answerText: "", correct: true},
+    {answerText: "C=create, R=read, U=update, D=delete", correct: true},
     {answerText: "blah"},
     {answerText: "blah"},
     {answerText: "blah"},
@@ -463,7 +463,7 @@ questions: {
 },
 {
   number: 31,
-  category: 'js',
+  category: 'mongo',
   assetUrl: null,
   type: 'multipleChoice',
   question: "What does REST mean in RESTful API?",
@@ -478,7 +478,7 @@ questions: {
 },
 {
   number: 32,
-  category: 'js',
+  category: 'mongo',
   assetUrl: null,
   type: 'multipleChoice',
   question: "What is one advantage to a non-relational database over a
@@ -487,6 +487,90 @@ questions: {
     {answerText: "The database schema can be flexible and change without
     changing the relationships between tables, as it would with a
     relational database.", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 33,
+  category: 'mongo',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What's the difference between SQL and Non-SQL databases at a high level?",
+  answers: [
+    {answerText: "SQL databases store data in tables and rows using relational algebra; noSQL databases store data in collections of JSON documents", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 34,
+  category: 'mongo',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What types of NoSQL databases are there?",
+  answers: [
+    {answerText: "Document-oriented, key-value, graph, column-oriented", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 35,
+  category: 'mongo',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What kind of NoSQL database is MongoDB?",
+  answers: [
+    {answerText: "Document-oriented", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 36,
+  category: 'mongo',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What is a namespace in MongoDB?",
+  answers: [
+    {answerText: "The namespace is a combination of the database name and the name of the collection or index...", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 37,
+  category: 'mongo',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What is the ObjectID composed of for a MongoDB record?",
+  answers: [
+    {answerText: "Timestamp, Client Machine ID, Client process ID, 3 byte incremented counter", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
+},
+{
+  number: 38,
+  category: 'api',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What are the two types of API functions in Node?",
+  answers: [
+    {answerText: "blocking and non-blocking", correct: true},
     {answerText: "blah"},
     {answerText: "blah"},
     {answerText: "blah"},
@@ -609,7 +693,7 @@ Mongo
 
 31. What is CRUD?
 
-32. What's the difference between SQL and Non-SQL databases at a high level?
+32. What's the difference between SQL and Non-SQL databases at a high level? (SQL databases store data in tables and rows using relational algebra; noSQL databases store data in collections of JSON documents)
 
 33. What types of NoSQL databases are there?  (Document-oriented, key-value, graph, column-oriented)
 
@@ -628,4 +712,4 @@ API
 
 39. What are endpoints? How do they work?
 
-40. 
+40.
