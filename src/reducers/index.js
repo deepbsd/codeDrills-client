@@ -585,6 +585,20 @@ const initialState = {
           {answerText: "blah"},
           {answerText: "blah"}
         ]
+      },
+      {
+        number: 40,
+        category: 'api',
+        assetUrl: null,
+        type: 'multipleChoice',
+        question: "What HTTP methods are supported by REST?",
+        answers: [
+          {answerText: "GET,POST,PUT,DELETE,OPTIONS,HEAD", correct: true},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"},
+          {answerText: "blah"}
+        ]
       }
   ],
   currentUser: {
@@ -599,12 +613,16 @@ const initialState = {
           numberOfQuizzes: 20,
           totalQuestions: 200,
           totalCorrect: 187,
-          jsQuestionsAnswered: 120,
-          jsQuestionsCorrect: 110,
+          jsQuestionsAnswered: 60,
+          jsQuestionsCorrect: 50,
           cssQuestionsAnswered: 45,
           cssQuestionsCorrect: 42,
           htmlQuestionsAnswered: 35,
           htmlQuestionsCorrect: 35,
+          nodeQuestionsAnswered: 30,
+          nodeQuestionsCorrect: 28,
+          apiQuestionsAnswered: 30,
+          apiQuestionsCorrect: 29
       },
       lastQuizData: {
           totalQuestions: 10,
@@ -627,17 +645,17 @@ const initialState = {
           }
       },
       chartData: {
-        labels: ["JS Questions Answered", "JS Questions Correct", "CSS Questions Answered", "CSS Questions Correct", "HTML Questions Answered", "HTML Questions Correct"],
+        labels: ["JS Questions Answered", "JS Questions Correct", "CSS Questions Answered", "CSS Questions Correct", "HTML Questions Answered", "HTML Questions Correct", "Node Questions Answered","Node Questions Correct","API Questions Answered","API Questions Correct"],
         datasets: [
           {
             label: "Questions Correctly Answered",
-            data: [120, 110, 45, 42, 35, 35],
-            backgroundColor: ['thistle', 'purple', 'orange', 'yellow', 'navy', 'cyan']
+            data: [60, 50, 45, 42, 35, 35, 39, 28, 39, 29],
+            backgroundColor: ['thistle', 'purple', 'orange', 'yellow', 'navy', 'cyan', 'crimson', 'pink', 'green', 'lime']
           }
         ]
       },
       radarData: {
-        labels: ["JS Questions Answered", "JS Questions Correct", "CSS Questions Answered", "CSS Questions Correct", "HTML Questions Answered", "HTML Questions Correct"],
+        labels: ["JS Questions Answered", "JS Questions Correct", "CSS Questions Answered", "CSS Questions Correct", "HTML Questions Answered", "HTML Questions Correct", "Node Questions Answered","Node Questions Correct","API Questions Answered","API Questions Correct"],
         datasets: [
           {
             label: "Questions Correctly Answered",
@@ -647,7 +665,7 @@ const initialState = {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [120, 110, 45, 42, 35, 35],
+            data: [60, 50, 45, 42, 35, 35, 39, 28, 39, 29],
           }
         ]
       }

@@ -604,6 +604,20 @@ questions: {
     {answerText: "blah"},
     {answerText: "blah"}
   ]
+},
+{
+  number: 41,
+  category: 'api',
+  assetUrl: null,
+  type: 'multipleChoice',
+  question: "What HTTP methods are supported by REST?",
+  answers: [
+    {answerText: "GET,POST,PUT,DELETE,OPTIONS,HEAD", correct: true},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"},
+    {answerText: "blah"}
+  ]
 }
 
 
@@ -741,3 +755,5 @@ API
 39. What are endpoints? How do they work?
 
 40. When would I use Postman?
+
+41. What HTTP methods are supported by REST?  (GET,POST,PUT,DELETE,OPTIONS,HEAD)
