@@ -15,11 +15,12 @@ export class Question extends React.Component {
   constructor(props){
     super(props);
     this.startQuiz = this.startQuiz.bind(this);
+    this.selectAnswer = this.selectAnswer.bind(this);
   }
 
-  // startQuiz() {
-  //     this.props.dispatch(startQuiz());
-  // }
+  selectAnswer(choice){
+    alert('You chose: ' + choice);
+  }
 
   startQuiz(testquestions){
 
@@ -65,7 +66,7 @@ export class Question extends React.Component {
         let answers = question.answers.map((answer, index2) => {
             return (
               <Answer assetUrl={question.assetUrl} type={question.type}
-                key={index2} {...answer} />
+               selectAnswer={this.selectAnswer}  key={index2} {...answer} />
             )
           });
 
