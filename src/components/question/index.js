@@ -98,9 +98,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Question);
-
-
-//<button onClick={this.startQuiz(questions)}>Start Quiz</button>
-
-
-//testquestions.length === 31
