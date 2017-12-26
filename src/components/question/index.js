@@ -18,8 +18,8 @@ export class Question extends React.Component {
     this.selectAnswer = this.selectAnswer.bind(this);
   }
 
-  selectAnswer(choice){
-    alert('You chose: ' + choice);
+  selectAnswer(text, correct, selected){
+    alert('Your answer is correct? ' + (correct === selected));
   }
 
   startQuiz(testquestions){
