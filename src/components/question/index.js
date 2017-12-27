@@ -19,7 +19,7 @@ export class Question extends React.Component {
   }
 
   selectAnswer(text, correct, selected){
-    alert('Your answer is correct? ' + (correct === selected));
+    alert('Your answer is correct? ==> ' + (correct === selected));
   }
 
   startQuiz(testquestions){
