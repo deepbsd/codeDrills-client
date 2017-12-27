@@ -690,6 +690,10 @@ export const reducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       loggedIn: !action.loggedIn
     });
+  } else if (action.type === actions.MAKE_SELECTION){
+    return Object.assign({}, state, {
+      questions: action.questions
+    });
   }
   return state;
 };
