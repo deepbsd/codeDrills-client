@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {checkQuestion} from '../../actions'
 
 import Answer from './answer';
 
@@ -18,8 +19,10 @@ export class Question extends React.Component {
     this.selectAnswer = this.selectAnswer.bind(this);
   }
 
-  selectAnswer(text, correct, selected){
-    alert('Your answer is correct? ==> ' + (correct === selected));
+  selectAnswer(questionNumber, correct, selected){
+    //alert('Your answer is correct? ==> ' + (correct === selected));
+
+    this.props.dispatch(checkQuestion(questionNumber, correct, selected));
   }
 
   startQuiz(testquestions){
@@ -66,6 +69,7 @@ export class Question extends React.Component {
         let answers = question.answers.map((answer, index2) => {
             return (
               <Answer assetUrl={question.assetUrl} type={question.type}
+              questionNumber={question.number}  category={question.category}
                selectAnswer={this.selectAnswer}  key={index2} {...answer} />
             )
           });
@@ -79,6 +83,7 @@ export class Question extends React.Component {
                   </iframe> : question.type === 'image' ?
                   <img src={question.assetUrl} alt="alt text" /> : null }
                 {answers}
+                <div>HEYTHERE! {this.props.missedQuestions}</div>
               </ul>
         )
     });
@@ -94,7 +99,9 @@ export class Question extends React.Component {
 
 
 const mapStateToProps = state => ({
-    questions: state.questions
+    questions: state.questions,
+    missedQuestions: state.missedQuestions
+
 });
 
 export default connect(mapStateToProps)(Question);

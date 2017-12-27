@@ -10,9 +10,9 @@ export const loginUser = loggedIn => ({
 });
 
 export const CHECK_QUESTION = 'CHECK_QUESTION';
-export const  checkQuestion = question => ({
+export const  checkQuestion = (answerObj) => ({
   type: CHECK_QUESTION,
-  question
+  answerObj
 });
 
 export const MAKE_SELECTION = 'MAKE_SELECTION';

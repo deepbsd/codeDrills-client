@@ -11,12 +11,17 @@ export default class Answer extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    const text = this.props.answerText;
-    const correct = this.props.correct;
-    const selected = !this.props.chosen;
-    if(text){
-      console.log('Is this correct? ', correct);
-      this.props.selectAnswer(text, correct, selected);
+    const answerObj = {
+      number: this.props.questionNumber,
+      category: this.props.category,
+      text: this.props.answerText,
+      correct: this.props.correct,
+      selected: this.props.chosen
+    }
+
+    if(answerObj.text){
+      //console.log('Is this correct? ', answerObj.correct);
+      this.props.selectAnswer(answerObj);
     } else {
       alert("here's an empty value")
     }

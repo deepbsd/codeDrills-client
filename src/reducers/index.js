@@ -601,6 +601,22 @@ const initialState = {
         ]
       }
   ],
+  missedQuestions: 'blahblahblah',
+  correct: [],
+  incorrect: [],
+  currentQuiz: {
+      someQuestion: {},
+      totals: {
+        correct: [9,16],
+        incorrect: [43,41],
+        js: [],
+        html: [],
+        css: [],
+        node: [],
+        api: [],
+        mongo: []
+      }
+    },
   currentUser: {
       user: {
           username: 'Joe',
@@ -609,19 +625,8 @@ const initialState = {
           email: 'joeblow@whatever.com',
           password: 'sonorapass'
       },
-      currentQuiz: {
-          totals: {
-            correct: [9,16],
-            incorrect: [43,41],
-            js: [],
-            html: [],
-            css: [],
-            node: [],
-            api: [],
-            mongo: []
-          }
-        },
       userData: {
+          missedQuestions: [],
           numberOfQuizzes: 20,
           totalQuestions: 200,
           totalCorrect: 187,
@@ -686,13 +691,12 @@ const initialState = {
 
 export const reducer = (state=initialState, action) => {
   if (action.type === actions.LOGIN_USER) {
-    console.log('A', !action.loggedIn);
     return Object.assign({}, state, {
       loggedIn: !action.loggedIn
     });
-  } else if (action.type === actions.MAKE_SELECTION){
+  } else if (action.type === actions.CHECK_QUESTION){
     return Object.assign({}, state, {
-      questions: action.questions
+      missedQuestions: action.answerObj.text
     });
   }
   return state;
