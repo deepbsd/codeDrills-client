@@ -21,7 +21,6 @@ export class Question extends React.Component {
 
   selectAnswer(questionNumber, correct, selected){
     //alert('Your answer is correct? ==> ' + (correct === selected));
-
     this.props.dispatch(checkQuestion(questionNumber, correct, selected));
   }
 
@@ -83,7 +82,6 @@ export class Question extends React.Component {
                   </iframe> : question.type === 'image' ?
                   <img src={question.assetUrl} alt="alt text" /> : null }
                 {answers}
-                <div>HEYTHERE! {this.props.missedQuestions}</div>
               </ul>
         )
     });

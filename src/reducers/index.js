@@ -601,11 +601,7 @@ const initialState = {
         ]
       }
   ],
-  missedQuestions: 'blahblahblah',
-  correct: [],
-  incorrect: [],
   currentQuiz: {
-      someQuestion: {},
       totals: {
         correct: [9,16],
         incorrect: [43,41],
@@ -695,9 +691,14 @@ export const reducer = (state=initialState, action) => {
       loggedIn: !action.loggedIn
     });
   } else if (action.type === actions.CHECK_QUESTION){
-    return Object.assign({}, state, {
-      missedQuestions: action.answerObj.text
-    });
+    if (action.answerObj.correct){
+      console.log('You got it right!')
+    } else {
+      console.log('You got it wrong!')
+    }
+    // return Object.assign({}, state, {
+    //   missedQuestions: action.answerObj.text
+    // });
   }
   return state;
 };
