@@ -26,10 +26,13 @@ export class Question extends React.Component {
 
 
   selectAnswer(questionNumber, correct, selected){
-    if (this.state.answeredQuestions.includes(questionNumber)){
+    console.log(this.state.answeredQuestions);
+    if (this.state.answeredQuestions.includes(questionNumber.number)){
       alert("You already answered this question!");
     } else {
-      this.state.answeredQuestions.push(questionNumber);
+      this.setState({
+        answeredQuestions: [...this.state.answeredQuestions, questionNumber.number]
+      })
       this.props.dispatch(checkQuestion(questionNumber, correct, selected));
     }
   }
