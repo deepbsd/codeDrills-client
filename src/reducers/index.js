@@ -613,6 +613,8 @@ const initialState = {
         mongo: []
       }
     },
+  missedQuestions: [],
+  correctQuestions: [],
   currentUser: {
       user: {
           username: 'Joe',
@@ -692,13 +694,16 @@ export const reducer = (state=initialState, action) => {
     });
   } else if (action.type === actions.CHECK_QUESTION){
     if (action.answerObj.correct){
-      console.log('You got it right!')
+      console.log('You got it right!');
+      return Object.assign({}, state, {
+        correctQuestions: [...state.correctQuestions, action.answerObj.number]
+      })
     } else {
       console.log('You got it wrong!')
+      return Object.assign({}, state, {
+        missedQuestions: [...state.missedQuestions, action.answerObj.number]
+      })
     }
-    // return Object.assign({}, state, {
-    //   missedQuestions: action.answerObj.text
-    // });
   }
   return state;
 };

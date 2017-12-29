@@ -17,11 +17,21 @@ export class Question extends React.Component {
     super(props);
     this.startQuiz = this.startQuiz.bind(this);
     this.selectAnswer = this.selectAnswer.bind(this);
+
+    this.state = {
+      answeredQuestions: [],
+      quizItems: this.startQuiz(this.props.questions)
+    }
   }
 
+
   selectAnswer(questionNumber, correct, selected){
-    //alert('Your answer is correct? ==> ' + (correct === selected));
-    this.props.dispatch(checkQuestion(questionNumber, correct, selected));
+    if (this.state.answeredQuestions.includes(questionNumber)){
+      alert("You already answered this question!");
+    } else {
+      this.state.answeredQuestions.push(questionNumber);
+      this.props.dispatch(checkQuestion(questionNumber, correct, selected));
+    }
   }
 
   startQuiz(testquestions){
@@ -61,10 +71,12 @@ export class Question extends React.Component {
     return tenQuestions;
   }
 
+
+
     render() {
-      const quizItems = this.startQuiz(this.props.questions);
-      console.log(quizItems, 'Type is: ', typeof quizItems);
-      const questions = quizItems.map((question, index1) => {
+
+      console.log(this.state.quizItems, 'Type is: ', typeof this.state.quizItems);
+      const questions = this.state.quizItems.map((question, index1) => {
         let answers = question.answers.map((answer, index2) => {
             return (
               <Answer assetUrl={question.assetUrl} type={question.type}
@@ -89,6 +101,10 @@ export class Question extends React.Component {
       return (
               <div class="questionWrap">
                 {questions}
+                <div>
+                <p>Missed:{this.props.missedQuestions}</p>
+                <p>Correct:{this.props.correctQuestions}</p>
+                </div>
               </div>
       );
 
@@ -98,7 +114,8 @@ export class Question extends React.Component {
 
 const mapStateToProps = state => ({
     questions: state.questions,
-    missedQuestions: state.missedQuestions
+    missedQuestions: state.missedQuestions,
+    correctQuestions: state.correctQuestions
 
 });
 
