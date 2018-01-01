@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {checkQuestion} from '../../actions'
+import {checkQuestion} from '../../actions';
+import {updateCurrent} from '../../actions';
 
 import Answer from './answer';
 
@@ -44,7 +45,7 @@ export class Question extends React.Component {
   updateCurrent(){
     console.log('Updating Current Data, Yo!');
     console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
-    if (this.state.answeredQuestions.length > 9){
+
       let categ, categ_right;
       this.state.answeredQuestions.map((q_number, index) => {
         categ = this.props.questions[q_number-1].category;
@@ -58,8 +59,8 @@ export class Question extends React.Component {
           console.log('Local StateObj: ',this.state.currentQuiz );
         }
       })
-    }
     // dispatch statement for updateCurrent() will go here...
+    this.props.dispatch(updateCurrent(this.state.currentQuiz));
   }
 
   selectAnswer(questionNumber, correct, selected){
@@ -71,6 +72,7 @@ export class Question extends React.Component {
         answeredQuestions: [...this.state.answeredQuestions, questionNumber.number]
       })
       this.props.dispatch(checkQuestion(questionNumber, correct, selected));
+      if (this.state.answeredQuestions.length > 9) this.updateCurrent();
     }
   }
 
@@ -146,6 +148,7 @@ export class Question extends React.Component {
                   <p>Missed: {this.props.missedQuestions.join(', ')}</p>
                   <p>Correct: {this.props.correctQuestions.join(', ')}</p>
                 </div>
+                  <p>Cool Object: {JSON.stringify(this.props.currentQuiz)}</p>
               </div>
       );
 
@@ -156,7 +159,8 @@ export class Question extends React.Component {
 const mapStateToProps = state => ({
     questions: state.questions,
     missedQuestions: state.missedQuestions,
-    correctQuestions: state.correctQuestions
+    correctQuestions: state.correctQuestions,
+    currentQuiz: state.currentQuiz
 
 });
 
