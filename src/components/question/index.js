@@ -45,8 +45,17 @@ export class Question extends React.Component {
     console.log('Updating Current Data, Yo!');
     console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
     if (this.state.answeredQuestions.length > 9){
-      this.state.answeredQuestions.map((question, index) => {
+      let categ, categ_right;
+      this.state.answeredQuestions.map((q_number, index) => {
+        categ = this.props.questions[q_number-1].category;
+        categ_right = categ+'_right';
+        console.log('category: ',this.props.questions[q_number-1].category)
 
+        this.state.currentQuiz[categ].push(q_number);
+        if (this.props.correctQuestions.includes(q_number)){
+          this.state.currentQuiz[categ_right].push(q_number);
+          console.log('StateObj: ',this.state.currentQuiz );
+        }
       })
     }
   }
