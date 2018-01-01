@@ -701,7 +701,7 @@ export const reducer = (state=initialState, action) => {
     } else {
       console.log('You got it wrong!')
       return Object.assign({}, state, {
-        missedQuestions: [...state.currentUser.userData.missedQuestions, action.answerObj.number]
+        missedQuestions: [...state.missedQuestions, action.answerObj.number]
       })
     }
   }
