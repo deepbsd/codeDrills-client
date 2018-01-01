@@ -50,12 +50,14 @@ export class Question extends React.Component {
       this.state.answeredQuestions.map((q_number, index) => {
         categ = this.props.questions[q_number-1].category;
         categ_right = categ+'_right';
-        console.log('category: ',this.props.questions[q_number-1].category)
 
-        this.state.currentQuiz[categ].push(q_number);
         this.state.currentQuiz.correct = this.props.correctQuestions;
         this.state.currentQuiz.incorrect = this.props.missedQuestions;
-        if (this.props.correctQuestions.includes(q_number)){
+
+        if (!this.state.currentQuiz[categ].includes(q_number)) {
+          this.state.currentQuiz[categ].push(q_number);
+        }
+        if ((this.props.correctQuestions.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
           // tried using setState() but couldn't get it to work--this works though...
           this.state.currentQuiz[categ_right].push(q_number);
           console.log('Local StateObj: ',this.state.currentQuiz );
