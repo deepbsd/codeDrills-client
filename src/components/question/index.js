@@ -53,11 +53,13 @@ export class Question extends React.Component {
 
         this.state.currentQuiz[categ].push(q_number);
         if (this.props.correctQuestions.includes(q_number)){
+          // tried using setState() but couldn't get it to work--this works though...
           this.state.currentQuiz[categ_right].push(q_number);
-          console.log('StateObj: ',this.state.currentQuiz );
+          console.log('Local StateObj: ',this.state.currentQuiz );
         }
       })
     }
+    // dispatch statement for updateCurrent() will go here...
   }
 
   selectAnswer(questionNumber, correct, selected){
