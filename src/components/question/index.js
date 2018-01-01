@@ -105,8 +105,8 @@ export class Question extends React.Component {
               <div class="questionWrap">
                 {questions}
                 <div>
-                  <p>Missed: {this.props.missedQuestions.join()}</p>
-                  <p>Correct: {this.props.correctQuestions.join()}</p>
+                  <p>Missed: {this.props.missedQuestions.join(', ')}</p>
+                  <p>Correct: {this.props.correctQuestions.join(', ')}</p>
                 </div>
               </div>
       );

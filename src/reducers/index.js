@@ -602,16 +602,14 @@ const initialState = {
       }
   ],
   currentQuiz: {
-      totals: {
-        correct: [9,16],
-        incorrect: [43,41],
+        correct: [],
+        incorrect: [],
         js: [],
         html: [],
         css: [],
         node: [],
         api: [],
         mongo: []
-      }
     },
   missedQuestions: [],
   correctQuestions: [],
