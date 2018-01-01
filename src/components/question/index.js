@@ -17,13 +17,39 @@ export class Question extends React.Component {
     super(props);
     this.startQuiz = this.startQuiz.bind(this);
     this.selectAnswer = this.selectAnswer.bind(this);
+    this.updateCurrent = this.updateCurrent.bind(this);
 
     this.state = {
       answeredQuestions: [],
+      currentQuiz: {
+        correct: [],
+        incorrect: [],
+        js: [],
+        js_right: [],
+        html: [],
+        html_right: [],
+        css: [],
+        css_right: [],
+        node: [],
+        node_right: [],
+        api: [],
+        api_right: [],
+        mongo: [],
+        mongo_right: []
+      },
       quizItems: this.startQuiz(this.props.questions)
     }
   }
 
+  updateCurrent(){
+    console.log('Updating Current Data, Yo!');
+    console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
+    if (this.state.answeredQuestions.length > 9){
+      this.state.answeredQuestions.map((question, index) => {
+
+      })
+    }
+  }
 
   selectAnswer(questionNumber, correct, selected){
     console.log(this.state.answeredQuestions);
@@ -84,7 +110,8 @@ export class Question extends React.Component {
             return (
               <Answer assetUrl={question.assetUrl} type={question.type}
               questionNumber={question.number}  category={question.category}
-               selectAnswer={this.selectAnswer}  key={index2} {...answer} />
+               selectAnswer={this.selectAnswer}  updateCurrent={this.updateCurrent}
+               key={index2} {...answer} />
             )
           });
 

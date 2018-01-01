@@ -22,6 +22,7 @@ export default class Answer extends React.Component {
     if(answerObj.text){
       //console.log('Is this correct? ', answerObj.correct);
       this.props.selectAnswer(answerObj);
+      this.props.updateCurrent();
     } else {
       alert("here's an empty value")
     }

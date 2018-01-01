@@ -605,11 +605,17 @@ const initialState = {
         correct: [],
         incorrect: [],
         js: [],
+        js_right: [],
         html: [],
+        html_right: [],
         css: [],
+        css_right: [],
         node: [],
+        node_right: [],
         api: [],
-        mongo: []
+        api_right: [],
+        mongo: [],
+        mongo_right: []
     },
   missedQuestions: [],
   correctQuestions: [],
@@ -702,6 +708,11 @@ export const reducer = (state=initialState, action) => {
         missedQuestions: [...state.missedQuestions, action.answerObj.number]
       })
     }
+  } else if (action.type === actions.UPDATE_CURRENT){
+    console.log('Updating user data with quiz results now...')
+    return Object.assign({}, state, {
+      currentQuiz: [...state.currentQuiz, action.currentQuizObj]
+    })
   }
   return state;
 };

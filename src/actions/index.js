@@ -15,8 +15,8 @@ export const  checkQuestion = (answerObj) => ({
   answerObj
 });
 
-export const MAKE_SELECTION = 'MAKE_SELECTION';
-export const makeSelection = question => ({
-  type: MAKE_SELECTION,
-  question
+export const UPDATE_CURRENT = 'UPDATE_CURRENT';
+export const updateCurrent = quizData => ({
+  type: UPDATE_CURRENT,
+  quizData
 })
