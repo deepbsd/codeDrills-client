@@ -43,7 +43,7 @@ export class Question extends React.Component {
   }
 
   updateCurrent(){
-    console.log('Updating Current Data, Yo!');
+
     console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
 
       let categ, categ_right;
@@ -58,25 +58,30 @@ export class Question extends React.Component {
           this.state.currentQuiz[categ].push(q_number);
         }
         if ((this.props.correctQuestions.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
-          // tried using setState() but couldn't get it to work--this works though...
           this.state.currentQuiz[categ_right].push(q_number);
           console.log('Local StateObj: ',this.state.currentQuiz );
         }
       })
     // dispatch statement for updateCurrent() will go here...
-    this.props.dispatch(updateCurrent(this.state.currentQuiz));
+    // this.props.dispatch(updateCurrent(this.state.currentQuiz));
   }
 
   selectAnswer(questionNumber, correct, selected){
-    console.log(this.state.answeredQuestions);
+    console.log('from selectAnswer() -- ',this.state.answeredQuestions);
     if (this.state.answeredQuestions.includes(questionNumber.number)){
       alert("You already answered this question!");
     } else {
-      this.setState({
-        answeredQuestions: [...this.state.answeredQuestions, questionNumber.number]
-      })
+      // this.setState({
+      //   answeredQuestions: [...this.state.answeredQuestions, questionNumber.number]
+      // })
+      this.state.answeredQuestions.push(questionNumber.number);
       this.props.dispatch(checkQuestion(questionNumber, correct, selected));
-      if (this.state.answeredQuestions.length > 9) this.updateCurrent();
+      if (this.state.answeredQuestions.length > 9){
+         this.updateCurrent();
+         this.props.dispatch(updateCurrent(this.state.currentQuiz));
+         console.log('Updating Current Data, Yo!');
+         console.log('Object: ',this.props.currentQuiz);
+       }
     }
   }
 
