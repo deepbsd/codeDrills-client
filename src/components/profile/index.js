@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Userstats from '../userStats/userStats';
-import Userdetails from '../userDetails/userDetails';
+import Userstats from '../userStats';
+import Userdetails from '../userDetails';
 import {BarChart, PieChart, PolarChart, LineChart, RadarChart} from '../chart';
 
 
