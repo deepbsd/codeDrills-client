@@ -68,21 +68,19 @@ export class Question extends React.Component {
           console.log('Local StateObj: ',this.state.currentQuiz );
         }
     })
-    // dispatch statement for updateCurrent() will go here...
-    // this.props.dispatch(updateCurrent(this.state.currentQuiz));
   }
 
   selectAnswer(questionNumber, correct, selected){
     if (this.state.answeredQuestions.includes(questionNumber.number)){
       alert("You already answered this question!");
     } else {
+      // ** this setState() call wasn't working before, but the arr.push() worked great.
       // this.setState({
       //   answeredQuestions: [...this.state.answeredQuestions, questionNumber.number]
       // })
       this.state.answeredQuestions.push(questionNumber.number);
       this.props.dispatch(checkQuestion(questionNumber, correct, selected));
       if (this.state.answeredQuestions.length > 9){
-         // this.updateCurrent();
          this.props.dispatch(updateCurrent(this.state.currentQuiz));
          console.log('**Updating Current Data, Yo!');
          console.log('**Global Object: ',this.props.currentQuiz);
@@ -99,7 +97,6 @@ export class Question extends React.Component {
       let length = arr.length;
     	for (var i = 1; i <= 10; i++){
     		let randnum = Math.round(Math.random()*length);
-    		//console.log('Randnum is ',randnum)
     		if (newquestions.includes(randnum)) {
     			console.log('Repeating!  Number: ',randnum,' already in ',newquestions)
     			return getQuestions(arr);
