@@ -162,6 +162,7 @@ export class Question extends React.Component {
                   <p>Correct: {this.props.correctQuestions.join(', ')}</p>
                 </div>
                   <p>Cool Object: {JSON.stringify(this.props.currentQuiz)}</p>
+                  <p>missedQuestions: {JSON.stringify(this.props.currentUser)}</p>
               </div>
       );
 
