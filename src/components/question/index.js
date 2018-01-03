@@ -70,7 +70,7 @@ export class Question extends React.Component {
     })
   }
 
-  selectAnswer(questionNumber, correct, selected){
+  selectAnswer(questionNumber, correct){
     if (this.state.answeredQuestions.includes(questionNumber.number)){
       alert("You already answered this question!");
     } else {
@@ -79,7 +79,7 @@ export class Question extends React.Component {
       //   answeredQuestions: [...this.state.answeredQuestions, questionNumber.number]
       // })
       this.state.answeredQuestions.push(questionNumber.number);
-      this.props.dispatch(checkQuestion(questionNumber, correct, selected));
+      this.props.dispatch(checkQuestion(questionNumber, correct));
       if (this.state.answeredQuestions.length > 9){
          this.props.dispatch(updateCurrent(this.state.currentQuiz));
          console.log('**Updating Current Data, Yo!');
