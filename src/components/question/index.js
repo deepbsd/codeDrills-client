@@ -42,26 +42,32 @@ export class Question extends React.Component {
     }
   }
 
-  updateCurrent(){
-
+  updateCurrent(questionNumber, correct){
     console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
+    // I've been having a hard time getting the last update
+    // to show up in the local state object
+    if (correct) {
+      this.state.currentQuiz.correct.push(questionNumber);
+    } else {
+      this.state.currentQuiz.incorrect.push(questionNumber);
+    }
 
-      let categ, categ_right;
-      this.state.answeredQuestions.map((q_number, index) => {
+    let categ, categ_right;
+    this.state.answeredQuestions.map((q_number, index) => {
         categ = this.props.questions[q_number-1].category;
         categ_right = categ+'_right';
 
-        this.state.currentQuiz.correct = this.props.correctQuestions;
-        this.state.currentQuiz.incorrect = this.props.missedQuestions;
-
+        // add the question number to the local state object category
         if (!this.state.currentQuiz[categ].includes(q_number)) {
           this.state.currentQuiz[categ].push(q_number);
         }
+        // if the question was answered correctly, also add it to categ_right
         if ((this.props.correctQuestions.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
           this.state.currentQuiz[categ_right].push(q_number);
+
           console.log('Local StateObj: ',this.state.currentQuiz );
         }
-      })
+    })
     // dispatch statement for updateCurrent() will go here...
     // this.props.dispatch(updateCurrent(this.state.currentQuiz));
   }
@@ -78,10 +84,11 @@ export class Question extends React.Component {
       if (this.state.answeredQuestions.length > 9){
          // this.updateCurrent();
          this.props.dispatch(updateCurrent(this.state.currentQuiz));
-         console.log('Updating Current Data, Yo!');
-         console.log('Object: ',this.props.currentQuiz);
+         console.log('**Updating Current Data, Yo!');
+         console.log('**Global Object: ',this.props.currentQuiz);
        }
     }
+    console.log('After updateCurrentIf: ', this.props.currentQuiz);
     console.log('from selectAnswer() -- ',this.state.answeredQuestions);
   }
 
