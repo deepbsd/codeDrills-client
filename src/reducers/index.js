@@ -710,16 +710,12 @@ export const reducer = (state=initialState, action) => {
     }
   } else if (action.type === actions.UPDATE_CURRENT){
     console.log('Updating user data with quiz results now...')
-    return {
-      ...state,
+    return Object.assign({}, state, {
       currentQuiz: action.quizData,
-      currentUser: {
-        userData: {
-          //missedQuestions: [...state.currentUser.userData.missedQuestions, action.quizData.incorrect.length]
-          missedQuestions: [...state.currentUser.userData.missedQuestions, 22]
-        }
+      currentUser:  {
+        userData: action.quizData
       }
-    }
+    })
   }
   return state;
 };
