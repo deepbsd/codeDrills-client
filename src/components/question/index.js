@@ -174,7 +174,8 @@ const mapStateToProps = state => ({
     questions: state.questions,
     missedQuestions: state.missedQuestions,
     correctQuestions: state.correctQuestions,
-    currentQuiz: state.currentQuiz
+    currentQuiz: state.currentQuiz,
+    currentUser: state.currentUser
 
 });
 
