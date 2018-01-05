@@ -677,7 +677,7 @@ const initialState = {
         ]
       },
       radarData: {
-        labels: ["JS Questions Correct","CSS Questions Correct", "HTML Questions Correct","Node Questions Correct","API Questions Correct"],
+        labels: ["JS Pct","CSS Pct", "HTML Pct","Node Pct","API Pct"],
         datasets: [
           {
             label: "Questions Correctly Answered",
