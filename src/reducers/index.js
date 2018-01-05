@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+import update from 'immutability-helper';
 
 import question5 from './img/question5.png';
 import question9 from './img/question9.png';
@@ -710,11 +711,12 @@ export const reducer = (state=initialState, action) => {
     }
   } else if (action.type === actions.UPDATE_CURRENT){
     console.log('Updating user data with quiz results now...')
+    const newUserData = update(state.currentUser,
+      {userData: {$set: action.quizData}
+    })
     return Object.assign({}, state, {
       currentQuiz: action.quizData,
-      currentUser:  {
-        userData: action.quizData
-      }
+      currentUser:  newUserData
     })
   }
   return state;
