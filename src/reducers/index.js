@@ -642,7 +642,9 @@ const initialState = {
           nodeQuestionsAnswered: 30,
           nodeQuestionsCorrect: 28,
           apiQuestionsAnswered: 30,
-          apiQuestionsCorrect: 29
+          apiQuestionsCorrect: 29,
+          mongoQuestionsAnswered: 0,
+          mongoQuestionsCorrect: 0
       },
       lastQuizData: {
           totalQuestions: 10,
@@ -711,13 +713,43 @@ export const reducer = (state=initialState, action) => {
     }
   } else if (action.type === actions.UPDATE_CURRENT){
     console.log('Updating user data with quiz results now...')
-    const newUserData = update(state.currentUser,
-      {userData: {$set: action.quizData}
+    const newUserData = update(state.currentUser.userData,
+      {missedQuestions: {$push: action.quizData.incorrect},
+      numberOfQuizzes: {$apply: function(n) {return n+1;}},
+      totalQuestions: {$apply: function(n) {return n+10;}},
+      totalCorrect: {$apply: function(n) {return n+action.quizData.correct.length}},
+      jsQuestionsAnswered: {$apply: function(n) {return n+action.quizData.js.length}},
+      jsQuestionsCorrect: {$apply: function(n) {return n+action.quizData.js_right.length}},
+      cssQuestionsAnswered: {$apply: function(n) {return n+action.quizData.css.length}},
+      cssQuestionsCorrect: {$apply: function(n) {return n+action.quizData.css_right.length}},
+      htmlQuestionsAnswered: {$apply: function(n) {return n+action.quizData.html.length}},
+      htmlQuestionsCorrect: {$apply: function(n) {return n+action.quizData.html_right.length}},
+      nodeQuestionsAnswered: {$apply: function(n) {return n+action.quizData.node.length}},
+      nodeQuestionsCorrect: {$apply: function(n) {return n+action.quizData.node_right.length}},
+      apiQuestionsAnswered: {$apply: function(n) {return n+action.quizData.api.length}},
+      apiQuestionsCorrect: {$apply: function(n) {return n+action.quizData.api_right.length}},
+      mongoQuestionsAnswered: {$apply: function(n) {return n+action.quizData.mongo.length}},
+      mongoQuestionsCorrect: {$apply: function(n) {return n+action.quizData.mongo_right.length}}
     })
-    return Object.assign({}, state, {
-      currentQuiz: action.quizData,
-      currentUser:  newUserData
-    })
+    return {
+        ...state,
+        currentQuiz: action.quizData,
+        currentUser: {
+          userData: newUserData
+        }
+    }
   }
   return state;
 };
+
+
+
+
+
+
+
+  //   return Object.assign({}, state, {
+  //     currentQuiz: action.quizData,
+  //     currentUser:  newUserData
+  //   })
+  // }
