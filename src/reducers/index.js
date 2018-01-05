@@ -643,12 +643,12 @@ const initialState = {
           nodeQuestionsCorrect: 28,
           apiQuestionsAnswered: 30,
           apiQuestionsCorrect: 29,
-          mongoQuestionsAnswered: 0,
-          mongoQuestionsCorrect: 0
+          mongoQuestionsAnswered: 5,
+          mongoQuestionsCorrect: 5
       },
       lastQuizData: {
           totalQuestions: 10,
-          dateOfQuiz: new Date("2017-06-10T16:08:00"),
+          dateOfQuiz: new Date("2017-06-12T16:08:00"),
           totalCorrect: 9,
           timeOnQuiz: 1000340
       },

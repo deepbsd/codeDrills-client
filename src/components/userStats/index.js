@@ -38,6 +38,24 @@ export default function Userstats(props) {
                   <tr>
                   <td>Questions Correct:</td><td>{props.userData.cssQuestionsCorrect}</td>
                   </tr>
+
+                  <th rowspan="2">Node Questions ({Math.round((props.userData.nodeQuestionsCorrect/props.userData.nodeQuestionsAnswered)*100)}%)</th>
+                    <td>Questions Asked:</td><td>{props.userData.nodeQuestionsAnswered}</td>
+                    <tr>
+                    <td>Questions Correct:</td><td>{props.userData.nodeQuestionsCorrect}</td>
+                    </tr>
+
+                  <th rowspan="2">API Questions ({Math.round((props.userData.apiQuestionsCorrect/props.userData.apiQuestionsAnswered)*100)}%)</th>
+                    <td>Questions Asked:</td><td>{props.userData.apiQuestionsAnswered}</td>
+                    <tr>
+                    <td>Questions Correct:</td><td>{props.userData.apiQuestionsCorrect}</td>
+                    </tr>
+
+                  <th rowspan="2">Mongo Questions ({Math.round((props.userData.mongoQuestionsCorrect/props.userData.mongoQuestionsAnswered)*100)}%)</th>
+                    <td>Questions Asked:</td><td>{props.userData.mongoQuestionsAnswered}</td>
+                    <tr>
+                    <td>Questions Correct:</td><td>{props.userData.mongoQuestionsCorrect}</td>
+                    </tr>
               </tbody>
             </table>
             </div>
