@@ -680,8 +680,33 @@ const initialState = {
         labels: ["JS Pct","CSS Pct", "HTML Pct","Node Pct","API Pct"],
         datasets: [
           {
-            label: "Questions Correctly Answered",
+            label: "Overall Percentages",
             backgroundColor: 'rgba(255, 204, 204,0.7)',
+            borderColor: 'rgba(255,99,132,1)',
+            pointBackgroundColor: 'rgba(255,99,132,1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(255,99,132,1)',
+            data: [50/60, 42/45, 35/35, 28/30, 29/30],
+          },
+          {
+            label: "Latest Percentages",
+            backgroundColor: 'rgba(255, 200, 132,0.7)',
+            borderColor: 'rgba(255,99,132,1)',
+            pointBackgroundColor: 'rgba(255,99,132,1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(255,99,132,1)',
+            data: [58/60, 45/45, 34/35, 29/30, 30/30],
+          }
+        ]
+      },
+      polarData: {
+        labels: ["JS Pct","CSS Pct", "HTML Pct","Node Pct","API Pct"],
+        datasets: [
+          {
+            label: "Questions Correctly Answered",
+            backgroundColor: ['purple', 'thistle', 'orange', 'yellow', '#0033ff', 'cyan', 'crimson', '#ff0066', 'green', 'lime'],
             borderColor: 'rgba(255,99,132,1)',
             pointBackgroundColor: 'rgba(255,99,132,1)',
             pointBorderColor: '#fff',

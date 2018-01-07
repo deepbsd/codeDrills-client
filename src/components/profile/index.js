@@ -28,7 +28,7 @@ export class Profile extends React.Component {
                 <BarChart barChartData={currentUser.chartData} />
                 <PieChart pieChartData={currentUser.chartData} />
                 <RadarChart radarChartData={currentUser.radarData} />
-                <PolarChart polarChartData={currentUser.radarData} />
+                <PolarChart polarChartData={currentUser.polarData} />
             </div>
         );
     }
