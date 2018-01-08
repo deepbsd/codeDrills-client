@@ -766,15 +766,3 @@ export const reducer = (state=initialState, action) => {
   }
   return state;
 };
-
-
-
-
-
-
-
-  //   return Object.assign({}, state, {
-  //     currentQuiz: action.quizData,
-  //     currentUser:  newUserData
-  //   })
-  // }
