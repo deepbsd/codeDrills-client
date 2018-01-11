@@ -314,7 +314,7 @@ const initialState = {
         type: 'image',
         question: "Identify the callback in this example:",
         answers: [
-          {answerText: "correct answer from example...", chosen: false, correct: true},
+          {answerText: "It's the ES6 style function with the rocket operator.", chosen: false, correct: true},
           {answerText: "blah", chosen: false},
           {answerText: "blah", chosen: false},
           {answerText: "blah", chosen: false},
