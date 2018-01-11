@@ -94,7 +94,7 @@ export class Question extends React.Component {
 
     function getQuestions(arr) {
     	let newquestions = []
-      let length = arr.length;
+      let length = arr.length-1;
     	for (var i = 1; i <= 10; i++){
     		let randnum = Math.round(Math.random()*length);
     		if (newquestions.includes(randnum)) {
@@ -112,11 +112,9 @@ export class Question extends React.Component {
     let tenQuestions = [];
 
     randnums.forEach(function(num){
-      console.log('Number: ',num);
+      console.log('Number: ',num, ' question: ', testquestions[num].number);
       if (testquestions[num]){
         tenQuestions.push(testquestions[num]);
-      // } else if (num === testquestions.length){
-      //   tenQuestions.push(testquestions[testquestions.length-1]);
       } else {
         console.log('Major Boo Boo!  ',num);
       }
