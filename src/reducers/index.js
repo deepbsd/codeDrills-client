@@ -10,6 +10,39 @@ import question20 from './img/question20.png';
 
 const initialState = {
       loggedIn: true,
+      blurbs: [
+        {title: null,
+        blurb: `CodeDrills helps web developers practice for technical interviews.
+                    Here you can take quizzes about HTML, CSS, and many aspects of JS
+                    to help you prepare for technical interview questions. The
+                    interview is your bridge from where you are in your career to
+                    where you want to be.`
+      },
+      {title: 'title2',
+      blurb: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              cursus metus eget libero maximus gravida. Fusce tincidunt nibh vel odio
+              gravida, nec sodales ex hendrerit. In tempus arcu vitae neque pretium
+              congue. Nam in dictum sem. Sed risus mauris, iaculis et varius ut, `
+      },
+      {title: 'title3',
+      blurb: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              cursus metus eget libero maximus gravida. Fusce tincidunt nibh vel odio
+              gravida, nec sodales ex hendrerit. In tempus arcu vitae neque pretium
+              congue. Nam in dictum sem. Sed risus mauris, iaculis et varius ut, `
+      },
+      {title: 'title4',
+      blurb: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              cursus metus eget libero maximus gravida. Fusce tincidunt nibh vel odio
+              gravida, nec sodales ex hendrerit. In tempus arcu vitae neque pretium
+              congue. Nam in dictum sem. Sed risus mauris, iaculis et varius ut, `
+      },
+      {title: 'title5',
+      blurb: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              cursus metus eget libero maximus gravida. Fusce tincidunt nibh vel odio
+              gravida, nec sodales ex hendrerit. In tempus arcu vitae neque pretium
+              congue. Nam in dictum sem. Sed risus mauris, iaculis et varius ut, `
+      }
+      ],
       navs: [
       {
           link: "register",

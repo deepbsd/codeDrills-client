@@ -2,17 +2,29 @@ import styled from 'styled-components';
 import bannerImg from '../../img/SanFranGGBridge.jpg';
 
 const Style = {
-  wrapper: styled.div`
-        box-shadow: 4px 15px 5px #607089;
-        font-family: "Comic Sans MS", cursive, sans-serif;
+  banner: styled.div`
         height: 600px;
+        position: relative;
+  `,
+  background: styled.div`
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        height: 100%;
+        left: 0;
         color: blue;
         background: white url("${bannerImg}") no-repeat left bottom;
-        background-size: 100% auto;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
   `,
   head3: styled.div`
-        font-size: 23px;
-        margin-top: 10px 0;
+        display: inline-block;
+        font-size: 48px;
+        position: absolute;
+        right: 10%;
+        top: 10%;
+        transform: translateY(-10%);
   `,
   paragraph: styled.p`
         font-size: 18px;

@@ -1,21 +1,39 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Style from './style';
-
-import logo from '../../logo.svg';
-
+import Blurb from '../blurb';
 
 
-export default function Landing() {
+export class Landing extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  render() {
+
+    const blurbs = this.props.blurbs.map((item, index) => {
+      return (
+        <Blurb key={index} {...item} />
+      )
+    })
+
     return (
-            <Style.wrapper>
-                <Style.head3>Welcome to CodeDrills</Style.head3>
-                <Style.paragraph>
-                  CodeDrills helps web developers practice for technical interviews.
-                  Here you can take quizzes about HTML, CSS, and many aspects of JS
-                  to help you prepare for technical interview questions. The
-                  interview is your bridge from where you are in your career to
-                  where you want to be.
-                </Style.paragraph>
-            </Style.wrapper>
+            <div>
+              <Style.banner>
+                <Style.background />
+                <Style.head3>CodeDrills</Style.head3>
+              </Style.banner>
+              {blurbs}
+            </div>
         );
+      }
 }
+
+
+
+
+const mapStateToProps = state => ({
+    blurbs: state.blurbs
+});
+
+export default connect(mapStateToProps)(Landing);
