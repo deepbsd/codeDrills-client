@@ -8,7 +8,7 @@ export default function Blurb(props) {
 
     return (
       <Style.wrapper>
-          {props.title !== null ? <div><h2>{props.title}</h2> <p>{props.blurb}</p></div> : <p>{props.blurb}</p>}
+          {props.title !== null ? <div><h2>{props.title}</h2> <Style.paragraph>{props.blurb}</Style.paragraph></div> : <Style.paragraph>{props.blurb}</Style.paragraph>}
       </Style.wrapper>
     );
 

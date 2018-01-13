@@ -19,8 +19,9 @@ const Style = {
         z-index: -1;
   `,
   head3: styled.div`
+        color: #667999;
         display: inline-block;
-        font-size: 48px;
+        font-size: 58px;
         position: absolute;
         right: 10%;
         top: 10%;
