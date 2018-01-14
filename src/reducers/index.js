@@ -18,29 +18,28 @@ const initialState = {
                     interview is your bridge from where you are in your career to
                     where you want to be.`
       },
-      {title: 'title2',
-      blurb: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              cursus metus eget libero maximus gravida. Fusce tincidunt nibh vel odio
-              gravida, nec sodales ex hendrerit. In tempus arcu vitae neque pretium
-              congue. Nam in dictum sem. Sed risus mauris, iaculis et varius ut, `
+      {title: 'Track Progress in Categories of Coding',
+      blurb: `There are 40 questions currently, and they cover HTML, CSS, Vanilla JS,
+              Node.js, API's and MongoDB. Each quiz is 10 questions, and your Progress
+              in each category is recorded and displayed in various types of graphs.`
       },
-      {title: 'title3',
-      blurb: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              cursus metus eget libero maximus gravida. Fusce tincidunt nibh vel odio
-              gravida, nec sodales ex hendrerit. In tempus arcu vitae neque pretium
-              congue. Nam in dictum sem. Sed risus mauris, iaculis et varius ut, `
+      {title: 'See Your Progress Visually with Chart.js',
+      blurb: `Chart.js includes support for many different types of graphs, but currently
+              your progress in each category mentioned above is displayed with a pie chart,
+              a radar chart, and a polar chart.  Your latest quiz performance is displayed as a
+              comparison with your historical performance in a radar chart.`
       },
-      {title: 'title4',
-      blurb: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              cursus metus eget libero maximus gravida. Fusce tincidunt nibh vel odio
-              gravida, nec sodales ex hendrerit. In tempus arcu vitae neque pretium
-              congue. Nam in dictum sem. Sed risus mauris, iaculis et varius ut, `
+      {title: 'Full Stack Web Dev Emphasis',
+      blurb: `Today's full stack web developer must be fluent in a host of technologies. These
+              quizzes will focus on the MERN stack (MongoDB, Express.js, React.js, and Node.js).
+              Additionally, questions about API's and non-relational databases in general will
+              be asked.`
       },
-      {title: 'title5',
-      blurb: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              cursus metus eget libero maximus gravida. Fusce tincidunt nibh vel odio
-              gravida, nec sodales ex hendrerit. In tempus arcu vitae neque pretium
-              congue. Nam in dictum sem. Sed risus mauris, iaculis et varius ut, `
+      {title: 'Future Ideas',
+      blurb: `Since this is an early release, it includes a very basic set of functionality.
+              In future releases, I expect that users will be able to add their own questions,
+              will be able to talk in a forum with other developers, and will be able to log in
+              using their Github or Stack Overflow accounts.`
       }
       ],
       navs: [
