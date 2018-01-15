@@ -1,21 +1,19 @@
 import React from 'react';
+import {Style, Img} from './style';
 
-
-import './about.css';
 
 
 export default function About() {
 
     return (
 
-        <div className="aboutPage">
+        <Style.wrapper>
             <h2>About the Author</h2>
-            <img src="#" alt="alternative description" />
-            <p>
+            <Img src="https://avatars0.githubusercontent.com/u/10392722?s=460&v=4" />
+            <Style.paragraph>
                 Dave is a web fullstack web developer who lives in Marietta, GA.
-            </p>
-        </div>
-
+            </Style.paragraph>
+        </Style.wrapper>
     );
 
 }
