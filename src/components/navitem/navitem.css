@@ -3,7 +3,7 @@ li {
     color: #667999;
     display: inline-block;
     font-size: 18px;
-    padding: 5px;
+    padding: 0px;
     position: relative;
     margin-right: 20px;
     text-decoration: none;
@@ -19,7 +19,7 @@ li:hover {
 li:before {
   content: "";
   position: absolute;
-  width: 90%;
+  width: 100%;
   height: 2px;
   bottom: 0;
   left: 0;
