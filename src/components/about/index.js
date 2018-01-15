@@ -9,7 +9,8 @@ export default function About() {
 
         <Style.wrapper>
             <h2>About the Author</h2>
-            <Img src="https://avatars0.githubusercontent.com/u/10392722?s=460&v=4" />
+            <Img src="https://avatars0.githubusercontent.com/u/10392722?s=460&v=4"
+              alt="alternative description"  />
             <Style.paragraph>
                 Dave is a web fullstack web developer who lives in Marietta, GA.
             </Style.paragraph>
