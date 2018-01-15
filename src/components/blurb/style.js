@@ -10,7 +10,13 @@ const Style = {
         margin-top: 0;
         padding: 30px;
         text-align: left;
-  `
+  `,
+  head3: styled.div`
+        color: #42587c;
+        font-size: 28px;
+        margin: 0 0;
+    `,
+
 }
 
 export default Style;
