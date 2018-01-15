@@ -11,7 +11,7 @@ const Style = {
         height: 100%;
         left: 0;
         color: blue;
-        background: white url("${bannerImg}") no-repeat left bottom;
+        background: white url("${bannerImg}") no-repeat center center;
         background-size: cover;
         position: absolute;
         top: 0;
