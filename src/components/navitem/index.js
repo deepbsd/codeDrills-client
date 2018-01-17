@@ -21,6 +21,8 @@ export default class NavItem extends React.Component {
 
             return (
                  this.props.loggedIn === this.props.private ? <li><a href={this.props.href}>{this.props.link}</a></li>
+                 : (this.props.link.match(/^(logout)$/) && this.props.loggedIn) ? <li><a onClick={this.handleClick}>{this.props.link}</a></li>
+                 : (this.props.link.match(/^(login)$/) && !this.props.loggedIn) ? <li><a onClick={this.handleClick}>{this.props.link}</a></li>
                  : null
             );
 
