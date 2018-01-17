@@ -20,7 +20,8 @@ export default class NavItem extends React.Component {
     render() {
 
             return (
-                 this.props.loggedIn === this.props.private ? <li><a href={this.props.href}>{this.props.link}</a></li> : this.props.link === "test" ? <li><a onClick={this.handleClick}>{this.props.link}</a></li> : null
+                 this.props.loggedIn === this.props.private ? <li><a href={this.props.href}>{this.props.link}</a></li>
+                 : null
             );
 
     }

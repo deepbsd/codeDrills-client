@@ -1,18 +1,19 @@
 import React from 'react';
 
+import Style from './style';
 
-import './logout.css';
+
 
 
 export default function Logout() {
 
     return (
-        <div className="logout">
+        <Style.wrapper>
             <ul className="logoutList">
                 <li className="logoutLi"><a href="/">Logout</a></li>
                 <li className="logoutLi"><a href="/profile">Cancel</a></li>
             </ul>
-        </div>
+        </Style.wrapper>
     );
 
 }

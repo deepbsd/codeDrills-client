@@ -67,9 +67,6 @@ const initialState = {
           link: "start quiz",
           href: "/startquiz",
           private: true
-      },
-      {
-          link: "test"
       }
     ],
     questions: [

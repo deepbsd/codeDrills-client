@@ -1,13 +1,14 @@
 import React from 'react';
+import Style from './style';
 
-import './login.css';
+
 
 export default function Login() {
     return (
-        <form className="login">
+        <Style.wrapper>
             Username: <input type="text" name="username" value="username" />
             Password: <input type="text" name="password" value="password" />
-            <input type="submit" value="submit" />
-        </form>
+            <Style.input type="submit" value="submit" />
+        </Style.wrapper>
     );
 }
