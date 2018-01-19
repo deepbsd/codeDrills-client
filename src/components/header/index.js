@@ -16,15 +16,25 @@ class Header extends React.Component {
 
 
     render() {
-        const links = this.props.navs.map((link, index) =>
-            <NavItem className="header" key={index} loggedIn={this.props.loggedIn} testDispatch={this.testDispatch}  {...link} />
+        const links = this.props.navs.map((link, index) => {
+            if (this.props.loggedIn && link.private) {
+              return (
+                <NavItem key={index} {...link}  />
+              )
+            } else if (this.props.loggedIn && !link.private && link.public) {
+              return  false
+            } else if (link.public) {
+              return (
+                <NavItem key={index} {...link} />
+              )
+            }
+          }
+            //<NavItem className="header" key={index} loggedIn={this.props.loggedIn} testDispatch={this.testDispatch}  {...link} />
         );
 
         return (
             <div className="header">
                 {links}
-                <NavItem link="about" href="/about"  />
-
             </div>
         );
     }

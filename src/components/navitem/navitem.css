@@ -12,9 +12,7 @@ li {
 
 li:hover {
   cursor: pointer;
-  font-style: italic;
-  font-weight: bold;
-  color: #667999;
+  color: #6E3034;
 }
 
 li:before {
@@ -24,7 +22,7 @@ li:before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #667999;
+  background-color: #6E3034;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);

@@ -46,27 +46,38 @@ const initialState = {
       {
           link: "register",
           href: "/register",
-          private: false
+          private: false,
+          public: true
+      },
+      {
+          link: "about",
+          href: "/about",
+          private: true,
+          public: true
       },
       {
           link: "login",
           href: "/login",
-          private: false
+          private: false,
+          public: true
       },
       {
           link: "logout",
           href: "/logout",
-          private: true
+          private: true,
+          public: false
       },
       {
           link: "profile",
           href: "/profile",
-          private: true
+          private: true,
+          public: false
       },
       {
           link: "start quiz",
           href: "/startquiz",
-          private: true
+          private: true,
+          public: false
       }
     ],
     questions: [
@@ -750,6 +761,7 @@ const initialState = {
 
 export const reducer = (state=initialState, action) => {
   if (action.type === actions.LOGIN_USER) {
+    console.log('Logged In: '+state.loggedIn);
     return Object.assign({}, state, {
       loggedIn: !action.loggedIn
     });

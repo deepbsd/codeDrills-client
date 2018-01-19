@@ -24,7 +24,7 @@ const Style = {
         font-size: 64px;
         position: absolute;
         right: 10%;
-        top: 10%;
+        top: 20%;
         transform: translateY(-10%);
   `,
   paragraph: styled.p`
