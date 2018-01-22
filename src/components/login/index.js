@@ -27,12 +27,6 @@ export class Login extends React.Component  {
 }
 
 
-// <form className={this.props.type} onSubmit={this.handleSubmit}>
-//     <div>
-//       <input type="text" ref={input => this.textInput = input} />
-//       <button type="submit">{this.props.type === 'item' ? 'Add Item' : 'Create List'}</button>
-//     </div>
-//   </form>
 const mapStateToProps = state => ({
     loggedIn: state.loggedIn
 });
