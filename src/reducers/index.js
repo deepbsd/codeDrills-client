@@ -63,7 +63,7 @@ const initialState = {
       },
       {
           link: "logout",
-          href: "/logout",
+          href: null,
           private: true,
           public: false
       },

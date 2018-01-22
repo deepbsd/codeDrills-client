@@ -1,6 +1,7 @@
 import React from 'react';
 
-import './navitem.css';
+import Style from './style';
+// import './navitem.css';
 
 
 
@@ -12,15 +13,17 @@ export default class NavItem extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault();
-    this.props.testDispatch();
+    if(this.props.doLogout) {
+      e.preventDefault();
+      this.props.doLogout();
+    }
   }
 
 
     render() {
 
             return (
-                  <li><a href={this.props.href}>{this.props.link}</a></li>
+                  <Style.navItem><a href={this.props.href} onClick={this.handleClick} >{this.props.link}</a></Style.navItem>
             );
 
     }

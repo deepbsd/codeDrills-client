@@ -18,6 +18,11 @@ class Header extends React.Component {
     render() {
         const links = this.props.navs.map((link, index) => {
             if (this.props.loggedIn && link.private) {
+              if (link.link === "logout") {
+                return (
+                  <NavItem key={index} {...link} doLogout={this.testDispatch} />
+                )
+              }
               return (
                 <NavItem key={index} {...link}  />
               )

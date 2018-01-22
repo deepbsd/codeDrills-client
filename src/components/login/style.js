@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Style = {
-  wrapper: styled.div`
+  form: styled.form`
         display: inline;
   `,
   input: styled.input`
