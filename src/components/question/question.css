@@ -14,7 +14,7 @@
 .question li:hover {
   color: black;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 1em;
   font-style: normal;
 }
 
