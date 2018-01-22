@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 const Style = {
   form: styled.form`
-        display: inline;
+        padding-left: 30%;
   `,
   input: styled.input`
         border: solid black 1px;
+        display: block;
+        width: 50%;
   `
 }
 

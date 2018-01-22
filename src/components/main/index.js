@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Style from './style';
+
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Landing from '../landing';
@@ -14,7 +16,7 @@ import Question from '../question';
 export default function Main(props) {
     return (
         <Router>
-            <div >
+            <Style.wrapper>
 
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/register" component={Register} />
@@ -23,8 +25,7 @@ export default function Main(props) {
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/startquiz" component={Question} />
 
-
-            </div>
+            </Style.wrapper>
         </Router>
     );
 }
