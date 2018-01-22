@@ -8,11 +8,11 @@ export default function Footer() {
     return (
 
         <Style.wrapper>
-            <ul>
-                <li><a href="https://github.com/deepbsd">Github</a></li>
-                <li><a href="http://www.dsj.net">Home Page</a></li>
-                <li><a href="http://davidsjackson.net/wordpress/">Blog</a></li>
-            </ul>
+          <ul>
+                <Style.listItem><a href="https://github.com/deepbsd">Github</a></Style.listItem>
+                <Style.listItem><a href="http://www.dsj.net">Home Page</a></Style.listItem>
+                <Style.listItem><a href="http://davidsjackson.net/wordpress/">Blog</a></Style.listItem>
+          </ul>
         </Style.wrapper>
 
     );
