@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 
 const Style = {
-  form: styled.form`
-        display: inline;
-  `,
-  input: styled.input`
-        border: solid black 1px;
-  `,
   navItem: styled.li`
         color: #667999;
         display: inline-block;
