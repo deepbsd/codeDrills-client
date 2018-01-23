@@ -18,8 +18,8 @@ export class Login extends React.Component  {
     render(){
       return (
           <Style.form  onSubmit={this.handleSubmit}>
-            <Style.input type="text" name="username" value="username" />
-            <Style.input type="text" name="password" value="password" />
+            <Style.input type="text" name="username" placeholder="username" />
+            <Style.input type="text" name="password" placeholder="password" />
               <Style.input type="submit" value="submit" />
           </Style.form>
       );
