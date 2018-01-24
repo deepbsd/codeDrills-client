@@ -32,8 +32,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Login);
-
-
-  //
-  // Username: <input type="text" name="username" value="username" />
-  // Password: <input type="text" name="password" value="password" />
