@@ -8,6 +8,18 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
         this.testDispatch = this.testDispatch.bind(this);
+        this.apiCall = this.apiCall.bind(this);
+    }
+
+    apiCall() {
+      console.log('starting api call...');
+      fetch(`http://localhost:4000/api/questions`).then(res => {
+          if (!res.ok) {
+              return Promise.reject(res.statusText);
+          }
+          console.log(res.json()) ;
+      })
+
     }
 
     testDispatch() {
@@ -40,6 +52,7 @@ class Header extends React.Component {
         return (
             <div className="header">
                 {links}
+                <button onClick={this.apiCall}>API Test</button>
             </div>
         );
     }
