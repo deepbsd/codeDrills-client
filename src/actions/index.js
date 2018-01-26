@@ -15,8 +15,14 @@ export const  checkQuestion = (answerObj) => ({
   answerObj
 });
 
+export const LOAD_QUESTIONS = 'LOAD_QUESTIONS';
+export const loadQuestions = (questionsArray) => ({
+  type: LOAD_QUESTIONS,
+  questionsArray
+});
+
 export const UPDATE_CURRENT = 'UPDATE_CURRENT';
 export const updateCurrent = quizData => ({
   type: UPDATE_CURRENT,
   quizData
-})
+});
