@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {checkQuestion} from '../../actions';
-import {updateCurrent} from '../../actions';
+import {checkQuestion, updateCurrent, fetchQuestions} from '../../actions';
+
 
 import Answer from './answer';
 
@@ -38,8 +38,20 @@ export class Question extends React.Component {
         mongo: [],
         mongo_right: []
       },
-      quizItems: this.startQuiz(this.props.questions)
+      // quizItems: this.startQuiz(this.props.questions)
+      quizItems: []
     }
+  }
+
+  componentDidMount() {
+      console.log('starting api call IN QUESTIONS COMPONENT...');
+      this.props.dispatch(fetchQuestions());
+      this.setState((prevState, props) => {
+        setTimeout(function() {
+          quizItems: props.questions.questions
+        }, 3000)
+
+      })
   }
 
   updateCurrent(questionNumber, correct){
@@ -90,39 +102,44 @@ export class Question extends React.Component {
     console.log('from selectAnswer() -- ',this.state.answeredQuestions);
   }
 
-  startQuiz(testquestions){
-
-    function getQuestions(arr) {
-    	let newquestions = []
-      let length = arr.length-1;
-    	for (var i = 1; i <= 10; i++){
-    		let randnum = Math.round(Math.random()*length);
-    		if (newquestions.includes(randnum)) {
-    			console.log('Repeating!  Number: ',randnum,' already in ',newquestions)
-    			return getQuestions(arr);
-    		} else {
-    			newquestions.push(randnum);
-    		}
-    	}
-    	return newquestions;
-    }
-
-    let randnums = getQuestions(testquestions);
-
-    let tenQuestions = [];
-
-    randnums.forEach(function(num){
-      console.log('Number: ',num, ' question: ', testquestions[num].number);
-      if (testquestions[num]){
-        tenQuestions.push(testquestions[num]);
-      } else {
-        console.log('Major Boo Boo!  ',num);
-      }
-
-    })
-
-    return tenQuestions;
+  startQuiz(testquestions) {
+    console.log('TESTQUESTIONS: '+testquestions.slice(0,10))
+    return testquestions.slice(0,10);
   }
+
+  // startQuiz(testquestions){
+  //
+  //   function getQuestions(arr) {
+  //   	let newquestions = []
+  //     let length = arr.length-1;
+  //   	for (var i = 1; i <= 10; i++){
+  //   		let randnum = Math.round(Math.random()*length);
+  //   		if (newquestions.includes(randnum)) {
+  //   			console.log('Repeating!  Number: ',randnum,' already in ',newquestions)
+  //   			return getQuestions(arr);
+  //   		} else {
+  //   			newquestions.push(randnum);
+  //   		}
+  //   	}
+  //   	return newquestions;
+  //   }
+  //
+  //   let randnums = getQuestions(testquestions);
+  //
+  //   let tenQuestions = [];
+  //
+  //   randnums.forEach(function(num){
+  //     console.log('Number: ',num, ' question: ', testquestions[num].number);
+  //     if (testquestions[num]){
+  //       tenQuestions.push(testquestions[num]);
+  //     } else {
+  //       console.log('Major Boo Boo!  ',num);
+  //     }
+  //
+  //   })
+  //
+  //   return tenQuestions;
+  // }
 
 
 
@@ -155,6 +172,9 @@ export class Question extends React.Component {
       return (
               <div class="questionWrap">
                 {questions}
+                <p>
+                {JSON.stringify(this.state.quizItems)}
+                </p>
                 <div>
                   <p>Missed: {this.props.missedQuestions.join(', ')}</p>
                   <p>Correct: {this.props.correctQuestions.join(', ')}</p>
