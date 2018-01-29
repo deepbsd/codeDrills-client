@@ -1,3 +1,6 @@
+import {API_BASE_URL} from '../config';
+
+
 export const START_QUIZ = 'START_QUIZ';
 export const startQuiz = () => ({
   type: START_QUIZ,
@@ -15,9 +18,24 @@ export const  checkQuestion = (answerObj) => ({
   answerObj
 });
 
-export const LOAD_QUESTIONS = 'LOAD_QUESTIONS';
-export const loadQuestions = (questionsArray) => ({
-  type: LOAD_QUESTIONS,
+export const fetchQuestions = () => dispatch => {
+  fetch(`${API_BASE_URL}/questions`)
+    .then(res => {
+      if (!res.ok) {
+        console.log('Oops, did not get the questions...');
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .then(questionsArray => {
+        dispatch(loadQuestionsSuccess(questionsArray));
+    });
+    console.log('successfully fetched questions I think...');
+};
+
+export const LOAD_QUESTIONS_SUCCESS = 'LOAD_QUESTIONS_SUCCESS';
+export const loadQuestionsSuccess = (questionsArray) => ({
+  type: LOAD_QUESTIONS_SUCCESS,
   questionsArray
 });
 
