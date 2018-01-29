@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {loginUser, fetchQuestions} from '../../actions';
+import {loginUser} from '../../actions';
 import NavItem from '../navitem';
 
 
@@ -10,10 +10,10 @@ class Header extends React.Component {
         this.testDispatch = this.testDispatch.bind(this);
     }
 
-    componentDidMount() {
-        console.log('starting api call...');
-        this.props.dispatch(fetchQuestions());
-    }
+    // componentDidMount() {
+    //     console.log('starting api call...');
+    //     this.props.dispatch(fetchQuestions());
+    // }
 
     testDispatch() {
       this.props.dispatch(loginUser(this.props.loggedIn));
@@ -21,7 +21,8 @@ class Header extends React.Component {
 
 
     render() {
-        console.log('Questions: '+JSON.stringify(this.props.questions));
+        //let obj = JSON.parse(this.props.questions);
+        console.log('Questions: ' + JSON.stringify(this.props.questions));
         const links = this.props.navs.map((link, index) => {
             if (this.props.loggedIn && link.private) {
               if (link.link === "logout") {
