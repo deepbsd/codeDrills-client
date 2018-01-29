@@ -217,7 +217,7 @@ export const reducer = (state=initialState, action) => {
       })
     }
   } else if (action.type === actions.LOAD_QUESTIONS){
-    console.log('Loading Questions...');
+        console.log('about to load questions...');
     return Object.assign({}, state, {
       questions: action.questionsArray
     })

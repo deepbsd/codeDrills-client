@@ -59,7 +59,8 @@ class Header extends React.Component {
 const mapStateToProps = state => ({
     currentUser: state.currentUser,
     navs: state.navs,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
+    questions: state.questions
 });
 
 export default connect(mapStateToProps)(Header);
