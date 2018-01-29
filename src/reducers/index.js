@@ -216,8 +216,8 @@ export const reducer = (state=initialState, action) => {
         missedQuestions: [...state.missedQuestions, action.answerObj.number]
       })
     }
-  } else if (action.type === actions.LOAD_QUESTIONS){
-        console.log('about to load questions...');
+  } else if (action.type === actions.LOAD_QUESTIONS_SUCCESS){
+        console.log('about to load questions into state...');
     return Object.assign({}, state, {
       questions: action.questionsArray
     })
