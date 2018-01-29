@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {loginUser} from '../../actions';
+import {loginUser, loadQuestions} from '../../actions';
 import NavItem from '../navitem';
 
 
