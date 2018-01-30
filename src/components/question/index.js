@@ -173,6 +173,7 @@ export class Question extends React.Component {
               <div class="questionWrap">
                 {questions}
                 <p>
+                whatever:
                 {JSON.stringify(this.state.quizItems)}
                 </p>
                 <div>
