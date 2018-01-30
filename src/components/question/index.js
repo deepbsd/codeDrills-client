@@ -39,19 +39,12 @@ export class Question extends React.Component {
         mongo_right: []
       },
       // quizItems: this.startQuiz(this.props.questions)
-      quizItems: []
     }
   }
 
   componentDidMount() {
       console.log('starting api call IN QUESTIONS COMPONENT...');
       this.props.dispatch(fetchQuestions());
-      // this.setState((prevState, props) => {
-      //   setTimeout(function() {
-      //     quizItems: props.questions.questions
-      //   }, 3000)
-      //
-      // })
   }
 
   updateCurrent(questionNumber, correct){
@@ -102,24 +95,49 @@ export class Question extends React.Component {
     console.log('from selectAnswer() -- ',this.state.answeredQuestions);
   }
 
-  startQuiz(testquestions) {
-    console.log('TESTQUESTIONS: '+testquestions.slice(0,10))
-    return testquestions.slice(0,10);
+  shuffleArray(array) {
+      // I'm using _array just to have an immutable
+      // array so we don't affect our first result and we apply
+      //the reorder over a brand new one.
+      let _array = [...array];
+      for (var i = _array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = _array[i];
+        _array[i] = _array[j];
+        _array[j] = temp;
+      }
+      return _array;
   }
+
+
+  startQuiz(allQuestions) {
+    // First shuffle the array, following the Fisher-Yates algorithm this
+    // one picks one random element for each original array element, and
+    // then excluding it from the next draw. Just like randomly picking
+    // and ordering from a deck of cards.
+    let shuffled = this.shuffleArray(allQuestions);
+    //Once you have the shuffled array, slice it as you have thought
+    //before because now you're slicing a shuffled array
+    return shuffled.slice(0,10);
+  }
+
 
   // startQuiz(testquestions){
   //
   //   function getQuestions(arr) {
   //   	let newquestions = []
-  //     let length = arr.length-1;
+  //     // let length = arr.length-1;
+  //     let length = arr.length;
   //   	for (var i = 1; i <= 10; i++){
+  //   		// let randnum = Math.round(Math.random()*length);
   //   		let randnum = Math.round(Math.random()*length);
-  //   		if (newquestions.includes(randnum)) {
-  //   			console.log('Repeating!  Number: ',randnum,' already in ',newquestions)
-  //   			return getQuestions(arr);
-  //   		} else {
-  //   			newquestions.push(randnum);
-  //   		}
+  //   		// if (newquestions.includes(randnum)) {
+  //   		// 	console.log('Repeating!  Number: ',randnum,' already in ',newquestions)
+  //   		// 	return getQuestions(arr);
+  //   		// } else {
+  //   		// 	newquestions.push(randnum);
+  //   		// }
+  //       newquestions.push(randnum);  // for debugging purposes, allow duplicates at this point...
   //   	}
   //   	return newquestions;
   //   }
@@ -129,7 +147,8 @@ export class Question extends React.Component {
   //   let tenQuestions = [];
   //
   //   randnums.forEach(function(num){
-  //     console.log('Number: ',num, ' question: ', testquestions[num].number);
+  //     // console.log('Number: ',num, ' question: ', testquestions[num].number);
+  //     console.log('Number: ',num, ' question: ', testquestions[num]);
   //     if (testquestions[num]){
   //       tenQuestions.push(testquestions[num]);
   //     } else {
@@ -145,8 +164,13 @@ export class Question extends React.Component {
 
     render() {
 
-      console.log('RENDERING: ',this.props.questions);
-      const questions = this.state.quizItems.map((question, index1) => {
+      console.log('NOW RENDERING: ',this.props.questions);
+      //Here you will call the startQuiz function, this function will return an array of 10 random questions
+      // You will pass into that function the questions that came from the props, the 40 that you had fetched
+
+      const randQuestions = this.startQuiz(this.props.questions);
+
+      const questions = randQuestions.map((question, index1) => {
         let answers = question.answers.map((answer, index2) => {
             return (
               <Answer assetUrl={question.assetUrl} type={question.type}
@@ -174,7 +198,10 @@ export class Question extends React.Component {
                 {questions}
                 <p>
                 whatever:
-                {JSON.stringify(this.state.quizItems)}
+                {/*JSON.stringify(this.state.quizItems) you don't need quizItems
+                anymore because you have already the questions coming from your
+                props -> this.props.questions */}
+                {JSON.stringify(randQuestions)}
                 </p>
                 <div>
                   <p>Missed: {this.props.missedQuestions.join(', ')}</p>
