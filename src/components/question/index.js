@@ -46,12 +46,12 @@ export class Question extends React.Component {
   componentDidMount() {
       console.log('starting api call IN QUESTIONS COMPONENT...');
       this.props.dispatch(fetchQuestions());
-      this.setState((prevState, props) => {
-        setTimeout(function() {
-          quizItems: props.questions.questions
-        }, 3000)
-
-      })
+      // this.setState((prevState, props) => {
+      //   setTimeout(function() {
+      //     quizItems: props.questions.questions
+      //   }, 3000)
+      //
+      // })
   }
 
   updateCurrent(questionNumber, correct){
@@ -145,7 +145,7 @@ export class Question extends React.Component {
 
     render() {
 
-      console.log(this.state.quizItems, 'Type is: ', typeof this.state.quizItems);
+      console.log('RENDERING: ',this.props.questions);
       const questions = this.state.quizItems.map((question, index1) => {
         let answers = question.answers.map((answer, index2) => {
             return (

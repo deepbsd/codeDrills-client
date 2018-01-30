@@ -217,9 +217,9 @@ export const reducer = (state=initialState, action) => {
       })
     }
   } else if (action.type === actions.LOAD_QUESTIONS_SUCCESS){
-        console.log('about to load questions into state...');
+        console.log('about to load questions into state...', action);
     return Object.assign({}, state, {
-      questions: action.questionsArray
+      questions: [...action.questionsArray.questions]
     })
   } else if (action.type === actions.UPDATE_CURRENT){
     console.log('Updating user data with quiz results now...')
