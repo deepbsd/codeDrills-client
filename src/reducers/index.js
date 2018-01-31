@@ -10,44 +10,6 @@ import question20 from './img/question20.png';
 
 const initialState = {
       loggedIn: true,
-      navs: [
-      {
-          link: "register",
-          href: "/register",
-          private: false,
-          public: true
-      },
-      {
-          link: "about",
-          href: "/about",
-          private: true,
-          public: true
-      },
-      {
-          link: "login",
-          href: "/login",
-          private: false,
-          public: true
-      },
-      {
-          link: "logout",
-          href: null,
-          private: true,
-          public: false
-      },
-      {
-          link: "profile",
-          href: "/profile",
-          private: true,
-          public: false
-      },
-      {
-          link: "start quiz",
-          href: "/startquiz",
-          private: true,
-          public: false
-      }
-    ],
     questions: [],
   currentQuiz: {
         correct: [],
