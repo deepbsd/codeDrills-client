@@ -10,38 +10,6 @@ import question20 from './img/question20.png';
 
 const initialState = {
       loggedIn: true,
-      blurbs: [
-        {title: null,
-        blurb: `CodeDrills helps web developers practice for technical interviews.
-                    Here you can take quizzes about HTML, CSS, and many aspects of JS
-                    to help you prepare for technical interview questions. The
-                    interview is your bridge from where you are in your career to
-                    where you want to be.`
-      },
-      {title: 'Track Progress in Categories of Coding',
-      blurb: `There are 40 questions currently, and they cover HTML, CSS, Vanilla JS,
-              Node.js, API's and MongoDB. Each quiz is 10 questions, and your Progress
-              in each category is recorded and displayed in various types of graphs.`
-      },
-      {title: 'See Your Progress Visually with Chart.js',
-      blurb: `Chart.js includes support for many different types of graphs, but currently
-              your progress in each category mentioned above is displayed with a pie chart,
-              a radar chart, and a polar chart.  Your latest quiz performance is displayed as a
-              comparison with your historical performance in a radar chart.`
-      },
-      {title: 'Full Stack Web Dev Emphasis',
-      blurb: `Today's full stack web developer must be fluent in a host of technologies. These
-              quizzes will focus on the MERN stack (MongoDB, Express.js, React.js, and Node.js).
-              Additionally, questions about API's and non-relational databases in general will
-              be asked.`
-      },
-      {title: 'Future Ideas',
-      blurb: `Since this is an early release, it includes a very basic set of functionality.
-              In future releases, I expect that users will be able to add their own questions,
-              will be able to talk in a forum with other developers, and will be able to log in
-              using their Github or Stack Overflow accounts.`
-      }
-      ],
       navs: [
       {
           link: "register",
