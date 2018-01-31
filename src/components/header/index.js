@@ -22,7 +22,6 @@ class Header extends React.Component {
 
     render() {
         //let obj = JSON.parse(this.props.questions);
-        console.log('Questions: ' + JSON.stringify(this.props.questions));
         const links = this.props.navs.map((link, index) => {
             if (this.props.loggedIn && link.private) {
               if (link.link === "logout") {

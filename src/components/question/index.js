@@ -52,6 +52,10 @@ export class Question extends React.Component {
       this.props.dispatch(fetchQuestions());
   }
 
+  shouldComponentUpdate() {
+      return this.state.answeredQuestions.length === 0 || this.state.answeredQuestions.length>=100;
+  }
+
   updateCurrent(questionNumber, correct){
     console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
     // I've been having a hard time getting the last update
@@ -206,7 +210,7 @@ export class Question extends React.Component {
                 {/*JSON.stringify(this.state.quizItems) you don't need quizItems
                 anymore because you have already the questions coming from your
                 props -> this.props.questions */}
-                {JSON.stringify(randQuestions)}
+                {/*JSON.stringify(randQuestions)*/}
                 </p>
                 <div>
                   <p>Missed: {this.props.missedQuestions.join(', ')}</p>
