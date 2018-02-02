@@ -18,6 +18,27 @@ export const  checkQuestion = (answerObj) => ({
   answerObj
 });
 
+export const fetchUserData = () => dispatch => {
+  fetch(`${API_BASE_URL}/userdata`)
+    .then(res => {
+      if (!res.ok) {
+        console.log('Oops, did not get the user data!');
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .then(currentUser => {
+      dispatch(fetchUserDataSuccess(currentUser))
+    });
+    console.log('successfully fetched userData I think...');
+};
+
+export const FETCH_USER_DATA_SUCCESS = 'FETCH_USER_DATA_SUCCESS';
+export const fetchUserDataSuccess = (currentuser) => ({
+  type: FETCH_USER_DATA_SUCCESS,
+  currentuser
+});
+
 export const fetchQuestions = () => dispatch => {
   fetch(`${API_BASE_URL}/questions`)
     .then(res => {
