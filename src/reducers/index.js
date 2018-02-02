@@ -76,12 +76,12 @@ const initialState = {
           }
       },
       chartData: {
-        labels: ["JS Questions Answered", "JS Questions Correct", "CSS Questions Answered", "CSS Questions Correct", "HTML Questions Answered", "HTML Questions Correct", "Node Questions Answered","Node Questions Correct","API Questions Answered","API Questions Correct"],
+        labels: ["JS Questions Answered", "JS Questions Correct", "CSS Questions Answered", "CSS Questions Correct", "HTML Questions Answered", "HTML Questions Correct", "Node Questions Answered","Node Questions Correct","API Questions Answered","API Questions Correct", "MongoDB Questions Answered", "MongoDB Questions Correct"],
         datasets: [
           {
             label: "Questions Correctly Answered",
-            data: [60, 50, 45, 42, 35, 35, 30, 28, 30, 29],
-            backgroundColor: ['purple', 'thistle', 'orange', 'yellow', '#0033ff', 'cyan', 'crimson', '#ff0066', 'green', 'lime']
+            data: [60, 50, 45, 42, 35, 35, 30, 28, 30, 29, 30, 27],
+            backgroundColor: ['purple', 'thistle', 'orange', 'yellow', '#0033ff', 'cyan', 'crimson', '#ff0066', 'green', 'lime', "#f48f42", "#f46242"]
           }
         ]
       },
@@ -96,7 +96,7 @@ const initialState = {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [50/60, 42/45, 35/35, 28/30, 29/30],
+            data: [50/60, 42/45, 35/35, 28/30, 29/30, 28/30],
           },
           {
             label: "Latest Percentages",
@@ -106,22 +106,22 @@ const initialState = {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [58/60, 45/45, 34/35, 29/30, 30/30],
+            data: [58/60, 45/45, 34/35, 29/30, 30/30, 29/30],
           }
         ]
       },
       polarData: {
-        labels: ["JS Pct","CSS Pct", "HTML Pct","Node Pct","API Pct"],
+        labels: ["JS Pct","CSS Pct", "HTML Pct","Node Pct","API Pct", "MongoDB Pct"],
         datasets: [
           {
             label: "Questions Correctly Answered",
-            backgroundColor: ['purple', 'thistle', 'orange', 'yellow', '#0033ff', 'cyan', 'crimson', '#ff0066', 'green', 'lime'],
+            backgroundColor: ['purple', 'thistle', 'orange', 'yellow', '#0033ff', 'cyan', 'crimson', '#ff0066', 'green', 'lime', "#b7601d"],
             borderColor: 'rgba(255,99,132,1)',
             pointBackgroundColor: 'rgba(255,99,132,1)',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [50/60, 42/45, 35/35, 28/30, 29/30],
+            data: [50/60, 42/45, 35/35, 28/30, 29/30, 30/30],
           }
         ]
       }
