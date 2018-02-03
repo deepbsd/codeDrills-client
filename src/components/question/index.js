@@ -131,45 +131,6 @@ export class Question extends React.Component {
   }
 
 
-  // startQuiz(testquestions){
-  //
-  //   function getQuestions(arr) {
-  //   	let newquestions = []
-  //     // let length = arr.length-1;
-  //     let length = arr.length;
-  //   	for (var i = 1; i <= 10; i++){
-  //   		// let randnum = Math.round(Math.random()*length);
-  //   		let randnum = Math.round(Math.random()*length);
-  //   		// if (newquestions.includes(randnum)) {
-  //   		// 	console.log('Repeating!  Number: ',randnum,' already in ',newquestions)
-  //   		// 	return getQuestions(arr);
-  //   		// } else {
-  //   		// 	newquestions.push(randnum);
-  //   		// }
-  //       newquestions.push(randnum);  // for debugging purposes, allow duplicates at this point...
-  //   	}
-  //   	return newquestions;
-  //   }
-  //
-  //   let randnums = getQuestions(testquestions);
-  //
-  //   let tenQuestions = [];
-  //
-  //   randnums.forEach(function(num){
-  //     // console.log('Number: ',num, ' question: ', testquestions[num].number);
-  //     console.log('Number: ',num, ' question: ', testquestions[num]);
-  //     if (testquestions[num]){
-  //       tenQuestions.push(testquestions[num]);
-  //     } else {
-  //       console.log('Major Boo Boo!  ',num);
-  //     }
-  //
-  //   })
-  //
-  //   return tenQuestions;
-  // }
-
-
 
     render() {
 
