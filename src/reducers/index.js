@@ -55,6 +55,10 @@ export const reducer = (state = initialState, action) => {
         userData: newUserData
       }
     }
+  } else if (action.type === actions.LOAD_MOCK_DATA_SUCCESS) {
+    return Object.assign({}, state, {
+      currentUser: action.mockUserData
+    })
   }
   return state;
 };
