@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-export class rawData extends React.Component {
+export class RawData extends React.Component {
 
   render() {
 
@@ -47,4 +47,4 @@ const mapStateToProps = state => {
   });
 }
 
-export default connect(mapStateToProps)(rawData);
+export default connect(mapStateToProps)(RawData);

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {checkQuestion, updateCurrent, fetchQuestions, fetchMockUserData} from '../../actions';
-import {rawData} from './../rawdata';
+import {RawData} from './../rawdata';
 
 
 import Answer from './answer';
@@ -218,6 +218,10 @@ export class Question extends React.Component {
                 props -> this.props.questions */}
                 {JSON.stringify(randQuestions)}
                 </p>
+                {/*
+                  because this is its own component, you will need to tweak it some that it works properly – right now it does not render properly although React recognizes it.
+                <RawData />
+                */}
               </div>
       );
 
