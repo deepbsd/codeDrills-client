@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {fetchQuestions, fetchMockUserData} from './actions';
 
 import './App.css';
 
@@ -9,6 +11,15 @@ import Header from './components/header';
 import Footer from './components/footer';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+  }
+  
+  componentDidMount() {
+      console.log('starting api call IN QUESTIONS COMPONENT...');
+      this.props.dispatch(fetchMockUserData());
+      this.props.dispatch(fetchQuestions());
+  }
 
   render() {
     return (
@@ -25,4 +36,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  questions: state.questions
+});
+
+export default connect(mapStateToProps)(App);
