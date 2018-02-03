@@ -63,7 +63,7 @@ export default function Userstats(props) {
               <table>
                 <caption>Latest Test:</caption>
                 <tr>
-                <th>Date:</th><th>{props.lastQuiz.dateOfQuiz.getMonth()}/{props.lastQuiz.dateOfQuiz.getDay()}/{props.lastQuiz.dateOfQuiz.getFullYear()}</th>
+                <th>Date:</th><th>{new Date(props.lastQuiz.dateOfQuiz).getMonth()}/{new Date(props.lastQuiz.dateOfQuiz).getDay()}/{new Date(props.lastQuiz.dateOfQuiz).getFullYear()}</th>
                 </tr>
                 <tr><td>Total Questions:</td><td>{props.lastQuiz.totalQuestions}</td></tr>
                 <tr><td>Answered Correctly:</td><td>{props.lastQuiz.totalCorrect/props.lastQuiz.totalQuestions*100}%</td></tr>

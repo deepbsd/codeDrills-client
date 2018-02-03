@@ -15,8 +15,7 @@ export class Profile extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-      console.log('starting to fetch userData: '+this.props.userData);
+    componentWillMount() {
       this.props.dispatch(fetchUserData());
     }
 
@@ -26,7 +25,7 @@ export class Profile extends React.Component {
 
         return (
             <div>
-            {console.log('CAN YOU SEE THIS? '+this.props.currentUser)}
+            {console.log('CAN YOU SEE THIS? '+JSON.stringify(this.props.currentUser))}
             {(!currentUser) ? <h1>Whodat?</h1> :
               <div>
                 <Userdetails user={currentUser.user} />
@@ -43,8 +42,9 @@ export class Profile extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    currentUser: state.currentUser.currentUser,
-    loggedIn: state.loggedIn
+    currentUser: state.currentUser,
+    loggedIn: state.loggedIn,
+
 });
 
 export default connect(mapStateToProps)(Profile);

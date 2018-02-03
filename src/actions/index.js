@@ -30,7 +30,6 @@ export const fetchUserData = () => dispatch => {
     .then(currentUser => {
       dispatch(fetchUserDataSuccess(currentUser))
     });
-    console.log('successfully fetched userData I think...');
 };
 
 export const FETCH_USER_DATA_SUCCESS = 'FETCH_USER_DATA_SUCCESS';
