@@ -175,7 +175,15 @@ export class Question extends React.Component {
       //Here you will call the startQuiz function, this function will return an array of 10 random questions
       // You will pass into that function the questions that came from the props, the 40 that you had fetched
 
+
+
+
+      // the line below is messing up the store
       const randQuestions = this.startQuiz(this.props.questions);
+      // comment in the line below and comment out the line above to verify
+      // const randQuestions = this.startQuiz({"id":"5a6b407ad1bd382e67366c68","number":1,"category":"html","assetUrl":null,"type":"multipleChoice","answers":[{"answerText":"To have the CSS ready so the page can render properly yet not try to execute the JS until the page elements have fully rendered","chosen":false,"correct":true},{"answerText":"blah","chosen":false},{"answerText":"blah","chosen":false},{"answerText":"blah","chosen":false},{"answerText":"blah","chosen":false}]},{"id":"5a6b407ad1bd382e67366c69","number":4,"category":"css","assetUrl":null,"type":"multipleChoice","answers":[{"answerText":"Use IDs to target one element, styles to target many elements","chosen":false,"correct":true},{"answerText":"blah","chosen":false},{"answerText":"blah","chosen":false},{"answerText":"blah","chosen":false},{"answerText":"blah","chosen":false}]});
+
+
 
       const questions = randQuestions.map((question, index1) => {
         let answers = question.answers.map((answer, index2) => {
