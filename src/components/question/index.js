@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {checkQuestion, updateCurrent, fetchQuestions} from '../../actions';
+import {checkQuestion, updateCurrent, fetchQuestions, fetchUserData} from '../../actions';
 
 
 import Answer from './answer';
@@ -50,6 +50,7 @@ export class Question extends React.Component {
   componentDidMount() {
       console.log('starting api call IN QUESTIONS COMPONENT...');
       this.props.dispatch(fetchQuestions());
+      this.props.dispatch(fetchUserData());
   }
 
   shouldComponentUpdate() {
@@ -141,7 +142,8 @@ export class Question extends React.Component {
       const randQuestions = this.startQuiz(this.props.questions);
 
       const questions = randQuestions.map((question, index1) => {
-        let answers = question.answers.map((answer, index2) => {
+        let shuffledAnswers = this.shuffleArray(question.answers);
+        let answers = shuffledAnswers.map((answer, index2) => {
             return (
               <Answer assetUrl={question.assetUrl} type={question.type}
               questionNumber={question.number}  category={question.category}
@@ -178,23 +180,24 @@ export class Question extends React.Component {
                   <p>Correct: {this.props.correctQuestions.join(', ')}</p>
                 </div>
                   <p>Cool Object: {JSON.stringify(this.props.currentQuiz)}</p>
-                  <p>currentUser:
-                    missed questions: {JSON.stringify(this.props.currentUser2.missedQuestions)}<br/>
-                    number of Quizzes: {JSON.stringify(this.props.currentUser2.numberOfQuizzes)}<br/>
-                    totalQuestions: {JSON.stringify(this.props.currentUser2.totalQuestions)}<br/>
-                    total Correct: {JSON.stringify(this.props.currentUser2.totalCorrect)}<br/>
-                    jsQuestionsAnswered: {JSON.stringify(this.props.currentUser2.jsQuestionsAnswered)}<br/>
-                    jsQuestionsCorrect: {JSON.stringify(this.props.currentUser2.jsQuestionsCorrect)}<br/>
-                    cssQuestionsAnswered: {JSON.stringify(this.props.currentUser2.cssQuestionsAnswered)}<br/>
-                    cssQuestionsCorrect: {JSON.stringify(this.props.currentUser2.cssQuestionsCorrect)}<br/>
-                    htmlQuestionsAnswered: {JSON.stringify(this.props.currentUser2.htmlQuestionsAnswered)}<br/>
-                    htmlQuestionsCorrect: {JSON.stringify(this.props.currentUser2.htmlQuestionsCorrect)}<br/>
-                    nodeQuestionsAnswered: {JSON.stringify(this.props.currentUser2.nodeQuestionsAnswered)}<br/>
-                    nodeQuestionsCorrect: {JSON.stringify(this.props.currentUser2.nodeQuestionsCorrect)}<br/>
-                    apiQuestionsAnswered: {JSON.stringify(this.props.currentUser2.apiQuestionsAnswered)}<br/>
-                    apiQuestionsCorrect: {JSON.stringify(this.props.currentUser2.apiQuestionsCorrect)}<br/>
-                    mongoQuestionsAnswered: {JSON.stringify(this.props.currentUser2.mongoQuestionsAnswered)}<br/>
-                    mongoQuestionsCorrect: {JSON.stringify(this.props.currentUser2.mongoQuestionsCorrect)}<br/>
+                  <p>currentUser:{/*
+                    missed questions: {JSON.stringify(this.props.currentUser.missedQuestions)}<br/>
+                    number of Quizzes: {JSON.stringify(this.props.currentUser.numberOfQuizzes)}<br/>
+                    totalQuestions: {JSON.stringify(this.props.currentUser.totalQuestions)}<br/>
+                    total Correct: {JSON.stringify(this.props.currentUser.totalCorrect)}<br/>
+                    jsQuestionsAnswered: {JSON.stringify(this.props.currentUser.jsQuestionsAnswered)}<br/>
+                    jsQuestionsCorrect: {JSON.stringify(this.props.currentUser.jsQuestionsCorrect)}<br/>
+                    cssQuestionsAnswered: {JSON.stringify(this.props.currentUser.cssQuestionsAnswered)}<br/>
+                    cssQuestionsCorrect: {JSON.stringify(this.props.currentUser.cssQuestionsCorrect)}<br/>
+                    htmlQuestionsAnswered: {JSON.stringify(this.props.currentUser.htmlQuestionsAnswered)}<br/>
+                    htmlQuestionsCorrect: {JSON.stringify(this.props.currentUser.htmlQuestionsCorrect)}<br/>
+                    nodeQuestionsAnswered: {JSON.stringify(this.props.currentUser.nodeQuestionsAnswered)}<br/>
+                    nodeQuestionsCorrect: {JSON.stringify(this.props.currentUser.nodeQuestionsCorrect)}<br/>
+                    apiQuestionsAnswered: {JSON.stringify(this.props.currentUser.apiQuestionsAnswered)}<br/>
+                    apiQuestionsCorrect: {JSON.stringify(this.props.currentUser.apiQuestionsCorrect)}<br/>
+                    mongoQuestionsAnswered: {JSON.stringify(this.props.currentUser.mongoQuestionsAnswered)}<br/>
+                    mongoQuestionsCorrect: {JSON.stringify(this.props.currentUser.mongoQuestionsCorrect)}<br/>
+                    */}
                   </p>
               </div>
       );
@@ -209,7 +212,6 @@ const mapStateToProps = state => ({
     correctQuestions: state.correctQuestions,
     currentQuiz: state.currentQuiz,
     currentUser: state.currentUser,
-    currentUser2: state.currentUser.userData
 });
 
 export default connect(mapStateToProps)(Question);

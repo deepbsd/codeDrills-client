@@ -29,7 +29,7 @@ const initialState = {
       questions: [],
       missedQuestions: [],
       correctQuestions: [],
-
+      userData: {}
 };
 
 export const reducer = (state=initialState, action) => {
