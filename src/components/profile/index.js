@@ -33,8 +33,10 @@ export class Profile extends React.Component {
                 lastQuiz={currentUser.lastQuizData} missedMost={currentUser.missedMost}  />
                 <BarChart barChartData={currentUser.chartData} />
                 <PieChart pieChartData={currentUser.chartData} />
+                {/*
                 <RadarChart radarChartData={currentUser.radarData} />
                 <PolarChart polarChartData={currentUser.polarData} />
+                */}
               </div> }
             </div>
         );
