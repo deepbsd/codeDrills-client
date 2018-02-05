@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {checkQuestion, updateCurrent, fetchQuestions, fetchUserData} from '../../actions';
+import {checkQuestion, updateCurrent} from '../../actions';
 
-
+import DevData from './../devdata';
 import Answer from './answer';
 
 import question5 from './img/question5.png';
@@ -47,11 +47,6 @@ export class Question extends React.Component {
     }
   }
 
-  componentDidMount() {
-      console.log('starting api call IN QUESTIONS COMPONENT...');
-      this.props.dispatch(fetchQuestions());
-      this.props.dispatch(fetchUserData());
-  }
 
   shouldComponentUpdate() {
       return this.state.answeredQuestions.length === 0 || this.state.answeredQuestions.length>=100;
@@ -169,36 +164,14 @@ export class Question extends React.Component {
               <div class="questionWrap">
                 {questions}
                 <p>
-                whatever:
+
                 {/*JSON.stringify(this.state.quizItems) you don't need quizItems
                 anymore because you have already the questions coming from your
                 props -> this.props.questions */}
                 {/*JSON.stringify(randQuestions)*/}
                 </p>
-                <div>
-                  <p>Missed: {this.props.missedQuestions.join(', ')}</p>
-                  <p>Correct: {this.props.correctQuestions.join(', ')}</p>
-                </div>
-                  <p>Cool Object: {JSON.stringify(this.props.currentQuiz)}</p>
-                  <p>currentUser:{/*
-                    missed questions: {JSON.stringify(this.props.currentUser.missedQuestions)}<br/>
-                    number of Quizzes: {JSON.stringify(this.props.currentUser.numberOfQuizzes)}<br/>
-                    totalQuestions: {JSON.stringify(this.props.currentUser.totalQuestions)}<br/>
-                    total Correct: {JSON.stringify(this.props.currentUser.totalCorrect)}<br/>
-                    jsQuestionsAnswered: {JSON.stringify(this.props.currentUser.jsQuestionsAnswered)}<br/>
-                    jsQuestionsCorrect: {JSON.stringify(this.props.currentUser.jsQuestionsCorrect)}<br/>
-                    cssQuestionsAnswered: {JSON.stringify(this.props.currentUser.cssQuestionsAnswered)}<br/>
-                    cssQuestionsCorrect: {JSON.stringify(this.props.currentUser.cssQuestionsCorrect)}<br/>
-                    htmlQuestionsAnswered: {JSON.stringify(this.props.currentUser.htmlQuestionsAnswered)}<br/>
-                    htmlQuestionsCorrect: {JSON.stringify(this.props.currentUser.htmlQuestionsCorrect)}<br/>
-                    nodeQuestionsAnswered: {JSON.stringify(this.props.currentUser.nodeQuestionsAnswered)}<br/>
-                    nodeQuestionsCorrect: {JSON.stringify(this.props.currentUser.nodeQuestionsCorrect)}<br/>
-                    apiQuestionsAnswered: {JSON.stringify(this.props.currentUser.apiQuestionsAnswered)}<br/>
-                    apiQuestionsCorrect: {JSON.stringify(this.props.currentUser.apiQuestionsCorrect)}<br/>
-                    mongoQuestionsAnswered: {JSON.stringify(this.props.currentUser.mongoQuestionsAnswered)}<br/>
-                    mongoQuestionsCorrect: {JSON.stringify(this.props.currentUser.mongoQuestionsCorrect)}<br/>
-                    */}
-                  </p>
+
+                  <DevData currentQuiz={this.state.currentQuiz} />
               </div>
       );
 
