@@ -21,7 +21,8 @@ class DevData extends React.Component {
               <div>
                 <p>Missed: {this.props.missedQuestions.join(', ')}</p>
                 <p>Correct: {this.props.correctQuestions.join(', ')}</p>
-                {/* <p>current user {JSON.stringify(this.props.currentUser)}</p> */}
+                <p>current user:   {JSON.stringify(this.props.currentUser)}</p>
+                <p>type:  {typeof this.props.currentUser}</p>
               </div>
                 <p>currentQuiz:
                 {/*
@@ -44,7 +45,7 @@ class DevData extends React.Component {
                   */}
                 </p>
 
-                {  JSON.stringify(this.props.currentQuiz.totalQuestions)  }
+                {  JSON.stringify(this.props.currentQuiz)  }
             </div>
     );
   }
@@ -57,7 +58,7 @@ const mapStateToProps = state => {
       missedQuestions: state.missedQuestions,
       correctQuestions: state.correctQuestions,
       //currentQuiz: state.userData.currentQuiz,
-      currentUser: state.currentUser,
+      currentUser: state.currentUser
 
   });
 }
