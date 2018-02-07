@@ -22,7 +22,7 @@ export class Profile extends React.Component {
     render() {
 
         const currentUser = this.props.currentUser;
-
+        console.log('CurrentUser: '+this.props.currentUser);
         return (
             <div>
             {console.log('CAN YOU SEE THIS? '+JSON.stringify(this.props.currentUser))}
