@@ -17,51 +17,51 @@ export class Profile extends React.Component {
         this.state = {
           htmlChartData: {
             "displayName": "HTML Questions",
-            "labels": ["HTML Questions Answered", "HTML Questions Correct"],
+            "labels": ["HTML Questions Correct", "HTML Questions Missed"],
             "datasets": [{
               "label": "Questions Correctly Answered",
-              "data": [60, 50],
+              "data": [60, 0],
               "backgroundColor": ["purple", "thistle"]
             }]
           },
           cssChartData: {
-              "labels": ["CSS Questions Answered", "CSS Questions Correct"],
+              "labels": ["CSS Questions Correct", "CSS Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [45, 42],
+                "data": [45, 3],
                 "backgroundColor": ["orange", "yellow"]
               }]
           },
           jsChartData: {
-              "labels": ["JS Questions Answered", "JS Questions Correct"],
+              "labels": ["JS Questions Correct", "JS Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [35, 35],
+                "data": [35, 10],
                 "backgroundColor": ["#0033ff", "cyan"]
               }]
           },
           nodeChartData: {
-              "labels": ["Node Questions Answered", "Node Questions Correct"],
+              "labels": ["Node Questions Correct", "Node Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [30, 28],
-                "backgroundColor": ["crimson", "#ff0066"]
+                "data": [30, 2],
+                "backgroundColor": ["crimson", "#f27993"]
               }]
           },
           apiChartData: {
-              "labels": ["API Questions Answered", "API Questions Correct"],
+              "labels": ["API Questions Correct", "API Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [30, 29],
+                "data": [30, 1],
                 "backgroundColor": ["green", "lime"]
               }]
           },
           mongoChartData: {
-              "labels": ["Mongo Questions Answered", "Mongo Questions Correct"],
+              "labels": ["Mongo Questions Correct", "Mongo Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [30, 27],
-                "backgroundColor": ["#f48f42", "#f46242"]
+                "data": [30, 3],
+                "backgroundColor": ["#f46242", "#f48f42"]
               }]
           }
         }
