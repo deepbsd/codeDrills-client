@@ -16,8 +16,8 @@ export class Profile extends React.Component {
 
         this.state = {
           htmlChartData: {
+            "labels": ["HTML Questions Correct", "HTML Questions Missed"],
             "datasets": [{
-              "labels": ["HTML Questions Correct", "HTML Questions Missed"],
               "label": "Questions Correctly Answered",
               "data": [60, 1],
               "backgroundColor": ["purple", "thistle"]
