@@ -17,6 +17,7 @@ export class Profile extends React.Component {
         this.state = {
           htmlChartData: {
             "datasets": [{
+              "labels": ["HTML Questions Correct", "HTML Questions Missed"],
               "label": "Questions Correctly Answered",
               "data": [60, 1],
               "backgroundColor": ["purple", "thistle"]
@@ -77,14 +78,17 @@ export class Profile extends React.Component {
         }
 
         const currentUser = this.props.currentUser;
+
+        const thing = this.props.currentUser;
+
         const subjectSequence = ["js", "html", "css", "node", "api", "mongo"];
         const pieCharts = subjectSequence.map( (item, index) => {
           let _subject = `${item}ChartData`;
           let _subjectCorrect = `${item}QuestionsCorrect`;
           let _subjectAnswered = `${item}QuestionsAnswered`;
-          let _numCorrect = JSON.stringify(this.currentUser);
+          let _numCorrect = JSON.stringify(currentUser);
           let _numAnswered = this.state[_subject][_subjectAnswered];
-          console.log('numCorrect: '+JSON.stringify(_numCorrect));
+          //console.log('PCT DATA: '+thing);
           return (
             <div className="chartWrapper">
               <div className="percentage" >{getPercent(_numCorrect, _numAnswered)}%</div>
@@ -99,7 +103,7 @@ export class Profile extends React.Component {
 
         return (
             <div>
-            {console.log('CAN YOU SEE THIS? '+JSON.stringify(this.props.currentUser))}
+            {console.log('CAN YOU SEE THIS? '+{currentUser})}
             {(!currentUser) ? <h1>Error: Whodat?</h1> :
               <div>
                 <Userdetails user={currentUser.user} />
