@@ -1,10 +1,7 @@
 import * as actions from '../actions';
 import update from 'immutability-helper';
 
-import question5 from './img/question5.png';
-import question9 from './img/question9.png';
-import question16 from './img/question16.png';
-import question20 from './img/question20.png';
+
 
 
 

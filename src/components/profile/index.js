@@ -29,8 +29,10 @@ export class Profile extends React.Component {
             {(!currentUser) ? <h1>Whodat?</h1> :
               <div>
                 <Userdetails user={currentUser.user} />
+                {/*
                 <Userstats className="profile.css" userData={currentUser.userData}
                 lastQuiz={currentUser.lastQuizData} missedMost={currentUser.missedMost}  />
+                */}
                 <BarChart barChartData={currentUser.chartData} />
                 <PieChart pieChartData={currentUser.chartData} />
                 {/*
