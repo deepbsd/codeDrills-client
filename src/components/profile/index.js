@@ -71,15 +71,23 @@ export class Profile extends React.Component {
 
     render() {
 
+        const getPercent = function(correct, total){
+          let pct = (correct/total)*100;
+          return pct.toFixed(2);
+        }
+
         const currentUser = this.props.currentUser;
         const subjectSequence = ["js", "html", "css", "node", "api", "mongo"];
         const pieCharts = subjectSequence.map( (item, index) => {
           let _subject = `${item}ChartData`;
           let _subjectCorrect = `${item}QuestionsCorrect`;
           let _subjectAnswered = `${item}QuestionsAnswered`;
+          let _numCorrect = JSON.stringify(this.currentUser);
+          let _numAnswered = this.state[_subject][_subjectAnswered];
+          console.log('numCorrect: '+JSON.stringify(_numCorrect));
           return (
             <div className="chartWrapper">
-              <div className="percentage" >blah%</div>
+              <div className="percentage" >{getPercent(_numCorrect, _numAnswered)}%</div>
               <PieChart pieChartData={this.state[_subject]} />
             </div>
 
@@ -87,12 +95,8 @@ export class Profile extends React.Component {
 
         })
 
-        const getPercent = function(correct, total){
-          let pct = (correct/total)*100;
-          return pct.toFixed(2);
-        }
-        //const testNumber = this.props.currentUser.
-        //console.log('CurrentUser: '+{currentUser.totalQuestions});
+
+
         return (
             <div>
             {console.log('CAN YOU SEE THIS? '+JSON.stringify(this.props.currentUser))}
@@ -100,10 +104,10 @@ export class Profile extends React.Component {
               <div>
                 <Userdetails user={currentUser.user} />
                 {/*
-                <Userstats className="profile.css" userData={currentUser.userData}
-                lastQuiz={currentUser.lastQuizData} missedMost={currentUser.missedMost}  />
-                <BarChart barChartData={currentUser.chartData} />
-                <PieChart pieChartData={currentUser.chartData} />
+                  <Userstats className="profile.css" userData={currentUser.userData}
+                  lastQuiz={currentUser.lastQuizData} missedMost={currentUser.missedMost}  />
+                  <BarChart barChartData={currentUser.chartData} />
+                  <PieChart pieChartData={currentUser.chartData} />
                 */}
                   {pieCharts}
               </div> }
