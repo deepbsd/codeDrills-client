@@ -16,11 +16,9 @@ export class Profile extends React.Component {
 
         this.state = {
           htmlChartData: {
-            "displayName": "HTML Questions",
-            "labels": ["HTML Questions Correct", "HTML Questions Missed"],
             "datasets": [{
               "label": "Questions Correctly Answered",
-              "data": [60, 0],
+              "data": [60, 1],
               "backgroundColor": ["purple", "thistle"]
             }]
           },
@@ -74,7 +72,27 @@ export class Profile extends React.Component {
     render() {
 
         const currentUser = this.props.currentUser;
-        console.log('CurrentUser: '+this.props.currentUser);
+        const subjectSequence = ["js", "html", "css", "node", "api", "mongo"];
+        const pieCharts = subjectSequence.map( (item, index) => {
+          let _subject = `${item}ChartData`;
+          let _subjectCorrect = `${item}QuestionsCorrect`;
+          let _subjectAnswered = `${item}QuestionsAnswered`;
+          return (
+            <div className="chartWrapper">
+              <div className="percentage" >blah%</div>
+              <PieChart pieChartData={this.state[_subject]} />
+            </div>
+
+          )
+
+        })
+
+        const getPercent = function(correct, total){
+          let pct = (correct/total)*100;
+          return pct.toFixed(2);
+        }
+        //const testNumber = this.props.currentUser.
+        //console.log('CurrentUser: '+{currentUser.totalQuestions});
         return (
             <div>
             {console.log('CAN YOU SEE THIS? '+JSON.stringify(this.props.currentUser))}
@@ -87,16 +105,7 @@ export class Profile extends React.Component {
                 <BarChart barChartData={currentUser.chartData} />
                 <PieChart pieChartData={currentUser.chartData} />
                 */}
-                <PieChart pieChartData={this.state.htmlChartData} />
-                <PieChart pieChartData={this.state.cssChartData} />
-                <PieChart pieChartData={this.state.jsChartData} />
-                <PieChart pieChartData={this.state.nodeChartData} />
-                <PieChart pieChartData={this.state.apiChartData} />
-                <PieChart pieChartData={this.state.mongoChartData} />
-                {/*
-                <RadarChart radarChartData={currentUser.radarData} />
-                <PolarChart polarChartData={currentUser.polarData} />
-                */}
+                  {pieCharts}
               </div> }
             </div>
         );
