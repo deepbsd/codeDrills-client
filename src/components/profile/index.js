@@ -19,7 +19,7 @@ export class Profile extends React.Component {
             "labels": ["HTML Questions Correct", "HTML Questions Missed"],
             "datasets": [{
               "label": "Questions Correctly Answered",
-              "data": [60, 1],
+              "data": [30, 1],
               "backgroundColor": ["purple", "thistle"]
             }]
           },
