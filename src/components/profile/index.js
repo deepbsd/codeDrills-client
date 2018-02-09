@@ -88,7 +88,8 @@ export class Profile extends React.Component {
           let _numMissed = this.state[_subject].datasets[0].data[1];
           let _numAnswered = this.state[_subject].datasets[0].data[0];
           let _numCorrect = _numAnswered - _numMissed;
-          console.log('PCT DATA: '+this.state[_subject].datasets[0].data[0]);
+          // console.log(`PCT DATA: ${_numCorrect} ${_numAnswered}`);
+          console.log('TESTING: '+currentUser);
           return (
             <div className="chartWrapper">
               <div className="percentage" >{getPercent(_numCorrect, _numAnswered)}%</div>
@@ -103,7 +104,7 @@ export class Profile extends React.Component {
 
         return (
             <div>
-            {console.log('CAN YOU SEE THIS? '+JSON.stringify(currentUser))}
+            {console.log('STRINGIFIED: '+JSON.stringify(currentUser))}
             {(!currentUser) ? <h1>Error: Whodat?</h1> :
               <div>
                 <Userdetails user={currentUser.user} />
@@ -122,6 +123,7 @@ export class Profile extends React.Component {
 
 const mapStateToProps = state => ({
     currentUser: state.currentUser,
+    //currentData: state.currentUser.userData,
     loggedIn: state.loggedIn,
 
 });
