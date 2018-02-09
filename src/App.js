@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {fetchQuestions, fetchUserData} from './actions';
 
 import './App.css';
 
@@ -10,6 +12,16 @@ import Footer from './components/footer';
 
 class App extends Component {
 
+  constructor(props){
+    super(props);
+  }
+
+  componentDidMount() {
+      console.log('starting api call ');
+      this.props.dispatch(fetchQuestions());
+      this.props.dispatch(fetchUserData());
+  }
+
   render() {
     return (
       <div className="App">
@@ -19,10 +31,14 @@ class App extends Component {
         <Main />
 
         <Footer />
-        
+
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  // questions: state.questions
+});
+
+export default connect(mapStateToProps)(App);

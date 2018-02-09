@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Userstats from '../userStats';
 import Userdetails from '../userDetails';
 import {BarChart, PieChart, PolarChart, LineChart, RadarChart} from '../chart';
-
+import {fetchUserData} from '../../actions';
 
 
 import './profile.css';
@@ -15,6 +15,9 @@ export class Profile extends React.Component {
         super(props);
     }
 
+    componentWillMount() {
+      this.props.dispatch(fetchUserData());
+    }
 
     render() {
 
@@ -22,6 +25,9 @@ export class Profile extends React.Component {
 
         return (
             <div>
+            {console.log('CAN YOU SEE THIS? '+JSON.stringify(this.props.currentUser))}
+            {(!currentUser) ? <h1>Error: Whodat?</h1> :
+              <div>
                 <Userdetails user={currentUser.user} />
                 <Userstats className="profile.css" userData={currentUser.userData}
                 lastQuiz={currentUser.lastQuizData} missedMost={currentUser.missedMost}  />
@@ -29,6 +35,7 @@ export class Profile extends React.Component {
                 <PieChart pieChartData={currentUser.chartData} />
                 <RadarChart radarChartData={currentUser.radarData} />
                 <PolarChart polarChartData={currentUser.polarData} />
+              </div> }
             </div>
         );
     }
@@ -36,7 +43,8 @@ export class Profile extends React.Component {
 
 const mapStateToProps = state => ({
     currentUser: state.currentUser,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
+
 });
 
 export default connect(mapStateToProps)(Profile);
