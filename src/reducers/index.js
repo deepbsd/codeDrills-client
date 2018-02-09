@@ -1,10 +1,7 @@
 import * as actions from '../actions';
 import update from 'immutability-helper';
 
-import question5 from './img/question5.png';
-import question9 from './img/question9.png';
-import question16 from './img/question16.png';
-import question20 from './img/question20.png';
+
 
 
 
@@ -58,7 +55,7 @@ export const reducer = (state=initialState, action) => {
   } else if (action.type === actions.FETCH_USER_DATA_SUCCESS){
       console.log('about to load user data into state...', action);
     return Object.assign({}, state, {
-      currentUser:  action.currentuser.currentUser
+      currentUser:  action.currentuser.userdata.currentUser
     })
   } else if (action.type === actions.UPDATE_CURRENT){
     console.log('Updating user data with quiz results now...')

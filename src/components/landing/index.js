@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+
 import Style from './style';
 import Blurb from '../blurb';
 
@@ -7,7 +7,7 @@ import Blurb from '../blurb';
 export class Landing extends React.Component {
   constructor(props){
     super(props);
-    
+
     this.state = {
       blurbs: [
         {
