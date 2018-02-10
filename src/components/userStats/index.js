@@ -1,77 +1,123 @@
 import React from 'react';
-//import {Line as LineChart} from 'react-chartjs';
-import '../profile/profile.css';
+import {connect} from 'react-redux';
 
-export default function Userstats(props) {
+import {PieChart} from '../chart';
 
-    return (
 
-        <div className="profile">
-            <div class="profileContainer">
-            <table>
-            <caption>General Summary</caption>
-            <thead>
-            <tr>
-                <th>Number of Quizzes</th><th>Total Questions</th><th>Total Correct</th>
-                </tr>
-                <tr>
-                  <td>{props.userData.numberOfQuizzes}</td>
-                  <td>{props.userData.totalQuestions}</td>
-                  <td>{props.userData.totalCorrect}</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td></td><td></td><td></td></tr>
-                <th rowspan="2">Javascript Questions ({Math.round((props.userData.jsQuestionsCorrect/props.userData.jsQuestionsAnswered)*100)}%)</th>
-                  <td>Questions Asked:</td><td>{props.userData.jsQuestionsAnswered}</td>
-                  <tr>
-                  <td>Questions Correct:</td><td>{props.userData.jsQuestionsCorrect}</td>
-                  </tr>
-                <th rowspan="2">HTML Questions ({Math.round((props.userData.htmlQuestionsCorrect/props.userData.htmlQuestionsAnswered)*100)}%)</th>
-                  <td>Questions Asked:</td><td>{props.userData.htmlQuestionsAnswered}</td>
-                  <tr>
-                  <td>Questions Correct:</td><td>{props.userData.htmlQuestionsCorrect}</td>
-                  </tr>
 
-                <th rowspan="2">CSS Questions ({Math.round((props.userData.cssQuestionsCorrect/props.userData.cssQuestionsAnswered)*100)}%)</th>
-                  <td>Questions Asked:</td><td>{props.userData.cssQuestionsAnswered}</td>
-                  <tr>
-                  <td>Questions Correct:</td><td>{props.userData.cssQuestionsCorrect}</td>
-                  </tr>
+import './profile.css';
 
-                  <th rowspan="2">Node Questions ({Math.round((props.userData.nodeQuestionsCorrect/props.userData.nodeQuestionsAnswered)*100)}%)</th>
-                    <td>Questions Asked:</td><td>{props.userData.nodeQuestionsAnswered}</td>
-                    <tr>
-                    <td>Questions Correct:</td><td>{props.userData.nodeQuestionsCorrect}</td>
-                    </tr>
 
-                  <th rowspan="2">API Questions ({Math.round((props.userData.apiQuestionsCorrect/props.userData.apiQuestionsAnswered)*100)}%)</th>
-                    <td>Questions Asked:</td><td>{props.userData.apiQuestionsAnswered}</td>
-                    <tr>
-                    <td>Questions Correct:</td><td>{props.userData.apiQuestionsCorrect}</td>
-                    </tr>
+export class UserStats extends React.Component {
 
-                  <th rowspan="2">Mongo Questions ({Math.round((props.userData.mongoQuestionsCorrect/props.userData.mongoQuestionsAnswered)*100)}%)</th>
-                    <td>Questions Asked:</td><td>{props.userData.mongoQuestionsAnswered}</td>
-                    <tr>
-                    <td>Questions Correct:</td><td>{props.userData.mongoQuestionsCorrect}</td>
-                    </tr>
-              </tbody>
-            </table>
+    constructor(props) {
+        super(props);
+
+        this.state = {
+          htmlChartData: {
+            "labels": ["HTML Questions Correct", "HTML Questions Missed"],
+            "datasets": [{
+              "label": "Questions Correctly Answered",
+              "data": [30, 1],
+              "backgroundColor": ["purple", "thistle"]
+            }]
+          },
+          cssChartData: {
+              "labels": ["CSS Questions Correct", "CSS Questions Missed"],
+              "datasets": [{
+                "label": "Questions Correctly Answered",
+                "data": [45, 3],
+                "backgroundColor": ["orange", "yellow"]
+              }]
+          },
+          jsChartData: {
+              "labels": ["JS Questions Correct", "JS Questions Missed"],
+              "datasets": [{
+                "label": "Questions Correctly Answered",
+                "data": [35, 10],
+                "backgroundColor": ["#0033ff", "cyan"]
+              }]
+          },
+          nodeChartData: {
+              "labels": ["Node Questions Correct", "Node Questions Missed"],
+              "datasets": [{
+                "label": "Questions Correctly Answered",
+                "data": [30, 2],
+                "backgroundColor": ["crimson", "#f27993"]
+              }]
+          },
+          apiChartData: {
+              "labels": ["API Questions Correct", "API Questions Missed"],
+              "datasets": [{
+                "label": "Questions Correctly Answered",
+                "data": [30, 1],
+                "backgroundColor": ["green", "lime"]
+              }]
+          },
+          mongoChartData: {
+              "labels": ["Mongo Questions Correct", "Mongo Questions Missed"],
+              "datasets": [{
+                "label": "Questions Correctly Answered",
+                "data": [30, 3],
+                "backgroundColor": ["#f46242", "#f48f42"]
+              }]
+          }
+        }
+    }
+
+
+    render() {
+
+        const getPercent = function(correct, total){
+          let pct = (correct/total)*100;
+          return pct.toFixed(2);
+        }
+
+        const currentData = this.props.data;
+
+
+        const subjectSequence = ["js", "html", "css", "node", "api", "mongo"];
+        const pieCharts = subjectSequence.map( (item, index) => {
+          let _subject = `${item}ChartData`;
+
+          let _numMissed = this.state[_subject].datasets[0].data[1];
+          let _numAnswered = this.state[_subject].datasets[0].data[0];
+          let _numCorrect = _numAnswered - _numMissed;
+
+          console.log('TESTING: '+currentData);
+          return (
+            <div className="chartWrapper">
+              <div className="percentage" >{getPercent(_numCorrect, _numAnswered)}%</div>
+                <PieChart pieChartData={this.state[_subject]} />
             </div>
-            <div class="profileContainer">
-              <table>
-                <caption>Latest Test:</caption>
-                <tr>
-                <th>Date:</th><th>{new Date(props.lastQuiz.dateOfQuiz).getMonth()}/{new Date(props.lastQuiz.dateOfQuiz).getDay()}/{new Date(props.lastQuiz.dateOfQuiz).getFullYear()}</th>
-                </tr>
-                <tr><td>Total Questions:</td><td>{props.lastQuiz.totalQuestions}</td></tr>
-                <tr><td>Answered Correctly:</td><td>{props.lastQuiz.totalCorrect/props.lastQuiz.totalQuestions*100}%</td></tr>
-                <tr><td>Time On Quiz:</td><td>{(props.lastQuiz.timeOnQuiz/60000).toFixed(2)} minutes</td></tr>
-                </table>
+
+          )
+
+        })
+
+
+
+        return (
+            <div>
+            {console.log('STRINGIFIED: '+JSON.stringify(currentData))}
+            {(!currentData) ? <h1>Error: What data?</h1> :
+              <div>
+
+                  {pieCharts}
+
+              </div > }
             </div>
-        </div>
-
-    );
-
+        );
+    }
 }
+
+const mapStateToProps = state => {
+  console.log('RAY: ',state);
+  return {
+    // currentUser: state.currentUser,
+    // currentData: state.currentUser.userData,
+    loggedIn: state.loggedIn,
+  }
+};
+
+export default connect(mapStateToProps)(UserStats);
