@@ -79,12 +79,15 @@ export class UserStats extends React.Component {
         const subjectSequence = ["js", "html", "css", "node", "api", "mongo"];
         const pieCharts = subjectSequence.map( (item, index) => {
           let _subject = `${item}ChartData`;
+          let _correct = `${item}QuestionsCorrect`;
+          let _answered = `${item}QuestionsAnswered`;
+          // let _numMissed = this.state[_subject].datasets[0].data[1];
+          let _numMissed = _answered - _correct;
+          // let _numAnswered = this.state[_subject].datasets[0].data[0];
+          let _numAnswered = currentData[_answered];
+          let _numCorrect = currentData[_correct];
 
-          let _numMissed = this.state[_subject].datasets[0].data[1];
-          let _numAnswered = this.state[_subject].datasets[0].data[0];
-          let _numCorrect = _numAnswered - _numMissed;
-
-          console.log('TESTING: '+currentData);
+          console.log('TESTING: '+currentData.jsQuestionsAnswered);
           return (
             <div className="chartWrapper">
               <div className="percentage" >{getPercent(_numCorrect, _numAnswered)}%</div>
