@@ -12,13 +12,13 @@ export class UserStats extends React.Component {
 
     constructor(props) {
         super(props);
-
+        console.log('LOOKY HERE: ',props.data);
         this.state = {
           htmlChartData: {
             "labels": ["HTML Questions Correct", "HTML Questions Missed"],
             "datasets": [{
               "label": "Questions Correctly Answered",
-              "data": [30, 1],
+              "data": [props.data.htmlQuestionsAnswered, props.data.htmlQuestionsAnswered-props.data.htmlQuestionsCorrect],
               "backgroundColor": ["purple", "thistle"]
             }]
           },
@@ -26,7 +26,7 @@ export class UserStats extends React.Component {
               "labels": ["CSS Questions Correct", "CSS Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [45, 3],
+                "data": [props.data.cssQuestionsAnswered, props.data.cssQuestionsAnswered-props.data.cssQuestionsCorrect],
                 "backgroundColor": ["orange", "yellow"]
               }]
           },
@@ -34,7 +34,7 @@ export class UserStats extends React.Component {
               "labels": ["JS Questions Correct", "JS Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [35, 10],
+                "data": [props.data.jsQuestionsAnswered, props.data.jsQuestionsAnswered-props.data.jsQuestionsCorrect],
                 "backgroundColor": ["#0033ff", "cyan"]
               }]
           },
@@ -42,7 +42,7 @@ export class UserStats extends React.Component {
               "labels": ["Node Questions Correct", "Node Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [30, 2],
+                "data": [props.data.nodeQuestionsAnswered, props.data.nodeQuestionsAnswered-props.data.nodeQuestionsCorrect],
                 "backgroundColor": ["crimson", "#f27993"]
               }]
           },
@@ -50,7 +50,7 @@ export class UserStats extends React.Component {
               "labels": ["API Questions Correct", "API Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [30, 1],
+                "data": [props.data.apiQuestionsCorrect, props.data.apiQuestionsAnswered-props.data.apiQuestionsCorrect],
                 "backgroundColor": ["green", "lime"]
               }]
           },
@@ -58,7 +58,7 @@ export class UserStats extends React.Component {
               "labels": ["Mongo Questions Correct", "Mongo Questions Missed"],
               "datasets": [{
                 "label": "Questions Correctly Answered",
-                "data": [30, 3],
+                "data": [props.data.mongoQuestionsAnswered, props.data.mongoQuestionsAnswered-props.data.mongoQuestionsCorrect],
                 "backgroundColor": ["#f46242", "#f48f42"]
               }]
           }
