@@ -115,7 +115,6 @@ export class UserStats extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('RAY: ',state);
   return {
     // currentUser: state.currentUser,
     // currentData: state.currentUser.userData,
