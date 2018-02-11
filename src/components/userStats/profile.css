@@ -37,6 +37,20 @@ th, td {
   vertical-align: middle;
 }
 
+.subject {
+  color: gray;
+  font-family: Helvetica, sans-serif;
+  font-size: 2em;
+  margin-right: 20%;
+}
+
+.counts {
+  color: gray;
+  font-family: Helvetica, sans-serif;
+  font-size: 2em;
+  margin-left: 20%;
+}
+
 .percentage {
   color: white;
   font-size: 4.5em;
