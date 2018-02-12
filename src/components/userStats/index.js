@@ -77,8 +77,9 @@ export class UserStats extends React.Component {
 
 
         const subjectSequence = ["js", "html", "css", "node", "api", "mongo"];
+        const subjectDisplay = ["JavaScript", "HTML", "CSS", "Node", "API", "MongoDB"];
         const pieCharts = subjectSequence.map( (item, index) => {
-          let _raw = item;
+          let _displaySubject = subjectDisplay[index];
           let _subject = `${item}ChartData`;
           let _correct = `${item}QuestionsCorrect`;
           let _answered = `${item}QuestionsAnswered`;
@@ -91,7 +92,7 @@ export class UserStats extends React.Component {
           console.log('TESTING: '+currentData.jsQuestionsAnswered);
           return (
             <div className="chartWrapper">
-              <h2><span className="subject">{_raw}</span><span className="counts">{_numCorrect}/{_numAnswered}</span></h2>
+              <h2><span className="subject">{_displaySubject}</span><span className="counts">{_numCorrect}/{_numAnswered}</span></h2>
               <div className="percentage" >{getPercent(_numCorrect, _numAnswered)}%</div>
                 <PieChart pieChartData={this.state[_subject]} />
             </div>
