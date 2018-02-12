@@ -41,6 +41,7 @@ th, td {
   color: gray;
   font-family: Helvetica, sans-serif;
   font-size: 2em;
+  margin-left: 0;
   margin-right: 20%;
 }
 
@@ -49,6 +50,8 @@ th, td {
   font-family: Helvetica, sans-serif;
   font-size: 2em;
   margin-left: 20%;
+  margin-right: 0;
+
 }
 
 .percentage {
