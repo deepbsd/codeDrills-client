@@ -58,7 +58,7 @@ export const reducer = (state=initialState, action) => {
       currentUser:  action.currentuser.userdata.currentUser
     })
   } else if (action.type === actions.UPDATE_CURRENT){
-    console.log('Updating user data with quiz results now...')
+    console.log('Updating GLOBAL user data with quiz results now...')
     const newUserData = update(state.currentUser.userData,
       {missedQuestions: {$push: action.quizData.incorrect},
       numberOfQuizzes: {$apply: function(n) {return n+1;}},
@@ -77,6 +77,7 @@ export const reducer = (state=initialState, action) => {
       mongoQuestionsAnswered: {$apply: function(n) {return n+action.quizData.mongo.length}},
       mongoQuestionsCorrect: {$apply: function(n) {return n+action.quizData.mongo_right.length}}
     })
+    console.log('**GLOBAL STORE after update: ',state.currentUser.userData);
     return {
         ...state,
         currentQuiz: action.quizData,
