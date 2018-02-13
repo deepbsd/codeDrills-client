@@ -8,10 +8,13 @@ import {PieChart} from '../chart';
 import './profile.css';
 
 
-export class UserStats extends React.Component {
+export class UserCategoryStats extends React.Component {
 
     constructor(props) {
         super(props);
+
+        // this.handleClick = this.handleClick.bind(this);
+
         console.log('LOOKY HERE: ',props.data);
         this.state = {
           htmlChartData: {
@@ -65,6 +68,14 @@ export class UserStats extends React.Component {
         }
     }
 
+    // handleClick(e, index) {
+    //   e.preventDefault();
+    //   let _text = this.textInput;
+    //   if (_text) {
+    //     this.props.click(_text);
+    //   }
+    // }
+
 
     render() {
 
@@ -78,6 +89,7 @@ export class UserStats extends React.Component {
 
         const subjectSequence = ["js", "html", "css", "node", "api", "mongo"];
         const subjectDisplay = ["JavaScript", "HTML", "CSS", "Node", "API", "MongoDB"];
+
         const pieCharts = subjectSequence.map( (item, index) => {
           let _displaySubject = subjectDisplay[index];
           let _subject = `${item}ChartData`;
@@ -90,6 +102,7 @@ export class UserStats extends React.Component {
           let _numCorrect = currentData[_correct];
 
           console.log('TESTING: '+currentData.jsQuestionsAnswered);
+
           return (
             <div className="chartWrapper">
               <h2><span className="subject">{_displaySubject}</span><span className="counts">{_numCorrect}/{_numAnswered}</span></h2>
@@ -108,9 +121,7 @@ export class UserStats extends React.Component {
             {console.log('STRINGIFIED: '+JSON.stringify(currentData))}
             {(!currentData) ? <h1>Error: What data?</h1> :
               <div>
-
                   {pieCharts}
-
               </div > }
             </div>
         );
@@ -125,4 +136,4 @@ const mapStateToProps = state => {
   }
 };
 
-export default connect(mapStateToProps)(UserStats);
+export default connect(mapStateToProps)(UserCategoryStats);
