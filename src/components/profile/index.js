@@ -29,6 +29,7 @@ export class Profile extends React.Component {
     handleClick(e) {
       // let _target = [].indexOf.call(e.currentTarget.children, e.target);
       let _target = e.target.innerHTML;
+      console.log('INNER HTML: ', _target);
       this.setState((prevState, props) => ({
         activeTab: _target
       })
@@ -61,7 +62,8 @@ export class Profile extends React.Component {
                   {slides}
                 </ul>
                 <Slide data={currentUser.userData}  />
-                    {/* <UserCategoryStats data={currentUser.userData} />  */}
+                {/* <Slide data={this.state.activeSlide[this.state.activeTab].payload}  />  */}
+                {/* <UserCategoryStats data={currentUser.userData} />  */}
               </div> }
             </div>
         );

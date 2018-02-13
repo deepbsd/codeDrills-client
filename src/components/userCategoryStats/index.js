@@ -13,9 +13,7 @@ export class UserCategoryStats extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.handleClick = this.handleClick.bind(this);
-
-        console.log('LOOKY HERE: ',props.data);
+        // console.log('LOOKY HERE: ',props.data);
         this.state = {
           htmlChartData: {
             "labels": ["HTML Questions Correct", "HTML Questions Missed"],
@@ -68,13 +66,6 @@ export class UserCategoryStats extends React.Component {
         }
     }
 
-    // handleClick(e, index) {
-    //   e.preventDefault();
-    //   let _text = this.textInput;
-    //   if (_text) {
-    //     this.props.click(_text);
-    //   }
-    // }
 
 
     render() {
@@ -96,7 +87,7 @@ export class UserCategoryStats extends React.Component {
           let _correct = `${item}QuestionsCorrect`;
           let _answered = `${item}QuestionsAnswered`;
           // let _numMissed = this.state[_subject].datasets[0].data[1];
-          let _numMissed = _answered - _correct;
+          // let _numMissed = _answered - _correct;
           // let _numAnswered = this.state[_subject].datasets[0].data[0];
           let _numAnswered = currentData[_answered];
           let _numCorrect = currentData[_correct];
