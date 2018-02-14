@@ -1,3 +1,4 @@
+
 .profile {
     margin-top: 20px;
     display: inline-flex;
@@ -56,11 +57,11 @@ li  {
 }
 
 li:hover {
-  background: cornsilk;
+  background: skyblue;
 }
 
 li.active {
-  background: cornsilk;
+  background: pink;
 }
 
 .percentage {

@@ -5,7 +5,7 @@ import {PieChart} from '../chart';
 
 
 
-import './profile.css';
+import Style from '../profile/profile.js';
 
 
 export class UserCategoryStats extends React.Component {
@@ -95,11 +95,11 @@ export class UserCategoryStats extends React.Component {
           console.log('TESTING: '+currentData.jsQuestionsAnswered);
 
           return (
-            <div className="chartWrapper">
-              <h2><span className="subject">{_displaySubject}</span><span className="counts">{_numCorrect}/{_numAnswered}</span></h2>
-              <div className="percentage" >{getPercent(_numCorrect, _numAnswered)}%</div>
+            <Style.chartWrapper>
+              <Style.h2><Style.subject >{_displaySubject}</Style.subject><Style.counts >{_numCorrect}/{_numAnswered}</Style.counts></Style.h2>
+              <Style.percentage >{getPercent(_numCorrect, _numAnswered)}%</Style.percentage>
                 <PieChart pieChartData={this.state[_subject]} />
-            </div>
+            </Style.chartWrapper>
 
           )
 

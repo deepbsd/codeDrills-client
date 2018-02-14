@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 
 import {PieChart, RadarChart} from '../chart';
 
-import '../profile/profile.css';
+// import '../profile/profile.css';
+import Style from '../profile/profile.js';
 
 export class UserAggregateStats extends React.Component {
 
@@ -39,12 +40,12 @@ render() {
         <div>
 
         {(!currentData) ? <h1>Error: What data?</h1> :
-          <div className="chartWrapper">
+          <Style.chartWrapper >
 
-            <div className="percentage" >{getPercent(currentData.totalCorrect, currentData.totalQuestions)}%</div>
-              <h2><span className="subject">All Quizes: {currentData.numberOfQuizzes}</span><span className="counts">{currentData.totalCorrect}/{currentData.totalQuestions}</span></h2>
+            <Style.percentage >{getPercent(currentData.totalCorrect, currentData.totalQuestions)}%</Style.percentage>
+              <Style.h2><Style.subject className="subject">All Quizes: {currentData.numberOfQuizzes}</Style.subject><Style.counts >{currentData.totalCorrect}/{currentData.totalQuestions}</Style.counts></Style.h2>
               <PieChart pieChartData={this.state["aggregateChartData"]} />
-          </div>
+          </Style.chartWrapper>
         }
         </div>
     );

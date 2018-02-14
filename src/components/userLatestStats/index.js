@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 
 import {RadarChart} from '../chart';
 
-import '../profile/profile.css';
+// import '../profile/profile.css';
+import Style from '../profile/profile.js';
 
 export class UserLatestStats extends React.Component {
 
@@ -16,13 +17,13 @@ constructor(props) {
           labels: ['JavaScript', 'CSS', 'HTML', 'Node', 'API', 'MongoDB'],
           datasets: [{
             label: 'My Latest Quiz',
-            backgroundColor: 'rgba(179,181,198,0.2)',
-            borderColor: 'rgba(179,181,198,1)',
-            pointBackgroundColor: 'rgba(179,181,198,1)',
+            backgroundColor: 'rgba(32, 104, 219,0.2)',
+            borderColor: 'rgba(32, 104, 219,1)',
+            pointBackgroundColor: 'rgba(32, 104, 219,1)',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(179,181,198,1)',
-            data: [85, 79, 90, 88, 76, 95]
+            pointHoverBorderColor: 'rgba(32, 104, 219,1)',
+            data: [85, 79, 90, 88, 86, 95]
           }, {
             label: 'My Overall Averages',
             backgroundColor: 'rgba(255,99,132,0.2)',

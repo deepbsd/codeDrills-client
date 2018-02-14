@@ -8,7 +8,8 @@ import Userdetails from '../userDetails';
 
 
 
-import './profile.css';
+import Style from './profile.js';
+// import './profile.css'
 
 
 export class Profile extends React.Component {
@@ -42,11 +43,11 @@ export class Profile extends React.Component {
         const slides = ["UserCategoryStats", "UserAggregateStats", "UserLatestStats"].map((slide, index) => {
           if (this.state.activeTab === slide) {
             return (
-              <li className="active" onClick={(e) => this.handleClick(e)}>{slide}</li>
+              <Style.li className="active" onClick={(e) => this.handleClick(e)}>{slide}</Style.li>
             )
           }
           return (
-            <li onClick={(e) => this.handleClick(e)}>{slide}</li>
+            <Style.li onClick={(e) => this.handleClick(e)}>{slide}</Style.li>
           )
         });
 
@@ -58,9 +59,9 @@ export class Profile extends React.Component {
             {(!currentUser) ? <h1>Error: Whodat?</h1> :
               <div>
                 <Userdetails user={currentUser.user} />
-                <ul className="user">
+                <Style.ul className="user">
                   {slides}
-                </ul>
+                </Style.ul>
                 <Slide data={currentUser.userData}  />
                 {/* <Slide data={this.state.activeSlide[this.state.activeTab].payload}  />  */}
                 {/* <UserCategoryStats data={currentUser.userData} />  */}
