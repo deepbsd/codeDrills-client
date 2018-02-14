@@ -1,0 +1,37 @@
+.profile {
+    margin-top: 20px;
+    display: inline-flex;
+}
+
+
+.subject {
+  color: gray;
+  font-family: Helvetica, sans-serif;
+  font-size: 2em;
+  margin-left: 0;
+  margin-right: 20%;
+}
+
+.counts {
+  color: gray;
+  font-family: Helvetica, sans-serif;
+  font-size: 2em;
+  margin-left: 20%;
+  margin-right: 0;
+
+}
+
+.percentage {
+  color: white;
+  font-size: 4.5em;
+  position: absolute;
+  top: 100%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 425px;
+}
+
+.chartWrapper {
+  position: relative;
+}
