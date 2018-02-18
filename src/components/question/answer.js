@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './question.css';
+import Style from './style';
 
 
 export default class Answer extends React.Component {
@@ -32,9 +32,9 @@ export default class Answer extends React.Component {
 render() {
 
   return (
-          <li onClick={this.handleClick}>
+          <Style.answerLi onClick={this.handleClick}>
             {this.props.answerText}
-          </li>
+          </Style.answerLi>
     )
   }
 

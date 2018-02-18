@@ -19,8 +19,8 @@ class Header extends React.Component {
                 public: true
             },
             {
-                link: "about",
-                href: "/about",
+                link: "home",
+                href: "/home",
                 private: true,
                 public: true
             },

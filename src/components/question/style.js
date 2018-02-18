@@ -33,7 +33,31 @@ const Style = {
           -webkit-transform: scaleX(1);
           transform: scaleX(1);
         }
-  `
+        `,
+    questionText: styled.div`
+      font-size: 1.2em;
+      font-weight: bolder;
+      color: black;
+      margin: 30px 0;
+    `,
+    question: styled.li`
+      color: black;
+      display: flex;
+      text-align: left;
+      &:hover {
+        color: black;
+        font-weight: normal;
+        font-size: 1em;
+        font-style: normal;
+      }
+    `,
+    answerLi: styled.li`
+      margin: 15px 5px;
+    `,
+    img: styled.img`
+      width: 400px;
+      height: auto;
+    `
 }
 
 

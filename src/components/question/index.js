@@ -16,6 +16,7 @@ import question20 from './img/question20.png';
 
 
 import './question.css';
+// import Style from './style.js';
 
 export class Question extends React.Component {
 
@@ -43,7 +44,12 @@ export class Question extends React.Component {
         mongo: [],
         mongo_right: []
       },
-      // quizItems: this.startQuiz(this.props.questions)
+      images: {
+        "question5": question5,
+        "question9": question9,
+        "question16": question16,
+        "question20": question20
+      }
     }
   }
 
@@ -84,10 +90,6 @@ export class Question extends React.Component {
     if (this.state.answeredQuestions.includes(questionNumber.number)){
       alert("You already answered this question!");
     } else {
-      // ** this setState() call wasn't working before, but the arr.push() worked great.
-      // this.setState({
-      //   answeredQuestions: [...this.state.answeredQuestions, questionNumber.number]
-      // })
       this.state.answeredQuestions.push(questionNumber.number);
       this.props.dispatch(checkQuestion(questionNumber, correct));
       if (this.state.answeredQuestions.length > 9){
@@ -127,46 +129,6 @@ export class Question extends React.Component {
   }
 
 
-  // startQuiz(testquestions){
-  //
-  //   function getQuestions(arr) {
-  //   	let newquestions = []
-  //     // let length = arr.length-1;
-  //     let length = arr.length;
-  //   	for (var i = 1; i <= 10; i++){
-  //   		// let randnum = Math.round(Math.random()*length);
-  //   		let randnum = Math.round(Math.random()*length);
-  //   		// if (newquestions.includes(randnum)) {
-  //   		// 	console.log('Repeating!  Number: ',randnum,' already in ',newquestions)
-  //   		// 	return getQuestions(arr);
-  //   		// } else {
-  //   		// 	newquestions.push(randnum);
-  //   		// }
-  //       newquestions.push(randnum);  // for debugging purposes, allow duplicates at this point...
-  //   	}
-  //   	return newquestions;
-  //   }
-  //
-  //   let randnums = getQuestions(testquestions);
-  //
-  //   let tenQuestions = [];
-  //
-  //   randnums.forEach(function(num){
-  //     // console.log('Number: ',num, ' question: ', testquestions[num].number);
-  //     console.log('Number: ',num, ' question: ', testquestions[num]);
-  //     if (testquestions[num]){
-  //       tenQuestions.push(testquestions[num]);
-  //     } else {
-  //       console.log('Major Boo Boo!  ',num);
-  //     }
-  //
-  //   })
-  //
-  //   return tenQuestions;
-  // }
-
-
-
     render() {
 
       console.log('NOW RENDERING: ',this.props.questions);
@@ -193,7 +155,8 @@ export class Question extends React.Component {
                   <iframe width="560" height="315" src={question.assetUrl}
                     title="videoSnippet" frameborder="0" allowfullscreen>
                   </iframe> : question.type === 'image' ?
-                  <img src={question.assetUrl} alt="alt text" /> : null }
+                  // <img src={question.assetUrl} alt="alt text" /> : null }
+                  <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
                 {answers}
               </ul>
         )

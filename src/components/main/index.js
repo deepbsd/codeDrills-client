@@ -19,6 +19,7 @@ export default function Main(props) {
             <Style.wrapper>
 
                 <Route exact path="/" component={Landing} />
+                <Route exact path="/home" component={Landing} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/about" component={About} />
