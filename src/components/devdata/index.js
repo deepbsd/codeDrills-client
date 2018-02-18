@@ -12,6 +12,7 @@ class DevData extends React.Component {
 
     return (
             <div>
+              <hr />
               <div>
               {/*
                 <p>Missed: {this.props.missedQuestions.join(', ')}</p>

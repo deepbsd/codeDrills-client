@@ -53,6 +53,10 @@ const Style = {
     `,
     answerLi: styled.li`
       margin: 15px 5px;
+      &:hover {
+        cursor: pointer;
+        background-color: #8af2d4;
+      }
     `,
     img: styled.img`
       width: 400px;
