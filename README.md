@@ -1,4 +1,4 @@
-# codeDrills 
+# codeDrills
 
 helps users prepare for technical Javascript interviews
 with questions preparation quizzes.
@@ -6,7 +6,8 @@ with questions preparation quizzes.
 
 Basic Concept:
 =============
-CodeDrills helps a web developer prepare for technical interview questions by taking practice quizzes on technical subjects.
+CodeDrills helps a web developer prepare for technical interview questions by taking practice quizzes on technical subjects.  There's a prototype at
+[Netlify](https://copy-writer-anne-64537.netlify.com/).
 
 User Stories:
 =============
@@ -42,4 +43,3 @@ Screens:
 11. [About page](wireframes/AboutMe.png) (I'm Dave, here's my github, contact etc)
 
 Here's the [component layout](wireframes/ComponentLayout.png)...
-
