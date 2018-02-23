@@ -15,8 +15,8 @@ import question20 from './img/question20.png';
 
 
 
-import './question.css';
-// import Style from './style.js';
+// import './question.css';
+import Style from './style.js';
 
 export class Question extends React.Component {
 
@@ -149,11 +149,11 @@ export class Question extends React.Component {
           });
 
         return (
-              <ul className="question">
-                <li><span class="questionText" key={index1}>{index1+1}. {question.question}</span></li>
+              <ul key={index1}>
+                <Style.question><Style.questionText key={index1}>{index1+1}. {question.question}</Style.questionText></Style.question>
                 {question.type === 'videoSnippet' ?
                   <iframe width="560" height="315" src={question.assetUrl}
-                    title="videoSnippet" frameborder="0" allowfullscreen>
+                    title="videoSnippet" frameBorder="0" allowFullScreen>
                   </iframe> : question.type === 'image' ?
                   // <img src={question.assetUrl} alt="alt text" /> : null }
                   <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
@@ -163,7 +163,7 @@ export class Question extends React.Component {
     });
 
       return (
-              <div class="questionWrap">
+              <div>
                 {questions}
                 <p>
 

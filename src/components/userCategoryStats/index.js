@@ -5,7 +5,7 @@ import {PieChart} from '../chart';
 
 
 
-import Style from '../profile/profile.js';
+import Style from '../profile/style.js';
 
 
 export class UserCategoryStats extends React.Component {

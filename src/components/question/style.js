@@ -34,7 +34,7 @@ const Style = {
           transform: scaleX(1);
         }
         `,
-    questionText: styled.div`
+    questionText: styled.span`
       font-size: 1.2em;
       font-weight: bolder;
       color: black;

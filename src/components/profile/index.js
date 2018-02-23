@@ -8,7 +8,7 @@ import Userdetails from '../userDetails';
 
 
 
-import Style from './profile.js';
+import Style from './style.js';
 // import './profile.css'
 
 

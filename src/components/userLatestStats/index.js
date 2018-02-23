@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {RadarChart} from '../chart';
 
 // import '../profile/profile.css';
-import Style from '../profile/profile.js';
+import Style from '../profile/style.js';
 
 export class UserLatestStats extends React.Component {
 
@@ -59,11 +59,11 @@ constructor(props) {
         return (
             <div>
             {(!currentData) ? <h1>Error: What data?</h1> :
-              <div className="chartWrapper">
+              <Style.chartWrapper>
                 <h2>Latest Quiz Compared to Total Percentages</h2>
                   <RadarChart radarChartData={this.state["radarChartData"]} />
 
-              </div>
+              </Style.chartWrapper>
             }
             </div>
         );

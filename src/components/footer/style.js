@@ -37,6 +37,9 @@ const Style = {
           -webkit-transform: scaleX(1);
           transform: scaleX(1);
         }
+  `,
+  ulFooter: styled.ul`
+    text-align: center;
   `
 }
 

@@ -8,11 +8,11 @@ export default function Footer() {
     return (
 
         <Style.wrapper>
-          <ul>
+          <Style.ulFooter>
                 <Style.listItem><a href="https://github.com/deepbsd">Github</a></Style.listItem>
                 <Style.listItem><a href="http://www.dsj.net">Home Page</a></Style.listItem>
                 <Style.listItem><a href="http://davidsjackson.net/wordpress/">Blog</a></Style.listItem>
-          </ul>
+          </Style.ulFooter>
         </Style.wrapper>
 
     );

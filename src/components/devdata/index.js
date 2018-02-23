@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 
 class DevData extends React.Component {
 
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
 
 
   render() {

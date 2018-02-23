@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import '../profile/profile.css';
-import Style from '../profile/profile.js';
+import Style from '../profile/style.js';
 
 export default function Userdetails(props) {
 

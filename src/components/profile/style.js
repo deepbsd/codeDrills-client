@@ -43,9 +43,9 @@ const Style = {
   `,
   percentage: styled.div`
     color: white;
-    font-size: 4.5em;
+    font-size: 3.5em;
     position: absolute;
-    top: 110%;
+    top: 120%;
     left: 51%;
     transform: translate(-50%, -50%);
     width: 100%;

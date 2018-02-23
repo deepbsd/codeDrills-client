@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {PieChart, RadarChart} from '../chart';
+import {PieChart} from '../chart';
 
 // import '../profile/profile.css';
-import Style from '../profile/profile.js';
+import Style from '../profile/style.js';
 
 export class UserAggregateStats extends React.Component {
 
