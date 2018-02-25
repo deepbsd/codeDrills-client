@@ -8,6 +8,8 @@ import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 import {reducer} from './reducers';
 
+// Hydrate the authToken from localStorage if it exists
+const authToken = loadAuthToken();
 
 const store = createStore(
   combineReducers({
@@ -19,14 +21,15 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
-// Hydrate the authToken from localStorage if it exists
-const authToken = loadAuthToken();
+
 if (authToken) {
   const token = authToken;
   store.dispatch(setAuthToken(token));
   store.dispatch(refreshAuthToken());
-  console.log("In the Store: ");
+  console.log("In the Store--token: ",token);
+  console.log("STORE--LoggedIn: ", )
 }
+
 
 // export default createStore(reducer, applyMiddleware(thunk));
 export default store;

@@ -90,7 +90,6 @@ const mapStateToProps = state => {
     loggedIn: state.loggedIn,
     name: `${authorizedUser.firstName} ${authorizedUser.lastName}`,
   }
-
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Profile));
