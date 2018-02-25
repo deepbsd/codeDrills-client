@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {loginUser} from '../../actions';
+// import {loginUser} from '../../actions';
 import NavItem from '../navitem';
 
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
-        this.testDispatch = this.testDispatch.bind(this);
+        // this.testDispatch = this.testDispatch.bind(this);
 
 
         this.state = {
@@ -53,12 +53,14 @@ class Header extends React.Component {
     }
 
     testDispatch() {
-      this.props.dispatch(loginUser(this.props.loggedIn));
+      // this.props.dispatch(loginUser(this.props.loggedIn));
+      console.log("So ya wanna log out?");
     }
 
 
     render() {
         //let obj = JSON.parse(this.props.questions);
+        console.log("Header--loggedIn: ",this.props.loggedIn);
         const links = this.state.navs.map((link, index) => {
             if (this.props.loggedIn && link.private) {
               if (link.link === "logout") {

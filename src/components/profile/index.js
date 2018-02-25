@@ -30,9 +30,9 @@ export class Profile extends React.Component {
     }
 
     // Check whether we're logged in and have a JWT...
-    // componentDidMount() {
-    //   this.props.dispatch(fetchProtectedData());
-    // }
+    componentDidMount() {
+      this.props.dispatch(fetchProtectedData());
+    }
 
     handleClick(e) {
       // let _target = [].indexOf.call(e.currentTarget.children, e.target);
@@ -63,7 +63,7 @@ export class Profile extends React.Component {
 
             <div>
             {console.log('STRINGIFIED: '+JSON.stringify(currentUser))}
-            {(!currentUser) ? <h1>Error: Whodat?</h1> :
+            {(!currentUser) ? <h1>Hmmmmm... {this.props.username}  Whodat?</h1> :
               <div>
                 <Userdetails user={currentUser.user} />
                 <Style.ul className="user">
@@ -81,13 +81,17 @@ export class Profile extends React.Component {
   // User Auth changes a lot here...  Have to adapt...
 
 const mapStateToProps = state => {
-
+  const authorizedUser = state.auth;
+  console.log("Profile--STATEOBJ: ",state);
   return {
-    currentUser: state.currentUser,
+    currentUser: state.reducer.currentUser,
     //currentData: state.currentUser.userData,
+    username: state.auth.currentUser.username,
     loggedIn: state.loggedIn,
+    name: `${authorizedUser.firstName} ${authorizedUser.lastName}`,
   }
+
 };
 
-// export default requiresLogin(connect(mapStateToProps)(Profile));
-export default connect(mapStateToProps)(Profile);
+export default requiresLogin()(connect(mapStateToProps)(Profile));
+// export default connect(mapStateToProps)(Profile);

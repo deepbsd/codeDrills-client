@@ -1,83 +1,27 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
-import {registerUser} from '../../actions/users';
-import {login} from '../../actions/auth';
-import Input from './input';
-import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
-const passwordLength = length({min: 10, max: 72});
-const matchesPassword = matches('password');
+import {connect} from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
 
-export class RegistrationForm extends React.Component {
-    onSubmit(values) {
-        const {username, password, firstName, lastName} = values;
-        const user = {username, password, firstName, lastName};
-        return this.props
-            .dispatch(registerUser(user))
-            .then(() => this.props.dispatch(login(username, password)));
-    }
+import RegistrationForm from './registration-form';
 
-    render() {
-        return (
-            <form
-                className="login-form"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
-                <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" />
-                <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName" />
-                <label htmlFor="username">Username</label>
-                <Field
-                    component={Input}
-                    type="text"
-                    name="username"
-                    validate={[required, nonEmpty, isTrimmed]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="password"
-                    validate={[required, passwordLength, isTrimmed]}
-                />
-                <label htmlFor="passwordConfirm">Confirm password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="passwordConfirm"
-                    validate={[required, nonEmpty, matchesPassword]}
-                />
-                <button
-                    type="submit"
-                    disabled={this.props.pristine || this.props.submitting}>
-                    Register
-                </button>
-            </form>
-        );
+export function RegistrationPage(props) {
+    // If we are logged in (which happens automatically when registration
+    // is successful) redirect to the user's dashboard
+    if (props.loggedIn) {
+        console.log("Register--LoggedIn: ",props.loggedIn);
+        return <Redirect to="/profile" />;
     }
+    return (
+        <div className="home">
+            <h2>Register for Foo App</h2>
+            <RegistrationForm />
+            <Link to="/">Login</Link>
+        </div>
+    );
 }
 
-export default reduxForm({
-    form: 'registration',
-    onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('registration', Object.keys(errors)[0]))
-})(RegistrationForm);
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
 
-
-
-// import React from 'react';
-//
-// import Style from './style';
-//
-// export default function Register() {
-//     return (
-//         <Style.form>
-//             First Name: <input type="text" name="first name" value="first name" />
-//             Last Name: <input type="text" name="last name" value="last name" />
-//             Username: <input type="text" name="username" value="username" />
-//             Password: <input type="text" name="password" value="password" />
-//             <input type="submit" value="submit" />
-//         </Style.form>
-//     );
-// }
+export default connect(mapStateToProps)(RegistrationPage);

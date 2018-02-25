@@ -6,10 +6,11 @@ import update from 'immutability-helper';
 // import question16 from './img/question16.png';
 // import question20 from './img/question20.png';
 
-
+// was part of initialState...
+      // loggedIn: true,
 
 const initialState = {
-      loggedIn: true,
+
       currentQuiz: {
           "correct": [],
           "incorrect": [],
