@@ -6,7 +6,8 @@ import UserLatestStats from '../userLatestStats';
 import Userdetails from '../userDetails';
 // import {BarChart, PieChart, PolarChart, LineChart, RadarChart} from '../chart';
 
-
+import requiresLogin from './requires-login';
+import {fetchProtectedData} from '../../actions/protected-data';
 
 import Style from './style.js';
 // import './profile.css'
@@ -14,6 +15,7 @@ import Style from './style.js';
 
 export class Profile extends React.Component {
 
+    // Bind the handleclick so the user can access graphics panels
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
@@ -26,6 +28,11 @@ export class Profile extends React.Component {
           }
         }
     }
+
+    // Check whether we're logged in and have a JWT...
+    // componentDidMount() {
+    //   this.props.dispatch(fetchProtectedData());
+    // }
 
     handleClick(e) {
       // let _target = [].indexOf.call(e.currentTarget.children, e.target);
@@ -71,6 +78,8 @@ export class Profile extends React.Component {
       }
   }
 
+  // User Auth changes a lot here...  Have to adapt...
+
 const mapStateToProps = state => {
 
   return {
@@ -80,4 +89,5 @@ const mapStateToProps = state => {
   }
 };
 
+// export default requiresLogin(connect(mapStateToProps)(Profile));
 export default connect(mapStateToProps)(Profile);

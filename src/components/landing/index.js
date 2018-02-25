@@ -2,7 +2,10 @@ import React from 'react';
 
 import Style from './style';
 import Blurb from '../blurb';
-
+// import LoginForm from '../login/login-form';      // tried putting login-form on this page
+// import {Link, Redirect} from 'react-router-dom';  // it didn't really work!
+import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 export class Landing extends React.Component {
   constructor(props){
@@ -51,6 +54,10 @@ export class Landing extends React.Component {
 
   render() {
 
+    if (this.props.loggedIn) {
+      return <Redirect to="/profile" />;
+    }
+
     const blurbs = this.state.blurbs.map((item, index) => {
       return (
         <Blurb key={index} {...item} />
@@ -62,6 +69,7 @@ export class Landing extends React.Component {
               <Style.banner>
                 <Style.background />
                 <Style.head3>CodeDrills</Style.head3>
+
               </Style.banner>
               {blurbs}
             </div>
@@ -69,4 +77,12 @@ export class Landing extends React.Component {
       }
 }
 
-export default Landing;
+// export default Landing;
+
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.loggedIn
+  }
+};
+
+export default connect(mapStateToProps)(Landing);
