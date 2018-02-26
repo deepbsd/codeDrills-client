@@ -18,6 +18,7 @@ export class LoginForm extends React.Component {
                 </div>
             );
         }
+        console.log("LOGIN Token: ",this.props);
         return (
             <form
                 className="login-form"

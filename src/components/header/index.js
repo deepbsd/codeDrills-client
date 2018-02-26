@@ -59,10 +59,10 @@ class Header extends React.Component {
 
 
     render() {
-        //let obj = JSON.parse(this.props.questions);
-        console.log("Header--loggedIn: ",this.props.loggedIn);
+        let loggedIn = (this.props.hasToken) ? true : false;
+        console.log("Header--loggedIn: ",this.props.hasToken);
         const links = this.state.navs.map((link, index) => {
-            if (this.props.loggedIn && link.private) {
+            if (loggedIn && link.private) {
               if (link.link === "logout") {
                 return (
                   <NavItem key={index} {...link} doLogout={this.testDispatch} />
@@ -71,7 +71,7 @@ class Header extends React.Component {
               return (
                 <NavItem key={index} {...link}  />
               )
-            } else if (this.props.loggedIn && !link.private && link.public) {
+            } else if (loggedIn && !link.private && link.public) {
               return  false
             } else if (link.public) {
               return (
@@ -93,7 +93,7 @@ class Header extends React.Component {
                 //<NavItem link="test" testDispatch={this.testDispatch} />
 const mapStateToProps = state => ({
     currentUser: state.currentUser,
-    loggedIn: state.loggedIn,
+    hasToken: state.auth.authToken,
     questions: state.questions
 });
 
