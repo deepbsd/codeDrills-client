@@ -95,7 +95,7 @@ export class UserCategoryStats extends React.Component {
           console.log('TESTING: '+currentData.jsQuestionsAnswered);
 
           return (
-            <Style.chartWrapper>
+            <Style.chartWrapper key={index}>
               <Style.h2><Style.subject >{_displaySubject}</Style.subject><Style.counts >{_numCorrect}/{_numAnswered}</Style.counts></Style.h2>
               <Style.percentage >{getPercent(_numCorrect, _numAnswered)}%</Style.percentage>
                 <PieChart pieChartData={this.state[_subject]} />

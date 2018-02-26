@@ -50,11 +50,11 @@ export class Profile extends React.Component {
         const slides = ["UserCategoryStats", "UserAggregateStats", "UserLatestStats"].map((slide, index) => {
           if (this.state.activeTab === slide) {
             return (
-              <Style.li className="active" onClick={(e) => this.handleClick(e)}>{slide}</Style.li>
+              <Style.li className="active" key={index} onClick={(e) => this.handleClick(e)}>{slide}</Style.li>
             )
           }
           return (
-            <Style.li onClick={(e) => this.handleClick(e)}>{slide}</Style.li>
+            <Style.li key={index} onClick={(e) => this.handleClick(e)}>{slide}</Style.li>
           )
         });
 
