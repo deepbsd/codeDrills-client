@@ -109,7 +109,7 @@ export class UserCategoryStats extends React.Component {
 
         return (
             <div>
-            {console.log('STRINGIFIED: '+JSON.stringify(currentData))}
+            {/*  Debugging only:  console.log('STRINGIFIED: '+JSON.stringify(currentData))  */}
             {(!currentData) ? <h1>Error: What data?</h1> :
               <div>
                   {pieCharts}
@@ -121,6 +121,8 @@ export class UserCategoryStats extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    // Don't really need this anymore...
+
     // currentUser: state.currentUser,
     // currentData: state.currentUser.userData,
     loggedIn: state.loggedIn,
