@@ -13,7 +13,7 @@ const authToken = loadAuthToken();
 
 const store = createStore(
   combineReducers({
-    reducer,
+    reducer: reducer,
     form: formReducer,
     auth: authReducer,
     protectedData: protectedDataReducer

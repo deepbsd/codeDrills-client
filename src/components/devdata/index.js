@@ -56,10 +56,10 @@ class DevData extends React.Component {
 const mapStateToProps = state => {
   return ({
 
-      missedQuestions: state.missedQuestions,
-      correctQuestions: state.correctQuestions,
+      missedQuestions: state.reducer.missedQuestions,
+      correctQuestions: state.reducer.correctQuestions,
       //currentQuiz: state.userData.currentQuiz,
-      currentUser: state.currentUser
+      currentUser: state.reducer.currentUser
 
   });
 }

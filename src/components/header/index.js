@@ -81,8 +81,8 @@ class Header extends React.Component {
                 <NavItem key={index} {...link} />
               )
             }
+            return false;
           }
-            //<NavItem className="header" key={index} loggedIn={this.props.loggedIn} testDispatch={this.testDispatch}  {...link} />
         );
 
         return (

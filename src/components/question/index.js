@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {checkQuestion, updateCurrent} from '../../actions';
-
+import requiresLogin from '../profile/requires-login';
 import DevData from './../devdata';
 import Answer from './answer';
 
@@ -83,6 +83,8 @@ export class Question extends React.Component {
 
           console.log('Local StateObj: ',this.state.currentQuiz );
         }
+        // else return a default value of false
+        // return false;
     })
   }
 
@@ -131,7 +133,7 @@ export class Question extends React.Component {
 
     render() {
 
-      console.log('NOW RENDERING: ',this.props.questions);
+      // console.log('NOW RENDERING: ',this.props);
       //Here you will call the startQuiz function, this function will return an array of 10 random questions
       // You will pass into that function the questions that came from the props, the 40 that you had fetched
 
@@ -181,15 +183,22 @@ export class Question extends React.Component {
 }
 
 
-const mapStateToProps = state => ({
-    questions: state.questions,
-    missedQuestions: state.missedQuestions,
-    correctQuestions: state.correctQuestions,
-    currentQuiz: state.currentQuiz,
-    currentUser: state.currentUser,
-});
 
-export default connect(mapStateToProps)(Question);
+const mapStateToProps = state => {
+  const whatever = state;
+  console.log("QUESTIONS StateOBJ: ",whatever);
+  return {
+    questions: state.reducer.questions,
+    missedQuestions: state.reducer.missedQuestions,
+    correctQuestions: state.reducer.correctQuestions,
+    currentQuiz: state.reducer.currentQuiz,
+    currentUser: state.reducer.currentUser
+  }
+};
 
+
+// export default connect(mapStateToProps)(Question);
+
+export default requiresLogin()(connect(mapStateToProps)(Question));
 
 // <p>{JSON.stringify(this.props.currentUser)}</p>
