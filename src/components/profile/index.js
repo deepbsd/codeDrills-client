@@ -20,11 +20,11 @@ export class Profile extends React.Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
-          activeTab: 'UserCategoryStats',
+          activeTab: 'User Stats',
           activeSlide: {
-            UserCategoryStats,
-            UserAggregateStats,
-            UserLatestStats
+            "User Stats": UserCategoryStats,
+            "Aggregate Stats": UserAggregateStats,
+            "Latest Stats": UserLatestStats
           }
         }
     }
@@ -47,7 +47,7 @@ export class Profile extends React.Component {
 
         const currentUser = this.props.currentUser;
 
-        const slides = ["UserCategoryStats", "UserAggregateStats", "UserLatestStats"].map((slide, index) => {
+        const slides = ["User Stats", "Aggregate Stats", "Latest Stats"].map((slide, index) => {
           if (this.state.activeTab === slide) {
             return (
               <Style.li className="active" key={index} onClick={(e) => this.handleClick(e)}>{slide}</Style.li>
@@ -85,7 +85,6 @@ const mapStateToProps = state => {
   console.log("Profile--STATEOBJ: ",state);
   return {
     currentUser: state.reducer.currentUser,
-    //currentData: state.currentUser.userData,
     username: state.auth.currentUser.username,
     loggedIn: state.loggedIn,
     name: `${authorizedUser.firstName} ${authorizedUser.lastName}`,
