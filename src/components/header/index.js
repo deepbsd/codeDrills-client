@@ -3,12 +3,13 @@ import {connect} from 'react-redux';
 // import {loginUser} from '../../actions';
 import NavItem from '../navitem';
 
+import {clearAuth} from '../../actions/auth';
+import {clearAuthToken} from '../../local-storage';
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
-        // this.testDispatch = this.testDispatch.bind(this);
-
+        this.logOut = this.logOut.bind(this);
 
         this.state = {
           navs: [
@@ -52,9 +53,11 @@ class Header extends React.Component {
         }
     }
 
-    testDispatch() {
-      // this.props.dispatch(loginUser(this.props.loggedIn));
+
+    logOut() {
       console.log("So ya wanna log out?");
+      this.props.dispatch(clearAuth());
+      clearAuthToken();
     }
 
 
@@ -65,7 +68,7 @@ class Header extends React.Component {
             if (loggedIn && link.private) {
               if (link.link === "logout") {
                 return (
-                  <NavItem key={index} {...link} doLogout={this.testDispatch} />
+                  <NavItem key={index} {...link} doLogout={this.logOut} />
                 )
               }
               return (
