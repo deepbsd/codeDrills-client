@@ -20,9 +20,9 @@ export class Profile extends React.Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
-          activeTab: 'User Stats',
+          activeTab: 'Category Stats',
           activeSlide: {
-            "User Stats": UserCategoryStats,
+            "Category Stats": UserCategoryStats,
             "Aggregate Stats": UserAggregateStats,
             "Latest Stats": UserLatestStats
           }
@@ -47,7 +47,7 @@ export class Profile extends React.Component {
 
         const currentUser = this.props.currentUser;
 
-        const slides = ["User Stats", "Aggregate Stats", "Latest Stats"].map((slide, index) => {
+        const slides = ["Category Stats", "Aggregate Stats", "Latest Stats"].map((slide, index) => {
           if (this.state.activeTab === slide) {
             return (
               <Style.li className="active" key={index} onClick={(e) => this.handleClick(e)}>{slide}</Style.li>
