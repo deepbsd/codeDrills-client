@@ -62,10 +62,10 @@ export class Profile extends React.Component {
         return (
 
             <div>
-            {console.log('STRINGIFIED: '+JSON.stringify(currentUser))}
+            {console.log('PROFILE USER: '+JSON.stringify(this.props.authUser))}
             {(!currentUser) ? <h1>Hmmmmm... {this.props.username}  Whodat?</h1> :
               <div>
-                <Userdetails user={currentUser.user} />
+                <Userdetails user={this.props.username} />
                 <Style.ul className="user">
                   {slides}
                 </Style.ul>
@@ -85,9 +85,10 @@ const mapStateToProps = state => {
   console.log("Profile--STATEOBJ: ",state);
   return {
     currentUser: state.reducer.currentUser,
-    username: state.auth.currentUser.username,
+    username: state.auth.currentUser,
+    authUser: state.auth.currentUser,
     loggedIn: state.loggedIn,
-    name: `${authorizedUser.firstName} ${authorizedUser.lastName}`,
+    fullname: `${authorizedUser.firstName} ${authorizedUser.lastName}`,
   }
 };
 
