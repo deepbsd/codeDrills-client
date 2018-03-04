@@ -1,5 +1,6 @@
 import {API_BASE_URL} from '../config';
 
+import store from '../store';
 
 export const START_QUIZ = 'START_QUIZ';
 export const startQuiz = () => ({
@@ -18,14 +19,21 @@ export const  checkQuestion = (answerObj) => ({
   answerObj
 });
 
+
 export const fetchUserData = () => dispatch => {
-  fetch(`${API_BASE_URL}/userdata`)
-    .then(res => {
-      if (!res.ok) {
-        console.log('Oops, did not get the user data!');
-        return Promise.reject(res.statusText);
+  {/* let userName = store.getState().auth.username; */}
+  let userName = "deepbsd";
+  fetch(`${API_BASE_URL}/users/${userName}`)
+    .then(results => {
+      if (!results.ok) {
+        console.log('Oops, did not get the user data!', results);
+        return Promise.reject(results.statusText);
       }
-      return res.json();
+      console.log("REDUCER: ", results);
+      return results.json();
+    })
+    .then(userData => {
+      return userData;
     })
     .then(currentUser => {
       dispatch(fetchUserDataSuccess(currentUser))
