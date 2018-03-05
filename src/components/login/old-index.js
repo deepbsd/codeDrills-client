@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './style';
 import {connect} from 'react-redux';
-import  {loginUser} from '../../actions';
+
 
 export class Login extends React.Component  {
 
@@ -12,7 +12,7 @@ export class Login extends React.Component  {
   }
     handleSubmit(e){
       e.preventDefault();
-      this.props.dispatch(loginUser(false));
+      // this.props.dispatch(loginUser(false));
     }
 
     render(){

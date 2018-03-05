@@ -34,12 +34,7 @@ const initialState = {
 };
 
 export const reducer = (state=initialState, action) => {
-  if (action.type === actions.LOGIN_USER) {
-    console.log('Logged In: '+state.loggedIn);
-    return Object.assign({}, state, {
-      loggedIn: !action.loggedIn
-    });
-  } else if (action.type === actions.CHECK_QUESTION){
+  if (action.type === actions.CHECK_QUESTION){
     if (action.answerObj.correct){
       console.log('You got it right!');
       return Object.assign({}, state, {

@@ -7,11 +7,11 @@ export const startQuiz = () => ({
   type: START_QUIZ,
 })
 
-export const LOGIN_USER = 'LOGIN_USER';
-export const loginUser = loggedIn => ({
-    type: LOGIN_USER,
-    loggedIn
-});
+// export const LOGIN_USER = 'LOGIN_USER';
+// export const loginUser = loggedIn => ({
+//     type: LOGIN_USER,
+//     loggedIn
+// });
 
 export const CHECK_QUESTION = 'CHECK_QUESTION';
 export const  checkQuestion = (answerObj) => ({
