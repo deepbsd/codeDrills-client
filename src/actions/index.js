@@ -20,9 +20,11 @@ export const  checkQuestion = (answerObj) => ({
 });
 
 
-export const fetchUserData = () => dispatch => {
-  {/* let userName = store.getState().auth.username; */}
-  let userName = "deepbsd";
+export const fetchUserData = (userName) => dispatch => {
+  {/* let userName = store.getState(); */}
+  {/* let userName = "deepbsd"; */}
+  console.log("ACTION --userName: ", userName);
+
   fetch(`${API_BASE_URL}/users/${userName}`)
     .then(results => {
       if (!results.ok) {

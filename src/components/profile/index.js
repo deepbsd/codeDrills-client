@@ -6,12 +6,14 @@ import UserLatestStats from '../userLatestStats';
 import Userdetails from '../userDetails';
 // import {BarChart, PieChart, PolarChart, LineChart, RadarChart} from '../chart';
 
+// import store from '../../store';
+
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../../actions/protected-data';
 
 import Style from './style.js';
 // import './profile.css'
-
+import {fetchUserData} from '../../actions';
 
 export class Profile extends React.Component {
 
@@ -32,6 +34,8 @@ export class Profile extends React.Component {
     // Check whether we're logged in and have a JWT...
     componentDidMount() {
       this.props.dispatch(fetchProtectedData());
+      // this.props.dispatch(fetchUserData("deepbsd"));
+      this.props.dispatch(fetchUserData(this.props.username.username));
     }
 
     handleClick(e) {
@@ -46,6 +50,11 @@ export class Profile extends React.Component {
     render() {
 
         const currentUser = this.props.currentUser;
+
+        // let userName = store.getState().auth.currentUser.username;
+        // let userName = store.getState().auth.userName;
+        // console.log("PROFILE --userName: ",userName);
+        // this.props.dispatch(fetchUserData());
 
         const slides = ["Category Stats", "Aggregate Stats", "Latest Stats"].map((slide, index) => {
           if (this.state.activeTab === slide) {
@@ -63,7 +72,7 @@ export class Profile extends React.Component {
 
             <div>
             {console.log('PROFILE USER: '+JSON.stringify(this.props.authUser))}
-            {(!currentUser) ? <h1>Hmmmmm... {this.props.username}  Whodat?</h1> :
+            {(!currentUser) ? <h1>Hmmmmm... {this.props.username.username}  Whodat?</h1> :
               <div>
                 <Userdetails user={this.props.username} />
                 <Style.ul className="user">

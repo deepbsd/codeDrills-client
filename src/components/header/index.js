@@ -6,6 +6,7 @@ import NavItem from '../navitem';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
 
+
 class Header extends React.Component {
     constructor(props) {
         super(props);

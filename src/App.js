@@ -10,6 +10,7 @@ import Header from './components/header';
 
 import Footer from './components/footer';
 
+
 class App extends Component {
 
   // constructor(props){
@@ -19,7 +20,7 @@ class App extends Component {
   componentDidMount() {
       console.log('starting api call ');
       this.props.dispatch(fetchQuestions());
-      this.props.dispatch(fetchUserData());
+      // this.props.dispatch(fetchUserData("deepbsd"));
   }
 
   render() {

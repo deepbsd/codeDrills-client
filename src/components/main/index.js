@@ -14,6 +14,7 @@ import Question from '../question';
 
 
 export default function Main(props) {
+
     return (
         <Router>
             <Style.wrapper>

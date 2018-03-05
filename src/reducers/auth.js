@@ -31,7 +31,8 @@ export default function reducer(state = initialState, action) {
     } else if (action.type === AUTH_SUCCESS) {
         return Object.assign({}, state, {
             loading: false,
-            currentUser: action.currentUser
+            currentUser: action.currentUser,
+            userName: action.currentUser.username
         });
     } else if (action.type === AUTH_ERROR) {
         return Object.assign({}, state, {
