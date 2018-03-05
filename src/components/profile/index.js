@@ -51,11 +51,6 @@ export class Profile extends React.Component {
 
         const currentUser = this.props.currentUser;
 
-        // let userName = store.getState().auth.currentUser.username;
-        // let userName = store.getState().auth.userName;
-        // console.log("PROFILE --userName: ",userName);
-        // this.props.dispatch(fetchUserData());
-
         const slides = ["Category Stats", "Aggregate Stats", "Latest Stats"].map((slide, index) => {
           if (this.state.activeTab === slide) {
             return (
