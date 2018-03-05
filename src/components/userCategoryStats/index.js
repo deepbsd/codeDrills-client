@@ -121,10 +121,6 @@ export class UserCategoryStats extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    // Don't really need this anymore...
-
-    // currentUser: state.currentUser,
-    // currentData: state.currentUser.userData,
     loggedIn: state.loggedIn,
   }
 };

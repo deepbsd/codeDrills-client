@@ -14,9 +14,6 @@ export default function Userdetails(props) {
                 <Style.input type="text" placeholder="last name" defaultValue={props.user.lastName}></Style.input><br/>
                 <Style.input type="text" placeholder="username" defaultValue={props.user.username}></Style.input>
             </form>
-            <div className="profileData">
-
-            </div>
         </Style.profile>
 
     );

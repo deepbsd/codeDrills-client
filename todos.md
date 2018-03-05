@@ -3,7 +3,10 @@
 
 ------  ***  Client *** --------
 
-5. Get styled components going again!
+5. Styled Components: mostly all working again--need to look at registration component.  There are some sub-structures I don't understand that are using htmlFor={prop} syntax that don't make sense to me.  I want to understand it before I blow it away.
+
+1. Freepik avatar attribution:  
+<a href='https://www.freepik.com/free-vector/decorative-social-media-business-blog-users-profile-avatar-trendy-hairstyle-design-icons-collection-isolated-flat-vector-illustration_1158625.htm'>Designed by Freepik</a>
 
 1. Find some avatars that will work for user avatars.
 
