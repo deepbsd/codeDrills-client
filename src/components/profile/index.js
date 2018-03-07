@@ -34,7 +34,6 @@ export class Profile extends React.Component {
     // Check whether we're logged in and have a JWT...
     componentDidMount() {
       this.props.dispatch(fetchProtectedData());
-      // this.props.dispatch(fetchUserData("deepbsd"));
       this.props.dispatch(fetchUserData(this.props.username.username));
     }
 
