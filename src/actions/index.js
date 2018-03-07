@@ -5,13 +5,7 @@ import store from '../store';
 export const START_QUIZ = 'START_QUIZ';
 export const startQuiz = () => ({
   type: START_QUIZ,
-})
-
-// export const LOGIN_USER = 'LOGIN_USER';
-// export const loginUser = loggedIn => ({
-//     type: LOGIN_USER,
-//     loggedIn
-// });
+});
 
 export const CHECK_QUESTION = 'CHECK_QUESTION';
 export const  checkQuestion = (answerObj) => ({
@@ -31,7 +25,7 @@ export const fetchUserData = (userName) => dispatch => {
         console.log('Oops, did not get the user data!', results);
         return Promise.reject(results.statusText);
       }
-      console.log("REDUCER: ", results);
+      console.log("ACTION --fetchUserData: ", results);
       return results.json();
     })
     .then(userData => {
@@ -47,6 +41,29 @@ export const fetchUserDataSuccess = (currentuser) => ({
   type: FETCH_USER_DATA_SUCCESS,
   currentuser
 });
+
+export const createNewUserData = (currentUser) => dispatch => {
+  fetch(`${API_BASE_URL}/userdata/`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json,'
+    },
+    body: JSON.stringify({
+      username: currentUser.username,
+      firstName: currentUser.firstName,
+      lastName: currentUser.lastName
+    })
+  })
+  .then(results => {
+    if (!results.ok){
+      console.log('OOPS!  Did not post new userData!', results);
+      return Promise.reject(results.statusText);
+    }
+    console.log("ACTION --createNewUserData: ", results);
+    return results.json();
+  })
+};
 
 
 export const fetchQuestions = () => dispatch => {
