@@ -32,6 +32,7 @@ export const fetchUserData = (userName) => dispatch => {
       return userData;
     })
     .then(currentUser => {
+      {/* Currently only works for registered users... */}
       dispatch(fetchUserDataSuccess(currentUser))
     });
 };
