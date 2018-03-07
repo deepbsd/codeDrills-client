@@ -2,20 +2,18 @@ import {SubmissionError} from 'redux-form';
 
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
-import {createNewUserData} from './index';
+
 
 export const registerUser = user => dispatch => {
     const newUser = JSON.stringify(user);
-    console.log("NEWUSER: ", newUser);
     return fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: newUser
     })
         .then(res => normalizeResponseErrors(res))
-        .then(console.log("NEWUSER: ",newUser))
         .then(res => res.json())
         .catch(err => {
             const {reason, message, location} = err;
@@ -28,6 +26,4 @@ export const registerUser = user => dispatch => {
                 );
             }
         })
-        console.log("NEWUSER: ", newUser)
-        .then( () => createNewUserData(newUser))
 };
