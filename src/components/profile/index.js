@@ -10,6 +10,7 @@ import Userdetails from '../userDetails';
 
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../../actions/protected-data';
+import {createNewUserData} from '../../actions';
 
 import Style from './style.js';
 // import './profile.css'
@@ -34,7 +35,19 @@ export class Profile extends React.Component {
     // Check whether we're logged in and have a JWT...
     componentDidMount() {
       this.props.dispatch(fetchProtectedData());
-      this.props.dispatch(fetchUserData(this.props.username.username));
+      let promise = new Promise(function(res,rej){
+        let testUser = {
+          username: "whodat9",
+          firstName: "whodat9",
+          lastName: "whodat9"
+        }
+        if (rej){
+          console.log("Couldn't get Current User Data!");
+        }
+        // this.props.dispatch(createNewUserData(testUser))
+      })
+      .then(this.props.dispatch(fetchUserData(this.props.username.username)))
+      .catch(console.log("USERDATA ERROR! WARNING WILL ROBINSON!"))
     }
 
     handleClick(e) {
