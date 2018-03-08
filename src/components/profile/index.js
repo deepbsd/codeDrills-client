@@ -35,7 +35,7 @@ export class Profile extends React.Component {
     // Check whether we're logged in and have a JWT...
     componentDidMount() {
       this.props.dispatch(fetchProtectedData());
-      let promise = new Promise(function(res,rej){
+      return new Promise(function(res,rej){
         let testUser = {
           username: "whodat9",
           firstName: "whodat9",
@@ -44,7 +44,7 @@ export class Profile extends React.Component {
         if (rej){
           console.log("Couldn't get Current User Data!");
         }
-        // this.props.dispatch(createNewUserData(testUser))
+        res props.dispatch(createNewUserData(testUser))
       })
       .then(this.props.dispatch(fetchUserData(this.props.username.username)))
       .catch(console.log("USERDATA ERROR! WARNING WILL ROBINSON!"))
