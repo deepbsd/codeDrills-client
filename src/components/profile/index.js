@@ -33,13 +33,28 @@ export class Profile extends React.Component {
     }
 
     // Check whether we're logged in and have a JWT...
+    // Also must check if user is new; if so, dispatch createNewUserData
     componentDidMount() {
 
       this.props.dispatch(fetchProtectedData())
         // .then((data) => this.props.dispatch(createNewUserData(this.props.username)))
         // .then( () => this.props.dispatch(fetchUserData(this.props.username.username)))
-      this.props.dispatch(fetchUserData(this.props.username.username))
+
+        this.props.dispatch(fetchUserData(this.props.username.username))
         console.log("***PROFILE --Mounted for username: ",this.props.username.username )
+
+        if (!this.props.currentUser) {
+          console.log("PROFILE: Can't Fetch User DATA--Perhaps a New User? ");
+          console.log("PROFILE: dispatching createNewUserData");
+          this.props.dispatch(createNewUserData(this.props.username));
+          try {
+            this.props.dispatch(fetchUserData(this.props.username.username));
+          }
+          catch(error){
+            console.log("Couldn't Fetch NewUserData");
+          }
+        }
+        (this.props.currentUser) && console.log("Current User is Defined.")
     }
 
     handleClick(e) {
@@ -71,7 +86,7 @@ export class Profile extends React.Component {
 
             <div>
             { console.log('PROFILE USER: ',currentUser) }
-            {(!currentUser) ? <h1>Hmmmmm... {this.props.username.username}  Whodat?</h1> :
+            {(!currentUser) ? <h1>Hmmmmm... {this.props.username.username}  Whodat?  Where is ma Data?</h1> :
               <div>
                 <Userdetails user={this.props.username} />
                 <Style.ul className="user">

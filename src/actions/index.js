@@ -29,9 +29,10 @@ export const fetchUserData = (userName) => dispatch => {
       return results.json();
     })
     .then( (data) => {
-      console.log("***ACTION:  calling fetch userDataSuccess: ", data.currentUser);
+      console.log("***ACTION:  calling fetch userDataSuccess: ", data);
       dispatch(fetchUserDataSuccess(data.currentUser))
-    });
+    })
+    .catch( res => { console.log('**ERROR fetching UserData: ')});
 };
 
 export const FETCH_USER_DATA_SUCCESS = 'FETCH_USER_DATA_SUCCESS';
