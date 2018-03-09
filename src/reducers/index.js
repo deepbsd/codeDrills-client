@@ -52,9 +52,9 @@ export const reducer = (state=initialState, action) => {
       questions: [...action.questionsArray.questions]
     })
   } else if (action.type === actions.FETCH_USER_DATA_SUCCESS){
-      console.log('about to load user data into state...', action);
+      console.log('about to load user data into state...', action.currentuser);
       return Object.assign({}, state, {
-        currentUser:  action.currentuser.currentUser
+        currentUser:  action.currentuser
     })
   } else if (action.type === actions.UPDATE_CURRENT){
     console.log('Updating GLOBAL user data with quiz results now...')

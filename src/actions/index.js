@@ -28,12 +28,9 @@ export const fetchUserData = (userName) => dispatch => {
       console.log("ACTION --fetchUserData: ", results);
       return results.json();
     })
-    .then(userData => {
-      return userData;
-    })
-    .then(currentUser => {
-      {/* Currently only works for registered users... */}
-      dispatch(fetchUserDataSuccess(currentUser))
+    .then( (data) => {
+      console.log("***ACTION:  calling fetch userDataSuccess: ", data.currentUser);
+      dispatch(fetchUserDataSuccess(data.currentUser))
     });
 };
 
@@ -44,11 +41,12 @@ export const fetchUserDataSuccess = (currentuser) => ({
 });
 
 export const createNewUserData = (currentUser) => dispatch => {
+  console.log("***CURRENT USER: ", currentUser)
   fetch(`${API_BASE_URL}/userdata/`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json,'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       username: currentUser.username,

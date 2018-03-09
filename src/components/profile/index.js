@@ -34,20 +34,12 @@ export class Profile extends React.Component {
 
     // Check whether we're logged in and have a JWT...
     componentDidMount() {
-      this.props.dispatch(fetchProtectedData());
-      return new Promise(function(res,rej){
-        let testUser = {
-          username: "whodat9",
-          firstName: "whodat9",
-          lastName: "whodat9"
-        }
-        if (rej){
-          console.log("Couldn't get Current User Data!");
-        }
-        res props.dispatch(createNewUserData(testUser))
-      })
-      .then(this.props.dispatch(fetchUserData(this.props.username.username)))
-      .catch(console.log("USERDATA ERROR! WARNING WILL ROBINSON!"))
+
+      this.props.dispatch(fetchProtectedData())
+        // .then((data) => this.props.dispatch(createNewUserData(this.props.username)))
+        // .then( () => this.props.dispatch(fetchUserData(this.props.username.username)))
+      this.props.dispatch(fetchUserData(this.props.username.username))
+        console.log("***PROFILE --Mounted for username: ",this.props.username.username )
     }
 
     handleClick(e) {
@@ -78,7 +70,7 @@ export class Profile extends React.Component {
         return (
 
             <div>
-            {console.log('PROFILE USER: '+JSON.stringify(this.props.authUser))}
+            { console.log('PROFILE USER: ',currentUser) }
             {(!currentUser) ? <h1>Hmmmmm... {this.props.username.username}  Whodat?</h1> :
               <div>
                 <Userdetails user={this.props.username} />
@@ -100,6 +92,7 @@ const mapStateToProps = state => {
   const authorizedUser = state.auth;
   console.log("Profile--STATEOBJ: ",state);
   return {
+    // currentUser: state.reducer.currentUser,
     currentUser: state.reducer.currentUser,
     username: state.auth.currentUser,
     authUser: state.auth.currentUser,
