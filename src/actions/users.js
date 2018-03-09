@@ -2,7 +2,7 @@ import {SubmissionError} from 'redux-form';
 
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
-
+import {createNewUserData} from './index';
 
 export const registerUser = user => dispatch => {
     const newUser = JSON.stringify(user);
@@ -15,6 +15,15 @@ export const registerUser = user => dispatch => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
+        .then( (user) => {
+          const newUser = {
+            username: user.username,
+            firstName: user.firstName,
+            lastName: user.lastName
+          }
+          console.log("***HEY THERE: ", newUser)
+          dispatch(createNewUserData(newUser))
+        })
         .catch(err => {
             const {reason, message, location} = err;
             if (reason === 'ValidationError') {
