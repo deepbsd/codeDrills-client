@@ -22,8 +22,8 @@ class DevData extends React.Component {
               <div>
                 <p>Missed: {this.props.missedQuestions.join(', ')}</p>
                 <p>Correct: {this.props.correctQuestions.join(', ')}</p>
-                <p>current user:   {JSON.stringify(this.props.currentUser)}</p>
-                <p>type:  {typeof this.props.currentUser}</p>
+                <p>current user:   {this.props.currentUser.username}</p>
+                <p>type:  {typeof this.props.currentUser.username}</p>
               </div>
                 <p>currentQuiz:
                 {/*
@@ -55,11 +55,11 @@ class DevData extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-
+      // currentQuiz is now passed down from question component
       missedQuestions: state.reducer.missedQuestions,
       correctQuestions: state.reducer.correctQuestions,
       //currentQuiz: state.userData.currentQuiz,
-      currentUser: state.reducer.currentUser
+      currentUser: state.auth.currentUser
 
   });
 }

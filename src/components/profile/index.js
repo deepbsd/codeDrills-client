@@ -37,29 +37,7 @@ export class Profile extends React.Component {
     componentDidMount() {
 
         this.props.dispatch(fetchProtectedData())
-        // .then((data) => this.props.dispatch(createNewUserData(this.props.username)))
-        // .then( () => this.props.dispatch(fetchUserData(this.props.username.username)))
-
         this.props.dispatch(fetchUserData(this.props.username.username))
-        //   .then(() => {
-        //     if(!this.props.currentUser) {
-        //       this.props.dispatch(createNewUserData(this.props.username));
-        //     }
-        //   })
-        // console.log("***PROFILE --Mounted for username: ",this.props.username.username )
-        //
-        // if (!this.props.currentUser) {
-        //   console.log("PROFILE: Can't Fetch User DATA--Perhaps a New User? ");
-        //   console.log("PROFILE: dispatching createNewUserData");
-        //   this.props.dispatch(createNewUserData(this.props.username));
-        //   try {
-        //     this.props.dispatch(fetchUserData(this.props.username.username));
-        //   }
-        //   catch(error){
-        //     console.log("Couldn't Fetch NewUserData");
-        //   }
-        // }
-        // (this.props.currentUser) && console.log("Current User is Defined.")
     }
 
     handleClick(e) {

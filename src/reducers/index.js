@@ -27,10 +27,30 @@ const initialState = {
           "mongo": [],
           "mongo_right": []
       },
-      questions: [],
       missedQuestions: [],
       correctQuestions: [],
-      userData: {}
+      questions: [],
+      currentUser: {
+        userData: {
+          "missedQuestions": [],
+          "numberOfQuizzes": 0,
+          "totalQuestions": 0,
+          "totalCorrect": 0,
+          "jsQuestionsAnswered": 0,
+          "jsQuestionsCorrect": 0,
+          "cssQuestionsAnswered": 0,
+          "cssQuestionsCorrect": 0,
+          "htmlQuestionsAnswered": 0,
+          "htmlQuestionsCorrect": 0,
+          "nodeQuestionsAnswered": 0,
+          "nodeQuestionsCorrect": 0,
+          "apiQuestionsAnswered": 0,
+          "apiQuestionsCorrect": 0,
+          "mongoQuestionsAnswered": 0,
+          "mongoQuestionsCorrect": 0
+        }
+      }
+
 };
 
 export const reducer = (state=initialState, action) => {
@@ -57,7 +77,7 @@ export const reducer = (state=initialState, action) => {
         currentUser:  action.currentuser
     })
   } else if (action.type === actions.UPDATE_CURRENT){
-    console.log('Updating GLOBAL user data with quiz results now...')
+    console.log('Updating GLOBAL user data with quiz results now from action...',action.quizData)
     const newUserData = update(state.currentUser.userData,
       {missedQuestions: {$push: action.quizData.incorrect},
       numberOfQuizzes: {$apply: function(n) {return n+1;}},

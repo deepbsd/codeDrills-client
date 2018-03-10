@@ -95,9 +95,9 @@ export class Question extends React.Component {
       this.state.answeredQuestions.push(questionNumber.number);
       this.props.dispatch(checkQuestion(questionNumber, correct));
       if (this.state.answeredQuestions.length > 9){
-         this.props.dispatch(updateCurrent(this.state.currentQuiz));
-         console.log('**Updating Current Data, Yo!');
-         console.log('**Global Object: ',this.props.currentQuiz);
+        console.log('**Updating Current Data, Yo!');
+        console.log('**Global Object: ',this.props.currentQuiz);
+        this.props.dispatch(updateCurrent(this.state.currentQuiz));
        }
     }
     console.log('After updateCurrentIf: ', this.props.currentQuiz);
@@ -175,7 +175,7 @@ export class Question extends React.Component {
                 {/*JSON.stringify(randQuestions)*/}
                 </p>
 
-                  <DevData currentQuiz={this.state.currentQuiz} />
+                  <DevData currentQuiz={this.state.currentQuiz}  />
               </div>
       );
 
