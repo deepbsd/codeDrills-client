@@ -54,7 +54,6 @@ constructor(props) {
 
         const currentData = this.props.data;
 
-        { /* console.log('TESTING: '+currentData.totalQuestions); */ }
 
         return (
             <div>

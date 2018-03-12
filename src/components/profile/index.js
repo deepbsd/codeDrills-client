@@ -10,7 +10,7 @@ import Userdetails from '../userDetails';
 
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../../actions/protected-data';
-import {createNewUserData} from '../../actions';
+// import {createNewUserData} from '../../actions';
 
 import Style from './style.js';
 // import './profile.css'

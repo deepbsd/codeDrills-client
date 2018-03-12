@@ -1,6 +1,5 @@
 import {API_BASE_URL} from '../config';
 
-import store from '../store';
 
 export const START_QUIZ = 'START_QUIZ';
 export const startQuiz = () => ({
@@ -15,8 +14,7 @@ export const  checkQuestion = (answerObj) => ({
 
 
 export const fetchUserData = (userName) => dispatch => {
-  {/* let userName = store.getState(); */}
-  {/* let userName = "deepbsd"; */}
+
   console.log("ACTION --userName: ", userName);
 
   fetch(`${API_BASE_URL}/users/${userName}`)

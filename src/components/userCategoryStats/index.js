@@ -92,7 +92,7 @@ export class UserCategoryStats extends React.Component {
           let _numAnswered = currentData[_answered];
           let _numCorrect = currentData[_correct];
 
-          console.log('TESTING: '+currentData.jsQuestionsAnswered);
+          console.log('TESTING: '+currentData.htmlQuestionsAnswered);
 
           return (
             <Style.chartWrapper key={index}>
@@ -109,7 +109,6 @@ export class UserCategoryStats extends React.Component {
 
         return (
             <div>
-            {/*  Debugging only:  console.log('STRINGIFIED: '+JSON.stringify(currentData))  */}
             {(!currentData) ? <h1>Error: What data?</h1> :
               <div>
                   {pieCharts}
