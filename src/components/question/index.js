@@ -59,6 +59,7 @@ export class Question extends React.Component {
   }
 
   updateCurrent(questionNumber, correct){
+    // This updateCurrent() is for the local state object.
     console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
     // I've been having a hard time getting the last update
     // to show up in the local state object
@@ -80,24 +81,31 @@ export class Question extends React.Component {
         // if the question was answered correctly, also add it to categ_right
         if ((this.props.correctQuestions.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
           this.state.currentQuiz[categ_right].push(q_number);
-
-          console.log('Local StateObj: ',this.state.currentQuiz );
         }
         // else return a default value of false
         // return false;
     })
+    setTimeout(() => {
+      console.log('Local StateObj: ',this.state.currentQuiz );
+    }, 1000)
   }
 
   selectAnswer(questionNumber, correct){
+    // This method updates the local state object with current question results.
     if (this.state.answeredQuestions.includes(questionNumber.number)){
       alert("You already answered this question!");
     } else {
+      // It's a new question for this go round, so add it to list
+      // of answered questions and then see if it's answered correctly.
       this.state.answeredQuestions.push(questionNumber.number);
       this.props.dispatch(checkQuestion(questionNumber, correct));
+      // If we've answered 10 questions, then update Global State Object
       if (this.state.answeredQuestions.length > 9){
-        console.log('**Updating Current Data, Yo!');
+        console.log('**Updating Global Current Data, Yo!');
         console.log('**Global Object: ',this.props.currentQuiz);
+        // Dispatching GLOBAL Method here...
         this.props.dispatch(updateCurrent(this.state.currentQuiz));
+        console.log("## Global State After dispatching updateCurrent from Questions: ", this.state);
        }
     }
     console.log('After updateCurrentIf: ', this.props.currentQuiz);
@@ -186,7 +194,7 @@ export class Question extends React.Component {
 
 const mapStateToProps = state => {
   const whatever = state;
-  console.log("QUESTIONS StateOBJ: ",whatever);
+  console.log("QUESTIONS Global StateOBJ: ",whatever);
   return {
     questions: state.reducer.questions,
     missedQuestions: state.reducer.missedQuestions,
