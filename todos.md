@@ -3,6 +3,8 @@
 
 ------  ***  Client *** --------
 
+1. lastQuizData should be a date object, not a string
+
 5. Styled Components: mostly all working again--need to look at registration component.  There are some sub-structures I don't understand that are using htmlFor={prop} syntax that don't make sense to me.  I want to understand it before I blow it away.
 
 1. Freepik avatar attribution:  
@@ -22,6 +24,8 @@
 Probably will have to work over data schemas for relevant database endpoints.  Have a skeleton for new users.
 
 ------ *** API *** ----------
+
+1. userData endpoint, userData Schema  lastQuizData.dateOfQuiz should be a date object, not a string
 
 5. Figure out how best to let the user create questions for his/her own account that others will not see,
 but that he/she will see when taking tests.

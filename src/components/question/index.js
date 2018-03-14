@@ -5,6 +5,9 @@ import requiresLogin from '../profile/requires-login';
 import DevData from './../devdata';
 import Answer from './answer';
 
+// import update from 'immutability-helper';
+
+
 import question5 from './img/question5.png';
 import question9 from './img/question9.png';
 import question16 from './img/question16.png';
@@ -63,31 +66,33 @@ export class Question extends React.Component {
     console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
     // I've been having a hard time getting the last update
     // to show up in the local state object
+
+    // let newCurrentQuiz;
+
     if (correct) {
       this.state.currentQuiz.correct.push(questionNumber);
     } else {
       this.state.currentQuiz.incorrect.push(questionNumber);
     }
 
+
     let categ, categ_right;
     this.state.answeredQuestions.map((q_number, index) => {
         categ = this.props.questions[q_number-1].category;
         categ_right = categ+'_right';
-
         // add the question number to the local state object category
         if (!this.state.currentQuiz[categ].includes(q_number)) {
           this.state.currentQuiz[categ].push(q_number);
         }
         // if the question was answered correctly, also add it to categ_right
-        if ((this.props.correctQuestions.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
+        // if ((this.props.correctQuestions.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
+        if ((this.state.currentQuiz.correct.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
           this.state.currentQuiz[categ_right].push(q_number);
         }
         // else return a default value of false
         // return false;
     })
-    setTimeout(() => {
-      console.log('Local StateObj: ',this.state.currentQuiz );
-    }, 1000)
+    console.log("###LOCAL STATE: ",this.state.currentQuiz)
   }
 
   selectAnswer(questionNumber, correct){
