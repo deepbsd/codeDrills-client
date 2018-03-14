@@ -67,14 +67,11 @@ export class Question extends React.Component {
     // I've been having a hard time getting the last update
     // to show up in the local state object
 
-    // let newCurrentQuiz;
-
     if (correct) {
       this.state.currentQuiz.correct.push(questionNumber);
     } else {
       this.state.currentQuiz.incorrect.push(questionNumber);
     }
-
 
     let categ, categ_right;
     this.state.answeredQuestions.map((q_number, index) => {
@@ -111,6 +108,8 @@ export class Question extends React.Component {
         // Dispatching GLOBAL Method here...
         this.props.dispatch(updateCurrent(this.state.currentQuiz));
         console.log("## Global State After dispatching updateCurrent from Questions: ", this.state);
+        // Now we need to update the remote DB with the updated global state object...
+
        }
     }
     console.log('After updateCurrentIf: ', this.props.currentQuiz);

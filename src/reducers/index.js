@@ -48,6 +48,11 @@ const initialState = {
           "apiQuestionsCorrect": 0,
           "mongoQuestionsAnswered": 0,
           "mongoQuestionsCorrect": 0
+        },
+        lastQuizData: {
+          "totalQuestions": 0,
+          "dateOfQuiz": "",
+          "totalCorrect": 0
         }
       }
 };
@@ -95,11 +100,18 @@ export const reducer = (state=initialState, action) => {
       mongoQuestionsAnswered: {$apply: function(n) {return n+action.quizData.mongo.length}},
       mongoQuestionsCorrect: {$apply: function(n) {return n+action.quizData.mongo_right.length}}
     })
+    const newLastQuizData = update(state.currentUser.lastQuizData,
+      {totalQuestions: {$apply: function(n) {return n+10;}},
+      dateOfQuiz: {$set: new Date().toString()},
+      totalCorrect: {$apply: function(n) {return 10-action.quizData.incorrect.length}}
+    })
+
     return {
         ...state,
         currentQuiz: action.quizData,
         currentUser: {
-          userData: newUserData
+          userData: newUserData,
+          lastQuizData: newLastQuizData
         }
     }
   }
