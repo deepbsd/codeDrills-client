@@ -37,8 +37,9 @@ export class Profile extends React.Component {
     // Also must check if user is new; if so, dispatch createNewUserData
     componentDidMount() {
         this.props.dispatch(fetchProtectedData());
+        // this.props.dispatch(addCurrentUserToState(this.props.currentUser));
         this.props.dispatch(fetchUserData(this.props.username.username));
-        this.props.dispatch(addCurrentUserToState(this.props.currentUser));
+        console.log("PROFILE mount(): Fetched userdata from DB...");
     }
 
     handleClick(e) {
@@ -91,7 +92,6 @@ const mapStateToProps = state => {
   const authorizedUser = state.auth;
   console.log("Profile--STATEOBJ: ",state);
   return {
-    // currentUser: state.reducer.currentUser,
     currentUser: state.reducer.currentUser,
     username: state.auth.currentUser,
     authUser: state.auth.currentUser,

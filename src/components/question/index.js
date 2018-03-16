@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {checkQuestion, updateCurrent} from '../../actions';
+import {checkQuestion, updateCurrent, addCurrentUserToState} from '../../actions';
 import requiresLogin from '../profile/requires-login';
 import DevData from './../devdata';
 import Answer from './answer';
@@ -52,7 +52,8 @@ export class Question extends React.Component {
         "question9": question9,
         "question16": question16,
         "question20": question20
-      }
+      },
+      user: {}
     }
   }
 
@@ -61,8 +62,8 @@ export class Question extends React.Component {
       return this.state.answeredQuestions.length === 0 || this.state.answeredQuestions.length>=100;
   }
 
+  // This updateCurrent() is for the local state object.
   updateCurrent(questionNumber, correct){
-    // This updateCurrent() is for the local state object.
     console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
     // I've been having a hard time getting the last update
     // to show up in the local state object
@@ -130,6 +131,11 @@ export class Question extends React.Component {
       return _array;
   }
 
+  addUser(userObj){
+    this.setState({
+      user:  userObj
+    })
+  }
 
   startQuiz(allQuestions) {
     // First shuffle the array, following the Fisher-Yates algorithm this
@@ -204,7 +210,8 @@ const mapStateToProps = state => {
     missedQuestions: state.reducer.missedQuestions,
     correctQuestions: state.reducer.correctQuestions,
     currentQuiz: state.reducer.currentQuiz,
-    currentUser: state.reducer.currentUser
+    currentUser: state.reducer.currentUser,
+    user: state.auth.currentUser
   }
 };
 
