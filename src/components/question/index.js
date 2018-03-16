@@ -143,6 +143,8 @@ export class Question extends React.Component {
     // then excluding it from the next draw. Just like randomly picking
     // and ordering from a deck of cards.
     let shuffled = this.shuffleArray(allQuestions);
+    console.log("STARTQUIZ: authorized-user: ", this.props.user);
+    // this.props.dispatch(addCurrentUserToState(this.props.user))
     //Once you have the shuffled array, slice it as you have thought
     //before because now you're slicing a shuffled array
     return shuffled.slice(0,10);
@@ -204,6 +206,7 @@ export class Question extends React.Component {
 
 const mapStateToProps = state => {
   const whatever = state;
+  const authorizedUser = state.auth.currentUser;
   console.log("QUESTIONS Global StateOBJ: ",whatever);
   return {
     questions: state.reducer.questions,
@@ -211,7 +214,7 @@ const mapStateToProps = state => {
     correctQuestions: state.reducer.correctQuestions,
     currentQuiz: state.reducer.currentQuiz,
     currentUser: state.reducer.currentUser,
-    user: state.auth.currentUser
+    user: `{username: ${authorizedUser.username}, firstName: ${authorizedUser.firstName}, lastName: ${authorizedUser.lastName}}`
   }
 };
 
