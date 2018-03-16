@@ -4,6 +4,7 @@ import UserCategoryStats from '../userCategoryStats';
 import UserAggregateStats from '../userAggregateStats';
 import UserLatestStats from '../userLatestStats';
 import Userdetails from '../userDetails';
+import {addCurrentUserToState} from '../../actions';
 // import {BarChart, PieChart, PolarChart, LineChart, RadarChart} from '../chart';
 
 // import store from '../../store';
@@ -35,9 +36,9 @@ export class Profile extends React.Component {
     // Check whether we're logged in and have a JWT...
     // Also must check if user is new; if so, dispatch createNewUserData
     componentDidMount() {
-
-        this.props.dispatch(fetchProtectedData())
-        this.props.dispatch(fetchUserData(this.props.username.username))
+        this.props.dispatch(fetchProtectedData());
+        this.props.dispatch(fetchUserData(this.props.username.username));
+        this.props.dispatch(addCurrentUserToState(this.props.currentUser));
     }
 
     handleClick(e) {

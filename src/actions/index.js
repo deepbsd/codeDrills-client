@@ -63,6 +63,11 @@ export const createNewUserData = (currentUser) => dispatch => {
   })
 };
 
+export const ADD_CURRENT_USER_TO_STATE = 'ADD_CURRENT_USER_T0_STATE';
+export const addCurrentUserToState = (userObj) => ({
+  type: ADD_CURRENT_USER_TO_STATE,
+  userObj
+});
 
 export const fetchQuestions = () => dispatch => {
   fetch(`${API_BASE_URL}/questions`)

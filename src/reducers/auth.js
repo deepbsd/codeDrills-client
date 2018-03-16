@@ -6,6 +6,8 @@ import {
     AUTH_ERROR
 } from '../actions/auth';
 
+import {addCurrentUserToState} from '../actions/index';
+
 const initialState = {
     authToken: null, // authToken !== null does not mean it has been validated
     currentUser: null,
