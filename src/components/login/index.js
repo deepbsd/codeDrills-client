@@ -5,10 +5,6 @@ import Style from './style';
 import LoginForm from './login-form';
 
 export function LandingPage(props) {
-    // If we are logged in redirect straight to the user's dashboard
-    if (props.loggedIn) {
-        return <Redirect to="/profile" />;
-    }
 
     return (
         <Style.div>
@@ -20,7 +16,7 @@ export function LandingPage(props) {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.currentUser !== null
 });
 
 export default connect(mapStateToProps)(LandingPage);
