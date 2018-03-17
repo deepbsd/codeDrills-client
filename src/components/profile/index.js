@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {doLogin} from '../../actions';
 import UserCategoryStats from '../userCategoryStats';
 import UserAggregateStats from '../userAggregateStats';
 import UserLatestStats from '../userLatestStats';
@@ -36,9 +37,10 @@ export class Profile extends React.Component {
     // Check whether we're logged in and have a JWT...
     // Also must check if user is new; if so, dispatch createNewUserData
     componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
-        this.props.dispatch(fetchUserData(this.props.username.username));
-        this.props.dispatch(addCurrentUserToState(this.props.currentUser));
+        // this.props.dispatch(fetchProtectedData());
+        // this.props.dispatch(fetchUserData(this.props.username.username));
+        // this.props.dispatch(addCurrentUserToState(this.props.currentUser));
+        this.props.dispatch(doLogin(this.props.username.username, this.props.currentUser));
     }
 
     handleClick(e) {
@@ -76,7 +78,7 @@ export class Profile extends React.Component {
                 <Style.ul className="user">
                   {slides}
                 </Style.ul>
-                <Slide data={currentUser.userData}  />
+                {/*<Slide data={currentUser.userData}  /> */}
                 {/* <Slide data={this.state.activeSlide[this.state.activeTab].payload}  />  */}
                 {/* <UserCategoryStats data={currentUser.userData} />  */}
               </div> }
@@ -88,15 +90,19 @@ export class Profile extends React.Component {
   // User Auth changes a lot here...  Have to adapt...
 
 const mapStateToProps = state => {
-  const authorizedUser = state.auth;
+  // const authorizedUser = state.auth;
+  const authorizedUser = {
+    firstName: 'Joe',
+    lastName: 'Blow'
+  }
   console.log("Profile--STATEOBJ: ",state);
   return {
     // currentUser: state.reducer.currentUser,
-    currentUser: state.reducer.currentUser,
-    username: state.auth.currentUser,
-    authUser: state.auth.currentUser,
+    currentUser: state.currentUser,
+    username: state.currentUser,
+    authUser: state.currentUser,
     loggedIn: state.loggedIn,
-    fullname: `${authorizedUser.firstName} ${authorizedUser.lastName}`,
+    fullname: `${authorizedUser.firstName} ${authorizedUser.lastName}`
   }
 };
 
