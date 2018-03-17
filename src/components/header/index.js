@@ -97,7 +97,7 @@ class Header extends React.Component {
                 //<NavItem link="test" testDispatch={this.testDispatch} />
 const mapStateToProps = state => ({
     currentUser: state.currentUser,
-    hasToken: state.auth.authToken,
+    hasToken: state.authToken,
     questions: state.questions
 });
 
