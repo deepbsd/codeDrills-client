@@ -37,6 +37,7 @@ export default class Input extends React.Component {
                 />
                 {error}
                 {warning}
+                { console.log('input props: ',this.props.input) }
             </Style.div>
         );
     }
