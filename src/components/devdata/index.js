@@ -59,7 +59,7 @@ const mapStateToProps = state => {
       missedQuestions: state.reducer.missedQuestions,
       correctQuestions: state.reducer.correctQuestions,
       //currentQuiz: state.userData.currentQuiz,
-      currentUser: state.auth.currentUser
+      currentUser: state.currentUser
 
   });
 }
