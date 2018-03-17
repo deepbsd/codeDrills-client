@@ -13,7 +13,6 @@ export class UserCategoryStats extends React.Component {
     constructor(props) {
         super(props);
 
-        // console.log('LOOKY HERE: ',props.data);
         this.state = {
           htmlChartData: {
             "labels": ["HTML Questions Correct", "HTML Questions Missed"],
@@ -120,7 +119,7 @@ export class UserCategoryStats extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: state.loggedIn,
+    loggedIn: state.loggedIn
   }
 };
 
