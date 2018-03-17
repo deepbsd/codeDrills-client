@@ -11,16 +11,17 @@ import {reducer} from './reducers';
 // Hydrate the authToken from localStorage if it exists
 const authToken = loadAuthToken();
 
-const store = createStore(
-  combineReducers({
-    reducer: reducer,
-    form: formReducer,
-    auth: authReducer,
-    protectedData: protectedDataReducer
-  }),
-  applyMiddleware(thunk)
-);
+// const store = createStore(
+//   combineReducers({
+//     reducer: reducer,
+//     form: formReducer,
+//     auth: authReducer,
+//     protectedData: protectedDataReducer
+//   }),
+//   applyMiddleware(thunk)
+// );
 
+const store = createStore(reducer, applyMiddleware(thunk));
 
 if (authToken) {
   const token = authToken;
@@ -30,6 +31,4 @@ if (authToken) {
   console.log("STORE--LoggedIn: ", )
 }
 
-
-// export default createStore(reducer, applyMiddleware(thunk));
 export default store;
