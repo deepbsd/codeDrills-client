@@ -30,6 +30,7 @@ export class Question extends React.Component {
     this.updateCurrent = this.updateCurrent.bind(this);
 
     this.state = {
+      userObj: this.props.user,
       answeredQuestions: [],
       currentQuiz: {
         correct: [],
@@ -131,11 +132,6 @@ export class Question extends React.Component {
       return _array;
   }
 
-  addUser(userObj){
-    this.setState({
-      user:  userObj
-    })
-  }
 
   startQuiz(allQuestions) {
     // First shuffle the array, following the Fisher-Yates algorithm this
