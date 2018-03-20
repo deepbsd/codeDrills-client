@@ -70,17 +70,21 @@ export class Profile extends React.Component {
         return (
 
             <div>
+
             { console.log('PROFILE USER: ',currentUser) }
-            {(!currentUser) ? <h1>Hmmmmm... {this.props.username.username}  Whodat?  Where is ma Data?</h1> :
+            {(!currentUser.user._id) ? <h1>Hmmmmm... {this.props.username.username}  Whodat?  Where is ma Data?</h1> :
+
               <div>
                 <Userdetails user={this.props.username} />
                 <Style.ul className="user">
                   {slides}
                 </Style.ul>
                 <Slide data={currentUser.userData}  />
-                {/* <Slide data={this.state.activeSlide[this.state.activeTab].payload}  />  */}
-                {/* <UserCategoryStats data={currentUser.userData} />  */}
-              </div> }
+
+
+              </div>}
+
+              <p>Here is some text</p>
             </div>
         );
       }
