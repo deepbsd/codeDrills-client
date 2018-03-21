@@ -84,7 +84,6 @@ export class Profile extends React.Component {
 
               </div>}
 
-              <p>Here is some text</p>
             </div>
         );
       }

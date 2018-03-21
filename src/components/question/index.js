@@ -58,6 +58,11 @@ export class Question extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.props.dispatch(addCurrentUserToState(this.state.userObj));
+    console.log("Adding authorized-user to Global State Object...");
+  }
+
 
   shouldComponentUpdate() {
       return this.state.answeredQuestions.length === 0 || this.state.answeredQuestions.length>=100;
@@ -140,7 +145,8 @@ export class Question extends React.Component {
     // and ordering from a deck of cards.
     let shuffled = this.shuffleArray(allQuestions);
     console.log("STARTQUIZ: authorized-user: ", this.props.user);
-    // this.props.dispatch(addCurrentUserToState(this.props.user))
+
+
     //Once you have the shuffled array, slice it as you have thought
     //before because now you're slicing a shuffled array
     return shuffled.slice(0,10);
