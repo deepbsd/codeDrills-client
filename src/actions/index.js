@@ -96,8 +96,9 @@ export const updateCurrent = quizData => ({
   quizData
 });
 
+
 export const updateCurrentDb = userDataFromState => {
-  fetch(`${API_BASE_URL}/userdata/${userDataFromState.id}`, {
+  fetch(`${API_BASE_URL}/userdata/${userDataFromState.user.username}`, {
     method: 'PUT',
     headers: {
       'Accept': 'application/json',

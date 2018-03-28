@@ -116,7 +116,8 @@ export class Question extends React.Component {
         this.props.dispatch(updateCurrent(this.state.currentQuiz));
         console.log("## Global State After dispatching updateCurrent from Questions: ", this.state);
         // Now we need to update the remote DB with the updated global state object...
-
+        // Also, need to promisify this action here...
+        // this.props.dispatch(updateCurrentDb(this.props.currentUser));
        }
     }
     console.log('After updateCurrent: ', this.props.currentQuiz);
