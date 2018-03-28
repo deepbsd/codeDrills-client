@@ -119,7 +119,7 @@ export class Question extends React.Component {
 
        }
     }
-    console.log('After updateCurrentIf: ', this.props.currentQuiz);
+    console.log('After updateCurrent: ', this.props.currentQuiz);
     console.log('from selectAnswer() -- ',this.state.answeredQuestions);
   }
 

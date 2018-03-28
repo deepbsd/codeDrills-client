@@ -23,7 +23,14 @@ constructor(props) {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(32, 104, 219,1)',
-            data: [85, 79, 90, 88, 86, 95]
+            data: [
+              this.getPercent(25,30),
+              this.getPercent(7,9),
+              this.getPercent(15,16),
+              this.getPercent(8,8),
+              this.getPercent(8,9),
+              this.getPercent(19,21)
+            ]
           }, {
             label: 'My Overall Averages',
             backgroundColor: 'rgba(255,99,132,0.2)',
