@@ -96,6 +96,9 @@ export const updateCurrent = quizData => ({
   quizData
 });
 
+// export const updateCurrentPromise = quizData => dispatch => ({
+//
+// })
 
 export const updateCurrentDb = userDataFromState => {
   fetch(`${API_BASE_URL}/userdata/${userDataFromState.user.username}`, {
