@@ -84,14 +84,13 @@ export const reducer = (state=initialState, action) => {
         currentUser:  action.currentuser
     })
   } else if (action.type === actions.ADD_CURRENT_USER_TO_STATE) {
-    console.log('REDUCER: updating global state with currently logged in user object...', action.userObj.user);
-    const newCurrentUserData = update(state.currentUser.user,
-      {user: {$set: action.userObj.user}
-    })
+    console.log('REDUCER: updating global state with currently logged in user object...', action.userObj);
     return {
       ...state,
       currentUser: {
-        user: newCurrentUserData
+        user: action.userObj.user,
+        userData: state.currentUser.userData,
+        lastQuizData: state.currentUser.lastQuizData
       }
     }
   } else if (action.type === actions.UPDATE_CURRENT){
@@ -124,6 +123,7 @@ export const reducer = (state=initialState, action) => {
         ...state,
         currentQuiz: action.quizData,
         currentUser: {
+          user: state.currentUser.user,
           userData: newUserData,
           lastQuizData: newLastQuizData
         }

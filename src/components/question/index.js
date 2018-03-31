@@ -59,7 +59,9 @@ export class Question extends React.Component {
   }
 
   componentDidMount(){
-    this.props.dispatch(addCurrentUserToState(this.state.userObj));
+    // this.props.dispatch(addCurrentUserToState(this.state.userObj));
+    const userObject = JSON.parse(this.props.user);
+    this.props.dispatch(addCurrentUserToState(userObject));
     console.log("Adding authorized-user to Global State Object...");
   }
 
@@ -217,7 +219,7 @@ const mapStateToProps = state => {
     correctQuestions: state.reducer.correctQuestions,
     currentQuiz: state.reducer.currentQuiz,
     currentUser: state.reducer.currentUser,
-    user: `{username: ${authorizedUser.username}, firstName: ${authorizedUser.firstName}, lastName: ${authorizedUser.lastName}}`
+    user: `{"username": "${authorizedUser.username}", "firstName": "${authorizedUser.firstName}", "lastName": "${authorizedUser.lastName}"}`
   }
 };
 
