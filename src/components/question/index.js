@@ -28,6 +28,7 @@ export class Question extends React.Component {
     this.startQuiz = this.startQuiz.bind(this);
     this.selectAnswer = this.selectAnswer.bind(this);
     this.updateCurrent = this.updateCurrent.bind(this);
+    this.updateRemote = this.updateRemote.bind(this);
 
     this.state = {
       userObj: this.props.user,
@@ -54,15 +55,15 @@ export class Question extends React.Component {
         "question16": question16,
         "question20": question20
       },
-      user: {}
+      user: this.props.user
     }
   }
 
   componentDidMount(){
     // this.props.dispatch(addCurrentUserToState(this.state.userObj));
     const userObject = JSON.parse(this.props.user);
-    this.props.dispatch(addCurrentUserToState(userObject));
-    console.log("Adding authorized-user to Global State Object...");
+    // this.props.dispatch(addCurrentUserToState(userObject));
+    // console.log("Adding authorized-user to Global State Object...");
   }
 
 
@@ -116,13 +117,18 @@ export class Question extends React.Component {
         console.log('**Global Object: ',this.props.currentQuiz);
         // Dispatching GLOBAL Method here...
         this.props.dispatch(updateCurrent(this.state.currentQuiz));
-        console.log("## Global State After dispatching updateCurrent from Questions: ", this.state);
+        console.log("## Global State After dispatching updateCurrent from Questions: ", this.props.currentUser);
         // Now we need to update the remote DB with the updated global state object...
         // Also, need to promisify this action here...
         // this.props.dispatch(updateCurrentDb(this.props.currentUser));
+        const that = this;
+        setTimeout(function(){
+          Question.prototype.updateRemote.apply(that);
+        }, 2000)
+
        }
     }
-    console.log('After updateCurrent: ', this.props.currentQuiz);
+    console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);
     console.log('from selectAnswer() -- ',this.state.answeredQuestions);
   }
 
@@ -155,6 +161,19 @@ export class Question extends React.Component {
     return shuffled.slice(0,10);
   }
 
+  updateRemote(){
+    const user = this.props.user;
+    const userData = this.props.currentUser.userData;
+    const lastQuizData = this.props.currentUser.lastQuizData;
+    const updateObj = {
+      user: user,
+      userData: userData,
+      lastQuizData: lastQuizData
+    }
+
+    console.log("### QUESTIONS--updateRemote(): ", updateObj);
+    return updateObj;
+  }
 
     render() {
 
