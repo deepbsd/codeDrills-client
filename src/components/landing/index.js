@@ -80,6 +80,8 @@ export class Landing extends React.Component {
 // export default Landing;
 
 const mapStateToProps = state => {
+  const whatever = state;
+  console.log("HOME: --reducer: ", whatever);
   return {
     loggedIn: state.loggedIn
   }
