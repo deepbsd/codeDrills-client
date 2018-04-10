@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import Style from './style';
 
 
@@ -23,7 +23,9 @@ export default class NavItem extends React.Component {
     render() {
 
             return (
-                  <Style.navItem><a href={this.props.href} onClick={this.handleClick} >{this.props.link}</a></Style.navItem>
+                  <Style.navItem>
+                    <Link to={this.props.href} onClick={this.handleClick} >{this.props.link} </Link>
+                  </Style.navItem>
             );
 
     }

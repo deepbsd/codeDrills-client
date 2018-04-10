@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchQuestions} from './actions';
 
@@ -25,15 +26,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Router>
+        <div className="App">
 
-        <Header className="header" />
+          <Header className="header" />
 
-        <Main />
+          <Main />
 
-        <Footer />
+          <Footer />
 
-      </div>
+        </div>
+      </Router>
     );
   }
 }
