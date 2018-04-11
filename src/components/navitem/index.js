@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Style from './style';
 
 
@@ -24,7 +24,7 @@ export default class NavItem extends React.Component {
 
             return (
                   <Style.navItem>
-                    <Link to={this.props.href} onClick={this.handleClick} >{this.props.link} </Link>
+                    <Link to={{pathname: this.props.href}} onClick={this.handleClick} >{this.props.link}</Link>
                   </Style.navItem>
             );
 
