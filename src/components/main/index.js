@@ -16,7 +16,7 @@ import Question from '../question';
 export default function Main(props) {
 
     return (
-        <Router>
+
             <Style.wrapper>
 
                 <Route exact path="/" component={Landing} />
@@ -28,6 +28,6 @@ export default function Main(props) {
                 <Route exact path="/startquiz" component={Question} />
 
             </Style.wrapper>
-        </Router>
+
     );
 }

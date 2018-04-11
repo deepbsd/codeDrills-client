@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import NavItem from '../navitem';
-
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
 
+import Style from './style.js';
 
 class Header extends React.Component {
     constructor(props) {
@@ -87,9 +87,11 @@ class Header extends React.Component {
         );
 
         return (
-            <div className="header">
+
+              <Style.ul>
                 {links}
-            </div>
+              </Style.ul>
+
         );
     }
 }
@@ -100,3 +102,11 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Header);
+
+
+// <li><Link to="/register" private="false" public="true">Register</Link></li>
+// <li><Link to="/home" private="false" public="true">Home</Link></li>
+// <li><Link to="/login" private="false" public="true">Login</Link></li>
+// <li><Link to="/logout" private="true" public="false">Logout</Link></li>
+// <li><Link to="/profile" private="true" public="false">Profile</Link></li>
+// <li><Link to="/startquiz" private="true" public="false">Start Quiz</Link></li>
