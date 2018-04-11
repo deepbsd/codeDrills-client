@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
 
+import Style from './style.js';
 
 class Header extends React.Component {
     constructor(props) {
@@ -87,9 +88,9 @@ class Header extends React.Component {
 
         return (
 
-              <ul className="header">
+              <Style.ul>
                 {links}
-              </ul>
+              </Style.ul>
 
         );
     }
