@@ -3,6 +3,8 @@
 
 ------  ***  Client *** --------
 
+1. API: update userdata (put) should be with username not id
+
 1. lastQuizData should be a date object, not a string
 
 5. Styled Components: mostly all working again--need to look at registration component.  There are some sub-structures I don't understand that are using htmlFor={prop} syntax that don't make sense to me.  I want to understand it before I blow it away.
