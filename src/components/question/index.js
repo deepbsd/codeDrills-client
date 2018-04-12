@@ -63,7 +63,7 @@ export class Question extends React.Component {
 
   componentDidMount(){
     // this.props.dispatch(addCurrentUserToState(this.state.userObj));
-    const userObject = JSON.parse(this.props.user);
+    const userObject = this.props.user;
     // this.props.dispatch(addCurrentUserToState(userObject));
     // console.log("Adding authorized-user to Global State Object...");
   }
@@ -175,6 +175,7 @@ export class Question extends React.Component {
     const userData = this.props.currentUser.userData;
     const lastQuizData = this.props.currentUser.lastQuizData;
     const updateObj = {
+      id: id,
       user: user,
       userData: userData,
       lastQuizData: lastQuizData
@@ -183,7 +184,13 @@ export class Question extends React.Component {
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     return fetch(`${API_BASE_URL}/userdata/${id}`, {
       method: 'PUT',
-      body: updateObj
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'same-origin',
+      mode: 'cors',
+      body: JSON.stringify(updateObj)
     })
     .then(response => response.json())
     .catch(err => {
@@ -252,13 +259,13 @@ const mapStateToProps = state => {
   const authorizedUser = state.auth.currentUser;
   console.log("QUESTIONS Global StateOBJ: ",whatever);
   return {
-    id: state.reducer.currentUser.userData._id,
+    id: state.reducer.id,
     questions: state.reducer.questions,
     missedQuestions: state.reducer.missedQuestions,
     correctQuestions: state.reducer.correctQuestions,
     currentQuiz: state.reducer.currentQuiz,
     currentUser: state.reducer.currentUser,
-    user: `{"username": "${authorizedUser.username}", "firstName": "${authorizedUser.firstName}", "lastName": "${authorizedUser.lastName}"}`
+    user: {"username": `${authorizedUser.username}`, "firstName": `${authorizedUser.firstName}`, "lastName": `${authorizedUser.lastName}`}
   }
 };
 
