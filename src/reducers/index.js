@@ -13,6 +13,7 @@ import update from 'immutability-helper';
 
 const initialState = {
 
+      id: null,
       currentQuiz: {
           "correct": [],
           "incorrect": [],
@@ -79,9 +80,10 @@ export const reducer = (state=initialState, action) => {
       questions: [...action.questionsArray.questions]
     })
   } else if (action.type === actions.FETCH_USER_DATA_SUCCESS){
-      console.log('REDUCER, action.currentuser: about to load user data into state...', action.currentuser);
+      console.log('REDUCER, action.currentuser: about to load user data into state...', action);
       return Object.assign({}, state, {
-        currentUser:  action.currentuser
+        id: action.currentuser._id,
+        currentUser:  action.currentuser.currentUser
     })
   } else if (action.type === actions.ADD_CURRENT_USER_TO_STATE) {
     console.log('REDUCER: updating global state with currently logged in user object...', action.userObj);

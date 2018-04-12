@@ -4,6 +4,8 @@ import {checkQuestion, updateCurrent, addCurrentUserToState} from '../../actions
 import requiresLogin from '../profile/requires-login';
 import DevData from './../devdata';
 import Answer from './answer';
+import {Redirect} from 'react-router-dom';
+import {API_BASE_URL} from '../../config';
 
 // import update from 'immutability-helper';
 
@@ -161,8 +163,15 @@ export class Question extends React.Component {
     return shuffled.slice(0,10);
   }
 
+  // If Profile has not been called prior to start quiz, historical quiz data
+  // will *not* get updated.  Historical data will get *overwritten* with last
+  // quiz data.  Therefore, upon completion of this quiz, after updating the DB,
+  // this function will call the Profile component again, which will refresh the
+  // user's historical data, which has just been updated with the last quiz data.
   updateRemote(){
+    const id = this.props.id;
     const user = this.props.user;
+    const username = this.props.user.username;
     const userData = this.props.currentUser.userData;
     const lastQuizData = this.props.currentUser.lastQuizData;
     const updateObj = {
@@ -171,8 +180,18 @@ export class Question extends React.Component {
       lastQuizData: lastQuizData
     }
 
-    console.log("### QUESTIONS--updateRemote(): ", updateObj);
-    return updateObj;
+    console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
+    return fetch(`${API_BASE_URL}/userdata/${id}`, {
+      method: 'PUT',
+      body: updateObj
+    })
+    .then(response => response.json())
+    .catch(err => {
+      console.log("Error! Did NOT update database: ", err);
+    })
+    // Not sure why this redirect is not working...
+    //return <Redirect to="/profile" />
+    // return updateObj;
   }
 
     render() {
@@ -233,6 +252,7 @@ const mapStateToProps = state => {
   const authorizedUser = state.auth.currentUser;
   console.log("QUESTIONS Global StateOBJ: ",whatever);
   return {
+    id: state.reducer.currentUser.userData._id,
     questions: state.reducer.questions,
     missedQuestions: state.reducer.missedQuestions,
     correctQuestions: state.reducer.correctQuestions,
