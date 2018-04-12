@@ -4,7 +4,7 @@ const Style = {
   navItem: styled.li`
         color: #667999;
         display: inline-block;
-        font-size: 18px;
+        font-size: 1.3em;
         padding: 0px;
         position: relative;
         margin-right: 20px;
