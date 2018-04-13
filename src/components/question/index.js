@@ -253,7 +253,7 @@ export class Question extends React.Component {
                 {/*JSON.stringify(randQuestions)*/}
                 </p>
 
-                  <DevData currentQuiz={this.state.currentQuiz}  />
+                  
               </div>
       );
 
