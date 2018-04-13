@@ -113,15 +113,23 @@ export class Question extends React.Component {
       // of answered questions and then see if it's answered correctly.
       this.state.answeredQuestions.push(questionNumber.number);
       this.props.dispatch(checkQuestion(questionNumber, correct));
+
+      // Okay need to promisify this stuff so updateCurrent waits for checkQuestion
+      // and then updateRemote waits for updateCurrent
+      let that = this;
       // If we've answered 10 questions, then update Global State Object
       if (this.state.answeredQuestions.length > 9){
-        console.log('**Updating Global Current Data, Yo!');
-        console.log('**Global Object: ',this.props.currentQuiz);
-        // Dispatching GLOBAL Method here...
-        this.props.dispatch(updateCurrent(this.state.currentQuiz));
-        // console.log("## Global State After dispatching updateCurrent from Questions: ", this.props.currentUser);
-        // Now we need to update the remote DB with the updated global state object...
-        // Also, need to promisify this action here...
+
+        setTimeout(function(){
+          console.log('**Updating Global Current Data, Yo!');
+          console.log('**Global Object: ',that.props.currentQuiz);
+          // Dispatching GLOBAL Method here...
+          that.props.dispatch(updateCurrent(that.state.currentQuiz));
+          // console.log("## Global State After dispatching updateCurrent from Questions: ", this.props.currentUser);
+          // Now we need to update the remote DB with the updated global state object...
+          // Also, need to promisify this action here...
+        }, 1000)
+
         // this.props.dispatch(updateCurrentDb(this.props.currentUser));
         const that = this;
         setTimeout(function(){
