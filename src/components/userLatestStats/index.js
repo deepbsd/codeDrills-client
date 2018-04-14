@@ -14,11 +14,10 @@ constructor(props) {
     console.log('LOOKY HERE: ',props.data);
     console.log('Looky here: ',props.newdata);
     this.state = {
-      quizData: this.props.data,
       radarChartData: {
           labels: ['JavaScript', 'CSS', 'HTML', 'Node', 'API', 'MongoDB'],
           datasets: [{
-            label: 'My Latest Quiz',
+            label: 'My Overall Averages',
             backgroundColor: 'rgba(32, 104, 219,0.2)',
             borderColor: 'rgba(32, 104, 219,1)',
             pointBackgroundColor: 'rgba(32, 104, 219,1)',
@@ -26,15 +25,15 @@ constructor(props) {
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(32, 104, 219,1)',
             data: [
-              this.getPercent(25,30),
-              this.getPercent(7,9),
-              this.getPercent(15,16),
-              this.getPercent(8,8),
-              this.getPercent(8,9),
-              this.getPercent(19,21)
+              this.getPercent(props.data.jsQuestionsCorrect,props.data.jsQuestionsAnswered),
+              this.getPercent(props.data.cssQuestionsCorrect,props.data.cssQuestionsAnswered),
+              this.getPercent(props.data.htmlQuestionsCorrect,props.data.htmlQuestionsAnswered),
+              this.getPercent(props.data.nodeQuestionsCorrect,props.data.nodeQuestionsAnswered),
+              this.getPercent(props.data.apiQuestionsCorrect,props.data.apiQuestionsAnswered),
+              this.getPercent(props.data.mongoQuestionsCorrect,props.data.mongoQuestionsAnswered)
             ]
           }, {
-            label: 'My Overall Averages',
+            label: 'My Latest Quiz',
             backgroundColor: 'rgba(255,99,132,0.2)',
             borderColor: 'rgba(255,99,132,1)',
             pointBackgroundColor: 'rgba(255,99,132,1)',
@@ -42,12 +41,12 @@ constructor(props) {
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
             data: [
-              this.getPercent(6, 7),
-              this.getPercent(9, 10),
-              this.getPercent(8, 9),
-              this.getPercent(12, 13),
-              this.getPercent(14, 16),
-              this.getPercent(6, 7)
+              this.getPercent(props.newdata.js_right.length, props.newdata.js.length),
+              this.getPercent(props.newdata.css_right.length, props.newdata.css.length),
+              this.getPercent(props.newdata.html_right.length, props.newdata.html.length),
+              this.getPercent(props.newdata.node_right.length, props.newdata.node.length),
+              this.getPercent(props.newdata.api_right.length, props.newdata.api.length),
+              this.getPercent(props.newdata.mongo_right.length, props.newdata.mongo.length)
             ]
           }]
         }
