@@ -79,7 +79,7 @@ export class Profile extends React.Component {
                 <Style.ul className="user">
                   {slides}
                 </Style.ul>
-                <Slide data={currentUser.userData}  />
+                <Slide data={currentUser.userData} newdata={this.props.currentQuiz} />
 
 
               </div>}
@@ -96,6 +96,7 @@ const mapStateToProps = state => {
   const authorizedUser = state.auth;
   console.log("Profile--STATEOBJ: ",whatever);
   return {
+    currentQuiz: state.reducer.currentQuiz,
     currentUser: state.reducer.currentUser,
     username: state.auth.currentUser,
     authUser: state.auth.currentUser,
