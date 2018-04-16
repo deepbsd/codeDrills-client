@@ -33,6 +33,7 @@ export class Question extends React.Component {
     this.updateRemote = this.updateRemote.bind(this);
 
     this.state = {
+      redirect: false,
       userObj: this.props.user,
       answeredQuestions: [],
       currentQuiz: {
@@ -70,7 +71,7 @@ export class Question extends React.Component {
 
 
   shouldComponentUpdate() {
-      return this.state.answeredQuestions.length === 0 || this.state.answeredQuestions.length>=100;
+      return this.state.answeredQuestions.length === 0 || this.state.answeredQuestions.length>=10;
   }
 
   // This updateCurrent() is for the local state object.
@@ -132,6 +133,9 @@ export class Question extends React.Component {
 
         // this.props.dispatch(updateCurrentDb(this.props.currentUser));
         const that = this;
+        this.setState({
+          redirect: true
+        })
         setTimeout(function(){
           Question.prototype.updateRemote.apply(that);
         }, 2000)
@@ -189,6 +193,13 @@ export class Question extends React.Component {
       lastQuizData: lastQuizData
     }
 
+    const that = this;
+
+    this.setState((prevState, props) => ({
+        redirect: true
+      })
+    )
+
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     return fetch(`${API_BASE_URL}/userdata/${id}`, {
       method: 'PUT',
@@ -200,12 +211,16 @@ export class Question extends React.Component {
       mode: 'cors',
       body: JSON.stringify(updateObj)
     })
-    .then(response => response.json())
+    .then(response => {
+      response.json();
+      that.setState((prevState, props) => ({
+          redirect: true
+        })
+      )
+    })
     .catch(err => {
       console.log("Error! Did NOT update database: ", err);
     })
-    // Need to load the Profile component at this point
-    // return <Redirect to="/Profile" />
   }
 
 
@@ -229,18 +244,22 @@ export class Question extends React.Component {
             )
           });
 
-        return (
-              <ul key={index1}>
-                <Style.question><Style.questionText key={index1}>{index1+1}. {question.question}</Style.questionText></Style.question>
-                {question.type === 'videoSnippet' ?
-                  <iframe width="560" height="315" src={question.assetUrl}
-                    title="videoSnippet" frameBorder="0" allowFullScreen>
-                  </iframe> : question.type === 'image' ?
-                  // <img src={question.assetUrl} alt="alt text" /> : null }
-                  <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
-                {answers}
-              </ul>
-        )
+        if (this.state.redirect){
+          return <Redirect to="/Profile" />
+        } else {
+          return (
+                <ul key={index1}>
+                  <Style.question><Style.questionText key={index1}>{index1+1}. {question.question}</Style.questionText></Style.question>
+                  {question.type === 'videoSnippet' ?
+                    <iframe width="560" height="315" src={question.assetUrl}
+                      title="videoSnippet" frameBorder="0" allowFullScreen>
+                    </iframe> : question.type === 'image' ?
+                    // <img src={question.assetUrl} alt="alt text" /> : null }
+                    <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
+                  {answers}
+                </ul>
+          )
+      }
     });
 
       return (
@@ -253,6 +272,9 @@ export class Question extends React.Component {
                 props -> this.props.questions */}
                 {/*JSON.stringify(randQuestions)*/}
                 </p>
+
+
+
 
                   <DevData currentQuiz={this.state.currentQuiz}  />
               </div>
