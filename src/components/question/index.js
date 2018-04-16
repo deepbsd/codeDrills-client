@@ -204,10 +204,11 @@ export class Question extends React.Component {
     .catch(err => {
       console.log("Error! Did NOT update database: ", err);
     })
-    // Not sure why this redirect is not working...
-    //return <Redirect to="/profile" />
-    // return updateObj;
+    // Need to load the Profile component at this point
+    // return <Redirect to="/Profile" />
   }
+
+
 
     render() {
 
