@@ -117,34 +117,36 @@ export class Question extends React.Component {
 
       // Okay need to promisify this stuff so updateCurrent waits for checkQuestion
       // and then updateRemote waits for updateCurrent
-      let that = this;
+      // let that = this;
       // If we've answered 10 questions, then update Global State Object
       if (this.state.answeredQuestions.length > 9){
+        return new Promise( () => {
+          this.props.dispatch(updateCurrent(this.state.currentQuiz))
+      })
+       .then(
+          this.updateRemote()
+      ).then(
+          this.setState({
+            redirect: true
+          })
+      )
+    }
+}
+}
 
-        setTimeout(function(){
-          console.log('**Updating Global Current Data, Yo!');
-          console.log('**Global Object: ',that.props.currentQuiz);
-          // Dispatching GLOBAL Method here...
-          that.props.dispatch(updateCurrent(that.state.currentQuiz));
-          // console.log("## Global State After dispatching updateCurrent from Questions: ", this.props.currentUser);
-          // Now we need to update the remote DB with the updated global state object...
-          // Also, need to promisify this action here...
-        }, 1000)
 
         // this.props.dispatch(updateCurrentDb(this.props.currentUser));
-        const that = this;
-        this.setState({
-          redirect: true
-        })
-        setTimeout(function(){
-          Question.prototype.updateRemote.apply(that);
-        }, 2000)
+        // const that = this;
+        // this.setState({
+        //   redirect: true
+        // })
+        // setTimeout(function(){
+        //   Question.prototype.updateRemote.apply(that);
+        // }, 2000)
 
-       }
-    }
-    console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);
-    console.log('from selectAnswer() -- ',this.state.answeredQuestions);
-  }
+  //   console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);
+  //   console.log('from selectAnswer() -- ',this.state.answeredQuestions);
+  // };
 
   shuffleArray(array) {
       // I'm using _array just to have an immutable
@@ -181,6 +183,7 @@ export class Question extends React.Component {
   // this function will call the Profile component again, which will refresh the
   // user's historical data, which has just been updated with the last quiz data.
   updateRemote(){
+    console.log('We have updated the remote');
     const id = this.props.id;
     const user = this.props.user;
     const username = this.props.user.username;
@@ -194,11 +197,11 @@ export class Question extends React.Component {
     }
 
     const that = this;
-
-    this.setState((prevState, props) => ({
-        redirect: true
-      })
-    )
+    //
+    // this.setState((prevState, props) => ({
+    //     redirect: true
+    //   })
+    // )
 
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     return fetch(`${API_BASE_URL}/userdata/${id}`, {
@@ -211,13 +214,13 @@ export class Question extends React.Component {
       mode: 'cors',
       body: JSON.stringify(updateObj)
     })
-    .then(response => {
-      response.json();
-      that.setState((prevState, props) => ({
-          redirect: true
-        })
-      )
-    })
+    // .then(response => {
+    //   response.json();
+    //   that.setState((prevState, props) => ({
+    //       redirect: true
+    //     })
+    //   )
+    // })
     .catch(err => {
       console.log("Error! Did NOT update database: ", err);
     })
