@@ -7,6 +7,8 @@ import Answer from './answer';
 import {Redirect} from 'react-router-dom';
 import {API_BASE_URL} from '../../config';
 
+
+
 // import update from 'immutability-helper';
 
 
@@ -22,6 +24,9 @@ import question20 from './img/question20.png';
 
 // import './question.css';
 import Style from './style.js';
+
+
+
 
 export class Question extends React.Component {
 
@@ -183,7 +188,6 @@ export class Question extends React.Component {
   // this function will call the Profile component again, which will refresh the
   // user's historical data, which has just been updated with the last quiz data.
   updateRemote(){
-    console.log('We have updated the remote');
     const id = this.props.id;
     const user = this.props.user;
     const username = this.props.user.username;
@@ -204,7 +208,7 @@ export class Question extends React.Component {
     // )
 
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
-    return fetch(`${API_BASE_URL}/userdata/${id}`, {
+    return fetch(`${API_BASE_URL}/userdata/${this.props.id}`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
