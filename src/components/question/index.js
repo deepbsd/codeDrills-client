@@ -129,14 +129,17 @@ export class Question extends React.Component {
           this.props.dispatch(updateCurrent(this.state.currentQuiz))
       })
        .then(
-          this.updateRemote()
+          // this.updateRemote()
+          Question.prototype.updateRemote.apply(this)
       ).then(
           this.setState({
             redirect: true
           })
       )
     }
-}
+  }
+  console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);
+  console.log('from selectAnswer() -- ',this.state.answeredQuestions);
 }
 
 
@@ -149,8 +152,7 @@ export class Question extends React.Component {
         //   Question.prototype.updateRemote.apply(that);
         // }, 2000)
 
-  //   console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);
-  //   console.log('from selectAnswer() -- ',this.state.answeredQuestions);
+
   // };
 
   shuffleArray(array) {
@@ -200,13 +202,6 @@ export class Question extends React.Component {
       lastQuizData: lastQuizData
     }
 
-    const that = this;
-    //
-    // this.setState((prevState, props) => ({
-    //     redirect: true
-    //   })
-    // )
-
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     return fetch(`${API_BASE_URL}/userdata/${this.props.id}`, {
       method: 'PUT',
@@ -218,13 +213,6 @@ export class Question extends React.Component {
       mode: 'cors',
       body: JSON.stringify(updateObj)
     })
-    // .then(response => {
-    //   response.json();
-    //   that.setState((prevState, props) => ({
-    //       redirect: true
-    //     })
-    //   )
-    // })
     .catch(err => {
       console.log("Error! Did NOT update database: ", err);
     })
@@ -252,7 +240,7 @@ export class Question extends React.Component {
           });
 
         if (this.state.redirect){
-          return <Redirect to="/Profile" />
+          return <Redirect to="/Profile" key={index1} />
         } else {
           return (
                 <ul key={index1}>
