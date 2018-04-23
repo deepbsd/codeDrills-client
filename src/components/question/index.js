@@ -129,8 +129,8 @@ export class Question extends React.Component {
           this.props.dispatch(updateCurrent(this.state.currentQuiz))
       })
        .then(
-          // this.updateRemote()
-          Question.prototype.updateRemote.apply(this)
+          this.updateRemote()
+          // Question.prototype.updateRemote.apply(this)
       ).then(
           this.setState({
             redirect: true
@@ -203,7 +203,7 @@ export class Question extends React.Component {
     }
 
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
-    return fetch(`${API_BASE_URL}/userdata/${this.props.id}`, {
+    return fetch(`${API_BASE_URL}/userdata/${id}`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
