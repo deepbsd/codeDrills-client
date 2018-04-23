@@ -116,7 +116,7 @@ export const reducer = (state=initialState, action) => {
       mongoQuestionsCorrect: {$apply: function(n) {return n+action.quizData.mongo_right.length}}
     })
     const newLastQuizData = update(state.currentUser.lastQuizData,
-      {totalQuestions: {$apply: function(n) {return n+10;}},
+      {totalQuestions: {$apply: function(n) {return 10;}},
       dateOfQuiz: {$set: new Date().toString()},
       totalCorrect: {$apply: function(n) {return 10-action.quizData.incorrect.length}}
     })
