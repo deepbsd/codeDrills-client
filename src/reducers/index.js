@@ -82,7 +82,7 @@ export const reducer = (state=initialState, action) => {
   } else if (action.type === actions.FETCH_USER_DATA_SUCCESS){
       console.log('REDUCER, action.currentuser: about to load user data into state...', action);
       return Object.assign({}, state, {
-        id: action.currentuser._id,
+        id: action.currentuser.id,
         currentUser:  action.currentuser.currentUser
     })
   } else if (action.type === actions.ADD_CURRENT_USER_TO_STATE) {

@@ -133,7 +133,6 @@ export class Question extends React.Component {
         setTimeout(function(){
           Question.prototype.updateRemote.apply(that);
         }, 2000)
-
        }
     }
     console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);
@@ -205,12 +204,16 @@ export class Question extends React.Component {
       mode: 'cors',
       body: JSON.stringify(updateObj)
     })
-    .then(response => {
-      response.json();
-      that.setState((prevState, props) => ({
-          redirect: true
-        })
-      )
+    .then(res => {
+      console.log("**Response** ",res)
+      // response.json({"greeting": "hello world!"})
+      if (res.ok){
+        that.setState((prevState, props) => ({
+            redirect: true
+          })
+        )
+      }
+
     })
     .catch(err => {
       console.log("Error! Did NOT update database: ", err);

@@ -17,7 +17,7 @@ export const fetchUserData = (userName) => dispatch => {
 
   console.log("ACTION --userName: ", userName);
 
-  fetch(`${API_BASE_URL}/users/${userName}`)
+  fetch(`${API_BASE_URL}/userdata/${userName}`)
     .then(results => {
       if (!results.ok) {
         console.log('Oops, did not get the user data!', results);
