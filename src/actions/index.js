@@ -97,27 +97,3 @@ export const updateCurrent = quizData => ({
   quizData
 });
 
-// export const updateCurrentPromise = quizData => dispatch => ({
-//
-// })
-
-// export const updateCurrentDb = userDataFromState => {
-//   fetch(`${API_BASE_URL}/userdata/${userDataFromState.user.username}`, {
-//     method: 'PUT',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       userDataFromState
-//     })
-//   })
-//   .then(results => {
-//     if (!results.ok){
-//       console.log('## Database did NOT get updated: ', results);
-//       return Promise.reject(results.statusText);
-//     }
-//     console.log("ACTION --updateCurrentDB: ", results);
-//     return results.json();
-//   })
-// };

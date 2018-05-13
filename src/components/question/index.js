@@ -120,12 +120,8 @@ export class Question extends React.Component {
           console.log('**Global Object: ',that.props.currentQuiz);
           // Dispatching GLOBAL Method here...
           that.props.dispatch(updateCurrent(that.state.currentQuiz));
-          // console.log("## Global State After dispatching updateCurrent from Questions: ", this.props.currentUser);
-          // Now we need to update the remote DB with the updated global state object...
-          // Also, need to promisify this action here...
         }, 1000)
 
-        // this.props.dispatch(updateCurrentDb(this.props.currentUser));
         const that = this;
         this.setState({
           redirect: true
@@ -251,7 +247,6 @@ export class Question extends React.Component {
                     <iframe width="560" height="315" src={question.assetUrl}
                       title="videoSnippet" frameBorder="0" allowFullScreen>
                     </iframe> : question.type === 'image' ?
-                    // <img src={question.assetUrl} alt="alt text" /> : null }
                     <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
                   {answers}
                 </ul>
