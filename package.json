@@ -24,6 +24,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-livereload": "^3.8.1",

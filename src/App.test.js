@@ -1,21 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
+import {shallow} from 'enzyme';
+import {App} from './App';
 import {Provider} from 'react-redux';
-import registerServiceWorker from './registerServiceWorker';
-import store from './store';
-import App from './App';
-
-// it('renders without crashing', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(<App />, div);
-// });
 
 
 
+describe('<Router />', () => {
+		it('Renders without crashing', () => {
+				        shallow(<Router  />);
+		});
+})
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>, document.getElementById('root')
-);
-registerServiceWorker();
+
+
+
