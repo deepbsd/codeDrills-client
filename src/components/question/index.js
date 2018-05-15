@@ -111,7 +111,9 @@ export class Question extends React.Component {
 
       // Okay need to promisify this stuff so updateCurrent waits for checkQuestion
       // and then updateRemote waits for updateCurrent
+	  
       let that = this;
+	  
       // If we've answered 10 questions, then update Global State Object
       if (this.state.answeredQuestions.length > 9){
 
@@ -120,15 +122,14 @@ export class Question extends React.Component {
           console.log('**Global Object: ',that.props.currentQuiz);
           // Dispatching GLOBAL Method here...
           that.props.dispatch(updateCurrent(that.state.currentQuiz));
-        }, 1000)
+        }, 500)
 
         const that = this;
-        this.setState({
-          redirect: true
-        })
         setTimeout(function(){
           Question.prototype.updateRemote.apply(that);
-        }, 2000)
+        }, 1000)
+		
+
        }
     }
     console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);
@@ -184,11 +185,6 @@ export class Question extends React.Component {
 
     const that = this;
 
-    this.setState((prevState, props) => ({
-        redirect: true
-      })
-    )
-
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     return fetch(`${API_BASE_URL}/userdata/${id}`, {
       method: 'PUT',
@@ -202,7 +198,6 @@ export class Question extends React.Component {
     })
     .then(res => {
       console.log("**Response** ",res)
-      // response.json({"greeting": "hello world!"})
       if (res.ok){
         that.setState((prevState, props) => ({
             redirect: true
@@ -238,7 +233,7 @@ export class Question extends React.Component {
           });
 
         if (this.state.redirect){
-          return <Redirect to="/Profile" />
+          return <Redirect key={index1} to="/Profile" />;
         } else {
           return (
                 <ul key={index1}>
