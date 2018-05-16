@@ -4,7 +4,7 @@ import UserCategoryStats from '../userCategoryStats';
 import UserAggregateStats from '../userAggregateStats';
 import UserLatestStats from '../userLatestStats';
 import Userdetails from '../userDetails';
-import {addCurrentUserToState} from '../../actions';
+//import {addCurrentUserToState} from '../../actions';
 // import {BarChart, PieChart, PolarChart, LineChart, RadarChart} from '../chart';
 
 // import store from '../../store';

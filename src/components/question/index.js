@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {checkQuestion, updateCurrent, addCurrentUserToState} from '../../actions';
+import {checkQuestion, updateCurrent } from '../../actions';
 import requiresLogin from '../profile/requires-login';
 import DevData from './../devdata';
 import Answer from './answer';
@@ -57,10 +57,7 @@ export class Question extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.dispatch(addCurrentUserToState(this.state.userObj));
     const userObject = this.props.user;
-    // this.props.dispatch(addCurrentUserToState(userObject));
-    // console.log("Adding authorized-user to Global State Object...");
   }
 
 
@@ -112,7 +109,7 @@ export class Question extends React.Component {
       // Okay need to promisify this stuff so updateCurrent waits for checkQuestion
       // and then updateRemote waits for updateCurrent
 	  
-      let that = this;
+      const that = this;
 	  
       // If we've answered 10 questions, then update Global State Object
       if (this.state.answeredQuestions.length > 9){
@@ -121,13 +118,15 @@ export class Question extends React.Component {
           console.log('**Updating Global Current Data, Yo!');
           console.log('**Global Object: ',that.props.currentQuiz);
           // Dispatching GLOBAL Method here...
-          that.props.dispatch(updateCurrent(that.state.currentQuiz));
+        that.props.dispatch(updateCurrent(that.state.currentQuiz));
         }, 500)
 
-        const that = this;
+        //const that = this;
         setTimeout(function(){
           Question.prototype.updateRemote.apply(that);
         }, 1000)
+
+
 		
 
        }
