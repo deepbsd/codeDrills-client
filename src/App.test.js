@@ -11,12 +11,12 @@ import Footer from './components/footer';
 
 
 
-describe('Renders <Main/> and <Footer/>.  <Main/> requires store', () => {
+describe('Renders <Main/> and <Footer/>.  <Main/> and <Header/> require store', () => {
+    //it('Renders without crashing', () => {
+    //    mount(<Header />);
+    //});
     it('Renders without crashing', () => {
-        shallow(<Main />);
-    });
-    it('Renders without crashing', () => {
-        shallow(<Footer />);
+        mount(<Footer />);
     });
 
 });
