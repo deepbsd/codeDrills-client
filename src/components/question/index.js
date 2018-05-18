@@ -113,22 +113,22 @@ export class Question extends React.Component {
 	  
       // If we've answered 10 questions, then update Global State Object
       if (this.state.answeredQuestions.length > 9){
+		   // Wait 500ms to local state object gets data for last question...
+           setTimeout(function(){
+             console.log('**Updating Global Current Data, Yo!');
+             console.log('**Global Object: ',that.props.currentQuiz);
+             // Dispatching GLOBAL Method here...
+             that.props.dispatch(updateCurrent(that.state.currentQuiz));
+           }, 500)
 
-        setTimeout(function(){
-          console.log('**Updating Global Current Data, Yo!');
-          console.log('**Global Object: ',that.props.currentQuiz);
-          // Dispatching GLOBAL Method here...
-        that.props.dispatch(updateCurrent(that.state.currentQuiz));
-        }, 500)
-
-        //const that = this;
-        setTimeout(function(){
-          Question.prototype.updateRemote.apply(that);
-        }, 1000)
-
-
-		
-
+           // Wait a second to give global state object to get updated
+		   // before sending that updated data to the remote API
+		   // updateRemote() will also forward us to the Profile page
+		   // when the remote update is complete. So we'll actually 
+		   // see the next quiz materialize, then we get forwarded.
+           setTimeout(function(){
+             Question.prototype.updateRemote.apply(that);
+           }, 1000)
        }
     }
     console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);

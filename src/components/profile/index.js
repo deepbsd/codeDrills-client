@@ -14,7 +14,7 @@ import {fetchProtectedData} from '../../actions/protected-data';
 // import {createNewUserData} from '../../actions';
 
 import Style from './style.js';
-// import './profile.css'
+
 import {fetchUserData} from '../../actions';
 
 export class Profile extends React.Component {
