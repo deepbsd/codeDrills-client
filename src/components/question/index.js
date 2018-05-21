@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import update from 'immutability-helper';
 import {checkQuestion, updateCurrent } from '../../actions';
 import requiresLogin from '../profile/requires-login';
 import DevData from './../devdata';
@@ -17,14 +18,18 @@ import question20 from './img/question20.png';
 
 import Style from './style.js';
 
+function addAnswerCount(state, props) {
+  return {
+    answeredQuestions: state.answeredQuestions
+  }
+}
+
 export class Question extends React.Component {
 
   constructor(props){
     super(props);
     this.startQuiz = this.startQuiz.bind(this);
     this.selectAnswer = this.selectAnswer.bind(this);
-    this.updateCurrent = this.updateCurrent.bind(this);
-    this.updateRemote = this.updateRemote.bind(this);
 
     this.state = {
       redirect: false,
@@ -62,77 +67,50 @@ export class Question extends React.Component {
 
 
   shouldComponentUpdate() {
-      return this.state.answeredQuestions.length === 0 || this.state.answeredQuestions.length>=10;
+    return false;  // We do this because we never want the component to update– once the quiz is complete, we redirect the user anyway
   }
 
-  // This updateCurrent() is for the local state object.
-  updateCurrent(questionNumber, correct){
-    console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
-    // I've been having a hard time getting the last update
-    // to show up in the local state object
 
-    if (correct) {
-      this.state.currentQuiz.correct.push(questionNumber);
-    } else {
-      this.state.currentQuiz.incorrect.push(questionNumber);
+  isQuizComplete = (quizLength) => {
+    if(quizLength > 9) {
+      console.log('------------\n**COMPLETE**\n------------\nThe current local state object looks like this:\n', this.state);
+      this.props.dispatch(updateCurrent(this.state.currentQuiz));
+      // My recommendation is to chain a function that updates the remote to updateCurrent action within the actions file instead of firing it here
+      // Question.prototype.updateRemote.apply(this);
     }
-
-    let categ, categ_right;
-    this.state.answeredQuestions.map((q_number, index) => {
-        categ = this.props.questions[q_number-1].category;
-        categ_right = categ+'_right';
-        // add the question number to the local state object category
-        if (!this.state.currentQuiz[categ].includes(q_number)) {
-          this.state.currentQuiz[categ].push(q_number);
-        }
-        // if the question was answered correctly, also add it to categ_right
-        // if ((this.props.correctQuestions.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
-        if ((this.state.currentQuiz.correct.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
-          this.state.currentQuiz[categ_right].push(q_number);
-        }
-        // else return a default value of false
-        // return false;
-    })
-    console.log("###LOCAL STATE: ",this.state.currentQuiz)
   }
 
-  selectAnswer(questionNumber, correct){
-    // This method updates the local state object with current question results.
-    if (this.state.answeredQuestions.includes(questionNumber.number)){
+  selectAnswer(answerObj, correct){
+    // this can cause the length of answeredQuestions to be greater than 10 if a user answers the same question more than once (despite the alert you have in place), so you'll need to move this elsewhere
+    this.setState(prevState => ({
+      answeredQuestions: [...prevState.answeredQuestions, answerObj.number]
+    }));
+    if (this.state.answeredQuestions.includes(answerObj.number)){
       alert("You already answered this question!");
     } else {
-      // It's a new question for this go round, so add it to list
-      // of answered questions and then see if it's answered correctly.
-      this.state.answeredQuestions.push(questionNumber.number);
-      this.props.dispatch(checkQuestion(questionNumber, correct));
 
-      // Okay need to promisify this stuff so updateCurrent waits for checkQuestion
-      // and then updateRemote waits for updateCurrent
-	  
-      const that = this;
-	  
-      // If we've answered 10 questions, then update Global State Object
-      if (this.state.answeredQuestions.length > 9){
-		   // Wait 500ms to local state object gets data for last question...
-           setTimeout(function(){
-             console.log('**Updating Global Current Data, Yo!');
-             console.log('**Global Object: ',that.props.currentQuiz);
-             // Dispatching GLOBAL Method here...
-             that.props.dispatch(updateCurrent(that.state.currentQuiz));
-           }, 500)
+      // I would consider removing this and dealing with it locally, I don't see the value in adding correct and incorrect answers to global state when you could just do it here and then send everything up when the quiz is complete
+      this.props.dispatch(checkQuestion(answerObj, correct));
 
-           // Wait a second to give global state object to get updated
-		   // before sending that updated data to the remote API
-		   // updateRemote() will also forward us to the Profile page
-		   // when the remote update is complete. So we'll actually 
-		   // see the next quiz materialize, then we get forwarded.
-           setTimeout(function(){
-             Question.prototype.updateRemote.apply(that);
-           }, 1000)
-       }
+      // this could be made more DRY
+      if (correct) {
+        let _currentQuiz = {...this.state.currentQuiz};
+        _currentQuiz.correct = update(this.state.currentQuiz.correct, {$push: [answerObj.number]});
+        this.setState((prevState, props) => ({
+          currentQuiz: _currentQuiz
+        }), () => {
+          this.isQuizComplete(this.state.answeredQuestions.length);
+        });
+      } else {
+        let _currentQuiz = {...this.state.currentQuiz};
+        _currentQuiz.incorrect = update(this.state.currentQuiz.incorrect, {$push: [answerObj.number]});
+        this.setState((prevState, props) => ({
+          currentQuiz: _currentQuiz
+        }), () => {
+          this.isQuizComplete(this.state.answeredQuestions.length);
+        });
+      }
     }
-    console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);
-    console.log('from selectAnswer() -- ',this.state.answeredQuestions);
   }
 
   shuffleArray(array) {
@@ -169,6 +147,8 @@ export class Question extends React.Component {
   // quiz data.  Therefore, upon completion of this quiz, after updating the DB,
   // this function will call the Profile component again, which will refresh the
   // user's historical data, which has just been updated with the last quiz data.
+
+  // NOTE: I suggest moving the fetch call to actions, there's no real value keeping it here
   updateRemote(){
     const id = this.props.id;
     const user = this.props.user;
@@ -262,7 +242,7 @@ export class Question extends React.Component {
 
 
 
-                  <DevData currentQuiz={this.state.currentQuiz}  />
+                  <DevData currentQuiz={this.state.currentQuiz} answeredQuestions={this.state.answeredQuestions}  />
               </div>
       );
 
