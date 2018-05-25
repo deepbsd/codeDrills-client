@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import update from 'immutability-helper';
-import {checkQuestion, updateCurrent } from '../../actions';
+import {checkQuestion, updateCurrent, updateUserDataDb} from '../../actions';
 import requiresLogin from '../profile/requires-login';
 import DevData from './../devdata';
 import Answer from './answer';
@@ -30,6 +30,7 @@ export class Question extends React.Component {
     super(props);
     this.startQuiz = this.startQuiz.bind(this);
     this.selectAnswer = this.selectAnswer.bind(this);
+    this.updateRemote = this.updateRemote.bind(this);
 
     this.state = {
       redirect: false,
@@ -67,7 +68,8 @@ export class Question extends React.Component {
 
 
   shouldComponentUpdate() {
-    return false;  // We do this because we never want the component to update– once the quiz is complete, we redirect the user anyway
+    //return false;  // We do this because we never want the component to update– once the quiz is complete, we redirect the user anyway
+    return this.state.answeredQuestions.length>=10;
   }
 
 
@@ -76,7 +78,10 @@ export class Question extends React.Component {
       console.log('------------\n**COMPLETE**\n------------\nThe current local state object looks like this:\n', this.state);
       this.props.dispatch(updateCurrent(this.state.currentQuiz));
       // My recommendation is to chain a function that updates the remote to updateCurrent action within the actions file instead of firing it here
-      // Question.prototype.updateRemote.apply(this);
+
+      setTimeout(() => {
+        this.updateRemote();
+      },250)
     }
   }
 
@@ -162,7 +167,8 @@ export class Question extends React.Component {
       lastQuizData: lastQuizData
     }
 
-    const that = this;
+    //this.props.dispatch.updateUserDataDb(updateObj);
+
 
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     return fetch(`${API_BASE_URL}/userdata/${id}`, {
@@ -178,7 +184,7 @@ export class Question extends React.Component {
     .then(res => {
       console.log("**Response** ",res)
       if (res.ok){
-        that.setState((prevState, props) => ({
+        this.setState((prevState, props) => ({
             redirect: true
           })
         )
@@ -188,6 +194,7 @@ export class Question extends React.Component {
     .catch(err => {
       console.log("Error! Did NOT update database: ", err);
     })
+
   }
 
 

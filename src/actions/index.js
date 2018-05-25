@@ -64,6 +64,31 @@ export const createNewUserData = (currentUser) => dispatch => {
   })
 };
 
+
+export const updateUserDataDb = (userDataObj) => dispatch => {
+    console.log("***Updating Remote UserData DB***");
+    fetch(`${API_BASE_URL}/userdata/${userDataObj.id}`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin',
+        mode: 'cors',
+        body: JSON.stringify(userDataObj)
+    })
+    .then(res => {
+        if (!res.ok){
+            console.log("Did NOT update database with UserData!", res);
+            return Promise.reject(res.statusText);
+        }
+        console.log("ACTION: Updated Remote DB with UserData!");
+        return res.json();
+    })
+}
+
+
+
 export const ADD_CURRENT_USER_TO_STATE = 'ADD_CURRENT_USER_T0_STATE';
 export const addCurrentUserToState = (userObj) => ({
   type: ADD_CURRENT_USER_TO_STATE,
