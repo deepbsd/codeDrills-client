@@ -167,33 +167,35 @@ export class Question extends React.Component {
       lastQuizData: lastQuizData
     }
 
-    //this.props.dispatch.updateUserDataDb(updateObj);
+    console.log("***UpdateObj: ", updateObj);
+
+    this.props.dispatch.updateUserDataDb(updateObj);
 
 
-    console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
-    return fetch(`${API_BASE_URL}/userdata/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      credentials: 'same-origin',
-      mode: 'cors',
-      body: JSON.stringify(updateObj)
-    })
-    .then(res => {
-      console.log("**Response** ",res)
-      if (res.ok){
-        this.setState((prevState, props) => ({
-            redirect: true
-          })
-        )
-      }
+    //console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
+    //return fetch(`${API_BASE_URL}/userdata/${id}`, {
+    //  method: 'PUT',
+    //  headers: {
+    //    'Accept': 'application/json',
+    //    'Content-Type': 'application/json'
+    //  },
+    //  credentials: 'same-origin',
+    //  mode: 'cors',
+    //  body: JSON.stringify(updateObj)
+    //})
+    //.then(res => {
+    //  console.log("**Response** ",res)
+    //  if (res.ok){
+    //    this.setState((prevState, props) => ({
+    //        redirect: true
+    //      })
+    //    )
+    //  }
 
-    })
-    .catch(err => {
-      console.log("Error! Did NOT update database: ", err);
-    })
+    //})
+    //.catch(err => {
+    //  console.log("Error! Did NOT update database: ", err);
+    //})
 
   }
 

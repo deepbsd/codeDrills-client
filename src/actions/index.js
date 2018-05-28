@@ -66,7 +66,7 @@ export const createNewUserData = (currentUser) => dispatch => {
 
 
 export const updateUserDataDb = (userDataObj) => dispatch => {
-    console.log("***Updating Remote UserData DB***");
+    console.log("***Updating Remote UserData DB***", userDataObj);
     fetch(`${API_BASE_URL}/userdata/${userDataObj.id}`, {
         method: 'PUT',
         headers: {
