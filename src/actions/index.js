@@ -83,11 +83,21 @@ export const updateUserDataDb = (userDataObj) => dispatch => {
             return Promise.reject(res.statusText);
         }
         console.log("ACTION: Updated Remote DB with UserData!");
-        return res.json();
+        //return res.json();
     })
 }
 
-
+//export const UPDATE_USERDATA_DB_SUCCESS = 'UPDATE_USERDATA_DB_SUCCESS';
+//export const updateUserDataDbSuccess = () => ({
+//    type: UPDATE_USERDATA_DB_SUCCESS,
+//    userDataDbUpdated: true
+//})
+//
+//export const RESET_USERDATA_DB_SUCCESS = 'RESET_USERDATA_DB_SUCCESS';
+//export const resetUserDataDbSuccess = () => ({
+//    type: RESET_USERDATA_DB_SUCCESS,
+//    userDataDbUpdated: false
+//})
 
 export const ADD_CURRENT_USER_TO_STATE = 'ADD_CURRENT_USER_T0_STATE';
 export const addCurrentUserToState = (userObj) => ({

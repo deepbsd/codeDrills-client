@@ -81,7 +81,7 @@ export class Question extends React.Component {
 
       setTimeout(() => {
         this.updateRemote();
-      },250)
+      },500)
     }
   }
 
@@ -167,36 +167,17 @@ export class Question extends React.Component {
       lastQuizData: lastQuizData
     }
 
-    console.log("***UpdateObj: ", updateObj);
 
-    this.props.dispatch.updateUserDataDb(updateObj);
+    console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
+    this.props.dispatch(updateUserDataDb(updateObj));
 
 
-    //console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
-    //return fetch(`${API_BASE_URL}/userdata/${id}`, {
-    //  method: 'PUT',
-    //  headers: {
-    //    'Accept': 'application/json',
-    //    'Content-Type': 'application/json'
-    //  },
-    //  credentials: 'same-origin',
-    //  mode: 'cors',
-    //  body: JSON.stringify(updateObj)
-    //})
-    //.then(res => {
-    //  console.log("**Response** ",res)
-    //  if (res.ok){
-    //    this.setState((prevState, props) => ({
-    //        redirect: true
-    //      })
-    //    )
-    //  }
-
-    //})
-    //.catch(err => {
-    //  console.log("Error! Did NOT update database: ", err);
-    //})
-
+    //Need to delay this to give DB time to be updated
+    this.setState((prevState, props) => ({
+        redirect: true
+      })
+    );
+    console.log("***Setting Redirect to TRUE: ", this.state.redirect);
   }
 
 
