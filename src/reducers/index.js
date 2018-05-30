@@ -5,6 +5,7 @@ import update from 'immutability-helper';
 const initialState = {
 
       id: null,
+      userDataDbUpdated: false,
       currentQuiz: {
           "correct": [],
           "incorrect": [],

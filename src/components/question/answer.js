@@ -20,9 +20,7 @@ export default class Answer extends React.Component {
     }
 
     if(answerObj.text){
-      // not sure why this works: selectAnswer() expects three parameters...
       this.props.selectAnswer(answerObj, answerObj.correct);
-      this.props.updateCurrent(answerObj.number, answerObj.correct);
     } else {
       alert("here's an empty value")
     }
