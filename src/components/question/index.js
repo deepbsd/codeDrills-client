@@ -171,13 +171,14 @@ export class Question extends React.Component {
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     this.props.dispatch(updateUserDataDb(updateObj));
 
+    setTimeout(() => {
+        this.setState((prevState, props) => ({
+            redirect: true
+          })
+        );
+        console.log("***Setting Redirect to TRUE: ", this.state.redirect);
+    },500)
 
-    //Need to delay this to give DB time to be updated
-    this.setState((prevState, props) => ({
-        redirect: true
-      })
-    );
-    console.log("***Setting Redirect to TRUE: ", this.state.redirect);
   }
 
 
