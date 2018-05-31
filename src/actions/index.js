@@ -83,7 +83,8 @@ export const updateUserDataDb = (userDataObj) => dispatch => {
             return Promise.reject(res.statusText);
         }
         console.log("ACTION: Updated Remote DB with UserData!");
-        dispatch(updateUserDataDbSuccess);
+        console.log("ACTION: Now calling updateUserDataDbSuccess!");
+        dispatch(updateUserDataDbSuccess());
     })
 }
 

@@ -40,7 +40,7 @@ export class Profile extends React.Component {
         // this.props.dispatch(addCurrentUserToState(this.props.currentUser));
         this.props.dispatch(fetchUserData(this.props.username.username));
         console.log("PROFILE mount(): Fetched userdata from DB...");
-        this.props.dispatch(resetUserDataDbSuccess);
+        this.props.dispatch(resetUserDataDbSuccess());
     }
 
     handleClick(e) {

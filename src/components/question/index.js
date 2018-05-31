@@ -123,7 +123,6 @@ export class Question extends React.Component {
         });
       }
     }
-    console.log("****Redirect???", this.props.redirect);
   }
 
   shuffleArray(array) {
@@ -178,6 +177,7 @@ export class Question extends React.Component {
 
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     this.props.dispatch(updateUserDataDb(updateObj));
+    console.log("****Redirect???", this.props.redirect);
 
     //setTimeout(() => {
     //    this.setState((prevState, props) => ({
