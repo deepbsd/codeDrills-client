@@ -87,6 +87,16 @@ export const reducer = (state=initialState, action) => {
         lastQuizData: state.currentUser.lastQuizData
       }
     }
+  } else if (action.type === actions.UPDATE_USERDATA_DB_SUCCESS){
+       return {
+         ...state,
+         userDataDbUpdated: action.userDataDbUpdated
+       }
+  } else if (action.type === actions.RESET_USERDATA_DB_SUCCESS){
+        return {
+         ...state,
+         userDataDbUpdated: action.userDataDbUpdated
+       }
   } else if (action.type === actions.UPDATE_CURRENT){
     console.log('## REDUCER: Updating GLOBAL user data with quiz results now from action...',action.quizData)
     const newUserData = update(state.currentUser.userData,
