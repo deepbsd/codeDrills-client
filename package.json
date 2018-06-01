@@ -15,7 +15,8 @@
     "redux-form": "^6.6.3",
     "redux-thunk": "^2.2.0",
     "styled-components": "^2.4.0",
-    "validator": "^7.0.0"
+    "validator": "^7.0.0",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -11,7 +11,7 @@ export function LandingPage(props) {
     }
 
     return (
-        <Style.div>
+        <Style.div className="layout-wrap">
             <h2>Welcome to CodeDrills</h2>
             <LoginForm />
             <Link to="/register">Register</Link>

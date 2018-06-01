@@ -6,8 +6,7 @@ const Style = {
     width: 100%;
   `,
   div: styled.div`
-    width: 100%;
-    margin: 0 auto;
+
   `,
   error: styled.div`
     color: red;
