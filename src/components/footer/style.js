@@ -4,7 +4,6 @@ const Style = {
   wrapper: styled.div`
         margin: 16px 0;
         padding: 0 0;
-		width: 100%;
   `,
   listItem: styled.li`
 		background: #667999;
