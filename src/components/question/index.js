@@ -115,7 +115,7 @@ export class Question extends React.Component {
       } else {
         let _currentQuiz = {...this.state.currentQuiz};
         _currentQuiz.incorrect = update(this.state.currentQuiz.incorrect, {$push: [answerObj.number]});
-        _currentQuiz[categ] = update(this.state.currentQuiz.categ, {$push: [answerObj.number]});
+        _currentQuiz[categ] = update(this.state.currentQuiz[categ], {$push: [answerObj.number]});
         this.setState((prevState, props) => ({
           currentQuiz: _currentQuiz
         }), () => {
