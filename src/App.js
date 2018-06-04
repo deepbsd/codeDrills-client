@@ -29,13 +29,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-
-          <Header className="header" />
-
-          <Main />
-
+          <div className="flex-content">
+            <Header className="header" />
+            <Main />
+          </div>
           <Footer />
-
         </div>
       </Router>
     );

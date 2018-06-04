@@ -1,5 +1,7 @@
 .App {
-
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .App-logo {
@@ -21,6 +23,10 @@
 .App-intro {
   font-size: large;
   color: white;
+}
+
+.flex-content {
+  flex: 1 0 auto;
 }
 
 @keyframes App-logo-spin {
