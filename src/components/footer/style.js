@@ -3,20 +3,17 @@ import styled from 'styled-components';
 const Style = {
   wrapper: styled.div`
         margin: 16px 0;
-        padding: 0 0;
+        padding: 0 30px;
   `,
   listItem: styled.li`
-		background: #667999;
-        color: white;
+        color: #667999;
         display: inline-block;
         font-size: 1.3em;
-        padding: 20px;
-        position: fixed;
+        padding: 0px;
+        position: relative;
         margin-right: 20px;
         margin-top: 10px;
         text-decoration: none;
-		bottom: 0;
-		height: 30px;
         &:hover{
           cursor: pointer;
           color: #6E3034;
@@ -28,7 +25,6 @@ const Style = {
           height: 2px;
           bottom: 0;
           left: 0;
-		  color: white;
           background-color: #6E3034;
           visibility: hidden;
           -webkit-transform: scaleX(0);
@@ -49,24 +45,3 @@ const Style = {
 
 
 export default Style;
-
-
-//  backgroundColor: "purple",
-//  fontSize: "20px",
-//  color: "white",
-//  borderTop: "1px solid #E7E7E7",
-//  textAlign: "center",
-//  padding: "20px",
-//  position: "fixed",
-//  left: "0",
-//  bottom: "0",
-//  height: "60px",
-//  width: "100%"
-//
-//
-//  display: "block",
-//  padding: "20px",
-//  height: "60px",
-//  width: "100%"
-
-
