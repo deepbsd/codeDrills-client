@@ -53,6 +53,8 @@ const Style = {
   `,
   chartWrapper: styled.div`
     position: relative;
+    min-width: 500px;
+    max-width: 1200px;
   `,
   subject: styled.span`
     color: gray;
