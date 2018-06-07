@@ -99,8 +99,10 @@ export class UserCategoryStats extends React.Component {
               <Style.h2><Style.subject >{_displaySubject}</Style.subject><Style.counts >{_numCorrect}/{_numAnswered}</Style.counts></Style.h2>
               <Style.percentagewrap>
                 <Style.percentage>{getPercent(_numCorrect, _numAnswered)}%</Style.percentage>
+                <div>
+                  <PieChart pieChartData={this.state[_subject]} />
+                </div>
               </Style.percentagewrap>
-                <PieChart className="obeys" pieChartData={this.state[_subject]} />
             </Style.chartWrapper>
 
           )

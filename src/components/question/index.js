@@ -33,7 +33,6 @@ export class Question extends React.Component {
     this.updateRemote = this.updateRemote.bind(this);
 
     this.state = {
-      redirect: false,
       userObj: this.props.user,
       answeredQuestions: [],
       currentQuiz: {
@@ -86,21 +85,30 @@ export class Question extends React.Component {
   }
 
   selectAnswer(answerObj, correct){
-    // this can cause the length of answeredQuestions to be greater than 10 if a user answers the same question more than once (despite the alert you have in place), so you'll need to move this elsewhere
-    this.setState(prevState => ({
-      answeredQuestions: [...prevState.answeredQuestions, answerObj.number]
-    }));
+
     if (this.state.answeredQuestions.includes(answerObj.number)){
       alert("You already answered this question!");
     } else {
+    
+	// this can cause the length of answeredQuestions to be greater than 10 if a user answers the same question more than once (despite the alert you have in place), so you'll need to move this elsewhere
+    this.setState(prevState => ({
+      answeredQuestions: [...prevState.answeredQuestions, answerObj.number]
+    }));
 
       // I would consider removing this and dealing with it locally, I don't see the value in adding correct and incorrect answers to global state when you could just do it here and then send everything up when the quiz is complete
       this.props.dispatch(checkQuestion(answerObj, correct));
 
-      // this could be made more DRY
+      
+      let categ, categ_right;
+      categ = answerObj.category;
+      categ_right = answerObj.category+'_right';
+
+      // categories are back!
       if (correct) {
         let _currentQuiz = {...this.state.currentQuiz};
         _currentQuiz.correct = update(this.state.currentQuiz.correct, {$push: [answerObj.number]});
+        _currentQuiz[categ] = update(this.state.currentQuiz[categ], {$push: [answerObj.number]});
+        _currentQuiz[categ_right] = update(this.state.currentQuiz[categ_right], {$push: [answerObj.number]});
         this.setState((prevState, props) => ({
           currentQuiz: _currentQuiz
         }), () => {
@@ -109,6 +117,7 @@ export class Question extends React.Component {
       } else {
         let _currentQuiz = {...this.state.currentQuiz};
         _currentQuiz.incorrect = update(this.state.currentQuiz.incorrect, {$push: [answerObj.number]});
+        _currentQuiz[categ] = update(this.state.currentQuiz[categ], {$push: [answerObj.number]});
         this.setState((prevState, props) => ({
           currentQuiz: _currentQuiz
         }), () => {
@@ -170,14 +179,16 @@ export class Question extends React.Component {
 
     console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     this.props.dispatch(updateUserDataDb(updateObj));
+    console.log("****Redirect???", this.props.redirect);
 
+    //setTimeout(() => {
+    //    this.setState((prevState, props) => ({
+    //        redirect: true
+    //      })
+    //    );
+    //    console.log("***Setting Redirect to TRUE: ", this.state.redirect);
+    //},500)
 
-    //Need to delay this to give DB time to be updated
-    this.setState((prevState, props) => ({
-        redirect: true
-      })
-    );
-    console.log("***Setting Redirect to TRUE: ", this.state.redirect);
   }
 
 
@@ -201,7 +212,7 @@ export class Question extends React.Component {
             )
           });
 
-        if (this.state.redirect){
+        if (this.props.redirect){
           return <Redirect key={index1} to="/Profile" />;
         } else {
           return (
@@ -231,9 +242,10 @@ export class Question extends React.Component {
 
 
 
-
+				{/* 
                   <DevData currentQuiz={this.state.currentQuiz} answeredQuestions={this.state.answeredQuestions}  />
-              </div>
+ */}  
+           </div>
       );
 
   }
@@ -246,6 +258,7 @@ const mapStateToProps = state => {
   const authorizedUser = state.auth.currentUser;
   console.log("QUESTIONS Global StateOBJ: ",whatever);
   return {
+    redirect: state.reducer.userDataDbUpdated,
     id: state.reducer.id,
     questions: state.reducer.questions,
     missedQuestions: state.reducer.missedQuestions,

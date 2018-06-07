@@ -4,7 +4,7 @@ import UserCategoryStats from '../userCategoryStats';
 import UserAggregateStats from '../userAggregateStats';
 import UserLatestStats from '../userLatestStats';
 import Userdetails from '../userDetails';
-//import {addCurrentUserToState} from '../../actions';
+import {resetUserDataDbSuccess} from '../../actions';
 // import {BarChart, PieChart, PolarChart, LineChart, RadarChart} from '../chart';
 
 // import store from '../../store';
@@ -40,6 +40,7 @@ export class Profile extends React.Component {
         // this.props.dispatch(addCurrentUserToState(this.props.currentUser));
         this.props.dispatch(fetchUserData(this.props.username.username));
         console.log("PROFILE mount(): Fetched userdata from DB...");
+        this.props.dispatch(resetUserDataDbSuccess());
     }
 
     handleClick(e) {

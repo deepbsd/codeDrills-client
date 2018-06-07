@@ -42,21 +42,18 @@ const Style = {
     }
   `,
   percentagewrap: styled.div`
-    position: absolute;
-    top: 120%;
-    left: 51%;
-    transform: translate(-50%, -50%);
-    width: 360px;
-    height: 425px;
+
   `,
   percentage: styled.div`
-    color: white;
+    color: crimson;
     font-size: 1.2rem;
     margin-top: 100px;
     text-align: center;
   `,
   chartWrapper: styled.div`
+    border: 1px solid navy;
     position: relative;
+    max-width: 1200px;
   `,
   subject: styled.span`
     color: gray;
