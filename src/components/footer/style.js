@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Style = {
   wrapper: styled.div`
         margin: 16px 0;
+		margin-top: 60px;
         padding: 0 30px;
   `,
   listItem: styled.li`

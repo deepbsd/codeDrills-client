@@ -85,13 +85,15 @@ export class Question extends React.Component {
   }
 
   selectAnswer(answerObj, correct){
-    // this can cause the length of answeredQuestions to be greater than 10 if a user answers the same question more than once (despite the alert you have in place), so you'll need to move this elsewhere
-    this.setState(prevState => ({
-      answeredQuestions: [...prevState.answeredQuestions, answerObj.number]
-    }));
+
     if (this.state.answeredQuestions.includes(answerObj.number)){
       alert("You already answered this question!");
     } else {
+    
+	// this can cause the length of answeredQuestions to be greater than 10 if a user answers the same question more than once (despite the alert you have in place), so you'll need to move this elsewhere
+    this.setState(prevState => ({
+      answeredQuestions: [...prevState.answeredQuestions, answerObj.number]
+    }));
 
       // I would consider removing this and dealing with it locally, I don't see the value in adding correct and incorrect answers to global state when you could just do it here and then send everything up when the quiz is complete
       this.props.dispatch(checkQuestion(answerObj, correct));
@@ -240,9 +242,10 @@ export class Question extends React.Component {
 
 
 
-
+				{/* 
                   <DevData currentQuiz={this.state.currentQuiz} answeredQuestions={this.state.answeredQuestions}  />
-              </div>
+ */}  
+           </div>
       );
 
   }

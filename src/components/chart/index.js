@@ -4,7 +4,13 @@ import { Bar, Line, Pie, Polar, Radar } from 'react-chartjs-2';
 
 var options = {
 	maintainAspectRatio: true,
-	responsive: true
+	responsive: true,
+	legend: {
+		display: false
+	},
+	tooltips: {
+		enabled: true
+	}
 }
 
 export function BarChart(props) {

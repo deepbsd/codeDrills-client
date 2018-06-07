@@ -43,7 +43,7 @@ const Style = {
   `,
   percentage: styled.div`
     color: white;
-    font-size: 3.5em;
+    font-size: 3.0em;
     position: absolute;
     top: 120%;
     left: 51%;
