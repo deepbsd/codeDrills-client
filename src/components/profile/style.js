@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 const Style = {
+  avatar: styled.div`
+    margin: 3%;
+  `,
   h2: styled.h2`
     font-size: 0.8em;
     font-color: orange;
@@ -44,7 +47,6 @@ const Style = {
   `,
   percentagewrap: styled.div`
     position: relative;
-
   `,
   percentage: styled.div`
     color: white;

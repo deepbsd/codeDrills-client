@@ -17,7 +17,7 @@ var options1 = {
 	maintainAspectRatio: true,
 	responsive: true,
 	legend: {
-		display: false
+		display: true
 	},
 	tooltips: {
 		enabled: true
