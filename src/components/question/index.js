@@ -76,7 +76,6 @@ export class Question extends React.Component {
     if(quizLength > 9) {
       //console.log('------------\n**COMPLETE**\n------------\nThe current local state object looks like this:\n', this.state);
       this.props.dispatch(updateCurrent(this.state.currentQuiz));
-      // My recommendation is to chain a function that updates the remote to updateCurrent action within the actions file instead of firing it here
 
       setTimeout(() => {
         this.updateRemote();
@@ -90,12 +89,10 @@ export class Question extends React.Component {
       alert("You already answered this question!");
     } else {
     
-	// this can cause the length of answeredQuestions to be greater than 10 if a user answers the same question more than once (despite the alert you have in place), so you'll need to move this elsewhere
     this.setState(prevState => ({
       answeredQuestions: [...prevState.answeredQuestions, answerObj.number]
     }));
 
-      // I would consider removing this and dealing with it locally, I don't see the value in adding correct and incorrect answers to global state when you could just do it here and then send everything up when the quiz is complete
       this.props.dispatch(checkQuestion(answerObj, correct));
 
       
@@ -103,7 +100,7 @@ export class Question extends React.Component {
       categ = answerObj.category;
       categ_right = answerObj.category+'_right';
 
-      // categories are back!
+      // Handle the categories for questions
       if (correct) {
         let _currentQuiz = {...this.state.currentQuiz};
         _currentQuiz.correct = update(this.state.currentQuiz.correct, {$push: [answerObj.number]});
@@ -162,7 +159,6 @@ export class Question extends React.Component {
   // this function will call the Profile component again, which will refresh the
   // user's historical data, which has just been updated with the last quiz data.
 
-  // NOTE: I suggest moving the fetch call to actions, there's no real value keeping it here
   updateRemote(){
     const id = this.props.id;
     const user = this.props.user;
@@ -267,4 +263,3 @@ const mapStateToProps = state => {
 
 export default requiresLogin()(connect(mapStateToProps)(Question));
 
-// <p>{JSON.stringify(this.props.currentUser)}</p>

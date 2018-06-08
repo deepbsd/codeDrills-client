@@ -2,8 +2,6 @@ import React from 'react';
 
 import Style from './style';
 import Blurb from '../blurb';
-// import LoginForm from '../login/login-form';      // tried putting login-form on this page
-// import {Link, Redirect} from 'react-router-dom';  // it didn't really work!
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -77,7 +75,6 @@ export class Landing extends React.Component {
       }
 }
 
-// export default Landing;
 
 const mapStateToProps = state => {
   const whatever = state;
