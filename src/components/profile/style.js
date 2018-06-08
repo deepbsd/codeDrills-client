@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 const Style = {
   h2: styled.h2`
-    font-size: 0.5em;
+    font-size: 0.8em;
     font-color: orange;
+    text-align: center;
   `,
   profile: styled.div`
     margin-top: 20px;
@@ -42,16 +43,21 @@ const Style = {
     }
   `,
   percentagewrap: styled.div`
+    position: relative;
 
   `,
   percentage: styled.div`
-    color: crimson;
-    font-size: 1.2rem;
-    margin-top: 100px;
+    color: white;
+    font-size: 1.6rem;
+    left: 50%;
+    {/*margin-top: 100px; */}
+    position: absolute;
     text-align: center;
+    top: 60%;
+    transform: translate(-50%, -50%);
   `,
   chartWrapper: styled.div`
-    border: 1px solid navy;
+  {/*border: 1px solid navy;*/}
     position: relative;
     max-width: 1200px;
   `,
