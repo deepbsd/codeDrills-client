@@ -74,7 +74,7 @@ export class Question extends React.Component {
 
   isQuizComplete = (quizLength) => {
     if(quizLength > 9) {
-      console.log('------------\n**COMPLETE**\n------------\nThe current local state object looks like this:\n', this.state);
+      //console.log('------------\n**COMPLETE**\n------------\nThe current local state object looks like this:\n', this.state);
       this.props.dispatch(updateCurrent(this.state.currentQuiz));
       // My recommendation is to chain a function that updates the remote to updateCurrent action within the actions file instead of firing it here
 
@@ -148,7 +148,7 @@ export class Question extends React.Component {
     // then excluding it from the next draw. Just like randomly picking
     // and ordering from a deck of cards.
     let shuffled = this.shuffleArray(allQuestions);
-    console.log("STARTQUIZ: authorized-user: ", this.props.user);
+    //console.log("STARTQUIZ: authorized-user: ", this.props.user);
 
 
     //Once you have the shuffled array, slice it as you have thought
@@ -177,17 +177,10 @@ export class Question extends React.Component {
     }
 
 
-    console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
+    //console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
     this.props.dispatch(updateUserDataDb(updateObj));
-    console.log("****Redirect???", this.props.redirect);
+    //console.log("****Redirect???", this.props.redirect);
 
-    //setTimeout(() => {
-    //    this.setState((prevState, props) => ({
-    //        redirect: true
-    //      })
-    //    );
-    //    console.log("***Setting Redirect to TRUE: ", this.state.redirect);
-    //},500)
 
   }
 
@@ -256,7 +249,7 @@ export class Question extends React.Component {
 const mapStateToProps = state => {
   const whatever = state;
   const authorizedUser = state.auth.currentUser;
-  console.log("QUESTIONS Global StateOBJ: ",whatever);
+  //console.log("QUESTIONS Global StateOBJ: ",whatever);
   return {
     redirect: state.reducer.userDataDbUpdated,
     id: state.reducer.id,

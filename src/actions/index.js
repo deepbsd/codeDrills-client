@@ -15,19 +15,19 @@ export const  checkQuestion = (answerObj) => ({
 
 export const fetchUserData = (userName) => dispatch => {
 
-  console.log("ACTION --userName: ", userName);
+  //console.log("ACTION --userName: ", userName);
 
   fetch(`${API_BASE_URL}/userdata/${userName}`)
     .then(results => {
       if (!results.ok) {
-        console.log('Oops, did not get the user data!', results);
+        //console.log('Oops, did not get the user data!', results);
         return Promise.reject(results.statusText);
       }
-      console.log("ACTION --fetchUserData: ", results);
+      //console.log("ACTION --fetchUserData: ", results);
       return results.json();
     })
     .then( (data) => {
-      console.log("***ACTION:  calling fetch userDataSuccess: ", data);
+      //console.log("***ACTION:  calling fetch userDataSuccess: ", data);
       // dispatch(fetchUserDataSuccess(data.currentUser))
       dispatch(fetchUserDataSuccess(data))
     })
@@ -41,7 +41,7 @@ export const fetchUserDataSuccess = (currentuser) => ({
 });
 
 export const createNewUserData = (currentUser) => dispatch => {
-  console.log("***CURRENT USER: ", currentUser)
+  //console.log("***CURRENT USER: ", currentUser)
   fetch(`${API_BASE_URL}/userdata/`, {
     method: 'POST',
     headers: {
@@ -56,17 +56,17 @@ export const createNewUserData = (currentUser) => dispatch => {
   })
   .then(results => {
     if (!results.ok){
-      console.log('OOPS!  Did not post new userData!', results);
+      //console.log('OOPS!  Did not post new userData!', results);
       return Promise.reject(results.statusText);
     }
-    console.log("ACTION --createNewUserData: ", results);
+    //console.log("ACTION --createNewUserData: ", results);
     return results.json();
   })
 };
 
 
 export const updateUserDataDb = (userDataObj) => dispatch => {
-    console.log("***Updating Remote UserData DB***", userDataObj);
+    //console.log("***Updating Remote UserData DB***", userDataObj);
     fetch(`${API_BASE_URL}/userdata/${userDataObj.id}`, {
         method: 'PUT',
         headers: {
@@ -79,11 +79,11 @@ export const updateUserDataDb = (userDataObj) => dispatch => {
     })
     .then(res => {
         if (!res.ok){
-            console.log("Did NOT update database with UserData!", res);
+            //console.log("Did NOT update database with UserData!", res);
             return Promise.reject(res.statusText);
         }
-        console.log("ACTION: Updated Remote DB with UserData!");
-        console.log("ACTION: Now calling updateUserDataDbSuccess!");
+        //console.log("ACTION: Updated Remote DB with UserData!");
+        //console.log("ACTION: Now calling updateUserDataDbSuccess!");
         dispatch(updateUserDataDbSuccess());
     })
 }
@@ -110,7 +110,7 @@ export const fetchQuestions = () => dispatch => {
   fetch(`${API_BASE_URL}/questions`)
     .then(res => {
       if (!res.ok) {
-        console.log('Oops, did not get the questions...');
+        //console.log('Oops, did not get the questions...');
         return Promise.reject(res.statusText);
       }
       return res.json();
@@ -118,7 +118,7 @@ export const fetchQuestions = () => dispatch => {
     .then(questionsArray => {
         dispatch(loadQuestionsSuccess(questionsArray));
     });
-    console.log('successfully fetched questions I think...');
+    //console.log('successfully fetched questions I think...');
 };
 
 export const LOAD_QUESTIONS_SUCCESS = 'LOAD_QUESTIONS_SUCCESS';

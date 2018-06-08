@@ -67,18 +67,18 @@ export const reducer = (state=initialState, action) => {
       })
     }
   } else if (action.type === actions.LOAD_QUESTIONS_SUCCESS){
-        console.log('REDUCER action: about to load questions into state...', action);
+        //console.log('REDUCER action: about to load questions into state...', action);
     return Object.assign({}, state, {
       questions: [...action.questionsArray.questions]
     })
   } else if (action.type === actions.FETCH_USER_DATA_SUCCESS){
-      console.log('REDUCER, action.currentuser: about to load user data into state...', action);
+      //console.log('REDUCER, action.currentuser: about to load user data into state...', action);
       return Object.assign({}, state, {
         id: action.currentuser.id,
         currentUser:  action.currentuser.currentUser
     })
   } else if (action.type === actions.ADD_CURRENT_USER_TO_STATE) {
-    console.log('REDUCER: updating global state with currently logged in user object...', action.userObj);
+    //console.log('REDUCER: updating global state with currently logged in user object...', action.userObj);
     return {
       ...state,
       currentUser: {
@@ -98,7 +98,7 @@ export const reducer = (state=initialState, action) => {
          userDataDbUpdated: action.userDataDbUpdated
        }
   } else if (action.type === actions.UPDATE_CURRENT){
-    console.log('## REDUCER: Updating GLOBAL user data with quiz results now from action...',action.quizData)
+    //console.log('## REDUCER: Updating GLOBAL user data with quiz results now from action...',action.quizData)
     const newUserData = update(state.currentUser.userData,
       {missedQuestions: {$push: action.quizData.incorrect},
       numberOfQuizzes: {$apply: function(n) {return n+1;}},

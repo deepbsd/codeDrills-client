@@ -56,7 +56,7 @@ class Header extends React.Component {
 
 
     logOut() {
-      console.log("So ya wanna log out?");
+      //console.log("So ya wanna log out?");
       this.props.dispatch(clearAuth());
       clearAuthToken();
     }
@@ -64,7 +64,7 @@ class Header extends React.Component {
 
     render() {
         let loggedIn = (this.props.hasToken) ? true : false;
-        console.log("Header--loggedIn: ",this.props.hasToken);
+        //console.log("Header--loggedIn: ",this.props.hasToken);
         const links = this.state.navs.map((link, index) => {
             if (loggedIn && link.private) {
               if (link.link === "logout") {

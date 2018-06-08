@@ -11,8 +11,8 @@ export class UserLatestStats extends React.Component {
 constructor(props) {
     super(props);
     this.getPercent = this.getPercent.bind(this);
-    console.log('LOOKY HERE: ',props.data);
-    console.log('Looky here: ',props.newdata);
+    //console.log('LOOKY HERE: ',props.data);
+    //console.log('Looky here: ',props.newdata);
     this.state = {
       radarChartData: {
           labels: ['JavaScript', 'CSS', 'HTML', 'Node', 'API', 'MongoDB'],

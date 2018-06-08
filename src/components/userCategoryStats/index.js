@@ -92,7 +92,7 @@ export class UserCategoryStats extends React.Component {
           let _numAnswered = currentData[_answered];
           let _numCorrect = currentData[_correct];
 
-          console.log('TESTING: '+currentData.htmlQuestionsAnswered);
+          //console.log('TESTING: '+currentData.htmlQuestionsAnswered);
 
           return (
             <Style.chartWrapper key={index}>
