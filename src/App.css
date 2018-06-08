@@ -25,6 +25,11 @@
   color: white;
 }
 
+.sb-avatar {
+  width: 80% !important;
+  height: 100% !important;
+}
+
 .flex-content {
   flex: 1 0 auto;
 }
