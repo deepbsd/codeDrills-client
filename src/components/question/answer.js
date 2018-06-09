@@ -6,11 +6,18 @@ import Style from './style';
 export default class Answer extends React.Component {
   constructor(props){
     super(props);
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      selected: 99
+    }
   }
 
-  handleClick(e) {
-    e.preventDefault();
+  handleClick(index) {
+    let _index = index.toString();
+    this.setState((prevState, props) => ({
+      [_index]: 'selected',
+      selected: index
+    }));
     const answerObj = {
       number: this.props.questionNumber,
       category: this.props.category,
@@ -30,9 +37,9 @@ export default class Answer extends React.Component {
 render() {
 
   return (
-          <Style.answerLi onClick={this.handleClick}>
-            {this.props.answerText}
-          </Style.answerLi>
+        <Style.answerLi className={(this.props.skey === this.state.selected) ? 'selected' : ''} onClick={(index) => this.handleClick(this.props.skey)}>
+          {this.props.answerText}
+        </Style.answerLi>
     )
   }
 
