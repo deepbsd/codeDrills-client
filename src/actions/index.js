@@ -132,4 +132,3 @@ export const updateCurrent = quizData => ({
   type: UPDATE_CURRENT,
   quizData
 });
-

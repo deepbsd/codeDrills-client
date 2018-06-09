@@ -54,7 +54,6 @@ class Header extends React.Component {
         }
     }
 
-
     logOut() {
       //console.log("So ya wanna log out?");
       this.props.dispatch(clearAuth());
@@ -101,5 +100,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Header);
-
-
