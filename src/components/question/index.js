@@ -8,12 +8,12 @@ import Answer from './answer';
 import {Redirect} from 'react-router-dom';
 import {API_BASE_URL} from '../../config';
 
-
 import question5 from './img/question5.png';
 import question9 from './img/question9.png';
 import question16 from './img/question16.png';
 import question20 from './img/question20.png';
 
+import './question.css';
 
 
 import Style from './style.js';
@@ -65,10 +65,14 @@ export class Question extends React.Component {
     const userObject = this.props.user;
   }
 
-
   shouldComponentUpdate() {
-    //return false;  // We do this because we never want the component to update– once the quiz is complete, we redirect the user anyway
-    return this.state.answeredQuestions.length>=10;
+    if(this.props.questions.length < 1) {
+      return true;
+    } else if(this.props.questions.length > 0 || this.state.answeredQuestions.length >= 10) {
+      return false;
+    } else {
+      console.error('An error occurred when the Question component tried to update.')
+    }
   }
 
 
@@ -88,14 +92,14 @@ export class Question extends React.Component {
     if (this.state.answeredQuestions.includes(answerObj.number)){
       alert("You already answered this question!");
     } else {
-    
+
     this.setState(prevState => ({
       answeredQuestions: [...prevState.answeredQuestions, answerObj.number]
     }));
 
       this.props.dispatch(checkQuestion(answerObj, correct));
 
-      
+
       let categ, categ_right;
       categ = answerObj.category;
       categ_right = answerObj.category+'_right';
@@ -197,7 +201,7 @@ export class Question extends React.Component {
               <Answer assetUrl={question.assetUrl} type={question.type}
               questionNumber={question.number}  category={question.category}
                selectAnswer={this.selectAnswer}  updateCurrent={this.updateCurrent}
-               key={index2} {...answer} />
+               skey={index2} key={index2} {...answer} />
             )
           });
 
@@ -231,9 +235,9 @@ export class Question extends React.Component {
 
 
 
-				{/* 
+				{/*
                   <DevData currentQuiz={this.state.currentQuiz} answeredQuestions={this.state.answeredQuestions}  />
- */}  
+ */}
            </div>
       );
 
@@ -262,4 +266,3 @@ const mapStateToProps = state => {
 // export default connect(mapStateToProps)(Question);
 
 export default requiresLogin()(connect(mapStateToProps)(Question));
-
