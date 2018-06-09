@@ -4,7 +4,7 @@ const Style = {
   navItem: styled.li`
         color: #667999;
         display: inline-block;
-        font-size: 1.3em;
+        font-size: 1.0rem;
         padding: 0px;
         position: relative;
         margin-right: 20px;
@@ -32,6 +32,9 @@ const Style = {
           visibility: visible;
           -webkit-transform: scaleX(1);
           transform: scaleX(1);
+        }
+        &:last-of-type {
+          margin-right: 0;
         }
   `
 }

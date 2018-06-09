@@ -2,7 +2,12 @@ import styled from 'styled-components';
 
 const Style = {
   avatar: styled.div`
-    margin: 3%;
+    margin-bottom: 20px;
+    text-align: center;
+  `,
+  form: styled.form`
+    margin-bottom: 30px;
+    text-align: center;
   `,
   h2: styled.h2`
     font-size: 0.8em;
@@ -11,7 +16,6 @@ const Style = {
   `,
   profile: styled.div`
     margin-top: 20px;
-    display: inline-flex;
   `,
   img: styled.img`
     height: 400px;
@@ -26,16 +30,18 @@ const Style = {
   `,
   ul: styled.ul`
     display: flex;
-    list-style: none;
     justify-content: space-between;
-    padding: 0 60px;
+    list-style: none;
+    margin-bottom: 20px;
   `,
   li: styled.li`
     background: lightgray;
     cursor: pointer;
     display: inline-block;
     font-size: 0.775rem;
+    margin-right: 3px;
     padding: 4px 16px;
+    text-align: center;
     text-transform: uppercase;
     transition: all 400ms ease-in-out;
     &:hover {
@@ -43,6 +49,9 @@ const Style = {
     }
     &.active {
       background: pink;
+    }
+    &:last-of-type {
+      margin-right: 0;
     }
   `,
   percentagewrap: styled.div`
@@ -61,21 +70,26 @@ const Style = {
   chartWrapper: styled.div`
   {/*border: 1px solid navy;*/}
     position: relative;
+    margin: 30px 0;
     max-width: 1200px;
   `,
   subject: styled.span`
     color: gray;
+    display: block;
+    float: left;
     font-family: Helvetica, sans-serif;
     font-size: 2em;
-    margin-left: 0;
-    margin-right: 20%;
+    text-align: left;
+    width: 50%;
   `,
   counts: styled.span`
     color: gray;
+    display: block;
+    float: left;
     font-family: Helvetica, sans-serif;
     font-size: 2em;
-    margin-left: 20%;
-    margin-right: 0;
+    text-align: right;
+    width: 50%;
   `
 }
 
