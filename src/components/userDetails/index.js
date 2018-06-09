@@ -9,17 +9,17 @@ export default function Userdetails(props) {
     return (
 
         <Style.profile className="profile">
-        
+
         {/* "<Avatar email="deepbsd@yahoo.com" twitterHandle="deepbsd"  size="400 "round={true} /> " */}
         {/*<Avatar googleId="112172751555880110389" twitterHandle="deepbsd"  size="350"round={false} /> */}
             <Style.avatar>
-                <Avatar email="deepbsd@gmail.com" round={true} /> 
+                <Avatar email="deepbsd@gmail.com" round={true} />
             </Style.avatar>
-            <form>
+            <Style.form>
                 <Style.input type="text" placeholder="first name" defaultValue={props.user.firstName}></Style.input><br/>
                 <Style.input type="text" placeholder="last name" defaultValue={props.user.lastName}></Style.input><br/>
                 <Style.input type="text" placeholder="username" defaultValue={props.user.username}></Style.input>
-            </form>
+            </Style.form>
         </Style.profile>
 
     );

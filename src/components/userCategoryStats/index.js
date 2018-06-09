@@ -96,7 +96,7 @@ export class UserCategoryStats extends React.Component {
 
           return (
             <Style.chartWrapper key={index}>
-              <Style.h2><Style.subject >{_displaySubject}</Style.subject><Style.counts >{_numCorrect}/{_numAnswered}</Style.counts></Style.h2>
+              <Style.h2 className="cf"><Style.subject>{_displaySubject}</Style.subject><Style.counts>{_numCorrect}/{_numAnswered}</Style.counts></Style.h2>
               <Style.percentagewrap>
                 <Style.percentage>{getPercent(_numCorrect, _numAnswered)}%</Style.percentage>
                 <div>
