@@ -66,12 +66,11 @@ export class Question extends React.Component {
   }
 
   shouldComponentUpdate() {
-    if(this.props.questions.length < 1) {
+    if(this.props.questions.length < 1 || this.state.answeredQuestions.length >= 10) {
       return true;
-    } else if(this.props.questions.length > 0 || this.state.answeredQuestions.length >= 10) {
-      return false;
     } else {
-      console.error('An error occurred when the Question component tried to update.')
+      return false;
+      //console.error('An error occurred when the Question component tried to update.')
     }
   }
 

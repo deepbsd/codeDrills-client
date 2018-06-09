@@ -41,7 +41,7 @@ render() {
 
         {(!currentData) ? <h1>Error: What data?</h1> :
           <Style.chartWrapper >
-            <Style.h2><Style.subject className="subject">All Quizes: {currentData.numberOfQuizzes}</Style.subject><Style.counts >{currentData.totalCorrect}/{currentData.totalQuestions}</Style.counts></Style.h2>
+            <Style.h2 className="cf"><Style.subject className="subject">All Quizes: {currentData.numberOfQuizzes}</Style.subject><Style.counts >{currentData.totalCorrect}/{currentData.totalQuestions}</Style.counts></Style.h2>
             <Style.percentagewrap>
               <Style.percentage >{getPercent(currentData.totalCorrect, currentData.totalQuestions)}%</Style.percentage>
                 <div>

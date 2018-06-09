@@ -13,7 +13,7 @@ export default function Userdetails(props) {
         {/* "<Avatar email="deepbsd@yahoo.com" twitterHandle="deepbsd"  size="400 "round={true} /> " */}
         {/*<Avatar googleId="112172751555880110389" twitterHandle="deepbsd"  size="350"round={false} /> */}
             <Style.avatar>
-                <Avatar email="deepbsd@gmail.com" round={true} />
+                <Avatar email="mday@thinkful.com" round={true} />
             </Style.avatar>
             <Style.form>
                 <Style.input type="text" placeholder="first name" defaultValue={props.user.firstName}></Style.input><br/>
