@@ -22,7 +22,6 @@ class App extends Component {
   componentDidMount() {
       console.log('starting api call ');
       this.props.dispatch(fetchQuestions());
-      // this.props.dispatch(fetchUserData("deepbsd"));
   }
 
   render() {
