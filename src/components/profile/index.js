@@ -4,7 +4,7 @@ import UserCategoryStats from '../userCategoryStats';
 import UserAggregateStats from '../userAggregateStats';
 import UserLatestStats from '../userLatestStats';
 import Userdetails from '../userDetails';
-import {addCurrentUserToState} from '../../actions';
+import {resetUserDataDbSuccess} from '../../actions';
 // import {BarChart, PieChart, PolarChart, LineChart, RadarChart} from '../chart';
 
 // import store from '../../store';
@@ -14,7 +14,7 @@ import {fetchProtectedData} from '../../actions/protected-data';
 // import {createNewUserData} from '../../actions';
 
 import Style from './style.js';
-// import './profile.css'
+
 import {fetchUserData} from '../../actions';
 
 export class Profile extends React.Component {
@@ -39,13 +39,14 @@ export class Profile extends React.Component {
         this.props.dispatch(fetchProtectedData());
         // this.props.dispatch(addCurrentUserToState(this.props.currentUser));
         this.props.dispatch(fetchUserData(this.props.username.username));
-        console.log("PROFILE mount(): Fetched userdata from DB...");
+        //console.log("PROFILE mount(): Fetched userdata from DB...");
+        this.props.dispatch(resetUserDataDbSuccess());
     }
 
     handleClick(e) {
       // let _target = [].indexOf.call(e.currentTarget.children, e.target);
       let _target = e.target.innerHTML;
-      console.log('INNER HTML: ', _target);
+      //console.log('INNER HTML: ', _target);
       this.setState((prevState, props) => ({
         activeTab: _target
       })
@@ -71,7 +72,6 @@ export class Profile extends React.Component {
 
             <div>
 
-            { console.log('PROFILE USER: ',currentUser) }
             {(!currentUser.user._id) ? <h1>Hmmmmm... {this.props.username.username}  Whodat?  Where is ma Data?</h1> :
 
               <div>
@@ -94,7 +94,7 @@ export class Profile extends React.Component {
 const mapStateToProps = state => {
   const whatever = state;
   const authorizedUser = state.auth;
-  console.log("Profile--STATEOBJ: ",whatever);
+  //console.log("Profile--STATEOBJ: ",whatever);
   return {
     currentQuiz: state.reducer.currentQuiz,
     currentUser: state.reducer.currentUser,

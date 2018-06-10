@@ -21,7 +21,7 @@ export const registerUser = user => dispatch => {
             firstName: user.firstName,
             lastName: user.lastName
           }
-          console.log("***HEY THERE: ", newUser)
+          //console.log("***HEY THERE: ", newUser)
           dispatch(createNewUserData(newUser))
         })
         .catch(err => {

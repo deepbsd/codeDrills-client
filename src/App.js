@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+//import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchQuestions} from './actions';
 
@@ -21,20 +22,17 @@ class App extends Component {
   componentDidMount() {
       console.log('starting api call ');
       this.props.dispatch(fetchQuestions());
-      // this.props.dispatch(fetchUserData("deepbsd"));
   }
 
   render() {
     return (
       <Router>
         <div className="App">
-
-          <Header className="header" />
-
-          <Main />
-
+          <div className="flex-content">
+            <Header className="header" />
+            <Main />
+          </div>
           <Footer />
-
         </div>
       </Router>
     );

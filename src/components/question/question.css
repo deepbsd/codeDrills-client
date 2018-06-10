@@ -1,4 +1,4 @@
-.questionText {
+/* .questionText {
   font-size: 1.2em;
   font-weight: bolder;
   color: black;
@@ -21,4 +21,8 @@
 img {
   width: 400px;
   height: auto;
+} */
+
+.selected {
+  color: crimson;
 }

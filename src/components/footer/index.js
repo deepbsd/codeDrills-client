@@ -11,7 +11,8 @@ export default function Footer() {
           <Style.ulFooter>
                 <Style.listItem><a href="https://github.com/deepbsd">Github</a></Style.listItem>
                 <Style.listItem><a href="http://www.dsj.net">Home Page</a></Style.listItem>
-                <Style.listItem><a href="http://deepbsd.github.io">Blog</a></Style.listItem>
+                <Style.listItem><a href="http://davidsjackson.net">Blog1</a></Style.listItem>
+                <Style.listItem><a href="http://deepbsd.github.io">Blog2</a></Style.listItem>
           </Style.ulFooter>
         </Style.wrapper>
 

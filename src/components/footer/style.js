@@ -2,43 +2,51 @@ import styled from 'styled-components';
 
 const Style = {
   wrapper: styled.div`
-        margin: 16px 0;
-        padding: 0 30px;
+        background: #667999;
+        color: #a5b6d3;
+        flex-shrink: 0;
+        font-size: 0.7rem;
+        margin-top: 50px;
+        margin-bottom: 0;
+        text-transform: uppercase;
   `,
   listItem: styled.li`
-        color: #667999;
         display: inline-block;
         font-size: 1.3em;
         padding: 0px;
         position: relative;
         margin-right: 20px;
-        margin-top: 10px;
         text-decoration: none;
+        transition: all 0.3s ease-in-out 0s;
         &:hover{
           cursor: pointer;
-          color: #6E3034;
+          color: white;
         }
         &:before {
+          background-color: white;
+          bottom: -3px;
           content: "";
-          position: absolute;
-          width: 100%;
           height: 2px;
-          bottom: 0;
           left: 0;
-          background-color: #6E3034;
-          visibility: hidden;
+          position: absolute;
           -webkit-transform: scaleX(0);
           transform: scaleX(0);
           -webkit-transition: all 0.3s ease-in-out 0s;
           transition: all 0.3s ease-in-out 0s;
+          visibility: hidden;
+          width: 100%;
         }
         &:hover:before {
           visibility: visible;
           -webkit-transform: scaleX(1);
           transform: scaleX(1);
         }
+        &:last-of-type {
+          margin-right: 0;
+        }
   `,
   ulFooter: styled.ul`
+    padding: 20px 0;
     text-align: center;
   `
 }

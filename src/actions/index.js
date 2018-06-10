@@ -15,19 +15,19 @@ export const  checkQuestion = (answerObj) => ({
 
 export const fetchUserData = (userName) => dispatch => {
 
-  console.log("ACTION --userName: ", userName);
+  //console.log("ACTION --userName: ", userName);
 
-  fetch(`${API_BASE_URL}/users/${userName}`)
+  fetch(`${API_BASE_URL}/userdata/${userName}`)
     .then(results => {
       if (!results.ok) {
-        console.log('Oops, did not get the user data!', results);
+        //console.log('Oops, did not get the user data!', results);
         return Promise.reject(results.statusText);
       }
-      console.log("ACTION --fetchUserData: ", results);
+      //console.log("ACTION --fetchUserData: ", results);
       return results.json();
     })
     .then( (data) => {
-      console.log("***ACTION:  calling fetch userDataSuccess: ", data);
+      //console.log("***ACTION:  calling fetch userDataSuccess: ", data);
       // dispatch(fetchUserDataSuccess(data.currentUser))
       dispatch(fetchUserDataSuccess(data))
     })
@@ -41,7 +41,7 @@ export const fetchUserDataSuccess = (currentuser) => ({
 });
 
 export const createNewUserData = (currentUser) => dispatch => {
-  console.log("***CURRENT USER: ", currentUser)
+  //console.log("***CURRENT USER: ", currentUser)
   fetch(`${API_BASE_URL}/userdata/`, {
     method: 'POST',
     headers: {
@@ -56,13 +56,49 @@ export const createNewUserData = (currentUser) => dispatch => {
   })
   .then(results => {
     if (!results.ok){
-      console.log('OOPS!  Did not post new userData!', results);
+      //console.log('OOPS!  Did not post new userData!', results);
       return Promise.reject(results.statusText);
     }
-    console.log("ACTION --createNewUserData: ", results);
+    //console.log("ACTION --createNewUserData: ", results);
     return results.json();
   })
 };
+
+
+export const updateUserDataDb = (userDataObj) => dispatch => {
+    //console.log("***Updating Remote UserData DB***", userDataObj);
+    fetch(`${API_BASE_URL}/userdata/${userDataObj.id}`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin',
+        mode: 'cors',
+        body: JSON.stringify(userDataObj)
+    })
+    .then(res => {
+        if (!res.ok){
+            //console.log("Did NOT update database with UserData!", res);
+            return Promise.reject(res.statusText);
+        }
+        //console.log("ACTION: Updated Remote DB with UserData!");
+        //console.log("ACTION: Now calling updateUserDataDbSuccess!");
+        dispatch(updateUserDataDbSuccess());
+    })
+}
+
+export const UPDATE_USERDATA_DB_SUCCESS = 'UPDATE_USERDATA_DB_SUCCESS';
+export const updateUserDataDbSuccess = () => ({
+    type: UPDATE_USERDATA_DB_SUCCESS,
+    userDataDbUpdated: true
+})
+
+export const RESET_USERDATA_DB_SUCCESS = 'RESET_USERDATA_DB_SUCCESS';
+export const resetUserDataDbSuccess = () => ({
+    type: RESET_USERDATA_DB_SUCCESS,
+    userDataDbUpdated: false
+})
 
 export const ADD_CURRENT_USER_TO_STATE = 'ADD_CURRENT_USER_T0_STATE';
 export const addCurrentUserToState = (userObj) => ({
@@ -74,7 +110,7 @@ export const fetchQuestions = () => dispatch => {
   fetch(`${API_BASE_URL}/questions`)
     .then(res => {
       if (!res.ok) {
-        console.log('Oops, did not get the questions...');
+        //console.log('Oops, did not get the questions...');
         return Promise.reject(res.statusText);
       }
       return res.json();
@@ -82,7 +118,7 @@ export const fetchQuestions = () => dispatch => {
     .then(questionsArray => {
         dispatch(loadQuestionsSuccess(questionsArray));
     });
-    console.log('successfully fetched questions I think...');
+    //console.log('successfully fetched questions I think...');
 };
 
 export const LOAD_QUESTIONS_SUCCESS = 'LOAD_QUESTIONS_SUCCESS';
@@ -96,28 +132,3 @@ export const updateCurrent = quizData => ({
   type: UPDATE_CURRENT,
   quizData
 });
-
-// export const updateCurrentPromise = quizData => dispatch => ({
-//
-// })
-
-// export const updateCurrentDb = userDataFromState => {
-//   fetch(`${API_BASE_URL}/userdata/${userDataFromState.user.username}`, {
-//     method: 'PUT',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       userDataFromState
-//     })
-//   })
-//   .then(results => {
-//     if (!results.ok){
-//       console.log('## Database did NOT get updated: ', results);
-//       return Promise.reject(results.statusText);
-//     }
-//     console.log("ACTION --updateCurrentDB: ", results);
-//     return results.json();
-//   })
-// };

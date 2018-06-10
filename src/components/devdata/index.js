@@ -8,6 +8,7 @@ class DevData extends React.Component {
   // }
 
 
+
   render() {
 
     return (
@@ -20,6 +21,7 @@ class DevData extends React.Component {
                 */}
               </div>
               <div>
+                <p>TOTAL: {this.props.answeredQuestions.join(', ')}</p>
                 <p>Missed: {this.props.missedQuestions.join(', ')}</p>
                 <p>Correct: {this.props.correctQuestions.join(', ')}</p>
                 <p>current user:   {this.props.currentUser.username}</p>

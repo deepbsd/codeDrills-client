@@ -1,4 +1,3 @@
-
 export const loadAuthToken = () => {
     return localStorage.getItem('authToken');
 };
@@ -14,3 +13,6 @@ export const clearAuthToken = () => {
         localStorage.removeItem('authToken');
     } catch (e) {}
 };
+
+
+

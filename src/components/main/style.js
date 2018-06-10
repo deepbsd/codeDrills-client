@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 const Style = {
     wrapper: styled.div`
-        padding-top: 50px;
+        margin: 0 auto;
+        padding-top: 20px;
+        width: 90%;
     `
 }
 

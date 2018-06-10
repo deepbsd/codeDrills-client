@@ -1,21 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import registerServiceWorker from './registerServiceWorker';
-import store from './store';
-import App from './App';
+import {shallow, mount, render} from 'enzyme';
 
-// it('renders without crashing', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(<App />, div);
-// });
+import {fetchQuestions} from './actions';
+import {BrowserRouter as Router } from 'react-router-dom';
+import {connect} from 'react-redux';
+import Main from './components/main';
+import Header from './components/header';
+import Footer from './components/footer';
 
 
 
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>, document.getElementById('root')
-);
-registerServiceWorker();
+describe('Renders <Main/> and <Footer/>.  <Main/> and <Header/> require store', () => {
+    //it('Renders without crashing', () => {
+    //    mount(<Header />);
+    //});
+    it('Renders without crashing', () => {
+        mount(<Footer />);
+    });
+
+});

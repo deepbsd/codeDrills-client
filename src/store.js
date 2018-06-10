@@ -26,7 +26,7 @@ if (authToken) {
   const token = authToken;
   store.dispatch(setAuthToken(token));
   store.dispatch(refreshAuthToken());
-  console.log("In the Store--token: ",token);
+  //console.log("In the Store--token: ",token);
 }
 
 

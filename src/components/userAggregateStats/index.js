@@ -34,18 +34,21 @@ render() {
 
     const currentData = this.props.data;
 
-    console.log('TESTING: '+currentData.totalQuestions);
+    //console.log('TESTING: '+currentData.totalQuestions);
 
     return (
         <div>
 
         {(!currentData) ? <h1>Error: What data?</h1> :
           <Style.chartWrapper >
-
-            <Style.percentage >{getPercent(currentData.totalCorrect, currentData.totalQuestions)}%</Style.percentage>
-              <Style.h2><Style.subject className="subject">All Quizes: {currentData.numberOfQuizzes}</Style.subject><Style.counts >{currentData.totalCorrect}/{currentData.totalQuestions}</Style.counts></Style.h2>
-              <PieChart pieChartData={this.state["aggregateChartData"]} />
-          </Style.chartWrapper>
+            <Style.h2 className="cf"><Style.subject className="subject">All Quizes: {currentData.numberOfQuizzes}</Style.subject><Style.counts >{currentData.totalCorrect}/{currentData.totalQuestions}</Style.counts></Style.h2>
+            <Style.percentagewrap>
+              <Style.percentage >{getPercent(currentData.totalCorrect, currentData.totalQuestions)}%</Style.percentage>
+                <div>
+                  <PieChart pieChartData={this.state["aggregateChartData"]} />
+                </div>
+            </Style.percentagewrap>
+          </Style.chartWrapper>          
         }
         </div>
     );

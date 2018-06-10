@@ -1,27 +1,28 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {checkQuestion, updateCurrent, addCurrentUserToState} from '../../actions';
+import update from 'immutability-helper';
+import {checkQuestion, updateCurrent, updateUserDataDb} from '../../actions';
 import requiresLogin from '../profile/requires-login';
 import DevData from './../devdata';
 import Answer from './answer';
 import {Redirect} from 'react-router-dom';
 import {API_BASE_URL} from '../../config';
 
-// import update from 'immutability-helper';
-
-
 import question5 from './img/question5.png';
 import question9 from './img/question9.png';
 import question16 from './img/question16.png';
 import question20 from './img/question20.png';
 
-
-// import {startQuiz} from '../actions';
-
+import './question.css';
 
 
-// import './question.css';
 import Style from './style.js';
+
+function addAnswerCount(state, props) {
+  return {
+    answeredQuestions: state.answeredQuestions
+  }
+}
 
 export class Question extends React.Component {
 
@@ -29,11 +30,9 @@ export class Question extends React.Component {
     super(props);
     this.startQuiz = this.startQuiz.bind(this);
     this.selectAnswer = this.selectAnswer.bind(this);
-    this.updateCurrent = this.updateCurrent.bind(this);
     this.updateRemote = this.updateRemote.bind(this);
 
     this.state = {
-      redirect: false,
       userObj: this.props.user,
       answeredQuestions: [],
       currentQuiz: {
@@ -63,87 +62,69 @@ export class Question extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.dispatch(addCurrentUserToState(this.state.userObj));
     const userObject = this.props.user;
-    // this.props.dispatch(addCurrentUserToState(userObject));
-    // console.log("Adding authorized-user to Global State Object...");
   }
-
 
   shouldComponentUpdate() {
-      return this.state.answeredQuestions.length === 0 || this.state.answeredQuestions.length>=10;
-  }
-
-  // This updateCurrent() is for the local state object.
-  updateCurrent(questionNumber, correct){
-    console.log('I see this many questions have been answered: ', this.state.answeredQuestions.length);
-    // I've been having a hard time getting the last update
-    // to show up in the local state object
-
-    if (correct) {
-      this.state.currentQuiz.correct.push(questionNumber);
+    if(this.props.questions.length < 1 || this.state.answeredQuestions.length >= 10) {
+      return true;
     } else {
-      this.state.currentQuiz.incorrect.push(questionNumber);
+      return false;
+      //console.error('An error occurred when the Question component tried to update.')
     }
-
-    let categ, categ_right;
-    this.state.answeredQuestions.map((q_number, index) => {
-        categ = this.props.questions[q_number-1].category;
-        categ_right = categ+'_right';
-        // add the question number to the local state object category
-        if (!this.state.currentQuiz[categ].includes(q_number)) {
-          this.state.currentQuiz[categ].push(q_number);
-        }
-        // if the question was answered correctly, also add it to categ_right
-        // if ((this.props.correctQuestions.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
-        if ((this.state.currentQuiz.correct.includes(q_number))&&(!this.state.currentQuiz[categ_right].includes(q_number))){
-          this.state.currentQuiz[categ_right].push(q_number);
-        }
-        // else return a default value of false
-        // return false;
-    })
-    console.log("###LOCAL STATE: ",this.state.currentQuiz)
   }
 
-  selectAnswer(questionNumber, correct){
-    // This method updates the local state object with current question results.
-    if (this.state.answeredQuestions.includes(questionNumber.number)){
+
+  isQuizComplete = (quizLength) => {
+    if(quizLength > 9) {
+      //console.log('------------\n**COMPLETE**\n------------\nThe current local state object looks like this:\n', this.state);
+      this.props.dispatch(updateCurrent(this.state.currentQuiz));
+
+      setTimeout(() => {
+        this.updateRemote();
+      },500)
+    }
+  }
+
+  selectAnswer(answerObj, correct){
+
+    if (this.state.answeredQuestions.includes(answerObj.number)){
       alert("You already answered this question!");
     } else {
-      // It's a new question for this go round, so add it to list
-      // of answered questions and then see if it's answered correctly.
-      this.state.answeredQuestions.push(questionNumber.number);
-      this.props.dispatch(checkQuestion(questionNumber, correct));
 
-      // Okay need to promisify this stuff so updateCurrent waits for checkQuestion
-      // and then updateRemote waits for updateCurrent
-      let that = this;
-      // If we've answered 10 questions, then update Global State Object
-      if (this.state.answeredQuestions.length > 9){
+    this.setState(prevState => ({
+      answeredQuestions: [...prevState.answeredQuestions, answerObj.number]
+    }));
 
-        setTimeout(function(){
-          console.log('**Updating Global Current Data, Yo!');
-          console.log('**Global Object: ',that.props.currentQuiz);
-          // Dispatching GLOBAL Method here...
-          that.props.dispatch(updateCurrent(that.state.currentQuiz));
-          // console.log("## Global State After dispatching updateCurrent from Questions: ", this.props.currentUser);
-          // Now we need to update the remote DB with the updated global state object...
-          // Also, need to promisify this action here...
-        }, 1000)
+      this.props.dispatch(checkQuestion(answerObj, correct));
 
-        // this.props.dispatch(updateCurrentDb(this.props.currentUser));
-        const that = this;
-        this.setState({
-          redirect: true
-        })
-        setTimeout(function(){
-          Question.prototype.updateRemote.apply(that);
-        }, 2000)
 
-       }
+      let categ, categ_right;
+      categ = answerObj.category;
+      categ_right = answerObj.category+'_right';
+
+      // Handle the categories for questions
+      if (correct) {
+        let _currentQuiz = {...this.state.currentQuiz};
+        _currentQuiz.correct = update(this.state.currentQuiz.correct, {$push: [answerObj.number]});
+        _currentQuiz[categ] = update(this.state.currentQuiz[categ], {$push: [answerObj.number]});
+        _currentQuiz[categ_right] = update(this.state.currentQuiz[categ_right], {$push: [answerObj.number]});
+        this.setState((prevState, props) => ({
+          currentQuiz: _currentQuiz
+        }), () => {
+          this.isQuizComplete(this.state.answeredQuestions.length);
+        });
+      } else {
+        let _currentQuiz = {...this.state.currentQuiz};
+        _currentQuiz.incorrect = update(this.state.currentQuiz.incorrect, {$push: [answerObj.number]});
+        _currentQuiz[categ] = update(this.state.currentQuiz[categ], {$push: [answerObj.number]});
+        this.setState((prevState, props) => ({
+          currentQuiz: _currentQuiz
+        }), () => {
+          this.isQuizComplete(this.state.answeredQuestions.length);
+        });
+      }
     }
-    console.log('QUESTION: --selectAnswer global currentUser Obj', this.props.currentUser);
-    console.log('from selectAnswer() -- ',this.state.answeredQuestions);
   }
 
   shuffleArray(array) {
@@ -167,7 +148,7 @@ export class Question extends React.Component {
     // then excluding it from the next draw. Just like randomly picking
     // and ordering from a deck of cards.
     let shuffled = this.shuffleArray(allQuestions);
-    console.log("STARTQUIZ: authorized-user: ", this.props.user);
+    //console.log("STARTQUIZ: authorized-user: ", this.props.user);
 
 
     //Once you have the shuffled array, slice it as you have thought
@@ -180,6 +161,7 @@ export class Question extends React.Component {
   // quiz data.  Therefore, upon completion of this quiz, after updating the DB,
   // this function will call the Profile component again, which will refresh the
   // user's historical data, which has just been updated with the last quiz data.
+
   updateRemote(){
     const id = this.props.id;
     const user = this.props.user;
@@ -193,34 +175,12 @@ export class Question extends React.Component {
       lastQuizData: lastQuizData
     }
 
-    const that = this;
 
-    this.setState((prevState, props) => ({
-        redirect: true
-      })
-    )
+    //console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
+    this.props.dispatch(updateUserDataDb(updateObj));
+    //console.log("****Redirect???", this.props.redirect);
 
-    console.log("### QUESTIONS--updateRemote() with Object: ", updateObj);
-    return fetch(`${API_BASE_URL}/userdata/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      credentials: 'same-origin',
-      mode: 'cors',
-      body: JSON.stringify(updateObj)
-    })
-    .then(response => {
-      response.json();
-      that.setState((prevState, props) => ({
-          redirect: true
-        })
-      )
-    })
-    .catch(err => {
-      console.log("Error! Did NOT update database: ", err);
-    })
+
   }
 
 
@@ -240,12 +200,12 @@ export class Question extends React.Component {
               <Answer assetUrl={question.assetUrl} type={question.type}
               questionNumber={question.number}  category={question.category}
                selectAnswer={this.selectAnswer}  updateCurrent={this.updateCurrent}
-               key={index2} {...answer} />
+               skey={index2} key={index2} {...answer} />
             )
           });
 
-        if (this.state.redirect){
-          return <Redirect to="/Profile" />
+        if (this.props.redirect){
+          return <Redirect key={index1} to="/Profile" />;
         } else {
           return (
                 <ul key={index1}>
@@ -254,7 +214,6 @@ export class Question extends React.Component {
                     <iframe width="560" height="315" src={question.assetUrl}
                       title="videoSnippet" frameBorder="0" allowFullScreen>
                     </iframe> : question.type === 'image' ?
-                    // <img src={question.assetUrl} alt="alt text" /> : null }
                     <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
                   {answers}
                 </ul>
@@ -275,9 +234,10 @@ export class Question extends React.Component {
 
 
 
-
-                  <DevData currentQuiz={this.state.currentQuiz}  />
-              </div>
+				{/*
+                  <DevData currentQuiz={this.state.currentQuiz} answeredQuestions={this.state.answeredQuestions}  />
+ */}
+           </div>
       );
 
   }
@@ -288,8 +248,9 @@ export class Question extends React.Component {
 const mapStateToProps = state => {
   const whatever = state;
   const authorizedUser = state.auth.currentUser;
-  console.log("QUESTIONS Global StateOBJ: ",whatever);
+  //console.log("QUESTIONS Global StateOBJ: ",whatever);
   return {
+    redirect: state.reducer.userDataDbUpdated,
     id: state.reducer.id,
     questions: state.reducer.questions,
     missedQuestions: state.reducer.missedQuestions,
@@ -304,5 +265,3 @@ const mapStateToProps = state => {
 // export default connect(mapStateToProps)(Question);
 
 export default requiresLogin()(connect(mapStateToProps)(Question));
-
-// <p>{JSON.stringify(this.props.currentUser)}</p>

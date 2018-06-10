@@ -20,7 +20,7 @@ export class UserCategoryStats extends React.Component {
             "datasets": [{
               "label": "Questions Correctly Answered",
               "data": [props.data.htmlQuestionsAnswered, props.data.htmlQuestionsAnswered-props.data.htmlQuestionsCorrect],
-              "backgroundColor": ["purple", "thistle"]
+              "backgroundColor": ["purple", "thistle"],
             }]
           },
           cssChartData: {
@@ -92,13 +92,17 @@ export class UserCategoryStats extends React.Component {
           let _numAnswered = currentData[_answered];
           let _numCorrect = currentData[_correct];
 
-          console.log('TESTING: '+currentData.htmlQuestionsAnswered);
+          //console.log('TESTING: '+currentData.htmlQuestionsAnswered);
 
           return (
             <Style.chartWrapper key={index}>
-              <Style.h2><Style.subject >{_displaySubject}</Style.subject><Style.counts >{_numCorrect}/{_numAnswered}</Style.counts></Style.h2>
-              <Style.percentage >{getPercent(_numCorrect, _numAnswered)}%</Style.percentage>
-                <PieChart pieChartData={this.state[_subject]} />
+              <Style.h2 className="cf"><Style.subject>{_displaySubject}</Style.subject><Style.counts>{_numCorrect}/{_numAnswered}</Style.counts></Style.h2>
+              <Style.percentagewrap>
+                <Style.percentage>{getPercent(_numCorrect, _numAnswered)}%</Style.percentage>
+                <div>
+                  <PieChart pieChartData={this.state[_subject]} />
+                </div>
+              </Style.percentagewrap>
             </Style.chartWrapper>
 
           )

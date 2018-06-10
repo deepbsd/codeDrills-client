@@ -12,7 +12,7 @@ export function RegistrationPage(props) {
         return <Redirect to="/profile" />;
     }
     return (
-        <Style.div>
+        <Style.div className="layout-wrap">
             <h2>Register for codeDrills</h2>
             <RegistrationForm />
             <Link to="/">Login</Link>

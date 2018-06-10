@@ -1,19 +1,11 @@
 import * as actions from '../actions';
 import update from 'immutability-helper';
 
-// import question5 from './img/question5.png';
-// import question9 from './img/question9.png';
-// import question16 from './img/question16.png';
-// import question20 from './img/question20.png';
-
-// was part of initialState...
-      // loggedIn: true,
-
-// const user =
 
 const initialState = {
 
       id: null,
+      userDataDbUpdated: false,
       currentQuiz: {
           "correct": [],
           "incorrect": [],
@@ -75,18 +67,18 @@ export const reducer = (state=initialState, action) => {
       })
     }
   } else if (action.type === actions.LOAD_QUESTIONS_SUCCESS){
-        console.log('REDUCER action: about to load questions into state...', action);
+        //console.log('REDUCER action: about to load questions into state...', action);
     return Object.assign({}, state, {
       questions: [...action.questionsArray.questions]
     })
   } else if (action.type === actions.FETCH_USER_DATA_SUCCESS){
-      console.log('REDUCER, action.currentuser: about to load user data into state...', action);
+      //console.log('REDUCER, action.currentuser: about to load user data into state...', action);
       return Object.assign({}, state, {
-        id: action.currentuser._id,
+        id: action.currentuser.id,
         currentUser:  action.currentuser.currentUser
     })
   } else if (action.type === actions.ADD_CURRENT_USER_TO_STATE) {
-    console.log('REDUCER: updating global state with currently logged in user object...', action.userObj);
+    //console.log('REDUCER: updating global state with currently logged in user object...', action.userObj);
     return {
       ...state,
       currentUser: {
@@ -95,8 +87,18 @@ export const reducer = (state=initialState, action) => {
         lastQuizData: state.currentUser.lastQuizData
       }
     }
+  } else if (action.type === actions.UPDATE_USERDATA_DB_SUCCESS){
+       return {
+         ...state,
+         userDataDbUpdated: action.userDataDbUpdated
+       }
+  } else if (action.type === actions.RESET_USERDATA_DB_SUCCESS){
+        return {
+         ...state,
+         userDataDbUpdated: action.userDataDbUpdated
+       }
   } else if (action.type === actions.UPDATE_CURRENT){
-    console.log('## REDUCER: Updating GLOBAL user data with quiz results now from action...',action.quizData)
+    //console.log('## REDUCER: Updating GLOBAL user data with quiz results now from action...',action.quizData)
     const newUserData = update(state.currentUser.userData,
       {missedQuestions: {$push: action.quizData.incorrect},
       numberOfQuizzes: {$apply: function(n) {return n+1;}},
@@ -116,7 +118,7 @@ export const reducer = (state=initialState, action) => {
       mongoQuestionsCorrect: {$apply: function(n) {return n+action.quizData.mongo_right.length}}
     })
     const newLastQuizData = update(state.currentUser.lastQuizData,
-      {totalQuestions: {$apply: function(n) {return n+10;}},
+      {totalQuestions: {$apply: function(n) {return 10;}},
       dateOfQuiz: {$set: new Date().toString()},
       totalCorrect: {$apply: function(n) {return 10-action.quizData.incorrect.length}}
     })
