@@ -15,7 +15,7 @@ export function RegistrationPage(props) {
         <Style.div className="layout-wrap">
             <h2>Register for codeDrills</h2>
             <RegistrationForm />
-            <Link to="/">Login</Link>
+            <Link to="/"></Link>
         </Style.div>
     );
 }

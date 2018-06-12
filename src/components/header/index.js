@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import NavItem from '../navitem';
-//import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
 
