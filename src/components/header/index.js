@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import NavItem from '../navitem';
 import {clearAuth} from '../../actions/auth';
+import {resetLastQuizData} from '../../actions';
 import {clearAuthToken} from '../../local-storage';
 
 import Style from './style.js';
@@ -57,6 +58,7 @@ class Header extends React.Component {
       //console.log("So ya wanna log out?");
       this.props.dispatch(clearAuth());
       clearAuthToken();
+      this.props.dispatch(resetLastQuizData());
     }
 
 

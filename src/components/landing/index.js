@@ -20,6 +20,15 @@ export class Landing extends React.Component {
                   where you want to be.`
         },
         {
+          title: 'Try Out the App',
+          blurb: `Log in as 'guest 'with password 'password99'.  You'll see some charts that show historical data for 
+                  for your past quizzes.  You can click on 'Category Stats' to see charts for
+                  each category, 'Aggregate Stats' to see your overall quiz performance, and
+                  'Latest Stats' to compare your latest quiz against historical performance.
+                  Click 'Start Quiz' to take a quiz and see how the data updates.  When you're done trying out the app, 
+                  click 'logout'.`
+        },
+        {
           title: 'Track Progress in Categories of Coding',
           blurb: `There are 40 questions currently, and they cover HTML, CSS, Vanilla JS,
                   Node.js, API's and MongoDB. Each quiz is 10 questions, and your Progress
