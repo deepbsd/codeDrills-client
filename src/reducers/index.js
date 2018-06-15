@@ -21,7 +21,6 @@ const lastQuizReset = {
 const initialState = {
 
       id: null,
-      email: "mday@thinkful.com",
       userDataDbUpdated: false,
       currentQuiz: {
           "correct": [],
