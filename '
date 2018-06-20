@@ -1,18 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {checkQuestion, updateCurrent, addCurrentUserToState} from '../../actions';
-import requiresLogin from '../profile/requires-login';
 import DevData from './../devdata';
 import Answer from './answer';
 import {shallow, mount} from 'enzyme';
 import {Question} from './index'
 
 
-describe('<Question/>', () => {
+describe('<Question/>', (props) => {
 
     it('Renders without crashing', () => {
-        //shallow(<Question props={super(props)} />);
-		expect(1).toEqual(1);
+        shallow(<Question />);
     });
 
 });
