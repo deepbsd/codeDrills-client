@@ -3,10 +3,8 @@ import React from 'react';
 import Style from './style';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-
 import Landing from '../landing';
 import Register from '../register';
-
 import About from '../about';
 import Profile from '../profile';
 import Login from '../login';

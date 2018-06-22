@@ -11,7 +11,7 @@ import {Question} from './index'
 describe('<Question/>', () => {
 
     it('Renders without crashing', () => {
-        //shallow(<Question props={super(props)} />);
+        //shallow(<Question  />);
 		expect(1).toEqual(1);
     });
 
