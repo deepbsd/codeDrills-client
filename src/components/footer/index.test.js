@@ -9,7 +9,6 @@ describe('<Footer/>', () => {
 
    it('Renders without crashing', () => {
        shallow(<Footer />);
-                   
    });
 
 
