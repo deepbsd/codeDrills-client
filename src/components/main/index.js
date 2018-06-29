@@ -9,6 +9,7 @@ import About from '../about';
 import Profile from '../profile';
 import Login from '../login';
 import Question from '../question';
+import Page404 from '../page404';
 
 
 export default function Main(props) {
@@ -24,6 +25,7 @@ export default function Main(props) {
                 <Route exact path="/about" component={About} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/startquiz" component={Question} />
+                <Route path="/*" component={Page404} />  
 
             </Style.wrapper>
 
