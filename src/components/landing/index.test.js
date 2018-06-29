@@ -5,6 +5,8 @@ import {shallow, mount} from 'enzyme';
 import Style from './style.js';
 import Blurb from '../blurb';
 import {Landing} from './index';
+import {Profile} from '../profile/index';
+import {MemoryRouter} from 'react-router';
 
 
 describe('<Landing />', () => {
@@ -19,7 +21,7 @@ describe('<Landing />', () => {
         {title: "title3", blurb: "three"}];
         const wrapper = mount(<Landing blurbs={blurbs} />);
 
-        console.log('Wrapper: ',wrapper.props().blurbs);
+        //console.log('Wrapper: ',wrapper.props().blurbs);
 
         expect(wrapper.contains(<Style.head3>CodeDrills</Style.head3>)).toEqual(true);
 
@@ -29,7 +31,48 @@ describe('<Landing />', () => {
     });
 
     it('Redirects to profile if loggedIn is true', () => {
-        //
-    });
+        
+       function setup() {
+		  const enzymeWrapper = shallow(<Landing  />);
+
+		  return {
+		    enzymeWrapper
+		  };
+		} 
+
+       const { enzymeWrapper } = setup();
+       enzymeWrapper.loggedIn = jest.fn(() => true);
+
+       //console.log("wrapper: ",enzymeWrapper.find(Redirect));
+       //console.log("debug: ", enzymeWrapper.debug());
+       //expect(enzymeWrapper.find(Redirect)).toHaveLength(1);
+   });
+
+   //it("renders Landing when user NOT autheticated", () => {
+   //  function setup() {
+   //    const enzymeWrapper = shallow(<Landing  />);
+
+   //    return {
+   //      enzymeWrapper
+   //    };
+   //  } 
+   //  const { enzymeWrapper } = setup();
+   //  enzymeWrapper.loggedIn = jest.fn(() => false);
+
+   //  expect(enzymeWrapper.find(Landing)).toHaveLength(1);
+   //});
+
+	test('test redirect if user is logged in', () => {
+	  //const loggedIn = true;
+	  //const wrapper = mount(
+	  //  <MemoryRouter initialEntries={[ '/profile' ]}>
+	  //    <Profile  />
+	  //  </MemoryRouter>
+	  //);
+	  //expect(wrapper.find(LandingPage)).toHaveLength(0);
+	  //expect(wrapper.find(Profile)).toHaveLength(1);
+	});
+
+
 })
 
