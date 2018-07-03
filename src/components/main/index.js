@@ -1,8 +1,7 @@
 import React from 'react';
-
 import Style from './style';
 
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Landing from '../landing';
 import Register from '../register';
 import About from '../about';
@@ -18,6 +17,7 @@ export default function Main(props) {
 
             <Style.wrapper>
 
+              <Switch>
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/home" component={Landing} />
                 <Route exact path="/register" component={Register} />
@@ -25,9 +25,12 @@ export default function Main(props) {
                 <Route exact path="/about" component={About} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/startquiz" component={Question} />
-                <Route path="/*" component={Page404} />  
+                <Route path="*" component={Page404} />  
+              </Switch>
 
             </Style.wrapper>
 
     );
 }
+
+
