@@ -1,0 +1,28 @@
+1. Make sure all the components render
+
+2. Make sure that the endpoints populate the store
+
+3. Make sure that the store contains the correct data from the endpoints
+
+4. Make sure the store (userData) gets updated when the quiz completes
+
+5. Unautheticated user does not see protected pages
+
+6. Non-existent routes get a 404 page
+
+
+
+
+Questions Endpoint
+
+
+User Auth Endpoint
+==================
+1. JWT gets renewed after a reasonable period (?)
+2. incorrect login gets error message
+
+
+UserQuizData Endpoint
+
+
+
