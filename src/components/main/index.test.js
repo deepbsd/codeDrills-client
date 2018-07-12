@@ -14,9 +14,32 @@ import Question from '../question';
 describe('<Main />', () => {
 
     it('Renders without crashing', () => {
-        let val = 1;
         shallow(<Main />);
     });
 
-})
+    it('/home loads Landing component', () => {
 
+    });
+
+    it('/register loads Register component', () => {
+
+    });
+
+    it('/login loads Login component', () => {
+
+    });
+
+    it('/about loads About component', () => {
+
+    });
+
+    it('/profile loads Profile component', () => {
+
+    });
+
+
+    it('/startquiz loads Question component', () => {
+
+    });
+
+})

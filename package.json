@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ajv": "^6.5.2",
     "chart.js": "^2.7.2",
     "immutability-helper": "^2.7.0",
     "jwt-decode": "^2.2.0",
