@@ -14,9 +14,6 @@ import Footer from './components/footer';
 
 class App extends Component {
 
-  // constructor(props){
-  //   super(props);
-  // }
 
   componentDidMount() {
       console.log('starting api call ');
@@ -28,10 +25,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="flex-content">
-            <Header className="header" />
+            <Header className="header" data-test="component-header" />
             <Main />
           </div>
-          <Footer />
+          <Footer data-test="component-footer" />
         </div>
       </Router>
     );

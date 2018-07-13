@@ -13,33 +13,10 @@ import Question from '../question';
 
 describe('<Main />', () => {
 
+    let wrapper = shallow(<Main />);
+
     it('Renders without crashing', () => {
-        shallow(<Main />);
-    });
-
-    it('/home loads Landing component', () => {
-
-    });
-
-    it('/register loads Register component', () => {
-
-    });
-
-    it('/login loads Login component', () => {
-
-    });
-
-    it('/about loads About component', () => {
-
-    });
-
-    it('/profile loads Profile component', () => {
-
-    });
-
-
-    it('/startquiz loads Question component', () => {
-
+        expect(wrapper.length).toBe(1);
     });
 
 })
