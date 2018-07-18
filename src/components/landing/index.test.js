@@ -31,30 +31,35 @@ describe('<Landing />', () => {
         expect(wrapper.find(Blurb).exists()).toEqual(true);
     });
 
-    it('Redirects to profile if loggedIn is true', () => {
+
+     const setup = (initialState = {}) => {
+         const store = storeFactory(initialState);
+         const wrapper = shallow(<Landing store={store} />);
+         return wrapper;
+     }
+     
+    describe('Test the redirect', () => {
+
+        let wrapper;
 
 
-       let store;
+//        beforeEach(() => {
+//            const initialState = { loggedIn: true };
+//            wrapper = setup(initialState);
+//        })
+//
+        it('Redirects to profile if loggedIn is true', () => {
+            const initialState = { loggedIn: true };
+            wrapper = setup(initialState);
+            //console.log("debug: ", wrapper.debug());
+            expect(wrapper.find(Redirect)).toHaveLength(1);
+        })
 
-        
-       function setup(initialState) {
-          store = storeFactory(initialState);
-		  const enzymeWrapper = shallow(<Landing store={store} />).dive();
 
-		  return {
-		    enzymeWrapper
-		  };
-		} 
+       });
 
-       const  enzymeWrapper  = setup({ loggedIn: true });
-       enzymeWrapper.loggedIn = jest.fn(() => true);
+    });
 
-       //console.log("wrapper: ",enzymeWrapper.find(Redirect));
-       //console.log("debug: ", enzymeWrapper.debug());
-       setTimeout({
-         expect(enzymeWrapper.find(Redirect)).toHaveLength(1);
-       }, 300);
-   });
 
    //it("renders Landing when user NOT autheticated", () => {
    //  function setup() {
@@ -70,7 +75,7 @@ describe('<Landing />', () => {
    //  expect(enzymeWrapper.find(Landing)).toHaveLength(1);
    //});
 
-	test('test redirect if user is logged in', () => {
+	//test('test redirect if user is logged in', () => {
 	  //const loggedIn = true;
 	  //const wrapper = mount(
 	  //  <MemoryRouter initialEntries={[ '/profile' ]}>
@@ -79,8 +84,7 @@ describe('<Landing />', () => {
 	  //);
 	  //expect(wrapper.find(LandingPage)).toHaveLength(0);
 	  //expect(wrapper.find(Profile)).toHaveLength(1);
-	});
+	//});
 
 
-})
 
