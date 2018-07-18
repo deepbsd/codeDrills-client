@@ -7,6 +7,7 @@ import Blurb from '../blurb';
 import {Landing} from './index';
 import {Profile} from '../profile/index';
 import {MemoryRouter} from 'react-router';
+import {storeFactory} from '../../testUtils';
 
 
 describe('<Landing />', () => {
@@ -31,21 +32,28 @@ describe('<Landing />', () => {
     });
 
     it('Redirects to profile if loggedIn is true', () => {
+
+
+       let store;
+
         
-       function setup() {
-		  const enzymeWrapper = shallow(<Landing  />);
+       function setup(initialState) {
+          store = storeFactory(initialState);
+		  const enzymeWrapper = shallow(<Landing store={store} />).dive();
 
 		  return {
 		    enzymeWrapper
 		  };
 		} 
 
-       const { enzymeWrapper } = setup();
+       const  enzymeWrapper  = setup({ loggedIn: true });
        enzymeWrapper.loggedIn = jest.fn(() => true);
 
        //console.log("wrapper: ",enzymeWrapper.find(Redirect));
        //console.log("debug: ", enzymeWrapper.debug());
-       //expect(enzymeWrapper.find(Redirect)).toHaveLength(1);
+       setTimeout({
+         expect(enzymeWrapper.find(Redirect)).toHaveLength(1);
+       }, 300);
    });
 
    //it("renders Landing when user NOT autheticated", () => {

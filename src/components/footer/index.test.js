@@ -4,11 +4,12 @@ import Footer from './index';
 import {shallow, mount} from 'enzyme';
 
 
-describe('<Footer/>', () => {
+describe('<Footer />', () => {
          
 
    it('Renders without crashing', () => {
-       shallow(<Footer />);
+       const wrapper = shallow(<Footer />);
+       expect(wrapper.length).toBe(1)
    });
 
 

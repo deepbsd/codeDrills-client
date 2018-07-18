@@ -7,7 +7,8 @@ import About from './index'
 describe('<About/>', () => {
 
     it('Renders without crashing', () => {
-        shallow(<About  />);
+        const wrapper = shallow(<About  />);
+        expect(wrapper.length).toBe(1);
     });
 
 });
