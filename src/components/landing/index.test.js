@@ -32,59 +32,37 @@ describe('<Landing />', () => {
     });
 
 
-     const setup = (initialState = {}) => {
+     const setup = (initialState = {}, props={}) => {
          const store = storeFactory(initialState);
-         const wrapper = shallow(<Landing store={store} />);
+         const wrapper = shallow(<Landing {...props} store={store} />);
          return wrapper;
      }
      
+	// Test the redirect here
     describe('Test the redirect', () => {
 
         let wrapper;
 
-
-//        beforeEach(() => {
-//            const initialState = { loggedIn: true };
-//            wrapper = setup(initialState);
-//        })
-//
         it('Redirects to profile if loggedIn is true', () => {
             const initialState = { loggedIn: true };
-            wrapper = setup(initialState);
-            //console.log("debug: ", wrapper.debug());
-            expect(wrapper.find(Redirect)).toHaveLength(1);
-        })
+            wrapper = setup(initialState, initialState);
+		    //console.log("debug: ",wrapper.debug());
+            expect(wrapper.find(Redirect).length).toEqual(1);
+        });
 
+		it('Does NOT redirect if loggedIn is false', () => {
+	      const initialState = { loggedIn: false };
+		  wrapper = setup(initialState, initialState);
+          //console.log("debug: ", wrapper.debug())
+          expect(wrapper.find(Redirect).length).toEqual(0);
+
+		});
 
        });
 
     });
 
 
-   //it("renders Landing when user NOT autheticated", () => {
-   //  function setup() {
-   //    const enzymeWrapper = shallow(<Landing  />);
-
-   //    return {
-   //      enzymeWrapper
-   //    };
-   //  } 
-   //  const { enzymeWrapper } = setup();
-   //  enzymeWrapper.loggedIn = jest.fn(() => false);
-
-   //  expect(enzymeWrapper.find(Landing)).toHaveLength(1);
-   //});
-
-	//test('test redirect if user is logged in', () => {
-	  //const loggedIn = true;
-	  //const wrapper = mount(
-	  //  <MemoryRouter initialEntries={[ '/profile' ]}>
-	  //    <Profile  />
-	  //  </MemoryRouter>
-	  //);
-	  //expect(wrapper.find(LandingPage)).toHaveLength(0);
-	  //expect(wrapper.find(Profile)).toHaveLength(1);
-	//});
 
 
 
