@@ -92,7 +92,7 @@ export class Profile extends React.Component {
   // User Auth changes a lot here...  Have to adapt...
 
 const mapStateToProps = state => {
-  const whatever = state;
+  //const whatever = state;
   const authorizedUser = state.auth;
   //console.log("Profile--STATEOBJ: ",whatever);
   return {

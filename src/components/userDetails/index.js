@@ -6,7 +6,7 @@ import Avatar from 'react-avatar';
 
 export default function Userdetails(props) {
 
-    const thing = props;
+    //const thing = props;
     //console.log("PROPS: ",thing);
     return (
 
