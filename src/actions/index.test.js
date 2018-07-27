@@ -5,6 +5,9 @@ import {API_BASE_URL} from '../config';
 import {fetchUserData} from './index';
 
 
+// Maybe need a new test api here...
+const API_BASE_URL_TEST =
+    process.env.REACT_APP_API_BASE_URL || 'https://codedrills-api.herokuapp.com/api';
 
 describe('fetchUserData action creator', () => {
     it('successfully connects to an endpoint', () => {
