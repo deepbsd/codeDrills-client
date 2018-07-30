@@ -33,6 +33,7 @@
     "check-prop-types": "^1.1.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "fetch-mock": "^6.5.2",
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-livereload": "^3.8.1",

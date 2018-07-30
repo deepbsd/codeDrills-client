@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './style';
 
-//import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
 import {Route, Switch} from 'react-router-dom';
 import Landing from '../landing';
 import Register from '../register';

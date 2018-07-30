@@ -1,6 +1,8 @@
 import React from 'react';
 import {shallow, mount, render} from 'enzyme';
-import {API_BASE_URL} from '../config';
+//import {API_BASE_URL} from '../config';
+
+import fetchMock from 'fetch-mock';
 
 import {storeFactory, checkProps, findByTestAttr} from '../testUtils';
 
@@ -9,7 +11,7 @@ import {storeFactory, checkProps, findByTestAttr} from '../testUtils';
 import * as actions from './index';
 
 // Maybe need a new test api here...
-const API_BASE_TEST_URL = 'https://codedrills-api.herokuapp.com/api';
+const API_BASE_TEST_URL = 'https://testapi.herokuapp.com/api';
 
 describe('startQuiz', () => {
     it('should create a start quiz action', () => {
@@ -35,63 +37,73 @@ describe('startQuiz', () => {
 describe('checkQuestion', () => {
     it('should create a checkQuestion action', () => {
         const expectedAction = {
-            type: 'CHECK_QUESTION',
+            type: actions.CHECK_QUESTION,
             answerObj
         }
         expect(actions.checkQuestion(answerObj)).toEqual(expectedAction);
     })
 })
 
+// Need to work on mocking endpoint
 describe('fetchUserData', () => {
-
-    const fetchUserData = jest.fn();
-
-    it('should create an action to fetch a users data', () => {
-
+    afterEach(() => {
+        fetchMock.reset()
+        fetchMock.restore()
     })
 
-    it('successfully connects to an endpoint', () => {
-
-    })
+    let JoeUser = {
+      username: 'joe',
+      firstName: 'Joe',
+      lastName: 'Blow',
+      email: 'joe@blow.com'
+    } 
+    const testUser = 'JoeUser';
 
     it('dispatches fetchUserDataSuccess', () => {
+     //fetchMock
+      // .getOnce(`${API_BASE_TEST_URL}/userdata/${testUser}`, { body: { JoeUser }, headers: { 'content-type': 'application/json' } } )
 
-    })
+    
+    const store = storeFactory( { JoeUser } )
+    return store.dispatch(actions.fetchUserData(testUser))
+
+    const expectedActions = [
+      { type: actions.FETCH_USER_DATA },
+      { type: actions.FETCH_USER_DATA_SUCCESS, body: { testUser } }
+    ]
+
+    //expect(store.getActions()).toEqual(expectedActions)    
+  })
 })
 
-describe('fetchUserDataSuccess', () => {
 
-    const currentuser = { name: 'Joe' }
-    it('should create a FETCH_USER_DATA_SUCCESS action', () => {
-        const expectedAction = {
-            type: 'FETCH_USER_DATA_SUCCESS',
-            currentuser
-        }
-        expect(actions.fetchUserDataSuccess(currentuser)).toEqual(expectedAction)
-    })
-    it('sucessfully updates global state with userdata', () => {
-
-    })
-    it('connects successfully to endpoint', () => {
-
-    })
-})
-
-describe('createNewUserData', () => {
-    it('action successfully returns ok for POST request', () => {
-
-    })
-    it('successfully posts data to new mock user', () => {
-
-    })
-})
-
+// Need to work on mocking endpoint
 describe('updateUserDb', () => {
-    it('action successfully connects to userdata endpoint', () => {
+    afterEach(() => {
+      fetchMock.reset()
+      fetchMock.restore()
+    });
+    
+    let testUserData = {
+      user: { username: 'joe', email: 'joe@blow.com' },
+      userQuizData: { totalQuizzes: 2, totalQuestions: 20, totalCorrect: 19  },
+      lastQuizData: { totalQuestions: 10, totalCorrect: 9 }
+    };
 
-    })
-    it('successfully calls the updateUserDataDb action', () => {
+    const testUser = 'joe';
+    
+    it('successfully dispatches UPDATE_USERDATA_DB_SUCCESS', () => {
+      //fetchMock
+       // .putOnce(`${API_BASE_TEST_URL}/userdata/${testUser}`, { body: { testUserData }, headers: {'content-type': 'application/json' } })
 
+     const store = storeFactory( { testUserData } )
+     return store.dispatch(actions.updateUserDataDb(testUserData))
+
+     const expectedActions = [
+       { type: actions.UPDATE_USERDATA_DB },
+       { type: actions.UPDATE_USERDATA_DB_SUCCESS, body: { testUser } }
+     ]
+     //expect(store.getActions()).toEqual(expectedActions)
     })
 })
 
@@ -99,7 +111,7 @@ describe('updateUserDataDbSuccess', () => {
 
     it('creates a UPDATE_USERDA_DB_SUCCESS action', () => {
         const expectedAction = {
-            type: 'UPDATE_USERDATA_DB_SUCCESS',
+            type: actions.UPDATE_USERDATA_DB_SUCCESS,
             userDataDbUpdated: true
         }
         expect(actions.updateUserDataDbSuccess()).toEqual(expectedAction);
@@ -109,7 +121,7 @@ describe('updateUserDataDbSuccess', () => {
 describe('resetUserDataDbSucess', () => {
     it('resets to false the UserDataDbSuccess value', () => {
         const expectedAction = {
-            type: 'RESET_USERDATA_DB_SUCCESS',
+            type: actions.RESET_USERDATA_DB_SUCCESS,
             userDataDbUpdated: false
         }
         expect(actions.resetUserDataDbSuccess()).toEqual(expectedAction);
@@ -119,22 +131,22 @@ describe('resetUserDataDbSucess', () => {
 describe('resetLastQuizData', () => {
     it('Last quiz data gets reset when a new quiz starts', () => {
         const expectedAction = {
-            type: 'RESET_LASTQUIZ_DATA'
+            type: actions.RESET_LASTQUIZ_DATA
         }
         expect(actions.resetLastQuizData()).toEqual(expectedAction);
     })
 })
 
-//describe('addCurrentUserToState', () => {
-//    it('new User Object gets added to global state when user logs in', () => {
-//        const userObj = {username: 'Joe'}
-//        const expectedAction = {
-//            type: 'ADD_CURRENT_USER_TO_STATE',
-//            userObj
-//        }
-//        expect(actions.addCurrentUserToState(userObj)).toEqual(expectedAction);
-//    })
-//})
+describe('addCurrentUserToState', () => {
+    it('new User Object gets added to global state when user logs in', () => {
+        const userObj = {username: 'Joe'}
+        const expectedAction = {
+            type: actions.ADD_CURRENT_USER_TO_STATE,
+            userObj
+        }
+        expect(actions.addCurrentUserToState(userObj)).toEqual(expectedAction);
+    })
+})
 
 describe('fetchQuestions', () => {
     it('gets called when user logs in and app starts', () => {
