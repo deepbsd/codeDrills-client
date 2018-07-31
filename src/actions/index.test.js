@@ -12,6 +12,7 @@ import * as actions from './index';
 
 // Maybe need a new test api here...
 const API_BASE_TEST_URL = 'https://testapi.herokuapp.com/api';
+//const API_BASE_TEST_URL = 'https://codeDrills.herokuapp.com/api';
 
 describe('startQuiz', () => {
     it('should create a start quiz action', () => {
@@ -57,11 +58,12 @@ describe('fetchUserData', () => {
       lastName: 'Blow',
       email: 'joe@blow.com'
     } 
+    
     const testUser = 'JoeUser';
 
     it('dispatches fetchUserDataSuccess', () => {
      //fetchMock
-      // .getOnce(`${API_BASE_TEST_URL}/userdata/${testUser}`, { body: { JoeUser }, headers: { 'content-type': 'application/json' } } )
+       //.getOnce(`${API_BASE_TEST_URL}/userdata/${testUser}`, { body: { JoeUser }, headers: { 'content-type': 'application/json' } } )
 
     
     const store = storeFactory( { JoeUser } )
@@ -94,7 +96,7 @@ describe('updateUserDb', () => {
     
     it('successfully dispatches UPDATE_USERDATA_DB_SUCCESS', () => {
       //fetchMock
-       // .putOnce(`${API_BASE_TEST_URL}/userdata/${testUser}`, { body: { testUserData }, headers: {'content-type': 'application/json' } })
+        //.putOnce(`${API_BASE_TEST_URL}/userdata/${testUser}`, { body: { testUserData }, headers: {'content-type': 'application/json' } })
 
      const store = storeFactory( { testUserData } )
      return store.dispatch(actions.updateUserDataDb(testUserData))
