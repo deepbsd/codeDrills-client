@@ -60,3 +60,28 @@ describe('ADD_CURRENT_USER_TO_STATE', () => {
     });
 
 });
+
+describe('UPDATE_USERDATA_DB_SUCCESS', () => {
+
+    let state = { userDataDbUpdated: false };
+    const expected = { userDataDbUpdated: true }
+
+    it('toggles the boolean on whether user data has been updated to the database', () => {
+        state = reducer(state, actions.updateUserDataDbSuccess());
+        expect(state.userDataDbUpdated).toBe(true);
+    });
+
+});
+
+
+describe('RESET_USERDATA_DB_SUCCESS', () => {
+
+    let state = { userDataDbUpdated: true };
+    const expected = { userDataDbUpdated: false };
+
+    it('resets the boolean on whether the users data must be updated to the database', () => {
+        state = reducer(state, actions.resetUserDataDbSuccess());
+        expect(state.userDataDbUpdated).toBe(false);
+    });
+
+});
