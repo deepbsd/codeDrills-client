@@ -21,7 +21,7 @@ const Style = {
   head3: styled.div`
         color: #667999;
         display: inline-block;
-        font-size: 64px;
+        font-size: 57px;
         position: absolute;
         right: 10%;
         top: 20%;

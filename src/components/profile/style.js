@@ -69,6 +69,7 @@ const Style = {
   `,
   chartWrapper: styled.div`
   {/*border: 1px solid navy;*/}
+    background: thistle;
     position: relative;
     margin: 30px 0;
     max-width: 1200px;

@@ -67,7 +67,7 @@ constructor(props) {
             <div>
             {(!currentData) ? <h1>Error: What data?</h1> :
               <Style.chartWrapper>
-                <h2>Latest Quiz Compared to Total Percentages</h2>
+                <h2>Latest Quiz Compared to Total Percentages</h2>  
                   <RadarChart radarChartData={this.state["radarChartData"]} />
 
               </Style.chartWrapper>
