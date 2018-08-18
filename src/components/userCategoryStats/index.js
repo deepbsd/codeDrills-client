@@ -113,6 +113,7 @@ export class UserCategoryStats extends React.Component {
 
         return (
             <div>
+            <h4>The Category Stats tab tells you how you are doing in each category of performance.</h4>
             {(!currentData) ? <h1>Error: What data?</h1> :
               <div>
                   {pieCharts}

@@ -38,7 +38,7 @@ render() {
 
     return (
         <div>
-
+        <h4>The Aggregate Stats tab tells you what your performance is overall.</h4>
         {(!currentData) ? <h1>Error: What data?</h1> :
           <Style.chartWrapper >
             <Style.h2 className="cf"><Style.subject className="subject">All Quizes: {currentData.numberOfQuizzes}</Style.subject><Style.counts >{currentData.totalCorrect}/{currentData.totalQuestions}</Style.counts></Style.h2>

@@ -11,7 +11,14 @@ export default class Answer extends React.Component {
       selected: 99
     }
   }
-
+  //handleClick(index) {
+  //  if(!index) {
+  //    let _index = index.toString();
+  //    this.setState((prevState, props) => ({
+  //      [_index]: 'selected',
+  //      selected: index
+  //    }));
+  //  }
   handleClick(index) {
     let _index = index.toString();
     this.setState((prevState, props) => ({

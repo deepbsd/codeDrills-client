@@ -70,7 +70,7 @@ export class Profile extends React.Component {
         const Slide = this.state.activeSlide[this.state.activeTab];
         return (
 
-            <div>
+            <Style.profileWrapper>
 
             {(!currentUser.user._id) ? <h1>Hmmmmm... {this.props.username.username}  Whodat?  Where is ma Data?</h1> :
 
@@ -84,7 +84,7 @@ export class Profile extends React.Component {
 
               </div>}
 
-            </div>
+            </Style.profileWrapper>
         );
       }
   }

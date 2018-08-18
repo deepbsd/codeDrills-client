@@ -9,6 +9,18 @@ const Style = {
     margin-bottom: 30px;
     text-align: center;
   `,
+  span: styled.span`
+    display: inline-block;
+    min-width: 90px;
+  `,
+  div: styled.div`
+    border-top: #ccc 1px solid;
+    border-bottom: #ccc 1px solid;
+    margin-bottom: 30px;
+    padding: 10px;
+    
+    text-align: left;
+  `,
   h2: styled.h2`
     font-size: 0.8em;
     font-color: orange;
@@ -16,6 +28,7 @@ const Style = {
   `,
   profile: styled.div`
     margin-top: 20px;
+    max-width: 768px;
   `,
   img: styled.img`
     height: 400px;
@@ -27,6 +40,10 @@ const Style = {
     margin-bottom: 10px;
     padding: 5px;
     width: 200px;
+  `,
+  cthruinput: styled.div`
+    border-color: transparent;
+    margin: 4px 0;
   `,
   ul: styled.ul`
     display: flex;
@@ -67,9 +84,13 @@ const Style = {
     top: 60%;
     transform: translate(-50%, -50%);
   `,
+  profileWrapper: styled.div`
+  {/*border: 1px solid navy;*/}
+    margin: 0 auto;
+    max-width: 768px;
+  `,
   chartWrapper: styled.div`
   {/*border: 1px solid navy;*/}
-    background: thistle;
     position: relative;
     margin: 30px 0;
     max-width: 1200px;
