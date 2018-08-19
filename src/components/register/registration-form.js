@@ -51,11 +51,11 @@ export class RegistrationForm extends React.Component {
                 />
                 <label htmlFor="email">Email</label>
                 <Field component={Input} type="text" name="email" />
-                <button
+                <Style.buttons
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Register
-                </button>
+                </Style.buttons>
             </Style.form>
         );
     }
