@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Style from './style';
 
 
@@ -8,16 +7,21 @@ export default class Answer extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
+      answeredQuestions: [],
       selected: 99
     }
   }
   handleClick(index) {
-    if(!index) {
+    if(!this.state.answeredQuestions.includes(this.props.questionNumber)) {
       let _index = index.toString();
       this.setState((prevState, props) => ({
         [_index]: 'selected',
-        selected: index
+        selected: index,
+        //answeredQuestions: [...this.state.answeredQuestions, this.props.questionNumber]
       }));
+      this.state.answeredQuestions.push(this.props.questionNumber);
+      console.log("local questions: ", this.state.answeredQuestions)
+      console.log(" questions number: ", this.props.questionNumber)
     }
   //handleClick(index) {
   //  let _index = index.toString();
@@ -49,5 +53,5 @@ render() {
         </Style.answerLi>
     )
   }
-
 }
+

@@ -41,8 +41,8 @@ but that he/she will see when taking tests.
 WRAPUP from Matthew:
 
 Responsive
-- CodeDrills too big
-- Latest Stats tab, graph needs to be enlarged [CHART.JS PROBLEM I THINK] 
+- CodeDrills too big  [fixed]
+- Latest Stats tab, graph needs to be enlarged [CHART.JS PROBLEM I THINK]    [Live with it???]
 - Fix alert to fit within the dimensions of a phone, this may need to be a modal
 [fixed on iphone--alert translates after ios 7.01]
 
