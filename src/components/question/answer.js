@@ -11,15 +11,16 @@ export default class Answer extends React.Component {
       selected: 99
     }
   }
+
   handleClick(index) {
     if(!this.state.answeredQuestions.includes(this.props.questionNumber)) {
       let _index = index.toString();
-      this.setState((prevState, props) => ({
+      this.setState( prevState => ({
         [_index]: 'selected',
         selected: index,
-        //answeredQuestions: [...this.state.answeredQuestions, this.props.questionNumber]
+        answeredQuestions: [...prevState.answeredQuestions, this.props.questionNumber]
       }));
-      this.state.answeredQuestions.push(this.props.questionNumber);
+      //this.state.answeredQuestions.push(this.props.questionNumber);
       console.log("local questions: ", this.state.answeredQuestions)
       console.log(" questions number: ", this.props.questionNumber)
     }
@@ -46,7 +47,6 @@ export default class Answer extends React.Component {
   }
 
 render() {
-
   return (
         <Style.answerLi className={(this.props.skey === this.state.selected) ? 'selected' : ''} onClick={(index) => this.handleClick(this.props.skey)}>
           {this.props.answerText}
