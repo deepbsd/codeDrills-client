@@ -47,14 +47,14 @@ Responsive
 [fixed on iphone--alert translates after ios 7.01]
 
 General 
-[not fixed yet]- App styles multiple answers for the same question as if answered; only style one answer 
+[fixed]- App styles multiple answers for the same question as if answered; only style one answer 
 [fixed]- Show profile info (e.g. name, email, etc...) as text only, not as inputs or a form 
 [fixed]- Remove borders from profile info (e.g. name, email, etc...) 
 - Make Fname and Lname for username guest to hold real-world values
 - Add text on profile only after a quiz is taken that says something like "These are that
 [fixed]- Add brief text to each tab on profile explaining to the user what information they are looking at
 [fixed]- Style the login and register with a little more zing (e.g. buttons)
-[no thank you]- Add background to nav bar to make it stick out more
+[fixed]- Add background to nav bar to make it stick out more
 Nice-to-haves
 - modal after quiz with text saying you did great or not so great and stats for the last quiz taken. Add button that allows user to continue to profile after seeing modal.
 - Replace text in footer with icons (see thenounproject.com) 

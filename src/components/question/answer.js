@@ -19,8 +19,8 @@ export class Answer extends React.Component {
         [_index]: 'selected',
         selected: index,
       }));
-      console.log("answered questions: ", this.props.answeredQuestions)
-      console.log(" questions number: ", this.props.questionNumber)
+      //console.log("answered questions: ", this.props.answeredQuestions)
+      //console.log(" questions number: ", this.props.questionNumber)
     }
   //handleClick(index) {
   //  let _index = index.toString();

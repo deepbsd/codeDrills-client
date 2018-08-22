@@ -5,6 +5,8 @@ const Style = {
   banner: styled.div`
         height: 600px;
         position: relative;
+        margin: 0 auto;
+        max-width: 1200px;
   `,
   background: styled.div`
         font-family: "Comic Sans MS", cursive, sans-serif;
