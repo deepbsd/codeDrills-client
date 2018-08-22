@@ -1,27 +1,25 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Style from './style';
 
 
-export default class Answer extends React.Component {
+export class Answer extends React.Component {
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      answeredQuestions: [],
       selected: 99
     }
   }
 
   handleClick(index) {
-    if(!this.state.answeredQuestions.includes(this.props.questionNumber)) {
+    if(!this.props.answeredQuestions.includes(this.props.questionNumber)) {
       let _index = index.toString();
       this.setState( prevState => ({
         [_index]: 'selected',
         selected: index,
-        answeredQuestions: [...prevState.answeredQuestions, this.props.questionNumber]
       }));
-      //this.state.answeredQuestions.push(this.props.questionNumber);
-      console.log("local questions: ", this.state.answeredQuestions)
+      console.log("answered questions: ", this.props.answeredQuestions)
       console.log(" questions number: ", this.props.questionNumber)
     }
   //handleClick(index) {
@@ -55,3 +53,11 @@ render() {
   }
 }
 
+const mapStateToProps = state => {
+    const answeredQuestions = state.reducer.missedQuestions.concat(state.reducer.correctQuestions);
+    return {
+        answeredQuestions: answeredQuestions
+    }
+}
+
+export default (connect(mapStateToProps)(Answer));
