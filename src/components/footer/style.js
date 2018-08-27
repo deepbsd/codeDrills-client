@@ -46,7 +46,7 @@ const Style = {
         }
   `,
   ulFooter: styled.ul`
-    font-size: 0.6rem;
+    font-size: 10px;
     padding: 20px 5px;
     text-align: center;
   `
