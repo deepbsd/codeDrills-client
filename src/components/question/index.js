@@ -192,17 +192,6 @@ export class Question extends React.Component {
       // You will pass into that function the questions that came from the props, the 40 that you had fetched
 
       const randQuestions = this.startQuiz(this.props.questions);
-      const containerVidStyle = {
-          position: "relative",
-          "padding-top": "56.25%",
-      }
-      const iFrameVidStyle = {
-          postion: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-      }
 
       const questions = randQuestions.map((question, index1) => {
         let shuffledAnswers = this.shuffleArray(question.answers);
@@ -222,12 +211,9 @@ export class Question extends React.Component {
                 <ul key={index1}>
                   <Style.question><Style.questionText key={index1}>{index1+1}. {question.question}</Style.questionText></Style.question>
                   {question.type === 'videoSnippet' ?
-                    <div style={containerVidStyle}>
-                    <iframe width="560" height="315" src={question.assetUrl}
-                      title="videoSnippet" frameBorder="0" 
-                      style={iFrameVidStyle}
-                      allowFullScreen>
-                    </iframe></div> : question.type === 'image' ?
+                    <iframe width="100%" height="100%" src={question.assetUrl}
+                      title="videoSnippet" frameBorder="0" allowFullScreen>
+                    </iframe> : question.type === 'image' ?
                     <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
                   {answers}
                 </ul>
