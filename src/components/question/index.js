@@ -212,9 +212,9 @@ export class Question extends React.Component {
                   <Style.question><Style.questionText key={index1}>{index1+1}. {question.question}</Style.questionText></Style.question>
                   {question.type === 'videoSnippet' ?
                     <Style.vidWrap>
-                    <iframe width="100%" height="auto" src={question.assetUrl}
+                    <Style.vidFrame src={question.assetUrl}
                       title="videoSnippet" frameBorder="0" allowFullScreen>
-                    </iframe>
+                    </Style.vidFrame>
                     </Style.vidWrap> : question.type === 'image' ?
                     <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
                   {answers}
