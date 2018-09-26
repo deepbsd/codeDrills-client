@@ -66,12 +66,16 @@ const Style = {
       position: relative;
       padding-top: 56.25%;
     `,
+    imgFrame: styled.img`
+      width: 300px;
+      height: auto;
+    `,
     vidFrame: styled.iframe`
      position: absolute;
      top: 0;
      left: 0;
-     width: 100%;
-     height: 100%;
+     width: 300px;
+     height: auto;
     `
 }
 

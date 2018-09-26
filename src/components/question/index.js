@@ -215,8 +215,12 @@ export class Question extends React.Component {
                     <Style.vidFrame src={question.assetUrl}
                       title="videoSnippet" frameBorder="0" allowFullScreen>
                     </Style.vidFrame>
-                    </Style.vidWrap> : question.type === 'image' ?
-                    <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
+                    </Style.vidWrap> 
+                    : question.type === 'image' ?
+                    <div>
+                        <Style.img src={this.state.images[question.assetUrl]} alt="alt text" /> 
+                    </div>
+                    : null }
                   {answers}
                 </ul>
           )
