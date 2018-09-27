@@ -64,7 +64,8 @@ const Style = {
     `,
     vidWrap: styled.div`
       position: relative;
-      padding-top: 56.25%;
+      width: 500px;
+      height: 300px;
     `,
     imgFrame: styled.img`
       width: 300px;
@@ -74,8 +75,8 @@ const Style = {
      position: absolute;
      top: 0;
      left: 0;
-     width: 300px;
-     height: auto;
+     width: 100%;
+     height: 100%;
     `
 }
 
