@@ -58,18 +58,10 @@ const Style = {
         background-color: #8af2d4;
       }
     `,
-    img: styled.img`
-      width: 400px;
-      height: auto;
-    `,
     vidWrap: styled.div`
       position: relative;
       width: 500px;
       height: 300px;
-    `,
-    imgFrame: styled.img`
-      width: 300px;
-      height: auto;
     `,
     vidFrame: styled.iframe`
      position: absolute;
@@ -77,6 +69,24 @@ const Style = {
      left: 0;
      width: 100%;
      height: 100%;
+    `,
+     imgWrap: styled.div`
+      margin: 0;
+      position: relative;
+      width: 500px;
+      height: 200px;
+    `,
+    imgFrame: styled.div`
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    `,
+    imgSelf: styled.img`
+      position: relative;
+      height: 100%;
+      width: auto;
     `
 }
 

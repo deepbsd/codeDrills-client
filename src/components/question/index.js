@@ -217,9 +217,11 @@ export class Question extends React.Component {
                     </Style.vidFrame>
                     </Style.vidWrap> 
                     : question.type === 'image' ?
-                    <div>
-                        <Style.img src={this.state.images[question.assetUrl]} alt="alt text" /> 
-                    </div>
+                    <Style.imgWrap>
+                       <Style.imgFrame>
+                        <Style.imgSelf src={this.state.images[question.assetUrl]} alt="alt text" /> 
+                       </Style.imgFrame>
+                    </Style.imgWrap>
                     : null }
                   {answers}
                 </ul>
