@@ -8,6 +8,7 @@ Basic Concept:
 =============
 CodeDrills helps a web developer prepare for technical interview questions by taking practice quizzes on technical subjects.  There's a prototype at
 [Netlify](https://copy-writer-anne-64537.netlify.com/).
+This has been changed to [Netlify](https://codeDrills.netlify.com).
 
 User Stories:
 =============
