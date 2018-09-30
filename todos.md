@@ -33,3 +33,28 @@ Probably will have to work over data schemas for relevant database endpoints.  H
 but that he/she will see when taking tests.
 
 1. Need to export the user list to a json file so the db.users can be updated from a file, both to a local db as well as to mlabs.
+
+
+
+
+
+WRAPUP from Matthew:
+
+Responsive
+- CodeDrills too big  [fixed]
+- Latest Stats tab, graph needs to be enlarged [CHART.JS PROBLEM I THINK]    [Live with it???]
+- Fix alert to fit within the dimensions of a phone, this may need to be a modal
+[fixed on iphone--alert translates after ios 7.01]
+
+General 
+[fixed]- App styles multiple answers for the same question as if answered; only style one answer 
+[fixed]- Show profile info (e.g. name, email, etc...) as text only, not as inputs or a form 
+[fixed]- Remove borders from profile info (e.g. name, email, etc...) 
+- Make Fname and Lname for username guest to hold real-world values
+- Add text on profile only after a quiz is taken that says something like "These are that
+[fixed]- Add brief text to each tab on profile explaining to the user what information they are looking at
+[fixed]- Style the login and register with a little more zing (e.g. buttons)
+[fixed]- Add background to nav bar to make it stick out more
+Nice-to-haves
+- modal after quiz with text saying you did great or not so great and stats for the last quiz taken. Add button that allows user to continue to profile after seeing modal.
+- Replace text in footer with icons (see thenounproject.com) 

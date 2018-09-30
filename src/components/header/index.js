@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import NavItem from '../navitem';
-//import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {clearAuth} from '../../actions/auth';
+import {resetLastQuizData} from '../../actions';
 import {clearAuthToken} from '../../local-storage';
 
 import Style from './style.js';
@@ -58,6 +58,7 @@ class Header extends React.Component {
       //console.log("So ya wanna log out?");
       this.props.dispatch(clearAuth());
       clearAuthToken();
+      this.props.dispatch(resetLastQuizData());
     }
 
 
@@ -68,17 +69,17 @@ class Header extends React.Component {
             if (loggedIn && link.private) {
               if (link.link === "logout") {
                 return (
-                  <NavItem key={index} {...link} doLogout={this.logOut} />
+                  <NavItem key={index} {...link} doLogout={this.logOut} data-test={link.link} />
                 )
               }
               return (
-                <NavItem key={index} {...link}  />
+                <NavItem key={index} {...link} data-test={link.link} />
               )
             } else if (loggedIn && !link.private && link.public) {
               return  false
             } else if (link.public) {
               return (
-                <NavItem key={index} {...link} />
+                <NavItem key={index} {...link} data-test={link.link} />
               )
             }
             return false;

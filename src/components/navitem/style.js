@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 const Style = {
   navItem: styled.li`
-        color: #667999;
+        color: white;
         display: inline-block;
-        font-size: 1.0rem;
+        font-size: 1.1rem;
         padding: 0px;
         position: relative;
         margin-right: 20px;
@@ -21,7 +21,7 @@ const Style = {
           height: 2px;
           bottom: 0;
           left: 0;
-          background-color: #6E3034;
+          background-color: white;
           visibility: hidden;
           -webkit-transform: scaleX(0);
           transform: scaleX(0);

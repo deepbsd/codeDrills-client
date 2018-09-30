@@ -1,6 +1,22 @@
 import * as actions from '../actions';
 import update from 'immutability-helper';
 
+const lastQuizReset = {
+          "correct": [],
+          "incorrect": [],
+          "js": [],
+          "js_right": [],
+          "html": [],
+          "html_right": [],
+          "css": [],
+          "css_right": [],
+          "node": [],
+          "node_right": [],
+          "api": [],
+          "api_right": [],
+          "mongo": [],
+          "mongo_right": []
+}
 
 const initialState = {
 
@@ -53,7 +69,7 @@ const initialState = {
       }
 };
 
-export const reducer = (state=initialState, action) => {
+export const reducer = (state=initialState, action, lqReset=lastQuizReset) => {
   if (action.type === actions.CHECK_QUESTION){
     if (action.answerObj.correct){
       console.log('You got it right!');
@@ -97,6 +113,12 @@ export const reducer = (state=initialState, action) => {
          ...state,
          userDataDbUpdated: action.userDataDbUpdated
        }
+  
+  } else if (action.type === actions.RESET_LASTQUIZ_DATA){
+      return {
+         ...state,
+         currentQuiz: lqReset
+      }
   } else if (action.type === actions.UPDATE_CURRENT){
     //console.log('## REDUCER: Updating GLOBAL user data with quiz results now from action...',action.quizData)
     const newUserData = update(state.currentUser.userData,

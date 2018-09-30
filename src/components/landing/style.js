@@ -5,6 +5,8 @@ const Style = {
   banner: styled.div`
         height: 600px;
         position: relative;
+        margin: 0 auto;
+        max-width: 1200px;
   `,
   background: styled.div`
         font-family: "Comic Sans MS", cursive, sans-serif;
@@ -21,7 +23,7 @@ const Style = {
   head3: styled.div`
         color: #667999;
         display: inline-block;
-        font-size: 64px;
+        font-size: 57px;
         position: absolute;
         right: 10%;
         top: 20%;

@@ -4,8 +4,12 @@
 }
 
 a {
-  color: inherit;
+  color: white;
   text-decoration: none;
+}
+
+a:visited { 
+  color: white; 
 }
 
 body {
@@ -21,8 +25,8 @@ html {
 }
 
 img {
-  width: 100% !important;
-  height: auto !important;
+  width: 100%;
+  height: auto;
 }
 
 ul {
@@ -31,7 +35,8 @@ ul {
 }
 
 .layout-wrap {
-  margin: 0 auto;
+  margin: 50px auto 0;
+  max-width: 1200px;
   width: 90%;
 }
 

@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import update from 'immutability-helper';
 import {checkQuestion, updateCurrent, updateUserDataDb} from '../../actions';
 import requiresLogin from '../profile/requires-login';
-import DevData from './../devdata';
+//import DevData from './../devdata';
 import Answer from './answer';
 import {Redirect} from 'react-router-dom';
-import {API_BASE_URL} from '../../config';
+//import {API_BASE_URL} from '../../config';
 
 import question5 from './img/question5.png';
 import question9 from './img/question9.png';
@@ -18,11 +18,11 @@ import './question.css';
 
 import Style from './style.js';
 
-function addAnswerCount(state, props) {
-  return {
-    answeredQuestions: state.answeredQuestions
-  }
-}
+//function addAnswerCount(state, props) {
+//  return {
+//    answeredQuestions: state.answeredQuestions
+//  }
+//}
 
 export class Question extends React.Component {
 
@@ -61,9 +61,9 @@ export class Question extends React.Component {
     }
   }
 
-  componentDidMount(){
-    const userObject = this.props.user;
-  }
+  //componentDidMount(){
+  //  const userObject = this.props.user;
+  //}
 
   shouldComponentUpdate() {
     if(this.props.questions.length < 1 || this.state.answeredQuestions.length >= 10) {
@@ -165,7 +165,7 @@ export class Question extends React.Component {
   updateRemote(){
     const id = this.props.id;
     const user = this.props.user;
-    const username = this.props.user.username;
+    //const username = this.props.user.username;
     const userData = this.props.currentUser.userData;
     const lastQuizData = this.props.currentUser.lastQuizData;
     const updateObj = {
@@ -211,10 +211,18 @@ export class Question extends React.Component {
                 <ul key={index1}>
                   <Style.question><Style.questionText key={index1}>{index1+1}. {question.question}</Style.questionText></Style.question>
                   {question.type === 'videoSnippet' ?
-                    <iframe width="560" height="315" src={question.assetUrl}
+                    <Style.vidWrap>
+                    <Style.vidFrame src={question.assetUrl}
                       title="videoSnippet" frameBorder="0" allowFullScreen>
-                    </iframe> : question.type === 'image' ?
-                    <img src={this.state.images[question.assetUrl]} alt="alt text" /> : null }
+                    </Style.vidFrame>
+                    </Style.vidWrap> 
+                    : question.type === 'image' ?
+                    <Style.imgWrap>
+                       <Style.imgFrame>
+                        <Style.imgSelf src={this.state.images[question.assetUrl]} alt="alt text" /> 
+                       </Style.imgFrame>
+                    </Style.imgWrap>
+                    : null }
                   {answers}
                 </ul>
           )
@@ -246,7 +254,7 @@ export class Question extends React.Component {
 
 
 const mapStateToProps = state => {
-  const whatever = state;
+  //const whatever = state;
   const authorizedUser = state.auth.currentUser;
   //console.log("QUESTIONS Global StateOBJ: ",whatever);
   return {

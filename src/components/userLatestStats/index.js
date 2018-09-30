@@ -65,9 +65,10 @@ constructor(props) {
 
         return (
             <div>
+            <h4>The Latest Stats tab compares your most recent quiz (if any) in pink to your overall performance in blue.</h4>
             {(!currentData) ? <h1>Error: What data?</h1> :
               <Style.chartWrapper>
-                <h2>Latest Quiz Compared to Total Percentages</h2>
+                <h2 style={{marginBottom: 24 + 'px'}}>Latest Quiz Comparison</h2>  
                   <RadarChart radarChartData={this.state["radarChartData"]} />
 
               </Style.chartWrapper>
