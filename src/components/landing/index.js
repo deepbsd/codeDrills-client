@@ -21,7 +21,7 @@ export class Landing extends React.Component {
         },
         {
           title: 'Try Out the App',
-          blurb: `Log in as 'guest' with password 'password99'.  You'll see some charts that show historical data for 
+          blurb: `Log in as 'guest' with password 'password99'.  You'll see some charts that show historical data 
                   for your past quizzes.  You can click on 'Category Stats' to see charts for
                   each category, 'Aggregate Stats' to see your overall quiz performance, and
                   'Latest Stats' to compare your latest quiz against historical performance.

@@ -6,17 +6,34 @@ import DevData from './../devdata';
 import Answer from './answer';
 import {shallow, mount} from 'enzyme';
 import {Question} from './index'
+//import {findByTestAttr, checkProps, storeFactory} from '../../testUtils';
+import {storeFactory} from '../../testUtils';
+
+
+let wrapper;                                            
+let store;
+
+let questions = [
+  {
+    1: "What is your favorite color?"
+  },
+  {
+    2: "What is the average windspeed of a European swallow?"
+  }
+]
+
+let initialState = {questions};
+
+store = storeFactory(initialState);                     
+wrapper = shallow(<Question store={store} />); 
 
 
 describe('<Question/>', () => {
-
-    it('Renders without crashing', () => {
-        //shallow(<Question  />);
-		expect(1).toEqual(1);
-    });
-
+       it('Renders without crashing', () => {
+           console.log("wrapper: ",wrapper)
+           expect(wrapper.length).toBe(1);
+	   });
 });
-
 
 //TO TEST:
 //
