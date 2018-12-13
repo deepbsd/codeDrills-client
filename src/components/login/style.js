@@ -9,6 +9,12 @@ const Style = {
        margin: 15px auto;
        padding: 15px 32px;
   `,
+  div: styled.div`
+    text-align: center;
+  `,
+  error: styled.div`
+        color: red;
+  `,
   form: styled.form`
         width: 100%;
         margin: 0 auto;
@@ -16,12 +22,15 @@ const Style = {
   label: styled.label`
      margin: 10px auto;
   `,                
-  div: styled.div`
-    text-align: center;
-  `,
-  error: styled.div`
-        color: red;
+  span: styled.span`
+     visibility: hidden;
+     background-color: black;
+     color: white;
+     text-align: left;
+     padding: 4px 2px;
+     border-radius: 4px;
   `
+
 }
 
 
