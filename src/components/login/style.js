@@ -13,6 +13,9 @@ const Style = {
         width: 100%;
         margin: 0 auto;
   `,
+  label: styled.label`
+     margin: 10px auto;
+  `,                
   div: styled.div`
     text-align: center;
   `,
