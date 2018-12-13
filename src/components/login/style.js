@@ -6,7 +6,7 @@ const Style = {
        border: none;
        color: black;
        font-size: 16px;
-       margin: 15px auto;
+       margin: 15px 15px;
        padding: 15px 32px;
   `,
   div: styled.div`
@@ -29,8 +29,19 @@ const Style = {
      text-align: left;
      padding: 4px 2px;
      border-radius: 4px;
-  `
+  `,
+  tooltip: styled.button`
+       background-color: #e7e7e7;
+       border: none;
+       color: black;
+       font-size: 16px;
+       margin: 15px 15px;
+       padding: 15px 32px;
 
+  `,
+  tooltiptext: styled.span`
+     visibility: hidden;
+  `
 }
 
 
