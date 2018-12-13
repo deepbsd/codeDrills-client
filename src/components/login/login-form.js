@@ -40,7 +40,7 @@ export class LoginForm extends React.Component {
                       id="password"
                       validate={[required, nonEmpty]}
                   />
-                <Style.buttons title="Or, use username: guest   password: password99" disabled={this.props.pristine || this.props.submitting}>
+                <Style.buttons title="Or, use username: guest     password: password99" disabled={this.props.pristine || this.props.submitting}>
                       Log in
                 </Style.buttons>
 
