@@ -22,25 +22,25 @@ const Style = {
   label: styled.label`
      margin: 10px auto;
   `,                
-  span: styled.span`
-     visibility: hidden;
-     background-color: black;
-     color: white;
-     text-align: left;
-     padding: 4px 2px;
-     border-radius: 4px;
-  `,
   tooltip: styled.button`
+      &:hover tooltiptext {
+          display: inline-block;
+          visibility: visible;
+      }
+       position: relative;
+       display: inline-block;
        background-color: #e7e7e7;
        border: none;
        color: black;
        font-size: 16px;
        margin: 15px 15px;
        padding: 15px 32px;
-
   `,
   tooltiptext: styled.span`
+     color: white;
+     background: black;
      visibility: hidden;
+     display: none;
   `
 }
 
