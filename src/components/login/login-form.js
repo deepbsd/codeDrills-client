@@ -43,7 +43,6 @@ export class LoginForm extends React.Component {
                 <Style.buttons title="Or, use username: guest     password: password99" disabled={this.props.pristine || this.props.submitting}>
                       Log in
                 </Style.buttons>
-
                 <Style.buttons onClick={() => this.props.dispatch(login('guest', 'password99'))}>Demo Account</Style.buttons>
                 
                 </Style.form>
